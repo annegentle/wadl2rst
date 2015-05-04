@@ -44,4 +44,5 @@ p.DefaultHandler = default
 def main():
     with open(filename,'rb') as file:
         p.ParseFile(file)
+
 main()
