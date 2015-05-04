@@ -12,3 +12,16 @@ Mockup to correlate WADL code with transformed HTML output created.
 ## Command Line
 
     wadl2html [input file] > [output file]
+
+## Developer Setup
+
+    mkvirtualenv wadl2html
+    git clone git@github.rackspace.com:Product-DevOps/wadl2html.git
+    cd wadl2html
+    python setup.py develop
+
+## Running the Tests
+
+    cd /path/to/wadl2html
+    workon wadl2html
+    python setup.py nosetests
