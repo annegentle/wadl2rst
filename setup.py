@@ -10,7 +10,8 @@ install_requires = [
 # setup and testing dependencies
 setup_requires = [
     "nose==1.3.6",
-    "coverage==4.0a5"
+    "coverage==4.0a5",
+    "flake8"
 ]
 
 # Setuptools configuration, used to create python .eggs and such.

@@ -1,48 +1,36 @@
-#!/usr/bin/env python
 
-import os
-import xml.parsers.expat
+""" Application Entry Point """
 
-filename = 'samples/cloud-images/wadl/image-2.0.wadl'
+import argparse
 
-def start_resource(name,attrs):
-    print('start resource: ', attrs)
-def start_resources(name,attrs):
-    print('start resources ', attrs)
+from wadl2html import parser
 
-start_dispatch = {
-    'resource': start_resource,
-    'resources': start_resources,
-}
 
-# handler functions
-def start_element(name, attrs):
-#    print('Start element:', name, attrs)
-    if name in start_dispatch:
-        start_dispatch[name](name, attrs)
+def parse_arguments():
+    """Parses the command line options."""
 
-def end_element(name):
-    #print('End element:', name)
-    pass
-def char_data(data):
-    #print('Character data:', repr(data))
-    pass
-def entity_data(entityName, is_parameter_entity, value, base, systemId, publicId, notationName):
-    #print('Entity data:',entityName)
-    pass
-def default(data):
-    #print('Default:', data)
-    pass
+    parser = argparse.ArgumentParser(
+        description="""Given a wadl, return the html representation""")
 
-p = xml.parsers.expat.ParserCreate()
-p.StartElementHandler = start_element
-p.EndElementHandler = end_element
-p.CharacterDataHandler = char_data
-p.EntityDeclHandler = entity_data
-p.DefaultHandler = default
+    parser.add_argument("wadl_file",
+                        type=argparse.FileType('r'),
+                        help="Input file to process.")
+
+    return parser.parse_args()
+
+
+def wadl2html(input_xml):
+    """Given a wadl, return the html representation."""
+
+    tree = parser.parse_wadl(input_xml)
+    return tree.to_html()
+
 
 def main():
-    with open(filename,'rb') as file:
-        p.ParseFile(file)
+    """ Application entry point.
+    Collects the command line options and passes them to wadl2html for
+    processing. """
 
-main()
+    args = parse_arguments()
+    wadl = args.wadl_file.readlines()
+    print wadl2html(wadl)

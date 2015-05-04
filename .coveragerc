@@ -1,2 +1,2 @@
 [run]
-include = wadl2html
+omit=nose*
