@@ -7,6 +7,12 @@ install_requires = [
     "Jinja2==2.7.3"
 ]
 
+# setup and testing dependencies
+setup_requires = [
+    "nose==1.3.6",
+    "coverage==4.0a5"
+]
+
 # Setuptools configuration, used to create python .eggs and such.
 # See: http://bashelton.com/2009/04/setuptools-tutorial/ for a nice
 # setuptools tutorial.
@@ -14,12 +20,13 @@ setup(
     name="wadl2html",
     version="0.1",
 
-    # packaging infos
+    # packaging info
     package_data={'': ['*.jinja']},
     packages=find_packages(exclude=['test', 'test.*', 'samples', 'samples.*']),
 
-    # dependency infos
+    # requirements
     install_requires=install_requires,
+    setup_requires=setup_requires,
 
     entry_points={
         'console_scripts': [
