@@ -9,8 +9,9 @@ class BaseNode(object):
 
     template = templates['base_node']
 
-    def __init__(self, parent, attributes):
+    def __init__(self, parent, name, attributes):
         self.parent = parent
+        self.name = name
         self.attributes = attributes
         self.children = []
 
@@ -24,5 +25,6 @@ class BaseNode(object):
             child_html += child.to_html()
 
         template = jinja2.Template(self.template)
-        return template.render(attributes=self.attributes,
+        return template.render(node_name=self.name,
+                               attributes=self.attributes,
                                child_html=child_html)

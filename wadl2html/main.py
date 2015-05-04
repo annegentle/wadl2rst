@@ -19,10 +19,10 @@ def parse_arguments():
     return parser.parse_args()
 
 
-def wadl2html(input_xml):
+def wadl2html(wadl_file):
     """Given a wadl, return the html representation."""
 
-    tree = parser.parse_wadl(input_xml)
+    tree = parser.parse_wadl(wadl_file)
     return tree.to_html()
 
 
@@ -32,5 +32,4 @@ def main():
     processing. """
 
     args = parse_arguments()
-    wadl = args.wadl_file.readlines()
-    print wadl2html(wadl)
+    print wadl2html(args.wadl_file)
