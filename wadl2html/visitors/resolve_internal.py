@@ -25,14 +25,14 @@ def resolve_internal(tree):
         if id_node is None:
             continue
 
-        # since this node is used by-reference, we'll remove it from where it's
-        # defined
+        # since this node is used by-reference, we'll remove it from where it's defined
         if id_node.parent is not None:
             id_node.parent.remove_child(id_node)
             id_node.parent = None
 
         # replace the href_node with the id_node
         href_node.parent.replace_child(href_node, id_node)
+        id_node.parent = href_node.parent
         href_node.parent = None
 
 

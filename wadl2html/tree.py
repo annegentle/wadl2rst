@@ -2,13 +2,38 @@
 import os
 import xml.parsers.expat
 
+from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
+from wadl2html.nodes.code import CodeNode
+from wadl2html.nodes.para import ParaNode
+from wadl2html.nodes.url_parameter import UrlParameterNode
+from wadl2html.nodes.url_parameters import UrlParametersNode
 
 
 class ParserState(object):
 
-    node_mapping = {}
+    node_mapping = {
+        "application": ApplicationNode,
+        "code": CodeNode,
+        "replaceable": BaseNode,
+        "doc": BaseNode,
+        "grammars": BaseNode,
+        "include": BaseNode,
+        "method": BaseNode,
+        "para": ParaNode,
+        "param": UrlParameterNode,
+        "params": UrlParametersNode,
+        "paramenter": BaseNode,
+        "representation": BaseNode,
+        "request": BaseNode,
+        "resource": BaseNode,
+        "resources": BaseNode,
+        "response": BaseNode,
+        "root": BaseNode,
+        "wadl:doc": BaseNode,
+        "xsdxt:code": BaseNode,
+    }
 
     def __init__(self):
         self.root = BaseNode(None, "root", {})
@@ -16,7 +41,7 @@ class ParserState(object):
 
     def start_element(self, name, attrs):
         if name in self.node_mapping:
-            node = self.node_mapping[name](self.current, attrs)
+            node = self.node_mapping[name](self.current, name, attrs)
         else:
             node = BaseNode(self.current, name, attrs)
 
@@ -32,11 +57,10 @@ class ParserState(object):
             self.current.children.append(node)
 
     def entity_data(self, entityName, is_parameter_entity, value, base, systemId, publicId, notationName):
-        data = [entityName, is_parameter_entity, value, base, systemId, publicId, notationName]
-        print "entity_data: {}".format(data)
+        pass
 
     def default(self, data):
-        print "default: {}".format(data)
+        pass
 
 
 def xml_to_tree(input_xml):
@@ -51,4 +75,7 @@ def xml_to_tree(input_xml):
     parser.DefaultHandler = state.default
     parser.ParseFile(input_xml)
 
-    return state.root
+    if len(state.root.children) == 0:
+        return None
+
+    return state.root.children[0]

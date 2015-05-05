@@ -5,6 +5,8 @@ import argparse
 
 from wadl2html import tree
 from wadl2html.visitors.resolve_internal import resolve_internal
+from wadl2html.visitors.collapse_resources import collapse_resources
+from wadl2html.visitors.invert_method import invert_method
 
 
 def main():
@@ -35,8 +37,14 @@ def wadl2html(wadl_file):
     # turn the xml into in intermediate representation we can use
     ir = tree.xml_to_tree(wadl_file)
 
+    # collapse nested resources into just the leaf node
+    collapse_resources(ir)
+
     # resolve the internal references in the tree
     resolve_internal(ir)
+
+    # make the resources children of the methods
+    invert_method(ir)
 
     # turn our ir into html
     return ir.to_html()
