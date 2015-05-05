@@ -15,6 +15,22 @@ class BaseNode(object):
         self.attributes = attributes
         self.children = []
 
+    def replace_child(self, old_child, new_child):
+        idx = self.children.index(old_child)
+        self.children.insert(idx, new_child)
+        self.remove_child(old_child)
+
+    def remove_child(self, child):
+        self.children.remove(child)
+
+    def visit(self, function):
+        """ Execute a function against this node and each of it's children. """
+
+        for child in self.children:
+            child.visit(function)
+
+        function(self)
+
     def to_html(self):
         """ Return the html representation of this tag and it's children. """
 

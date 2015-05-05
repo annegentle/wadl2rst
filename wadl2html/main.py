@@ -3,7 +3,17 @@
 
 import argparse
 
-from wadl2html import parser
+from wadl2html import tree
+from wadl2html.visitors.resolve_internal import resolve_internal
+
+
+def main():
+    """ Application entry point.
+    Collects the command line options and passes them to wadl2html for
+    processing. """
+
+    args = parse_arguments()
+    print wadl2html(args.wadl_file)
 
 
 def parse_arguments():
@@ -22,14 +32,11 @@ def parse_arguments():
 def wadl2html(wadl_file):
     """Given a wadl, return the html representation."""
 
-    tree = parser.parse_wadl(wadl_file)
-    return tree.to_html()
+    # turn the xml into in intermediate representation we can use
+    ir = tree.xml_to_tree(wadl_file)
 
+    # resolve the internal references in the tree
+    resolve_internal(ir)
 
-def main():
-    """ Application entry point.
-    Collects the command line options and passes them to wadl2html for
-    processing. """
-
-    args = parse_arguments()
-    print wadl2html(args.wadl_file)
+    # turn our ir into html
+    return ir.to_html()
