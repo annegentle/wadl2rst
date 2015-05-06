@@ -6,9 +6,11 @@ from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
 from wadl2html.nodes.code import CodeNode
+from wadl2html.nodes.method import MethodNode
 from wadl2html.nodes.para import ParaNode
-from wadl2html.nodes.url_parameter import UrlParameterNode
-from wadl2html.nodes.url_parameters import UrlParametersNode
+from wadl2html.nodes.parameter import ParameterNode
+from wadl2html.nodes.parameters import ParametersNode
+from wadl2html.nodes.wadl_doc import WadlDocNode
 
 
 class ParserState(object):
@@ -20,18 +22,18 @@ class ParserState(object):
         "doc": BaseNode,
         "grammars": BaseNode,
         "include": BaseNode,
-        "method": BaseNode,
+        "method": MethodNode,
         "para": ParaNode,
-        "param": UrlParameterNode,
-        "params": UrlParametersNode,
-        "paramenter": BaseNode,
+        "param": ParameterNode,
+        "params": ParametersNode,
+        "parameter": CodeNode,
         "representation": BaseNode,
         "request": BaseNode,
         "resource": BaseNode,
         "resources": BaseNode,
         "response": BaseNode,
         "root": BaseNode,
-        "wadl:doc": BaseNode,
+        "wadl:doc": WadlDocNode,
         "xsdxt:code": BaseNode,
     }
 

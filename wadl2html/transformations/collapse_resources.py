@@ -1,7 +1,7 @@
 
 import functools
 
-from wadl2html.nodes.url_parameters import UrlParametersNode
+from wadl2html.nodes.parameters import ParametersNode
 
 
 def collapse_resources(tree):
@@ -31,16 +31,7 @@ def collapse_resources(tree):
         resources_node.add_child(node)
         node.parent = resources_node
 
-    # remove any param nodes not nested in params
-    param_nodes = []
-    param_visitor = functools.partial(get_param_nodes, param_nodes)
-    tree.visit(param_visitor)
-
-    for node in set(param_nodes):
-        node.parent.remove_child(node)
-        node.parent = None
-
-    # remove any resource nodes with no children
+    # remove any resource nodes with no method children
     empty_resources = []
     empty_resource_visitor = functools.partial(get_empty_resource_nodes, empty_resources)
     tree.visit(empty_resource_visitor)
@@ -77,7 +68,7 @@ def setup_node_path(node):
 
     # if there are any path params, add them to the node also
     if len(params) > 0:
-        params_node = UrlParametersNode(node, 'params', {})
+        params_node = ParametersNode(node, 'params', {})
         params_node.children = params
         node.children.insert(0, params_node)
 
@@ -85,7 +76,7 @@ def setup_node_path(node):
 def get_empty_resource_nodes(memory, node):
     child_names = [child.name for child in node.children]
 
-    if (node.name == "resource") and (len(child_names) == 0):
+    if (node.name == "resource") and ("method" not in child_names):
         memory.append(node)
 
 
@@ -93,9 +84,4 @@ def get_resource_nodes(memory, node):
     child_names = [child.name for child in node.children]
 
     if (node.name == "resource") and ("method" in child_names):
-        memory.append(node)
-
-
-def get_param_nodes(memory, node):
-    if (node.name == "param") and (node.parent.name != "params"):
         memory.append(node)
