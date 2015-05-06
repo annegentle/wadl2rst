@@ -4,9 +4,9 @@
 import argparse
 
 from wadl2html import tree
-from wadl2html.visitors.resolve_internal import resolve_internal
-from wadl2html.visitors.collapse_resources import collapse_resources
-from wadl2html.visitors.invert_method import invert_method
+from wadl2html.transformations.resolve_internal import resolve_internal
+from wadl2html.transformations.collapse_resources import collapse_resources
+from wadl2html.transformations.invert_method import invert_method
 
 
 def main():
