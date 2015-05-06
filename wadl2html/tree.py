@@ -63,8 +63,32 @@ class ParserState(object):
         pass
 
 
-def xml_to_tree(input_xml):
-    """ Parse the XML into our intermediate representation. """
+def xml_file_to_tree(input_xml):
+    """ Parse the XML File into our intermediate representation. """
+
+    parser, state = setup_parser_and_state()
+    parser.ParseFile(input_xml)
+
+    if len(state.root.children) == 0:
+        return None
+
+    return state.root.children[0]
+
+
+def xml_string_to_tree(input_xml):
+    """ Parse the XML string into our intermediate representation. """
+
+    parser, state = setup_parser_and_state()
+    parser.Parse(input_xml, True)
+
+    if len(state.root.children) == 0:
+        return None
+
+    return state.root.children[0]
+
+
+def setup_parser_and_state():
+    """ Return a configured parser and state objects. """
 
     state = ParserState()
     parser = xml.parsers.expat.ParserCreate()
@@ -73,9 +97,5 @@ def xml_to_tree(input_xml):
     parser.CharacterDataHandler = state.char_data
     parser.EntityDeclHandler = state.entity_data
     parser.DefaultHandler = state.default
-    parser.ParseFile(input_xml)
 
-    if len(state.root.children) == 0:
-        return None
-
-    return state.root.children[0]
+    return (parser, state)

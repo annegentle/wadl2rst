@@ -35,7 +35,7 @@ def wadl2html(wadl_file):
     """Given a wadl, return the html representation."""
 
     # turn the xml into in intermediate representation we can use
-    ir = tree.xml_to_tree(wadl_file)
+    ir = tree.xml_file_to_tree(wadl_file)
 
     # collapse nested resources into just the leaf node
     collapse_resources(ir)
