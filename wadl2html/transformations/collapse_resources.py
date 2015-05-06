@@ -1,8 +1,6 @@
 
 import functools
 
-from wadl2html.nodes.parameters import ParametersNode
-
 
 def collapse_resources(tree):
     """ In the input wadl, the resource uris are split out into a nested
@@ -66,11 +64,11 @@ def setup_node_path(node):
     # setup the path for this node
     node.attributes['full_path'] = '/' + '/'.join(path)
 
-    # if there are any path params, add them to the node also
-    if len(params) > 0:
-        params_node = ParametersNode(node, 'params', {})
-        params_node.children = params
-        node.children.insert(0, params_node)
+    # attach a clone of each param to this node
+    for param in params:
+        clone = param.clone()
+        node.add_child(clone)
+        clone.parent = node
 
 
 def get_empty_resource_nodes(memory, node):
