@@ -8,6 +8,8 @@ from wadl2html.transformations.resolve_internal import resolve_internal
 from wadl2html.transformations.collapse_resources import collapse_resources
 from wadl2html.transformations.invert_method import invert_method
 from wadl2html.transformations.wrap_param_elements import wrap_param_elements
+from wadl2html.transformations.wrap_response_elements import wrap_response_elements
+
 
 
 def main():
@@ -49,6 +51,9 @@ def wadl2html(wadl_file):
 
     # make sure the param nodes have good parents
     wrap_param_elements(ir)
+
+    # make sure the response nodes have good parents
+    wrap_response_elements(ir)
 
     # turn our ir into html
     return ir.to_html()

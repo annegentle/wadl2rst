@@ -26,9 +26,9 @@ class CollapseResourcesTest(TestCase):
 
     def test_should_keep_intermediate_params(self):
         self.assertEquals(2, len(self.resource.children))
-        param = self.resource.children[1]
-        self.assertEquals("param", param.name)
-        self.assertEquals("foo_id", param.attributes['name'])
+        params = self.resource.children[0]
+        self.assertEquals("params", params.name)
+        self.assertEquals("foo_id", params.children[0].attributes['name'])
 
 
 example_xml = """

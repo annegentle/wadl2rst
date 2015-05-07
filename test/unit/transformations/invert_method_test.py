@@ -34,7 +34,7 @@ class InvertMethodTest(TestCase):
         names = [node.name for node in resource.children]
 
         self.assertEquals(len(names), 1)
-        self.assertIn("param", names)
+        self.assertIn("params", names)
 
 
 example_xml = """

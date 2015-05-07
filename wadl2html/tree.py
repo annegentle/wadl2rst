@@ -6,11 +6,16 @@ from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
 from wadl2html.nodes.code import CodeNode
+from wadl2html.nodes.link import LinkNode
 from wadl2html.nodes.method import MethodNode
 from wadl2html.nodes.para import ParaNode
 from wadl2html.nodes.parameter import ParameterNode
 from wadl2html.nodes.parameters import ParametersNode
+from wadl2html.nodes.request import RequestNode
+from wadl2html.nodes.responses import ResponsesNode
+from wadl2html.nodes.response import ResponseNode
 from wadl2html.nodes.wadl_doc import WadlDocNode
+from wadl2html.nodes.xsdxt_code import XsdxtCodeNode
 
 
 class ParserState(object):
@@ -19,9 +24,11 @@ class ParserState(object):
         "application": ApplicationNode,
         "code": CodeNode,
         "replaceable": BaseNode,
-        "doc": BaseNode,
+        "command": CodeNode,
+        "errorcode": CodeNode,
         "grammars": BaseNode,
         "include": BaseNode,
+        "link": LinkNode,
         "method": MethodNode,
         "para": ParaNode,
         "param": ParameterNode,
@@ -31,10 +38,14 @@ class ParserState(object):
         "request": BaseNode,
         "resource": BaseNode,
         "resources": BaseNode,
-        "response": BaseNode,
+        "response": ResponseNode,
+        "responses": ResponsesNode,
+        "request": RequestNode,
         "root": BaseNode,
+        "literal": CodeNode,
         "wadl:doc": WadlDocNode,
-        "xsdxt:code": BaseNode,
+        "warning": CodeNode,
+        "xsdxt:code": XsdxtCodeNode,
     }
 
     def __init__(self):

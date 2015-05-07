@@ -57,11 +57,7 @@ class BaseNode(object):
     def to_html(self):
         """ Return the html representation of this tag and it's children. """
 
-        child_html = ""
-
-        # render all of the children of this node first
-        for child in self.children:
-            child_html += child.to_html()
+        child_html = " ".join([child.to_html() for child in self.children])
 
         template = jinja2.Template(self.template)
         return template.render(node=self,
