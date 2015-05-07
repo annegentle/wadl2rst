@@ -17,6 +17,9 @@ def wrap_param_elements(tree):
         parent = node.parent
         params_node = None
 
+        if node.parent.name == "params":
+            continue
+
         # try to find a params node on the parent
         for sibling in parent.children:
             if sibling.name == "params":
