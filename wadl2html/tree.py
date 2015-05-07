@@ -18,7 +18,6 @@ from wadl2html.nodes.request import RequestNode
 from wadl2html.nodes.responses import ResponsesNode
 from wadl2html.nodes.response import ResponseNode
 from wadl2html.nodes.wadl_doc import WadlDocNode
-from wadl2html.nodes.xsdxt_code import XsdxtCodeNode
 
 
 class ParserState(object):
