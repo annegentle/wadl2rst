@@ -44,8 +44,7 @@ class ParserState(object):
         "root": BaseNode,
         "literal": CodeNode,
         "wadl:doc": WadlDocNode,
-        "warning": CodeNode,
-        "xsdxt:code": XsdxtCodeNode,
+        "warning": CodeNode
     }
 
     def __init__(self):
