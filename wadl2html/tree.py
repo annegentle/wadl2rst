@@ -6,8 +6,11 @@ from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
 from wadl2html.nodes.code import CodeNode
+from wadl2html.nodes.itemized_list import ItemizedListNode
 from wadl2html.nodes.link import LinkNode
+from wadl2html.nodes.list_item import ListItemNode
 from wadl2html.nodes.method import MethodNode
+from wadl2html.nodes.note import NoteNode
 from wadl2html.nodes.para import ParaNode
 from wadl2html.nodes.parameter import ParameterNode
 from wadl2html.nodes.parameters import ParametersNode
@@ -23,13 +26,16 @@ class ParserState(object):
     node_mapping = {
         "application": ApplicationNode,
         "code": CodeNode,
-        "replaceable": BaseNode,
+        "replaceable": CodeNode,
         "command": CodeNode,
         "errorcode": CodeNode,
         "grammars": BaseNode,
         "include": BaseNode,
+        "itemizedlist": ItemizedListNode,
         "link": LinkNode,
+        "listitem": ListItemNode,
         "method": MethodNode,
+        "note": NoteNode,
         "para": ParaNode,
         "param": ParameterNode,
         "params": ParametersNode,

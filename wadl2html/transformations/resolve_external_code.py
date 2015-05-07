@@ -23,7 +23,7 @@ def resolve_external_code(base_path, tree):
         path = os.path.normpath(os.path.join(base_path, href))
 
         # grab the type of the file
-        mimetype = node.parent.parent.attributes.get('mediaType', None)
+        mimetype = get_media_type(node)
         if mimetype is None:
             continue
 
@@ -44,6 +44,18 @@ def resolve_external_code(base_path, tree):
         # remove the xsdxt node from the parent
         node.parent.remove_child(node)
         node.parent = None
+
+
+def get_media_type(node):
+    mimetype = node.attributes.get('mediaType', None)
+
+    if mimetype is not None:
+        return mimetype
+
+    if node.parent is None:
+        return None
+
+    return get_media_type(node.parent)
 
 
 def find_code_nodes(memory, node):
