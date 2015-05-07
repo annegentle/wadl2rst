@@ -4,13 +4,15 @@ from setuptools import setup, find_packages
 
 # project dependencies
 install_requires = [
-    "Jinja2==2.7.3"
+    "Jinja2==2.7.3",
+    "pygments==2.0.2"
 ]
 
 # setup and testing dependencies
 setup_requires = [
     "nose==1.3.6",
-    "coverage==4.0a5"
+    "coverage==4.0a5",
+    "flake8"
 ]
 
 # Setuptools configuration, used to create python .eggs and such.
