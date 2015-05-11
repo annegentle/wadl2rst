@@ -8,17 +8,17 @@ def resolve_internal(tree):
 
     # get all the nodes with an id attribute
     id_map = {}
-    id_visitor = functools.partial(get_nodes_with_attribute, id_map, 'id')
+    id_visitor = functools.partial(get_id_nodes, id_map)
     tree.visit(id_visitor)
 
     # get all the nodes with an href attribute
-    href_map = {}
-    href_visitor = functools.partial(get_nodes_with_attribute, href_map, 'href')
+    href_nodes = []
+    href_visitor = functools.partial(get_href_nodes, href_nodes)
     tree.visit(href_visitor)
 
     # replace each node in the href map with a node in the id map
-    for key, href_node in href_map.items():
-        key = key.strip("#")
+    for href_node in href_nodes:
+        key = href_node.attributes["href"].strip('#')
 
         # grab the id node associated with the href node
         id_node = id_map.get(key, None)
@@ -30,16 +30,26 @@ def resolve_internal(tree):
             id_node.parent.remove_child(id_node)
             id_node.parent = None
 
+        new_node = id_node.clone()
+
         # replace the href_node with the id_node
-        href_node.parent.replace_child(href_node, id_node)
-        id_node.parent = href_node.parent
+        href_node.parent.replace_child(href_node, new_node)
+        new_node.parent = href_node.parent
         href_node.parent = None
 
 
-def get_nodes_with_attribute(memory, attribute, node):
+def get_id_nodes(memory, node):
     """ If the node has an 'id' attribute, record it here. """
 
-    node_attribute = node.attributes.get(attribute, None)
+    node_id = node.attributes.get('id', None)
 
-    if node_attribute is not None:
-        memory[node_attribute] = node
+    if node_id is not None:
+        memory[node_id] = node
+
+
+def get_href_nodes(memory, node):
+
+    node_href = node.attributes.get('href', None)
+
+    if node_href is not None:
+        memory.append(node)

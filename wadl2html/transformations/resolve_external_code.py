@@ -41,7 +41,6 @@ def resolve_external_code(base_path, tree):
         output_node = CharNode(node.parent, output)
         node.parent.add_child(output_node)
 
-        # remove the xsdxt node from the parent
         node.parent.remove_child(node)
         node.parent = None
 

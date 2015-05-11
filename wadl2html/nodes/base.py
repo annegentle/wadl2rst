@@ -28,7 +28,12 @@ class BaseNode(object):
 
     def clone(self):
         clone = self.__class__(self.parent, self.name, self.attributes)
-        clone.children = [c.clone() for c in self.children]
+
+        for node in self.children:
+            child = node.clone()
+            clone.add_child(child)
+            child.parent = clone
+        
         return clone
 
     def find_first(self, name):
