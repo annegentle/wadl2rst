@@ -8,7 +8,6 @@ from wadl2html import tree
 from wadl2html.transformations.cleanup_application_node import cleanup_application_node
 from wadl2html.transformations.collapse_resources import collapse_resources
 from wadl2html.transformations.invert_method import invert_method
-from wadl2html.transformations.remove_resource_types import remove_resource_types
 from wadl2html.transformations.resolve_external_code import resolve_external_code
 from wadl2html.transformations.resolve_internal import resolve_internal
 from wadl2html.transformations.wrap_param_elements import wrap_param_elements
