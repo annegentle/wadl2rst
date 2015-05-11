@@ -5,8 +5,10 @@ import argparse
 import os
 
 from wadl2html import tree
+from wadl2html.transformations.cleanup_application_node import cleanup_application_node
 from wadl2html.transformations.collapse_resources import collapse_resources
 from wadl2html.transformations.invert_method import invert_method
+from wadl2html.transformations.remove_resource_types import remove_resource_types
 from wadl2html.transformations.resolve_external_code import resolve_external_code
 from wadl2html.transformations.resolve_internal import resolve_internal
 from wadl2html.transformations.wrap_param_elements import wrap_param_elements
@@ -60,5 +62,8 @@ def wadl2html(wadl_file):
     # make sure the response nodes have good parents
     wrap_response_elements(ir)
 
+    # remove any resource type nodes
+    cleanup_application_node(ir)
+
     # turn our ir into html
-    return ir.to_html()
+    return ir.to_html().encode('utf-8')

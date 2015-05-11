@@ -27,6 +27,10 @@ def resolve_external_code(base_path, tree):
         if mimetype is None:
             continue
 
+        # TODO: if we have many more exceptions, do something cleaner instead.
+        if mimetype == "text/json":
+            mimetype = "application/json"
+
         # grab the file contents
         text = ""
         with open(path, 'r') as f:
