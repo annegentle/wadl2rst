@@ -10,7 +10,17 @@ class MethodNode(BaseNode):
 
     def to_html(self):
         docs = self.find_first("wadl:doc")
+
+        # if the docs arent a <wadl:doc> try a plain <doc>
+        if docs is None:
+            docs = self.find_first("doc")
+
         short_desc = docs.find_first("para")
+
+        # if the first paragraph isn't a <para> tag, try a <p> tag
+        if short_desc is None:
+            short_desc = self.find_first("p")
+
         resource = self.find_first("resource")
         params = resource.find_first("params")
 
