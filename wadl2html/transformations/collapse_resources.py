@@ -59,7 +59,8 @@ def setup_node_path(node):
 
     while current:
         # handle the path
-        path.insert(0, current.attributes['path'].strip('/'))
+        if 'path' in current.attributes:
+            path.insert(0, current.attributes['path'].strip('/'))
 
         # grab any params that exist
         for child in current.children:

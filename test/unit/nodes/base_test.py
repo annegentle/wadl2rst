@@ -11,8 +11,8 @@ class TestBaseNode(TestCase):
     def setUp(self):
         self.single_node = FakeNode(None, "test", {})
 
-        self.parent_node = FakeNode(None, "test", {})
-        self.child_node = FakeChildNode(self.parent_node, "test", {})
+        self.parent_node = FakeNode(None, "parent", {})
+        self.child_node = FakeChildNode(self.parent_node, "child", {})
         self.parent_node.children.append(self.child_node)
 
     def test_should_remove_child(self):
@@ -31,6 +31,20 @@ class TestBaseNode(TestCase):
         node = FakeAttributeNode(None, "test", {'foo': 'bar'})
         result = node.to_html()
         self.assertEquals("bar", result)
+
+    def test_should_find_first_no_results(self):
+        result = self.parent_node.find_first("no")
+        self.assertEquals(result, None)
+
+    def test_should_clone_attributes(self):
+        clone = self.parent_node.clone()
+        self.assertEquals(self.parent_node.name, clone.name)
+        self.assertEquals(self.child_node.name, clone.children[0].name)
+
+    def test_clone_should_have_different_pointers(self):
+        clone = self.parent_node.clone()
+        self.assertNotEquals(id(self.parent_node), id(clone))
+        self.assertNotEquals(id(self.child_node), id(clone.children[0]))
 
     def test_visitor_should_visit_nodes(self):
         nodes = []

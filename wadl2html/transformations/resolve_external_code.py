@@ -27,6 +27,10 @@ def resolve_external_code(base_path, tree):
         if mimetype is None:
             continue
 
+        # TODO: if we have many more exceptions, do something cleaner instead.
+        if mimetype == "text/json":
+            mimetype = "application/json"
+
         # grab the file contents
         text = ""
         with open(path, 'r') as f:
@@ -41,7 +45,6 @@ def resolve_external_code(base_path, tree):
         output_node = CharNode(node.parent, output)
         node.parent.add_child(output_node)
 
-        # remove the xsdxt node from the parent
         node.parent.remove_child(node)
         node.parent = None
 

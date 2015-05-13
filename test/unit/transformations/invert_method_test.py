@@ -18,22 +18,23 @@ class InvertMethodTest(TestCase):
 
     def test_resources_tag_should_only_have_methods(self):
         names = [node.name for node in self.resources.children]
-
         self.assertEquals(len(names), 1)
         self.assertIn("method", names)
         self.assertNotIn("resource", names)
 
     def test_method_should_contain_a_resource(self):
         names = [node.name for node in self.method.children]
-
         self.assertEquals(len(names), 1)
         self.assertIn("resource", names)
+
+    def test_resource_should_have_methods_removed(self):
+        resource = self.method.children[0]
+        names = [node.name for node in resource.children]
+        self.assertNotIn("method", names)
 
     def test_method_resource_should_have_params(self):
         resource = self.method.children[0]
         names = [node.name for node in resource.children]
-
-        self.assertEquals(len(names), 1)
         self.assertIn("params", names)
 
 
@@ -44,7 +45,7 @@ example_xml = """
       <resource path="foo_id">
         <param name="foo_id" />
         <resource path="bar">
-          <method />
+          <method name="test_method"/>
         </resource>
         <resource path="baz" />
       </resource>

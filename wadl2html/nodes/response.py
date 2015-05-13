@@ -22,13 +22,20 @@ class ResponseNode(BaseNode):
 
             child_html += child.to_html()
 
+        if doc is None:
+            output_html = child_html
+            title = ""
+        else:
+            output_html = doc.to_html()
+            title = doc.attributes.get('title', '')
+
         arguments = {
             "doc": doc,
-            "doc_html": doc.to_html(),
             "node": self,
             "node_name": self.name,
             "attributes": self.attributes,
-            "child_html": child_html
+            "child_html": child_html,
+            "title": title
         }
 
         if 'xmlns' in self.attributes:
