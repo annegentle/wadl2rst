@@ -39,11 +39,6 @@ git_repos = [
     "git@github.com:rpcdocs/rpcdocs.git",
     "git@github.com:rpcdocs/v10.git",
     "git@github.com:rpcdocs/v4.git",
-    "git@github.rackspace.com:CDT/rax-autodeploy.git",
-    "git@github.rackspace.com:CDT/rax-feedback-backend.git",
-    "git@github.rackspace.com:CDT/rax-feedback-services.git",
-    "git@github.rackspace.com:CDT/rax-feedback-views.git",
-    "git@github.rackspace.com:CDT/rax-indexwar.git",
     "git@github.rackspace.com:checkmate/checkmate-docs.git",
     "git@github.rackspace.com:IX/auth-1.1.git",
     "git@github.rackspace.com:IX/auth-2.0.git",
@@ -56,7 +51,6 @@ git_repos = [
     "git@github.rackspace.com:IX/email-and-apps.git",
     "git@github.rackspace.com:IX/servers-wadls-war.git",
     "git@github.rackspace.com:IX/website-resources.git",
-    "git@github.rackspace.com:IX/writers-guide.git",
     "git@github.rackspace.com:Product-DevOps/LandingPage2.git",
     "git@github.rackspace.com:ServiceAPIContracts/billing_service_v2.git",
     "git@github.rackspace.com:ServiceAPIContracts/billing-service.git",
@@ -160,8 +154,6 @@ if __name__ == "__main__":
     # clone all the repos
     for repo in git_repos:
         clone_repo(repo)
-
-    pprint.pprint(get_file_list('.wadl'))
 
     # do the xmllint entity resolution on all the wadls
     pool.map(resolve_entities, get_file_list('.wadl'))

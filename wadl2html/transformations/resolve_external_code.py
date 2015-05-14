@@ -21,18 +21,14 @@ def resolve_external_code(base_path, tree):
         text = None
 
         if 'href' in node.attributes:
-            text = get_external_code(node)
+            text = get_external_code(base_path, node)
             mimetype = get_media_type(node)
         else:
             text = get_inline_code(node)
             mimetype = "text/plain"
 
-        # TODO: if we have many more exceptions, do something cleaner instead.
-        if mimetype == "text/json":
-            mimetype = "application/json"
-
-        if mimetype == "application/text":
-            mimetype = "text/plain"
+        if mimetype in mimetype_translation:
+            mimetype = mimetype_translation.get(mimetype, mimetype)
 
         # format the file contents
         lexer = lexers.get_lexer_for_mimetype(mimetype)
@@ -47,7 +43,7 @@ def resolve_external_code(base_path, tree):
         node.parent = None
 
 
-def get_external_code(node):
+def get_external_code(base_path, node):
     # grab the file location
     href = node.attributes['href']
     path = os.path.normpath(os.path.join(base_path, href))
@@ -76,7 +72,7 @@ def get_media_type(node):
         return mimetype
 
     if node.parent is None:
-        return None
+        return "text/plain"
 
     return get_media_type(node.parent)
 
@@ -84,3 +80,11 @@ def get_media_type(node):
 def find_code_nodes(memory, node):
     if node.name == "xsdxt:code":
         memory.append(node)
+
+
+# map of mimetype issues
+mimetype_translation = {
+    "text/json": "application/json",
+    "application/text": "text/plain",
+    "application/http": "text/plain"
+}
