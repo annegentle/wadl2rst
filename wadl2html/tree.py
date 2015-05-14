@@ -1,5 +1,4 @@
 
-import os
 import xml.parsers.expat
 
 from wadl2html.nodes.application import ApplicationNode

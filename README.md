@@ -11,6 +11,7 @@ Mockup to correlate WADL code with transformed HTML output created.
 
 ## Command Line
 
+    xmllint -noent [input file] > [output file]
     wadl2html [input file] > [output file]
 
 ## Developer Setup
@@ -25,3 +26,9 @@ Mockup to correlate WADL code with transformed HTML output created.
     cd /path/to/wadl2html
     workon wadl2html
     python setup.py nosetests
+
+## Running pyflakes & pep8
+
+    cd /path/to/wadl2html
+    workon wadl2html
+    python setup.py flake8

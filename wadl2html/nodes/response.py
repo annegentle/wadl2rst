@@ -34,7 +34,7 @@ class ResponseNode(BaseNode):
             "node": self,
             "node_name": self.name,
             "attributes": self.attributes,
-            "child_html": child_html,
+            "child_html": output_html,
             "title": title
         }
 
