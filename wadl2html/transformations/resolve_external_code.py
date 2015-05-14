@@ -18,31 +18,21 @@ def resolve_external_code(base_path, tree):
     tree.visit(code_visitor)
 
     for node in code_nodes:
+        text = None
 
-        # skip nodes that aren't references
-        if 'href' not in node.attributes:
-            continue
-
-        # grab the file location
-        href = node.attributes['href']
-        path = os.path.normpath(os.path.join(base_path, href))
-
-        # grab the type of the file
-        mimetype = get_media_type(node)
-        if mimetype is None:
-            continue
+        if 'href' in node.attributes:
+            text = get_external_code(node)
+            mimetype = get_media_type(node)
+        else:
+            text = get_inline_code(node)
+            mimetype = "text/plain"
 
         # TODO: if we have many more exceptions, do something cleaner instead.
         if mimetype == "text/json":
             mimetype = "application/json"
 
         if mimetype == "application/text":
-            mimetype = "text/text"
-
-        # grab the file contents
-        text = ""
-        with open(path, 'r') as f:
-            text = f.read()
+            mimetype = "text/plain"
 
         # format the file contents
         lexer = lexers.get_lexer_for_mimetype(mimetype)
@@ -55,6 +45,28 @@ def resolve_external_code(base_path, tree):
 
         node.parent.remove_child(node)
         node.parent = None
+
+
+def get_external_code(node):
+    # grab the file location
+    href = node.attributes['href']
+    path = os.path.normpath(os.path.join(base_path, href))
+
+    # grab the type of the file
+    mimetype = get_media_type(node)
+    if mimetype is None:
+        return "text/plain"
+
+    # grab the file contents
+    text = ""
+    with open(path, 'r') as f:
+        text = f.read()
+
+    return text
+
+
+def get_inline_code(node):
+    return node.to_html()
 
 
 def get_media_type(node):
