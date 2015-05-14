@@ -18,6 +18,11 @@ def resolve_external_code(base_path, tree):
     tree.visit(code_visitor)
 
     for node in code_nodes:
+
+        # skip nodes that aren't references
+        if 'href' not in node.attributes:
+            continue
+
         # grab the file location
         href = node.attributes['href']
         path = os.path.normpath(os.path.join(base_path, href))
@@ -30,6 +35,9 @@ def resolve_external_code(base_path, tree):
         # TODO: if we have many more exceptions, do something cleaner instead.
         if mimetype == "text/json":
             mimetype = "application/json"
+
+        if mimetype == "application/text":
+            mimetype = "text/text"
 
         # grab the file contents
         text = ""
