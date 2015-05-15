@@ -8,9 +8,24 @@ from wadl2html.templates import templates
 class MethodNode(BaseNode):
     template = templates['method']
 
+    doc_names = ["wadl:doc", "doc"]
+    para_names = ["para", "p", "db:para", "xhtml:p"]
+
     def to_html(self):
-        docs = self.find_one_of(["wadl:doc", "doc"])
-        short_desc = docs.find_one_of(["para", "p", "db:para"])
+        # this was a link that could not be resolved, so don't show anything
+        if "href" in self.attributes:
+            return ""
+
+        try:
+            docs = self.find_one_of(self.doc_names)
+            title = docs.attributes['title']
+            docs_html = docs.to_html()
+            short_desc = docs.find_one_of(self.para_names)
+            desc_html = short_desc.to_html()
+        except Exception, e:
+            # issue with finding the description for this method
+            desc_html = ""
+
         resource = self.find_first("resource")
         params = resource.find_first("params")
 
@@ -34,11 +49,20 @@ class MethodNode(BaseNode):
             "attributes": self.attributes,
             "child_html": child_html,
             "docs": docs,
-            "docs_html": docs.to_html(),
+            "docs_html": docs_html,
             "resource": resource,
             "params_html": params_html,
-            "short_desc": short_desc.to_html()
+            "short_desc": desc_html
         }
 
         template = jinja2.Template(self.template)
         return template.render(**arguments)
+
+
+def get_template_payload(node):
+     method_name = node.attributes['name']
+     path = ""
+     title = ""
+     docs = ""
+     params = ""
+     child = ""

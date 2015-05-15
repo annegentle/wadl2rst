@@ -86,5 +86,6 @@ def find_code_nodes(memory, node):
 mimetype_translation = {
     "text/json": "application/json",
     "application/text": "text/plain",
-    "application/http": "text/plain"
+    "application/http": "text/plain",
+    "application/atom-xml": "application/xml"
 }

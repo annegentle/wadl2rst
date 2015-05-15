@@ -1,12 +1,12 @@
 #!/usr/bin/env python
 
+import glob
 import os
 import multiprocessing
 import re
 import shutil
 import subprocess
 
-import pprint
 
 """ Process all of the docs we currently know about. """
 
@@ -79,6 +79,14 @@ def clean_build_env():
     os.mkdir(output_dir)
 
 
+def copy_css():
+    """ Copy the contained css. """
+
+    origin_path = os.path.dirname(os.path.realpath(__file__))
+    for filename in glob.glob(os.path.join(origin_path, "*.css")):
+        shutil.copy(filename, output_dir)
+
+
 def clone_repo(repo):
     """ clone each of the repos into the "build" repo. """
 
@@ -105,13 +113,9 @@ def get_file_list(part):
 def resolve_entities(wadl):
     """ use xmllint to resolve the xml entities in the wadl. """
 
-    print "Resolve: {}".format(wadl)
-
     # get the name of the wadl output
     file_base = re.sub('\.wadl$', '', wadl)
     output_file = file_base + ".resolved.wadl"
-
-    print "Output File: {}".format(output_file)
 
     try:
         cmd = ["xmllint", "-noent", wadl]
@@ -126,8 +130,6 @@ def resolve_entities(wadl):
 
 def convert_to_html(wadl):
     """ use wadl2html to convert the resolved wadl into an html page. """
-
-    print "To HTML: {}".format(wadl)
 
     # get the name of the wadl output
     file_name = os.path.split(wadl)[-1]
@@ -146,20 +148,19 @@ def convert_to_html(wadl):
 
 
 if __name__ == "__main__":
-    pool = multiprocessing.Pool(processes=4)
-
     # cleanup our build environment
     clean_build_env()
+
+    # copy our css to the output directory
+    copy_css()
 
     # clone all the repos
     for repo in git_repos:
         clone_repo(repo)
 
     # do the xmllint entity resolution on all the wadls
+    pool = multiprocessing.Pool(processes=4)
     pool.map(resolve_entities, get_file_list('.wadl'))
-
-    # convert the resolved wadls to html files
     pool.map(convert_to_html, get_file_list('.resolved.wadl'))
-
     pool.close()
     pool.join()
