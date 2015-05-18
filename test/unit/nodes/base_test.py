@@ -1,5 +1,6 @@
 
 import functools
+from nose.tools import raises
 
 from unittest import TestCase
 
@@ -53,6 +54,14 @@ class TestBaseNode(TestCase):
         self.parent_node.visit(func)
         self.assertIn(self.parent_node, nodes)
         self.assertIn(self.child_node, nodes)
+
+    def test_find_one_of(self):
+        actual = self.parent_node.find_one_of(["child"])
+        self.assertEquals(actual, self.child_node)
+
+    @raises(ValueError)
+    def test_find_one_of_not_exists(self):
+        self.parent_node.find_one_of(["not_real"])
 
 #
 # Fakes for Testing Purposes

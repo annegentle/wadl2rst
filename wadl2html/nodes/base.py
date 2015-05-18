@@ -33,7 +33,7 @@ class BaseNode(object):
             child = node.clone()
             clone.add_child(child)
             child.parent = clone
-        
+
         return clone
 
     def find_first(self, name):
@@ -49,6 +49,19 @@ class BaseNode(object):
                 return response
 
         return None
+
+    def find_one_of(self, names):
+        """ Find the first of a set of tags. """
+
+        output = None
+
+        for name in names:
+            output = self.find_first(name)
+            if output is not None:
+                return output
+
+        raise ValueError("No child nodes found with names: {} for node with attributes: {}".format(
+            names, self.attributes))
 
     def visit(self, function):
         """ Execute a function against this node and each of it's children in a

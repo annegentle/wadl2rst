@@ -18,23 +18,17 @@ def resolve_external_code(base_path, tree):
     tree.visit(code_visitor)
 
     for node in code_nodes:
-        # grab the file location
-        href = node.attributes['href']
-        path = os.path.normpath(os.path.join(base_path, href))
+        text = None
 
-        # grab the type of the file
-        mimetype = get_media_type(node)
-        if mimetype is None:
-            continue
+        if 'href' in node.attributes:
+            text = get_external_code(base_path, node)
+            mimetype = get_media_type(node)
+        else:
+            text = get_inline_code(node)
+            mimetype = "text/plain"
 
-        # TODO: if we have many more exceptions, do something cleaner instead.
-        if mimetype == "text/json":
-            mimetype = "application/json"
-
-        # grab the file contents
-        text = ""
-        with open(path, 'r') as f:
-            text = f.read()
+        if mimetype in mimetype_translation:
+            mimetype = mimetype_translation.get(mimetype, mimetype)
 
         # format the file contents
         lexer = lexers.get_lexer_for_mimetype(mimetype)
@@ -49,6 +43,28 @@ def resolve_external_code(base_path, tree):
         node.parent = None
 
 
+def get_external_code(base_path, node):
+    # grab the file location
+    href = node.attributes['href']
+    path = os.path.normpath(os.path.join(base_path, href))
+
+    # grab the type of the file
+    mimetype = get_media_type(node)
+    if mimetype is None:
+        return "text/plain"
+
+    # grab the file contents
+    text = ""
+    with open(path, 'r') as f:
+        text = f.read()
+
+    return text
+
+
+def get_inline_code(node):
+    return node.to_html()
+
+
 def get_media_type(node):
     mimetype = node.attributes.get('mediaType', None)
 
@@ -56,7 +72,7 @@ def get_media_type(node):
         return mimetype
 
     if node.parent is None:
-        return None
+        return "text/plain"
 
     return get_media_type(node.parent)
 
@@ -64,3 +80,12 @@ def get_media_type(node):
 def find_code_nodes(memory, node):
     if node.name == "xsdxt:code":
         memory.append(node)
+
+
+# map of mimetype issues
+mimetype_translation = {
+    "text/json": "application/json",
+    "application/text": "text/plain",
+    "application/http": "text/plain",
+    "application/atom-xml": "application/xml"
+}
