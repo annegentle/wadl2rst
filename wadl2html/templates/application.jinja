@@ -1,11 +1,87 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="bootstrap-theme.css">
-    <link rel="stylesheet" type="text/css" href="highlight-tango.css">
-    <link rel="stylesheet" type="text/css" href="theme.css">
-</head>
-<body>
-{{child_html}}
-</body>
+    <head>
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="includes/css/header.css">
+        <link rel="stylesheet" type="text/css" href="includes/css/main.css">
+        <link rel="stylesheet" type="text/css" href="includes/css/highlight-tango.css">
+    </head>
+    
+    <body>
+
+    <!-- TODO: make an include -->
+        <header>
+            <div id="eyebrow-wrapper">
+                <div class="container" id="eyebrow-container">
+                    <div id="eyebrow-logo"><a href="http://rackspace.com">Rackspace</a></div>
+                    <div class="dropdown-menu" id="eyebrow-login">
+                        <ul>
+                            <li>
+                                <span class="btn">Call Us<i class="fa fa-angle-down"></i></span>
+                                <ul class="right phone">
+                                    <li class="header">Email &amp; Apps</li>
+                                    <li><strong>US:</strong> 1-888-850-3994</li>
+                                    <li><strong>Intl:</strong> +44 20 8734 4029</li>
+                                    <li class="header">Private Cloud</li>
+                                    <li><strong>US:</strong> 1-210-312-6682</li>
+                                    <li><strong>Intl:</strong> +1-210-581-0407</li>
+                                </ul>
+                                <ul class="col-right phone">
+                                    <li class="header">Dedicated Hosting</li>
+                                    <li><strong>US:</strong> 1-800-961-4454</li>
+                                    <li><strong>Intl:</strong> +44 20 8734 2700</li>
+                                    <li class="header">Cloud Hosting</li>
+                                    <li><strong>US:</strong> 1-800-961-4454</li>
+                                    <li><strong>Intl:</strong> +44 20 8734 4345</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="dropdown-menu" id="eyebrow-signup">
+                        <ul>
+                            <li>
+                                <span class="btn">Log In<i class="fa fa-angle-down"></i></span>
+                                <ul class="right">
+                                    <li class="header">Dedicated Hosting</li>
+                                    <li><a href="https://my.rackspace.com/portal/auth/login">MyRackspace Portal</a></li>
+                                    <li class="header">Cloud Hosting</li>
+                                    <li><a href="https://mycloud.rackspace.com">Cloud Control Panel</a></li>
+                                    <li><a href="https://manage.rackspacecloud.com/pages/Login.jsp">Cloud Sites</a></li>
+                                    <li class="header">Email &amp; Apps</li>
+                                    <li><a href="https://apps.rackspace.com/index.php">Rackspace Webmail Login</a></li>
+                                    <li><a href="https://cp.rackspace.com/Login.aspx">Email Admin Login</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="eyebrow-status">
+                        <p><i class="fa fa-circle good"></i><a href="https://status.rackspace.com">System Status</a></p>
+        			</div>
+                </div>
+            </div>
+        	<div id="banner-wrapper">
+                <div class="banner-utility container" id="banner-container">
+                    <a href="http://support.rackspace.com">
+        				<aside id="logo">
+        	                <h1>Rackspace</h1>
+        	                <p>Support Network</p>
+        	            </aside>
+        			</a>
+                    <div id="search-container">
+                        <form action="" id="search" method="GET">
+                            <input id="search-input" name="form" placeholder="Search our Support Network" type="text">
+                            <button class="fa fa-search" id="search-button" type="submit"></button>
+                        </form>
+                    </div>
+                </div>
+                <nav id="nav-global">
+                    <a href="##">Support Home</a><a href="http://www.rackspace.com/knowledge_center/">Knowledge Base</a><a class="active" href="http://docs.rackspace.com">Documentation &amp; API</a><a href="http://community.rackspace.com">Forums</a>
+                </nav>
+            </div>
+        </header>
+        <article>
+            <div class="container content">
+                {{child_html}}       
+            </div>     
+        </article>
+    </body>
 </html>
