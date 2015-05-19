@@ -7,62 +7,66 @@ from wadl2html.templates import templates
 
 class MethodNode(BaseNode):
     template = templates['method']
-
     doc_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
+
 
     def to_html(self):
         # this was a link that could not be resolved, so don't show anything
         if "href" in self.attributes:
             return ""
 
+        template = jinja2.Template(self.template)
+        return template.render(**self.get_template_arguments())
+
+    def get_template_arguments(self):
+        """ Get the arguments for the jinja2 template.  Since the wadls vary so
+        widly, this is written to be super defensive. """
+
+        resource = None
+        params = None
+        docs = None
+        short_desc = None
+
         try:
+            resource = self.find_first("resource")
+            params = resource.find_first("params")
             docs = self.find_one_of(self.doc_names)
-            title = docs.attributes['title']
-            docs_html = docs.to_html()
             short_desc = docs.find_one_of(self.para_names)
-            desc_html = short_desc.to_html()
         except Exception, e:
-            # issue with finding the description for this method
-            desc_html = ""
+            # we handle failures here below
+            pass
 
-        resource = self.find_first("resource")
-        params = resource.find_first("params")
+        # defaults for the output
+        output = {
+            "method_name": "",
+            "full_path": "",
+            "title": "",
+            "docs_html": "",
+            "params_html": "",
+            "child_html": ""
+        }
 
-        if params is not None:
-            params_html = params.to_html()
-        else:
-            params_html = ""
+        if docs is not None:
+            output["docs_html"] = docs.to_html()
 
-        # render all of the other children of this node
-        child_html = ""
+            if "title" in docs.attributes:
+                output["title"] = docs.attributes['title']
+
+        if short_desc is not None:
+            output["desc_html"] =  short_desc.to_html()
+
+        if "name" in self.attributes:
+            output["method_name"] = self.attributes['name']
+
+        if (resource is not None) and ("full_path" in resource.attributes):
+            output["full_path"] = resource.attributes['full_path']
+
         for child in self.children:
             # skip these, we're placing them manually
             if child in [docs, resource, params]:
                 continue
 
-            child_html += child.to_html()
+            output['child_html'] += child.to_html()
 
-        arguments = {
-            "node": self,
-            "node_name": self.name,
-            "attributes": self.attributes,
-            "child_html": child_html,
-            "docs": docs,
-            "docs_html": docs_html,
-            "resource": resource,
-            "params_html": params_html,
-            "short_desc": desc_html
-        }
-
-        template = jinja2.Template(self.template)
-        return template.render(**arguments)
-
-
-def get_template_payload(node):
-     method_name = node.attributes['name']
-     path = ""
-     title = ""
-     docs = ""
-     params = ""
-     child = ""
+        return output
