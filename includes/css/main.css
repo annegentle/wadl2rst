@@ -75,11 +75,13 @@ body {
 a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 
+strong {font-weight: 700;}
+    
 .content {
     margin-top: 30px;
     font-weight: 300;
     font-size: 16px;
-    line-height: 26px;
+    line-height: 24px;
 }
 
 .method_signature {display: none;}
@@ -134,11 +136,10 @@ a:hover {text-decoration: underline;}
 .content ul, ol {
     list-style-type: circle;
     list-style-position: outside;
-    line-height: 20px;
     margin: 0 0 25px 20px;
 }
 
-.content ul li, ol li {margin-bottom: 10px;}
+.content ul li, ol li {margin-bottom: 7px;}
 .content ul {list-style-type: circle;}
 .content ol {list-style-type: decimal;}
 .content ul ul, ol ul, ul ol, ol ol {margin: 7px 0 0 15px;}
@@ -175,7 +176,7 @@ a:hover {text-decoration: underline;}
     color: #fff;
     border-right: 1px solid #fff;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
 }
 
@@ -191,6 +192,23 @@ a:hover {text-decoration: underline;}
 .content table tbody th {border-right-width: 2px;}
 .content table tbody tr:first-child th, table tbody tr:first-child td {border-top-width: 0px;}
 .content table tbody tr:hover {background: #efefef;}
+.content table tbody h3 {font-size: 14px; font-weight: 600; margin-bottom: 0;}
+.content table tbody p {margin-bottom: 0;}
+
+.content .responses {
+    margin-bottom: 25px;
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+}
+
+.content .responses div {
+    padding: 5px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.content .responses div:last-child {border-bottom-width: 0;}
+
+
 
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;
@@ -199,7 +217,7 @@ p code {
     color: #2f6f9f;
     background-color: #efefef;
     border: 1px solid #ddd;
-    padding: 1px 3px;
+    padding: 0 2px;
 
 }
 
@@ -217,9 +235,4 @@ p code {
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
-}
-
-code {
-    font-family: 'Source Code Pro', 'Courier', monospace;
-    font-size: 13px;
 }
