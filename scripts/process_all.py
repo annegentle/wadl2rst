@@ -80,11 +80,11 @@ def clean_build_env():
 
 
 def copy_css():
-    """ Copy the contained css. """
+    """ Copy the includes directory to the dist. """
 
-    origin_path = os.path.dirname(os.path.realpath(__file__))
-    for filename in glob.glob(os.path.join(origin_path, "*.css")):
-        shutil.copy(filename, output_dir)
+    source = os.path.join(base_dir, "includes")
+    dest = os.path.join(output_dir, "includes")
+    shutil.copytree(source, dest)
 
 
 def clone_repo(repo):
