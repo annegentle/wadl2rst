@@ -1,5 +1,7 @@
 @import url('reset.css');
 @import url('skeleton.css');
+@import url('highlight-tango.css');
+
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
 @import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Lato);
@@ -76,9 +78,10 @@ a {text-decoration: none;}
 a:hover {text-decoration: underline;}
 
 strong {font-weight: 700;}
-    
+
+.content-container {margin: 30px 0;}
+
 .content {
-    margin: 30px auto;
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
@@ -199,7 +202,8 @@ strong {font-weight: 700;}
 
 .content table tbody td.attributes-name {white-space: nowrap;}
 
-/* TODO: Fix this in markup */
+
+/* START TODO: Fix this in markup */
 .content table tbody h3 {font-size: 14px; font-weight: 600; margin-bottom: 0;}
 .content table tbody p {margin-bottom: 0;}
 
@@ -209,6 +213,7 @@ strong {font-weight: 700;}
 }
 
 .content ul li p, ol li p {margin-bottom: 10px;}
+/* END TODO: Fix this in markup */
 
 
 .content .responses {
@@ -223,6 +228,56 @@ strong {font-weight: 700;}
 }
 
 .content .responses div:last-child {border-bottom-width: 0;}
+
+.sidebar-section {
+    border: 1px solid #288de2;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box; /* IE 8+ */
+}
+
+.sidebar-section {
+    margin-bottom: 25px;
+    border-top: 1px solid #288de2;
+}
+
+.sidebar-section h3 {
+    padding: 15px;
+    margin: 0;
+    background: #288de2;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.sidebar-section h3 i {
+    margin-right: 7px;
+}
+
+.sidebar-section ul {
+    font-size: 14px;
+    line-height: 17px;
+    list-style-type: none;
+    margin: 5px 0;
+}
+
+.sidebar-section ul li {
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-section ul li a {
+    padding: 7px 15px;
+    display: block;
+    color: #288de2;
+    text-decoration: none;
+}
+
+.sidebar-section ul li a:hover {
+    text-decoration: underline;
+}
+
+.sidebar-section ul li a i {margin-left: 5px;}
 
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;

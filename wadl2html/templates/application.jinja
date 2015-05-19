@@ -4,7 +4,6 @@
         <link rel="stylesheet" type="text/css" href="includes/css/header.css">
         <link rel="stylesheet" type="text/css" href="includes/css/footer.css">
         <link rel="stylesheet" type="text/css" href="includes/css/main.css">
-        <link rel="stylesheet" type="text/css" href="includes/css/highlight-tango.css">
     </head>
     
     <body>
@@ -79,8 +78,26 @@
             </div>
         </header>
         <article>
-            <div class="container content">
-                {{child_html}}       
+            <div class="container">
+                <div class="row content-container">
+                    <div class="three columns alpha sidebar">
+                        <div class="sidebar-section">
+                            <h3><i class="fa fa-list"></i>Contents</h3>
+                            <ul class="sidebar-navigation">
+                                <li><a href="">Preface</a></li>
+                                <li><a href="">Overview</a></li>
+                                <li><a href="">Contents</a></li>
+                                <li><a href="">General API Information<i class="fa fa-angle-down"></i></a></li>
+                                <li><a href="">API Operations for Developers</a></li>
+                                <li><a href="">Glossary</a></li>
+                                <li><a href="">Legal notices</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="nine columns omega content">
+                        {{child_html}}
+                    </div>
+                </div>
             </div>     
         </article>
         <footer>
