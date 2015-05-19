@@ -279,6 +279,25 @@ strong {font-weight: 700;}
 
 .sidebar-section ul li a i {margin-left: 5px;}
 
+.sidebar-section ul.feedback-decision li {float: left;}
+.sidebar-section ul.feedback-decision li a {
+    margin-right: 25px;
+    
+    opacity: 0.5;
+    -moz-opacity: 0.5;
+    filter:alpha(opacity=50);
+}
+
+.sidebar-section ul.feedback-decision li a:hover {
+    text-decoration: none;
+    
+    opacity: 1.0;
+    -moz-opacity: 1.0;
+    filter:alpha(opacity=100);
+}
+
+.sidebar-section ul.feedback-decision li a i {margin-right: 5px;}
+
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;
     font-weight: 200;
@@ -304,4 +323,11 @@ p code {
     white-space: pre-wrap;
     white-space: -moz-pre-wrap;
     white-space: -o-pre-wrap;
+}
+
+/* Disqus Comments */
+
+#disqus_thread {
+	border-top: 1px solid $color-primary;
+	padding-top: 30px;
 }
