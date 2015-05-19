@@ -78,7 +78,7 @@ a:hover {text-decoration: underline;}
 strong {font-weight: 700;}
     
 .content {
-    margin-top: 30px;
+    margin: 30px auto;
     font-weight: 300;
     font-size: 16px;
     line-height: 24px;
@@ -140,9 +140,13 @@ strong {font-weight: 700;}
 }
 
 .content ul li, ol li {margin-bottom: 7px;}
-.content ul {list-style-type: circle;}
+.content ul {list-style-type: disc;}
 .content ol {list-style-type: decimal;}
-.content ul ul, ol ul, ul ol, ol ol {margin: 7px 0 0 15px;}
+
+.content ul ul, ol ul, ul ol, ol ol {
+    list-style-type: circle;
+    margin: 7px 0 0 20px;
+}
 
 .content hr {
     margin-bottom: 25px;
@@ -192,8 +196,20 @@ strong {font-weight: 700;}
 .content table tbody th {border-right-width: 2px;}
 .content table tbody tr:first-child th, table tbody tr:first-child td {border-top-width: 0px;}
 .content table tbody tr:hover {background: #efefef;}
+
+.content table tbody td.attributes-name {white-space: nowrap;}
+
+/* TODO: Fix this in markup */
 .content table tbody h3 {font-size: 14px; font-weight: 600; margin-bottom: 0;}
 .content table tbody p {margin-bottom: 0;}
+
+.content table li {
+    list-style-position: outside;
+    margin-bottom: 7px;
+}
+
+.content ul li p, ol li p {margin-bottom: 10px;}
+
 
 .content .responses {
     margin-bottom: 25px;
@@ -207,8 +223,6 @@ strong {font-weight: 700;}
 }
 
 .content .responses div:last-child {border-bottom-width: 0;}
-
-
 
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;

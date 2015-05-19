@@ -158,7 +158,7 @@ header {
 
 #banner-container {
     margin: 0 auto;
-    padding: 20px 0;
+    padding: 15px 0;
 }
 
 #logo {
@@ -254,7 +254,7 @@ header {
 nav#nav-global {
     text-align: center;
     background: #288de2;
-    border-top: 1px solid #fff;
+    border-top: 1px solid #1f73b9;
 }
 
 nav#nav-global a {
@@ -267,11 +267,11 @@ nav#nav-global a {
     font-size: 15px;
     text-decoration: none;
     color: #fff;
-    border-right: 1px solid #fff;
+    border-right: 1px solid #1f73b9;
 }
 
-nav#nav-global a:first-child {border-left: 1px solid #fff;}
-nav#nav-global a:hover {background: #2b2b2b;}
+nav#nav-global a:first-child {border-left: 1px solid #1f73b9;}
+nav#nav-global a:hover {background: #eee; color: #288de2;}
 
 nav#nav-global a.active {
     color: #288de2;
