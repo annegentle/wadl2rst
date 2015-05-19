@@ -1,11 +1,13 @@
 <div class="method">
+    {{docs_html}}
+
     <div class="method_signature">
-        <div class="http_verb">{{attributes['name']}}</div>
-        <div class="path">{{resource.attributes['full_path']}}</div>
-        <div class="short_description">{{docs.attributes['title']}}</div>
+        <h3>Method Signature</h3>
+        <div class="method_signature_info">
+            {{attributes['name']}} {{resource.attributes['full_path']}}
+        </div>
     </div>
 
     {{params_html}}
-    {{docs_html}}
     {{child_html}}
 </div>
