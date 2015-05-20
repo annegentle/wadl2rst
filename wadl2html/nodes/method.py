@@ -10,7 +10,6 @@ class MethodNode(BaseNode):
     doc_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
 
-
     def to_html(self):
         # this was a link that could not be resolved, so don't show anything
         if "href" in self.attributes:
@@ -33,7 +32,7 @@ class MethodNode(BaseNode):
             params = resource.find_first("params")
             docs = self.find_one_of(self.doc_names)
             short_desc = docs.find_one_of(self.para_names)
-        except Exception, e:
+        except Exception:
             # we handle failures here below
             pass
 
@@ -54,7 +53,7 @@ class MethodNode(BaseNode):
                 output["title"] = docs.attributes['title']
 
         if short_desc is not None:
-            output["desc_html"] =  short_desc.to_html()
+            output["desc_html"] = short_desc.to_html()
 
         if "name" in self.attributes:
             output["method_name"] = self.attributes['name']
