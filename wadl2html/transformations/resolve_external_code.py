@@ -87,5 +87,6 @@ mimetype_translation = {
     "text/json": "application/json",
     "application/text": "text/plain",
     "application/http": "text/plain",
-    "application/atom-xml": "application/xml"
+    "application/atom-xml": "application/xml",
+    "application/octet-stream": "text/plain"
 }
