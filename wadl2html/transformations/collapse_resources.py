@@ -1,6 +1,7 @@
 
 import functools
 
+from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.parameters import ParametersNode
 
 
@@ -24,6 +25,13 @@ def collapse_resources(tree):
         node.parent = None
 
     resources_node = tree.find_first("resources")
+
+    # if there is no <resources> node on the page, add one.
+    if resources_node is None:
+        application = tree.find_first("application")
+        resources_node = BaseNode(application, "resources", {})
+        application.add_child(resources_node)
+
     resources_node.children = []
 
     # setup the resources nodes in their proper place
