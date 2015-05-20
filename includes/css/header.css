@@ -91,6 +91,7 @@ header {
     display: none;
     position: absolute;
     top: 22px;
+    padding: 10px 0;
     white-space: nowrap;
     z-index: 900;
     width: auto;
@@ -149,6 +150,40 @@ header {
     right: 115px;
     z-index: 998;
     padding-right: 50px;
+}
+
+#banner-announcement-container {background: #ffedcf;}
+
+#banner-announcement-container .banner-announcement {
+    width: 960px;
+    margin: 0 auto;
+    padding: 13px 0;
+    position: relative;
+}
+
+#banner-announcement-container .banner-announcement p {
+    font-size: 16px;
+    font-weight: 400;
+    color: #736A59;
+}
+
+#banner-announcement-container .banner-announcement p strong {font-weight: 700;}
+
+#banner-announcement-container .banner-announcement p i {
+    margin-right: 10px;
+    font-size: 18px;
+    color: #C23E4F;
+}
+
+#banner-announcement-container .banner-announcement a {font-weight: 600; color: #736A59;}
+#banner-announcement-container .banner-announcement a:hover {color: #222;}
+
+#banner-announcement-container .banner-announcement-close {
+    position: absolute;
+    top: 6px;
+    right: 0;
+    font-size: 32px;
+    text-decoration: none;
 }
 
 #banner-wrapper {

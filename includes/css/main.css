@@ -1,10 +1,10 @@
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700);
+@import url(http://fonts.googleapis.com/css?family=Lato);
+
 @import url('reset.css');
 @import url('skeleton.css');
 @import url('highlight-tango.css');
-
-@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
-@import url(//fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700);
-@import url(//fonts.googleapis.com/css?family=Lato);
 
 /* http://meyerweb.com/eric/tools/css/reset/  v2.0b1 | 201101  NOTE: WORK IN PROGRESS USE WITH CAUTION AND TEST WITH ABANDON */
 html,
@@ -281,12 +281,12 @@ strong {font-weight: 700;}
 
 .sidebar-section ul.feedback-decision li {float: left;}
 .sidebar-section ul.feedback-decision li a {
-    margin-right: 25px;
-    
     opacity: 0.5;
     -moz-opacity: 0.5;
     filter:alpha(opacity=50);
 }
+
+.sidebar-section ul.feedback-decision li:first-child {margin-right: 45px;}
 
 .sidebar-section ul.feedback-decision li a:hover {
     text-decoration: none;
@@ -297,6 +297,11 @@ strong {font-weight: 700;}
 }
 
 .sidebar-section ul.feedback-decision li a i {margin-right: 5px;}
+.sidebar-section ul.feedback-decision li a.active {
+    opacity: 1.0;
+    -moz-opacity: 1.0;
+    filter:alpha(opacity=100);
+}
 
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;
@@ -330,4 +335,15 @@ p code {
 #disqus_thread {
 	border-top: 1px solid $color-primary;
 	padding-top: 30px;
+}
+
+.ui-tooltip {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 16px;
+    background: #111;
+    color: #fff;
+    padding: 10px 15px;
+    position: absolute;
+    z-index: 9999;
 }
