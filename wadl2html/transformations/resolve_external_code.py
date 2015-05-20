@@ -88,5 +88,6 @@ mimetype_translation = {
     "application/text": "text/plain",
     "application/http": "text/plain",
     "application/atom-xml": "application/xml",
-    "application/octet-stream": "text/plain"
+    "application/octet-stream": "text/plain",
+    "application/vnd.rackspace.incident-v1+xml": "application/xml"
 }
