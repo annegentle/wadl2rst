@@ -28,9 +28,8 @@ def collapse_resources(tree):
 
     # if there is no <resources> node on the page, add one.
     if resources_node is None:
-        application = tree.find_first("application")
-        resources_node = BaseNode(application, "resources", {})
-        application.add_child(resources_node)
+        resources_node = BaseNode(tree, "resources", {})
+        tree.add_child(resources_node)
 
     resources_node.children = []
 
