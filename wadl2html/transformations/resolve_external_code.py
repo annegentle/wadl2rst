@@ -1,6 +1,9 @@
 
+from __future__ import print_function
+
 import functools
 import os
+import sys
 
 import pygments
 from pygments import lexers
@@ -21,7 +24,9 @@ def resolve_external_code(base_path, tree):
         text = None
 
         if 'href' in node.attributes:
-            text = get_external_code(base_path, node)
+            href = node.attributes['href']
+            path = os.path.normpath(os.path.join(base_path, href))
+            text = get_file_contents(path)
             mimetype = get_media_type(node)
         else:
             text = get_inline_code(node)
@@ -43,22 +48,13 @@ def resolve_external_code(base_path, tree):
         node.parent = None
 
 
-def get_external_code(base_path, node):
-    # grab the file location
-    href = node.attributes['href']
-    path = os.path.normpath(os.path.join(base_path, href))
-
-    # grab the type of the file
-    mimetype = get_media_type(node)
-    if mimetype is None:
-        return "text/plain"
-
-    # grab the file contents
-    text = ""
-    with open(path, 'r') as f:
-        text = f.read()
-
-    return text
+def get_file_contents(file):
+    try:
+        with open(file, 'r') as f:
+            return f.read()
+    except IOError, e:
+        print("Error getting external file {}: {}".format(file, e.strerror), file=sys.stderr)
+        return ""
 
 
 def get_inline_code(node):
