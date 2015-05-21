@@ -52,6 +52,8 @@ $(document).ready(function() {
 		$('.tooltip').tooltip();
 		return false;
 	});
+  
+  $('.note p').before('<h4>Please note:</h4>');
 			
 });
 

@@ -1,5 +1,5 @@
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro:300italic,400italic,600italic,700italic,800italic,400,600,300,700,800);
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:400,500,600,700);
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro:300,400,500,600,700);
 @import url(http://fonts.googleapis.com/css?family=Lato);
 
 @import url('reset.css');
@@ -199,6 +199,7 @@ strong {font-weight: 700;}
 .content table tbody th {border-right-width: 2px;}
 .content table tbody tr:first-child th, table tbody tr:first-child td {border-top-width: 0px;}
 .content table tbody tr:hover {background: #efefef;}
+.content table tbody tr:hover p code {background: #fff;}
 
 .content table tbody td.attributes-name {white-space: nowrap;}
 
@@ -305,18 +306,17 @@ strong {font-weight: 700;}
 
 p code {
     font-family: 'Source Code Pro', 'Courier', monospace;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 13px;
-    color: #2f6f9f;
+    color: #006699;
     background-color: #efefef;
-    border: 1px solid #ddd;
     padding: 0 2px;
 
 }
 
 .highlight {
     font-family: 'Source Code Pro', 'Courier', monospace;
-    font-weight: 200;
+    font-weight: 400;
     font-size: 13px;
     background-color: #efefef;
     border-bottom: 1px solid #ddd;
@@ -330,11 +330,38 @@ p code {
     white-space: -o-pre-wrap;
 }
 
+.note {
+    background-color: rgba(40,141,226,0.1);
+    background-image: url("../images/icon-bulb.png");
+    background-image: none, url("../images/icon-bulb.svg");
+    background-repeat: no-repeat;
+    background-position: 13px 15px;
+    
+    border: 1px solid rgba(40,141,226,0.3);
+    padding: 15px 15px 15px 63px;
+    margin-bottom: 35px;    
+}
+
+
+.content .note h4 {
+    font-weight: 600;
+    font-size: 16px;
+    color: #288de2;
+    margin-bottom: 3px;
+}
+
+.note p {
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 20px;
+}
+    
 /* Disqus Comments */
 
 #disqus_thread {
-	border-top: 1px solid $color-primary;
+	border-top: 3px solid #288de2;
 	padding-top: 30px;
+	margin-top: 35px;
 }
 
 .ui-tooltip {
