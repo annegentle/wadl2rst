@@ -332,10 +332,10 @@ p code {
 
 .note {
     background-color: rgba(40,141,226,0.1);
-    background-image: url("../images/icon-bulb.png");
-    background-image: none, url("../images/icon-bulb.svg");
+    background-image: url("../images/icon-pad.png");
+    background-image: none, url("../images/icon-pad.svg");
     background-repeat: no-repeat;
-    background-position: 13px 15px;
+    background-position: 13px 17px;
     
     border: 1px solid rgba(40,141,226,0.3);
     padding: 15px 15px 15px 63px;
