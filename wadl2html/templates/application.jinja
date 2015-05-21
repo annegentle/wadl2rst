@@ -1,11 +1,16 @@
 <html>
     <head>
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="includes/css/main.css">
         <link rel="stylesheet" type="text/css" href="includes/css/header.css">
         <link rel="stylesheet" type="text/css" href="includes/css/footer.css">
         <link rel="stylesheet" type="text/css" href="includes/css/main.css">
-
-        <script type="text/javascript" async="" src="http://rc-api-docs.disqus.com/embed.js"></script>
+        
+        <script type="text/javascript" src="includes/js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="includes/js/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="includes/js/main.js"></script>
+        <script type="text/javascript" src="https://rc-api-docs.disqus.com/embed.js"></script>
     </head>
 
     <body>
@@ -59,7 +64,14 @@
                         <p><i class="fa fa-circle good"></i><a href="https://status.rackspace.com">System Status</a></p>
         			</div>
                 </div>
-            </div>        	<div id="banner-wrapper">
+            </div>
+        	<div id="banner-announcement-container">
+        		<div class="banner-announcement">
+        			<p><i class="fa fa-exclamation-circle"></i><strong>Rackspace is currently undergoing a maintenance</strong>. See our <a href="##">System Status</a> page for the latest updates.</p>
+        			<a href="javascript:void(0)" class="banner-announcement-close tooltip" title="Never show this to me again.">&times;</a>
+        		</div>
+        	</div>
+            <div id="banner-wrapper">
                 <div class="banner-utility container" id="banner-container">
                     <a href="http://support.rackspace.com">
         				<aside id="logo">
@@ -98,8 +110,8 @@
                         <div class="sidebar-section">
                             <h3><i class="fa fa-bullhorn"></i>Was this content helpful?</h3>
                             <ul class="feedback-decision clearfix">
-                                <li><a href=""><i class="fa fa-thumbs-o-up"></i> Yes</a></li>
-                                <li><a href=""><i class="fa fa-thumbs-o-down"></i> No</a></li>
+                                <li><a class="yes" href=""><i class="fa fa-thumbs-o-up"></i> Yes</a></li>
+                                <li><a class="no" href=""><i class="fa fa-thumbs-o-down"></i> No</a></li>
                             </ul>
                         </div>
                     </div>
