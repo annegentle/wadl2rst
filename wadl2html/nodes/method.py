@@ -26,6 +26,7 @@ class MethodNode(BaseNode):
         params = None
         docs = None
         short_desc = None
+        method_id = self.attributes.get("id", "")
 
         try:
             resource = self.find_first("resource")
@@ -38,12 +39,13 @@ class MethodNode(BaseNode):
 
         # defaults for the output
         output = {
-            "method_name": "",
-            "full_path": "",
-            "title": "",
+            "child_html": "",
             "docs_html": "",
+            "full_path": "",
+            "method_id": method_id,
+            "method_name": "",
             "params_html": "",
-            "child_html": ""
+            "title": ""
         }
 
         if docs is not None:
