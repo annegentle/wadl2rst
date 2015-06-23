@@ -5,10 +5,6 @@ import functools
 import os
 import sys
 
-import pygments
-from pygments import lexers
-from pygments import formatters
-
 from wadl2html.nodes.char import CharNode
 
 
@@ -35,13 +31,8 @@ def resolve_external_code(base_path, tree):
         if mimetype in mimetype_translation:
             mimetype = mimetype_translation.get(mimetype, mimetype)
 
-        # format the file contents
-        lexer = lexers.get_lexer_for_mimetype(mimetype)
-        formatter = formatters.get_formatter_by_name("html")
-        output = pygments.highlight(text, lexer, formatter)
-
         # create a node with the contents and put it into the file
-        output_node = CharNode(node.parent, output)
+        output_node = CharNode(node.parent, text)
         node.parent.add_child(output_node)
 
         node.parent.remove_child(node)
