@@ -1,13 +1,39 @@
-<div id="{{method_id}}" class="method">
-    {{docs_rst}}
+=============================================================================
+{{title}}  - {{book_title}} - API v2.2
+=============================================================================
 
-    <div class="method_signature">
-        <h3>Method Signature</h3>
-        <div class="method_signature_info">
-            {{method_name}} {{full_path}}
-        </div>
-    </div>
+{{title}}
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    {{params_rst}}
-    {{child_rst}}
-</div>
+`Request <{{filename}}#request>`__
+`Response <{{filename}}#response>`__
+
++---------+------------------------------+----------------+
+| Method  | URI                          | Description    |
++=========+==============================+================+
+| **{{http_method}}** | ``{{uri}}`` | {{short_desc}}  |
++---------+------------------------------+----------------+
+
+{{docs_rst}}
+
+This table shows the possible response codes for this operation:
+
++----------+-----------------------+---------------------------------------------+
+| Response | Name                  | Description                                 |
+| Code     |                       |                                             |
++==========+=======================+=============================================+
+{% for response in responses %}|{{response['code']}}|{{response['name']}}|{{response['desc']}}|
+{% endfor %}
++---------+-----------------------+---------------------------------------------+
+
+{{responses}}
+
+Request
+^^^^^^^^^^^^^^^^^
+
+{{parameters}}
+
+Response
+^^^^^^^^^^^^^^^^^^
+
+{{responses}}

@@ -56,7 +56,12 @@ class BaseNode(object):
         output = None
 
         for name in names:
-            output = self.find_first(name)
+            for child in self.children:
+                if child.name == name:
+                    return child
+
+        for child in self.children:
+            output = child.find_one_of(names)
             if output is not None:
                 return output
 

@@ -110,11 +110,14 @@ def convert_ir_to_rst(ir, output_dir):
 
     for node in method_nodes:
         rst = node.to_rst()
-        full_path = os.path.join(path, node.get_filename())
+        # full_path = os.path.join(path, node.get_filename())
+        full_path = os.path.join(path, "foo.rst")
 
         print "Generating file: {}".format(full_path)
         with open(full_path, 'w') as f:
             f.write(rst)
+
+        break
 
 
 def get_method_nodes(memory, node):

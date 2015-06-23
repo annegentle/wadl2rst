@@ -1,0 +1,498 @@
+<method attributes="{u'name': u'GET', u'id': u'listImages'}">
+    <wadl:doc attributes="{u'title': u'List images', u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang': u'EN'}">
+        <para attributes="{u'role': u'shortdesc'}">Lists public virtual machine (VM) images.</para>
+        <para attributes="{}">
+            This operation returns images you created, shared images that you
+            accepted, and standard images. For more information about standard
+            images, see
+            <link attributes="{u'xlink:href': u'http://docs.rackspace.com/images/api/v2/ci-devguide/content/what-and-why.html#std-images'}">1.1.1. Standard images</link>.
+            The response conforms to the schema found in
+            <link attributes="{u'xlink:href': u'http://docs.rackspace.com/images/api/v2/ci-devguide/content/GET_getImagesSchema_schemas_images_Schema_Calls.html'}">4.5.1. Get images schema</link>.
+        </para>
+        <para attributes="{}">
+            This operation returns a subset of the larger collection of images and a link
+            that you can use to get the next set of images. Always check for the presence of
+            a
+            <parameter attributes="{}">next</parameter>
+            link and use it as the URI in a subsequent
+            <command attributes="{u'xmlns': u'http://docbook.org/ns/docbook'}">GET</command>
+            request. Follow this pattern until a
+            <parameter attributes="{}">next</parameter>
+            link is no longer provided. The next link preserves any query parameters that you
+            send in your initial request. You can use the
+            <parameter attributes="{}">first</parameter>
+            link to jump back to the first page of the collection. If you prefer to paginate
+            through images manually, use the
+            <parameter attributes="{}">limit</parameter>
+            and
+            <parameter attributes="{}">marker</parameter>
+            parameters.
+        </para>
+        <para attributes="{}">The List Images operation accepts several types of query
+            parameters that you can use to filter the results of the returned collection.
+        </para>
+        <para attributes="{}">A client can pr ovide direct comparison filters by using
+            most image attributes, such as
+            <code attributes="{}">name=Ubuntu</code>
+            ,
+            <code attributes="{}">visibility=public</code>
+            , and so on. A client cannot filter on tags or anything defined as a link in the
+            json-schema, such as
+            <parameter attributes="{}">self</parameter>
+            ,
+            <parameter attributes="{}">file</parameter>
+            , or
+            <parameter attributes="{}">schema</parameter>
+            .
+        </para>
+        <para attributes="{}">You can use the
+            <parameter attributes="{}">size_min</parameter>
+            and
+            <parameter attributes="{}">size_max</parameter>
+            query parameters to perform greater-than and less-than filtering of images based
+            on their
+            <parameter attributes="{}">size</parameter>
+            attribute. The size is measured in bytes and refers to the size of an image when
+            it is stored on disk.</para>
+        <para attributes="{}">For example, sending a
+            <parameter attributes="{}">size_min</parameter>
+            filter of 1048576 and size_max of 4194304 filters the container to include only
+            images that are between 1 MB and 4 MB in size.</para>
+        <para attributes="{}">You can sort the results of this operation by using the
+            <parameter attributes="{}">sort_key</parameter>
+            and
+            <parameter attributes="{}">sort_dir</parameter>
+            parameters. The API uses the natural sorting of whatever image attribute is
+            provided as the
+            <parameter attributes="{}">sort_key</parameter>
+            .
+        </para>
+        <note attributes="{}"><para attributes="{}">Public images may reach end-of-life
+            and be removed from the base image list. This
+                <link
+                    attributes="{u'xlink:href':
+                    u'http://www.rackspace.com/knowledge_center/article/hidden-base-images'}">
+                    Hidden Base Images article</link>
+                contains images which have been removed from the base images list but which may
+                    still be available.</para>
+        </note>
+    </wadl:doc>
+
+    <resource attributes="{u'path': u'images', u'id': u'Images', 'full_path': u'/images'}">
+    </resource>
+
+    <request attributes="{}">
+        <representation attributes="{u'mediaType': u'application/json'}">
+            <doc attributes="{u'xml:lang': u'EN'}"></doc>
+            <params attributes="{}">
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type': u'xsd:string',
+                    u'name': u'limit'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Reque
+                        sts a specific page size. Expect a response to a limited request to return
+                        between zero items and the number specified. The typical pattern for using the
+                            <parameter attributes="{}">limit</parameter>
+                            and
+                            <parameter attributes="{}">marker</parameter>
+                            parameters is to make an initial limited request and then to use the ID of the
+                            last image from the response as the
+                            <parameter attributes="{}">marker</parameter>
+                            parameter in a subsequent limited request.</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type': u'xsd:string',
+                    u'name': u'marker'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Specifies
+                        the ID of the last-seen image. The typical pattern for using the
+                            <parameter attributes="{}">limit</parameter>
+                            and
+                            <parameter attributes="{}">marker</parameter>
+                            parameters is to make an initial limited request and then to use the ID of the
+                            last image from the response as the
+                            <parameter attributes="{}">marker</parameter>
+                            parameter in a subsequent limited request.</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type': u'xsd:string',
+                    u'name': u'name'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that specifies the name of the image as a string.</para></doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type':
+                    u'imageapi:string', u'name': u'visibility'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that specifies image visibility as either
+                            <code attributes="{}">public</code>
+                            ,
+                            <code attributes="{}">private</code>
+                            , or
+                            <code attributes="{}">shared</code>
+                            .</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type':
+                    u'imageapi:string', u'name': u'member_status'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that shows images with the specified member status for only those
+                        images shared with the user. Valid values are
+                            <code attributes="{}">accepted</code>
+                            ,
+                            <code attributes="{}">pending</code>
+                            ,
+                            <code attributes="{}">rejected</code>
+                            , and
+                            <code attributes="{}">all</code>
+                            . The default is
+                            <code attributes="{}">accepted</code>
+                            .</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type':
+                    u'imageapi:string', u'name': u'owner'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that shows images shared with the user by the specified tag.</para></doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type':
+                    u'imageapi:string', u'name': u'tag'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that shows images with the specified tag, where the owner is indicated
+                        by tenant ID.</para></doc>
+                </param>
+                <param
+                    attributes="{u'style': u'query', u'required': u'false', u'type': u'xsd:int',
+                    u'name': u'status'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that species the image status as
+                            <code attributes="{}">queued</code>
+                            ,
+                            <code attributes="{}">saving</code>
+                            ,
+                            <code attributes="{}">active</code>
+                            ,
+                            <code attributes="{}">killed</code>
+                            ,
+                            <code attributes="{}">deleted</code>
+                            , or
+                            <code attributes="{}">pending_delete</code>
+                            .</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'default': u'ALL', u'style': u'query', u'required': u'false',
+                    u'type': u'xsd:string', u'name': u'size_min'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that specifies the minimum size of the image in bytes.</para></doc>
+                </param>
+                <param
+                    attributes="{u'default': u'ALL', u'style': u'query', u'required': u'false',
+                    u'type': u'xsd:string', u'name': u'size_max'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Filter
+                        parameter that specifies the maximum size of the image in bytes.</para></doc>
+                </param>
+                <param
+                    attributes="{u'default': u'ALL', u'style': u'query', u'required': u'false',
+                    u'type': u'xsd:string', u'name': u'sort_key'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Sort
+                        key. All image attributes can be used as the sort key, except
+                            <code attributes="{}">tags</code>
+                            and
+                            <code attributes="{}">link</code>
+                            attributes. The default is
+                            <code attributes="{}">created_at</code>
+                            .</para>
+                    </doc>
+                </param>
+                <param
+                    attributes="{u'default': u'ALL', u'style': u'query', u'required': u'false',
+                    u'type': u'xsd:string', u'name': u'sort_dir'}">
+                    <doc
+                        attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xml:lang':
+                        u'EN'}"><para attributes="{}">Sort
+                        direction. Valid values are
+                            <code attributes="{}">asc</code>
+                            (ascending) and
+                            <code attributes="{}">desc</code>
+                            (descending). The default is
+                            <code attributes="{}">desc</code>
+                            .</para>
+                    </doc>
+                </param>
+            </params>
+        </representation>
+    </request>
+    <responses attributes="{}">
+        <response attributes="{u'status': u'200'}">
+            <doc attributes="{u'title': u'Success'}">Request succeeded.</doc>
+            <representation attributes="{u'mediaType': u'application/json'}">
+                <doc attributes="{u'xml:lang': u'EN'}"><xsdxt:sample attributes="{}">{ "images":
+                    [ { "id":"da3b75d9-3f4a-40e7-8a2c-bfab23927dea",
+                    "name":"cirros-0.3.0-x86_64-uec-ramdisk", "status":"active",
+                    "visibility":"public", "size":2254249,
+                    "checksum":"2cec138d7dae2aa59038ef8c9aec2390", "tags":[ "ping", "pong" ],
+                    "created_at":"2012-08-10T19:23:50Z", "updated_at":"2012-08-10T19:23:50Z",
+                    "self":"/v2/images/da3b75d9-3f4a-40e7-8a2c-bfab23927dea",
+                    "file":"/v2/images/da3b75d9-3f4a-40e7-8a2c-bfab23927dea/file",
+                    "schema":"/v2/schemas/image"}, { "id":"0d5bcbc7-b066-4217-83f4-7111a60a399a",
+                    "name":"cirros-0.3.0-x86_64-uec", "status":"active", "visibility":"public",
+                    "size":25165824, "checksum":"2f81976cae15c16ef0010c51e3a6c163", "tags":[ ],
+                    "created_at":"2012-08-10T19:23:50Z", "updated_at":"2012-08-10T19:23:50Z",
+                    "self":"/v2/images/0d5bcbc7-b066-4217-83f4-7111a60a399a",
+                    "file":"/v2/images/0d5bcbc7-b066-4217-83f4-7111a60a399a/file",
+                    "schema":"/v2/schemas/image"}, { "id":"e6421c88-b1ed-4407-8824-b57298249091",
+                    "name":"cirros-0.3.0-x86_64-uec-kernel", "status":"active",
+                    "visibility":"public", "size":4731440,
+                    "checksum":"cfb203e7267a28e435dbcb05af5910a9", "tags":[ ],
+                    "created_at":"2012-08-10T19:23:49Z", "updated_at":"2012-08-10T19:23:49Z",
+                    "self":"/v2/images/e6421c88-b1ed-4407-8824-b57298249091",
+                    "file":"/v2/images/e6421c88-b1ed-4407-8824-b57298249091/file",
+                    "schema":"/v2/schemas/image"} ], "first":"/v2/images?limit=3",
+                    "next":"/v2/images?limit=3&marker=e6421c88-b1ed-4407-8824-b57298249091",
+                    "schema":"/v2/schemas/images" }
+                    </xsdxt:sample>
+                </doc>
+                <params attributes="{}">
+                    <param
+                        attributes="{u'path': u'$.parameters.images', u'style': u'plain', u'required':
+                        u'true', u'type': u'array', u'name': u'images'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            array of the images in the list.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.id', u'style': u'plain', u'required':
+                        u'true', u'type': u'xsd:string', u'name': u'id'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            UUID of the image.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.name', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'name'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            name of the image.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.status', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'status'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            status of the image. For possible image statuses, see
+                                <link
+                                    attributes="{u'href':
+
+                                    u'http://docs.rackspace.com/images/api/v2/ci-devguide/content/image-statuses.html'}">
+                                    1.4.1. Image statuses</link>
+                                .</para>
+                        </wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.visibility', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'visibility'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">Specifies
+                            image visibility as either
+                                <code attributes="{}">public</code>
+                                ,
+                                <code attributes="{}">private</code>
+                                , or
+                                <code attributes="{}">shared</code>
+                                .</para>
+                        </wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.size', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:integer', u'name': u'size'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            size of the image in bytes.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.checksum', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'checksum'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            checksum of the image.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.tags', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'tags'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            user-defined image tags.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.created_at', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'created_at'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            date and time that the image was created.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.updated_at', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'updated_at'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            date and time that the image was updated.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.self', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'self'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            link to the image.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.file', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'file'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            image file.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.images.schema', u'style': u'plain',
+                        u'required': u'true', u'type': u'xsd:string', u'name': u'schema'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            schema of the image.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.first', u'style': u'plain', u'required':
+                        u'true', u'type': u'xsd:string', u'name': u'first'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            URI for the first image in the list.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.next', u'style': u'plain', u'required':
+                        u'true', u'type': u'xsd:string', u'name': u'next'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            URI for the next image in the list.</para></wadl:doc>
+                    </param>
+                    <param
+                        attributes="{u'path': u'$.parameters.schema', u'style': u'plain', u'required':
+                        u'true', u'type': u'xsd:string', u'name': u'schema'}">
+                        <wadl:doc
+                            attributes="{u'xmlns': u'http://docbook.org/ns/docbook', u'xmlns:wadl':
+                            u'http://wadl.dev.java.net/2009/02', u'xml:lang': u'EN'}"><para attributes="{}">The
+                            schema of the images list.</para></wadl:doc>
+                    </param>
+                </params>
+            </representation>
+        </response>
+        <response
+            attributes="{u'status': u'400', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Error'}">A
+            general error has occured.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:badRequest'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'401', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Unauthorized'}">Unauthorized.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:unauthorized'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'403', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Forbidden'}">Forbidden.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:forbidden'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'405', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Bad Method'}">Bad
+            method.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:badMethod'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'413', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Over Limit'}">The
+            number of items returned is above the allowed limit.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:overLimit'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'503', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Service Unavailable'}">The
+            requested service is unavailable.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:serviceUnavailable'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'500', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'API Fault'}">API
+            fault.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:imageapiFault'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+        <response
+            attributes="{u'status': u'404', u'xmlns':
+            u'http://wadl.dev.java.net/2009/02'}"><doc attributes="{u'title': u'Not Found'}">Resource
+            not found.</doc>
+            <representation
+                attributes="{u'mediaType': u'application/xml', u'element':
+                u'imageapi:itemNotFound'}"></representation>
+            <representation attributes="{u'mediaType': u'application/json'}"></representation>
+        </response>
+    </responses>
+</method>

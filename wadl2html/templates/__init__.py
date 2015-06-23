@@ -19,7 +19,7 @@ class Data(dict):
             name_parts = os.path.basename(file_path).split('.')[0:-1]
             name = ".".join(name_parts)
             with open(file_path, 'r') as file:
-                self[name] = file.read()
+                self[name] = file.read().decode('ascii', 'ignore')
 
 
 # Singleton instance
