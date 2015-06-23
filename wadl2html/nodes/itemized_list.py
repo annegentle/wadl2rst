@@ -4,4 +4,4 @@ from wadl2html.templates import templates
 
 
 class ItemizedListNode(BaseNode):
-    template = templates['itemized_list']
+    pass

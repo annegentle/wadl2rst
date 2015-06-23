@@ -7,8 +7,8 @@ from wadl2html.templates import templates
 
 class ResponseNode(BaseNode):
 
-    default_template = templates['response']
-    extended_template = templates['response_extended']
+    default_template = templates['default']
+    extended_template = templates['default']
 
     def to_html(self):
         doc = self.find_first("doc")

@@ -4,4 +4,4 @@ from wadl2html.templates import templates
 
 
 class CodeNode(BaseNode):
-    template = templates['code']
+    pass

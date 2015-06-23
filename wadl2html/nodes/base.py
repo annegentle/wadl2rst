@@ -72,13 +72,13 @@ class BaseNode(object):
         for child in self.children:
             child.visit(function)
 
-    def to_html(self):
+    def to_rst(self):
         """ Return the html representation of this tag and it's children. """
 
-        child_html = " ".join([child.to_html() for child in self.children])
+        child_rst = " ".join([child.to_rst() for child in self.children])
 
         template = jinja2.Template(self.template)
         return template.render(node=self,
                                node_name=self.name,
                                attributes=self.attributes,
-                               child_html=child_html)
+                               child_rst=child_rst)

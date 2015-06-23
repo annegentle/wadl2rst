@@ -4,4 +4,4 @@ from wadl2html.templates import templates
 
 
 class ParameterNode(BaseNode):
-    template = templates['parameter']
+    pass

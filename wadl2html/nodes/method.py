@@ -24,11 +24,11 @@ class MethodNode(BaseNode):
 
         http_method = args['http_method'].strip()
 
-        output = "{}_{}_{}.html".format(http_method, title, full_path)
+        output = "{}_{}_{}.rst".format(http_method, title, full_path)
         output = re.sub(ur"__", "_", output)
         return output
 
-    def to_html(self):
+    def to_rst(self):
         # this was a link that could not be resolved, so don't show anything
         if "href" in self.attributes:
             return ""
@@ -57,23 +57,23 @@ class MethodNode(BaseNode):
 
         # defaults for the output
         output = {
-            "child_html": "",
-            "docs_html": "",
+            "child_rst": "",
+            "docs_rst": "",
             "full_path": "",
             "method_id": method_id,
             "method_name": "",
-            "params_html": "",
+            "params_rst": "",
             "title": ""
         }
 
         if docs is not None:
-            output["docs_html"] = docs.to_html()
+            output["docs_rst"] = docs.to_rst()
 
             if "title" in docs.attributes:
                 output["title"] = docs.attributes['title']
 
         if short_desc is not None:
-            output["desc_html"] = short_desc.to_html()
+            output["desc_rst"] = short_desc.to_rst()
 
         if "name" in self.attributes:
             output["http_method"] = self.attributes['name']
@@ -86,6 +86,6 @@ class MethodNode(BaseNode):
             if child in [docs, resource, params]:
                 continue
 
-            output['child_html'] += child.to_html()
+            output['child_rst'] += child.to_rst()
 
         return output

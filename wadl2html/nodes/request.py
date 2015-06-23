@@ -3,4 +3,4 @@ from wadl2html.templates import templates
 
 
 class RequestNode(BaseNode):
-    template = templates['request']
+    pass

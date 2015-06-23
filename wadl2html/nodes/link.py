@@ -4,4 +4,4 @@ from wadl2html.templates import templates
 
 
 class LinkNode(BaseNode):
-    template = templates['link']
+    pass
