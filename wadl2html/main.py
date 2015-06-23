@@ -2,7 +2,10 @@
 """ Application Entry Point """
 
 import argparse
+import functools
 import os
+import shutil
+import sys
 
 from wadl2html import tree
 from wadl2html.transformations.cleanup_application_node import cleanup_application_node
@@ -19,8 +22,17 @@ def main():
     Collects the command line options and passes them to wadl2html for
     processing. """
 
+    # get our arguments from the command line
     args = parse_arguments()
-    print wadl2html(args.wadl_file)
+
+    # turn the xml into in intermediate representation we can use
+    ir = tree.xml_file_to_tree(args.wadl_file)
+
+    # execute our transfomations against the ir
+    execute_translations(ir, args.wadl_file)
+
+    # convert it into HTML
+    convert_ir_to_html(ir, args.output_dir)
 
 
 def parse_arguments():
@@ -33,14 +45,35 @@ def parse_arguments():
                         type=argparse.FileType('r'),
                         help="Input file to process.")
 
-    return parser.parse_args()
+    parser.add_argument("output_dir",
+                        type=str,
+                        help="Destination directory.")
+
+    args = parser.parse_args()
+
+    # grab the parent of the given directory
+    path = os.path.abspath(args.output_dir)
+
+    if not os.path.exists(path):
+        print "Error: Output directory {} must exist.".format(path)
+        parser.print_help()
+        sys.exit(1)
+
+    if not os.path.isdir(path):
+        print "Error: Output directory {} must be a directory.".format(path)
+        parser.print_help()
+        sys.exit(1)
+
+    if not os.access(path, os.W_OK):
+        print "Error: Output directory {} must be writable.".format(path)
+        parser.print_help()
+        sys.exit(1)
+
+    return args
 
 
-def wadl2html(wadl_file):
-    """Given a wadl, return the html representation."""
-
-    # turn the xml into in intermediate representation we can use
-    ir = tree.xml_file_to_tree(wadl_file)
+def execute_translations(ir, wadl_file):
+    """Execute the translations against the IR"""
 
     # collapse nested resources into just the leaf node
     collapse_resources(ir)
@@ -64,5 +97,26 @@ def wadl2html(wadl_file):
     # remove any resource type nodes
     cleanup_application_node(ir)
 
-    # turn our ir into html
-    return ir.to_html().encode('utf-8')
+
+def convert_ir_to_html(ir, output_dir):
+    """Create an HTML file in the output_dir for each method node in the IR."""
+
+    path = os.path.abspath(output_dir)
+
+    # get all the method nodes in the IR
+    method_nodes = []
+    method_nodes_visitor = functools.partial(get_method_nodes, method_nodes)
+    ir.visit(method_nodes_visitor)
+
+    for node in method_nodes:
+        html = node.to_html()
+        full_path = os.path.join(path, node.get_filename())
+
+        print "Generating file: {}".format(full_path)
+        with open(full_path, 'w') as f:
+            f.write(html)
+
+
+def get_method_nodes(memory, node):
+    if (node.name == "method"):
+        memory.append(node)

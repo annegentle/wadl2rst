@@ -1,5 +1,6 @@
 
 import jinja2
+import re
 
 from wadl2html.nodes.base import BaseNode
 from wadl2html.templates import templates
@@ -9,6 +10,23 @@ class MethodNode(BaseNode):
     template = templates['method']
     doc_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
+
+    def get_filename(self):
+        args = self.get_template_arguments()
+
+        title = args['title'].strip().lower()
+        title = re.sub(ur" ", "_", title)
+
+        full_path = args['full_path'].strip().lower()
+        full_path = re.sub(ur"/", "_", full_path)
+        full_path = re.sub(ur"{", "", full_path)
+        full_path = re.sub(ur"}", "", full_path)
+
+        http_method = args['http_method'].strip()
+
+        output = "{}_{}_{}.html".format(http_method, title, full_path)
+        output = re.sub(ur"__", "_", output)
+        return output
 
     def to_html(self):
         # this was a link that could not be resolved, so don't show anything
@@ -58,7 +76,7 @@ class MethodNode(BaseNode):
             output["desc_html"] = short_desc.to_html()
 
         if "name" in self.attributes:
-            output["method_name"] = self.attributes['name']
+            output["http_method"] = self.attributes['name']
 
         if (resource is not None) and ("full_path" in resource.attributes):
             output["full_path"] = resource.attributes['full_path']

@@ -4,8 +4,7 @@ from setuptools import setup, find_packages
 
 # project dependencies
 install_requires = [
-    "Jinja2==2.7.3",
-    "pygments==2.0.2"
+    "Jinja2==2.7.3"
 ]
 
 # setup and testing dependencies
