@@ -3,6 +3,7 @@
 
 import argparse
 import os
+import sys
 
 from wadl2html import tree
 from wadl2html.transformations.cleanup_application_node import cleanup_application_node
@@ -20,7 +21,7 @@ def main():
     processing. """
 
     args = parse_arguments()
-    print wadl2html(args.wadl_file)
+    # print wadl2html(args.wadl_file)
 
 
 def parse_arguments():
@@ -33,7 +34,32 @@ def parse_arguments():
                         type=argparse.FileType('r'),
                         help="Input file to process.")
 
-    return parser.parse_args()
+    parser.add_argument("output_dir",
+                        type=str,
+                        help="Destination directory.")
+
+    args = parser.parse_args()
+
+    # grab the parent of the given directory
+    path = os.path.abspath(args.output_dir)
+    parent_path, basename = os.path.split(path)
+
+    if not os.path.exists(parent_path):
+        print "Error: Output directory parent {} must exist.".format(parent_path)
+        parser.print_help()
+        sys.exit(1)
+
+    if not os.path.isdir(parent_path):
+        print "Error: Output directory parent {} must be a directory.".format(parent_path)
+        parser.print_help()
+        sys.exit(1)
+
+    if not os.access(parent_path, os.W_OK):
+        print "Error: Output directory parent {} must be writable.".format(parent_path)
+        parser.print_help()
+        sys.exit(1)
+
+    return args
 
 
 def wadl2html(wadl_file):
