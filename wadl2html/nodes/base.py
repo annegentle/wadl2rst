@@ -1,13 +1,7 @@
 
-import jinja2
-
-from wadl2html.templates import templates
-
 
 class BaseNode(object):
     """ Base Node. This represents a node in the html output. """
-
-    template = templates['default']
 
     def __init__(self, parent, name, attributes):
         self.parent = parent
@@ -80,10 +74,5 @@ class BaseNode(object):
     def to_rst(self):
         """ Return the html representation of this tag and it's children. """
 
-        child_rst = " ".join([child.to_rst() for child in self.children])
-
-        template = jinja2.Template(self.template)
-        return template.render(node=self,
-                               node_name=self.name,
-                               attributes=self.attributes,
-                               child_rst=child_rst)
+        child_rst = "".join([child.to_rst() for child in self.children])
+        return child_rst

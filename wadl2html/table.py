@@ -68,8 +68,8 @@ def formatted_row(column_sizes, row):
         for column_size, cell in zip(column_sizes, row_state):
             # pull at most column_size characters from the cell, stashing the
             # rest for later
-            text = cell[:column_size]
-            next_state.append(cell[column_size:])
+            text, rest = split_sentence(column_size, cell.strip())
+            next_state.append(rest)
 
             # append exactly column_size characters from cell, padding if necessary
             fmt = "{:<" + str(column_size) + "}"
@@ -82,6 +82,31 @@ def formatted_row(column_sizes, row):
     return output
 
 
+def split_sentence(column_size, cell):
+
+    # if the cell is smaller than column size, just return it
+    if len(cell) < column_size:
+        return (cell, "")
+
+    words = cell.split()
+    output = []
+
+    for word in words:
+        if is_output_plus_word_ok(column_size, output, word):
+            output.append(words.pop(0))
+        else:
+            break
+
+    return (" ".join(output), " ".join(words))
+
+
+def is_output_plus_word_ok(column_size, output, word):
+    data = copy.deepcopy(output)
+    data.append(word)
+    new = " ".join(data)
+    return len(new) < column_size
+
+
 def row_line(column_sizes, character="-"):
     """Create a line, with the little pluses where they belong."""
 
@@ -90,6 +115,7 @@ def row_line(column_sizes, character="-"):
         output.append(character * (size + 2))
 
     return "+" + "+".join(output) + "+"
+
 
 def characters_left_in_row(row):
     """ Given a modified row, are there items left to print? """

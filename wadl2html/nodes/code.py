@@ -4,4 +4,9 @@ from wadl2html.templates import templates
 
 
 class CodeNode(BaseNode):
-    pass
+
+    def to_rst(self):
+        """ Return the html representation of this tag and it's children. """
+
+        child_rst = " ".join([child.to_rst() for child in self.children])
+        return "``" + child_rst + "``"

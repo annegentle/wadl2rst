@@ -8,25 +8,13 @@
 `Request <{{filename}}#request>`__
 `Response <{{filename}}#response>`__
 
-+---------+------------------------------+----------------+
-| Method  | URI                          | Description    |
-+=========+==============================+================+
-| **{{http_method}}** | ``{{uri}}`` | {{short_desc}}  |
-+---------+------------------------------+----------------+
+{{method_table}}
 
 {{docs_rst}}
 
 This table shows the possible response codes for this operation:
 
-+----------+-----------------------+---------------------------------------------+
-| Response | Name                  | Description                                 |
-| Code     |                       |                                             |
-+==========+=======================+=============================================+
-{% for response in responses %}|{{response['code']}}|{{response['name']}}|{{response['desc']}}|
-{% endfor %}
-+---------+-----------------------+---------------------------------------------+
-
-{{responses}}
+{{responses_table}}
 
 Request
 ^^^^^^^^^^^^^^^^^
