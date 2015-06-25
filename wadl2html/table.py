@@ -60,6 +60,12 @@ def formatted_row(column_sizes, row):
     output = []
     row_state = copy.deepcopy(row)
 
+    # if number of elements in the row are less than the number of columns,
+    # then append the row with spaces
+    if len(row_state) < len(column_sizes):
+        for space in range(len(column_sizes)-len(row_state)):
+            row_state.append('')
+
     while characters_left_in_row(row_state):
         # the current row we're messing with
         current_row = []
