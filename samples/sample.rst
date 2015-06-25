@@ -58,7 +58,7 @@ This table shows the URI parameters for the get image details request:
 +-----------------------+---------+---------------------------------------------+
 | Name                  | Type    | Description                                 |
 +=======================+=========+=============================================+
-| ``{image_id}``        | <U+200B>Uuid   | Image ID stored through the image API,      |
+| ``{image_id}``        | Uuid    | Image ID stored through the image API,      |
 |                       |         | typically a UUID.                           |
 +-----------------------+---------+---------------------------------------------+
 

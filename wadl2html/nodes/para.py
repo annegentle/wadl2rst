@@ -16,7 +16,7 @@ class ParaNode(BaseNode):
         child_rst = ' '.join(child_rst.split())
 
         # remove any whitespace before punctuation.
-        pattern = re.compile("\s(?P<foo>,.)")
+        pattern = re.compile("[\s]*(?P<foo>,.)")
         child_rst = pattern.sub(r"\1", child_rst)
 
         return child_rst + "\n\n"
