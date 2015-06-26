@@ -4,6 +4,8 @@ import re
 from wadl2html.nodes.base import BaseNode
 from wadl2html.templates import templates
 
+COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,.)")
+
 
 class ParaNode(BaseNode):
 
@@ -16,7 +18,6 @@ class ParaNode(BaseNode):
         child_rst = ' '.join(child_rst.split())
 
         # remove any whitespace before punctuation.
-        pattern = re.compile("[\s]*(?P<foo>,.)")
-        child_rst = pattern.sub(r"\1", child_rst)
+        child_rst = COMMA_CLEANUP.sub(r"\1", child_rst)
 
         return child_rst + "\n\n"

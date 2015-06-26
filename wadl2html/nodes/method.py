@@ -1,4 +1,6 @@
 
+import re
+
 import jinja2
 
 from wadl2html import table
@@ -6,10 +8,16 @@ from wadl2html.nodes.base import BaseNode
 from wadl2html.templates import templates
 
 
+FILENAME_TITLE = re.compile(r" ")
+FILENAME_PATH = re.compile(r"/|{|}")
+FILENAME_UNDERSCORES = re.compile(r"[_]+")
+
+
 class MethodNode(BaseNode):
     template = templates['method']
     document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
+    sample_names = ["xsdxt:sample"]
 
     def to_rst(self):
         """ Return the html representation of this tag and it's children. """
@@ -31,13 +39,13 @@ class MethodNode(BaseNode):
 
         output = {
             "docs_rst": document_node.to_rst(),
-            "filename": "find me",
-            "http_method": self.attributes.get("name", None),
+            "filename": "",
+            "http_method": self.attributes.get("name", ''),
             "responses_table": "",
             "method_table": "",
             "short_desc": short_desc_node.to_rst(),
-            "title": document_node.attributes.get("title", None),
-            "uri": resource_node.attributes.get("full_path", None),
+            "title": document_node.attributes.get("title", '').title(),
+            "uri": resource_node.attributes.get("full_path", ''),
         }
 
         # handle the method table
@@ -47,6 +55,25 @@ class MethodNode(BaseNode):
         responses = [self.get_response_info(child) for child in responses_node.children]
         output['responses_table'] = self.get_responses_table(responses)
 
+        # create the filename
+        output['filename'] = self.get_filename(output, 'html')
+
+        return output
+
+    def get_filename(self, data=None, extention="rst"):
+        http_method = data['http_method']
+
+        title = FILENAME_TITLE.sub("_", data['title'].lower())
+        uri = FILENAME_PATH.sub("_", data['uri'].lower())
+
+        output = "{}_{}_{}.{}".format(
+            http_method,
+            title,
+            uri,
+            extention
+        )
+
+        output = FILENAME_UNDERSCORES.sub("_", output)
         return output
 
     def get_method_table(self, data):
@@ -61,10 +88,16 @@ class MethodNode(BaseNode):
         return table.create_table(columns, responses)
 
     def get_response_info(self, node):
+        clone = node.clone()
+
+        reps = [child for child in clone.children if child.name == "representation"]
+        for rep in reps:
+            clone.remove_child(rep)
+
         doc_node = node.find_one_of(self.document_node_names)
 
         return [
             node.attributes['status'],
-            doc_node.attributes['title'],
-            doc_node.to_rst()
+            doc_node.attributes.get('title', ''),
+            clone.to_rst()
         ]
