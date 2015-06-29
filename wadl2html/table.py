@@ -124,7 +124,10 @@ def split_cell_values(cell):
     start = 0
     output = []
 
+    # prep the cell by striping, removing newlines, and duplicate spaces.
     cell = cell.strip()
+    cell = cell.replace('\n', ' ').replace('\r', '')
+    cell = ' '.join(cell.split())
 
     for match in SPLIT_DELIMITERS.finditer(cell):
         end = match.end()
@@ -140,18 +143,19 @@ def split_sentence(column_size, cell):
     """ Return enough words to fill the column."""
 
     # if the total cell sizes are smaller the the column size, just return it
-    if len("".join(cell)) <= column_size:
+    if len("".join(cell)) < column_size:
         return (cell, [])
 
-    output = []
+    text = []
+    rest = copy.deepcopy(cell)
 
-    for word in cell:
-        if is_output_plus_word_ok(column_size, output, word):
-            output.append(cell.pop(0))
+    while len(rest) > 0:
+        if is_output_plus_word_ok(column_size, text, rest[0]):
+            text.append(rest.pop(0))
         else:
             break
 
-    return (output, cell)
+    return (text, rest)
 
 
 def is_output_plus_word_ok(column_size, output, word):

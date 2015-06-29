@@ -61,7 +61,6 @@ class MethodNode(BaseNode):
         if request_node is not None:
             request_params = request_node.find_first("params")
             if request_params is not None:
-                print "Request Params: {}".format(request_params.children)
                 output['query_table'] = request_params.to_table("query")
                 output['body_table'] = request_params.to_table("plain")
 
