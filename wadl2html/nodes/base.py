@@ -76,3 +76,7 @@ class BaseNode(object):
 
         child_rst = "".join([child.to_rst() for child in self.children])
         return child_rst
+
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        return "<{} name='{}' attributes='{}'>".format(class_name, self.name, self.attributes)

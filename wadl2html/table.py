@@ -2,7 +2,7 @@
 import copy
 import re
 
-SPLIT_DELIMITERS = re.compile(r"-|/| |_")
+SPLIT_DELIMITERS = re.compile(r"-|/| |_|,")
 START_DELIMITER = "| "
 END_DELIMITER = " |"
 SEPERATOR = " | "

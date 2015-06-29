@@ -1,5 +1,6 @@
 
 import re
+import functools
 
 import jinja2
 
@@ -32,21 +33,37 @@ class MethodNode(BaseNode):
             document_node = self.find_one_of(self.document_node_names)
             short_desc_node = document_node.find_one_of(self.para_names)
             resource_node = self.find_first("resource")
+            request_node = self.find_first("request")
             responses_node = self.find_first("responses")
         except Exception:
             # we handle failures here below
             pass
 
         output = {
+            "body_table": None,
             "docs_rst": document_node.to_rst(),
             "filename": "",
             "http_method": self.attributes.get("name", ''),
-            "responses_table": "",
             "method_table": "",
+            "query_table": None,
+            "responses_table": "",
             "short_desc": short_desc_node.to_rst(),
             "title": document_node.attributes.get("title", '').title(),
+            "uri_table": None,
             "uri": resource_node.attributes.get("full_path", ''),
         }
+
+        if resource_node is not None:
+            uri_params = resource_node.find_first("params")
+            if uri_params is not None:
+                output['uri_table'] = uri_params.to_table()
+
+        if request_node is not None:
+            request_params = request_node.find_first("params")
+            if request_params is not None:
+                print "Request Params: {}".format(request_params.children)
+                output['query_table'] = request_params.to_table("query")
+                output['body_table'] = request_params.to_table("plain")
 
         # handle the method table
         output['method_table'] = self.get_method_table(output)
