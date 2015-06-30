@@ -33,8 +33,8 @@ class MethodNode(BaseNode):
             document_node = self.find_one_of(self.document_node_names)
             short_desc_node = document_node.find_one_of(self.para_names)
             resource_node = self.find_first("resource")
-            request_node = self.find_first("request")
             responses_node = self.find_first("responses")
+            request_node = self.find_first("request")
         except Exception:
             # we handle failures here below
             pass
@@ -44,25 +44,59 @@ class MethodNode(BaseNode):
             "docs_rst": document_node.to_rst(),
             "filename": "",
             "http_method": self.attributes.get("name", ''),
-            "method_table": "",
+            "method_table": None,
             "query_table": None,
-            "responses_table": "",
+            "responses_table": None,
             "short_desc": short_desc_node.to_rst(),
             "title": document_node.attributes.get("title", '').title(),
             "uri_table": None,
             "uri": resource_node.attributes.get("full_path", ''),
         }
 
+        # setup the resource node stuff
         if resource_node is not None:
             uri_params = resource_node.find_first("params")
             if uri_params is not None:
                 output['uri_table'] = uri_params.to_table()
 
+        # setup some request node stuff
         if request_node is not None:
             request_params = request_node.find_first("params")
+
             if request_params is not None:
                 output['query_table'] = request_params.to_table("query")
                 output['body_table'] = request_params.to_table("plain")
+
+        # setup the reponses node stuff
+        if responses_node is not None:
+            response_params = responses_node.find_first("params")
+
+            if response_params is not None:
+                output['response_table'] = response_params.to_table("plain")
+
+            representations = responses_node.find("representation")
+
+            response_examples = []
+            if representations:
+                delimiter = "    "
+
+                for representation in representations:
+                    code = representation.find_first("xsdxt:sample")
+                    if code is None:
+                        continue
+                    code_children = code.children[0].attributes['text']
+                    code_children = code_children.split("\n")
+                    code_lines = []
+                    for line in code_children:
+                        line = delimiter + line
+                        code_lines.append(line)
+                    code_lines = "\n".join(code_lines)
+                    response_examples.append({
+                        "type": representation.attributes['mediaType'],
+                        "code": code_lines
+                    })
+            output['response_examples'] = response_examples
+
 
         # handle the method table
         output['method_table'] = self.get_method_table(output)

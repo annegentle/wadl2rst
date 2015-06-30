@@ -2,10 +2,15 @@
 import copy
 import re
 
-SPLIT_DELIMITERS = re.compile(r"-|/| |_|,")
+# Delimiters used by rst for the table rows
 START_DELIMITER = "| "
 END_DELIMITER = " |"
 SEPERATOR = " | "
+
+# Characters we use to split the string as part of the word wrap.
+# NOTE: the order here is important, and any punctuation that ends with spaces
+# should come becore spaces themselves.
+SPLIT_DELIMITERS = re.compile(r"-|/|, | ")
 
 
 def create_table(columns, data):
@@ -49,7 +54,7 @@ def calculate_column_sizes(columns, rows):
     for row in rows:
         for idx, words in enumerate(row):
             if len(words) > 0:
-                max_word_size = len(max(words))
+                max_word_size = len(max(words, key=len))
                 if max_word_size > column_sizes[idx]:
                     column_sizes[idx] = max_word_size
 

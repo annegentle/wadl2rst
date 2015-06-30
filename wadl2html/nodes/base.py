@@ -1,4 +1,6 @@
 
+import functools
+
 
 class BaseNode(object):
     """ Base Node. This represents a node in the html output. """
@@ -29,6 +31,17 @@ class BaseNode(object):
             child.parent = clone
 
         return clone
+
+    def find(self, name):
+        # TODO: use everywhere
+        nodes = []
+
+        def finder(node):
+            if (node.name == name):
+                nodes.append(node)
+
+        self.visit(finder)
+        return nodes
 
     def find_first(self, name):
         """ Do a breadth-first search for a node with the specified name. """

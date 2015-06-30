@@ -40,4 +40,17 @@ This table shows the body parameters for the request:
 Response
 ^^^^^^^^^^^^^^^^^^
 
-{{responses}}
+{% if response_table %}
+This table shows the body parameters for the response:
+
+{{response_table}}
+{% endif %}
+
+{% for item in response_examples %}
+**Example {{title}}: {{item['type']}} response**
+
+.. code::
+
+{{item['code']}}
+
+{% endfor %}

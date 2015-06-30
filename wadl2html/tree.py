@@ -22,13 +22,10 @@ from wadl2html.nodes.wadl_doc import WadlDocNode
 class ParserState(object):
 
     node_mapping = {
-        "application": ApplicationNode,
         "code": CodeNode,
         "replaceable": CodeNode,
         "command": CodeNode,
         "errorcode": CodeNode,
-        "grammars": BaseNode,
-        "include": BaseNode,
         "itemizedlist": ItemizedListNode,
         "link": LinkNode,
         "listitem": ListItemNode,
@@ -39,15 +36,8 @@ class ParserState(object):
         "params": ParametersNode,
         "parameter": CodeNode,
         "representation": BaseNode,
-        "request": BaseNode,
-        "resource": BaseNode,
-        "resources": BaseNode,
         "response": ResponseNode,
-        "responses": ResponsesNode,
-        "request": RequestNode,
-        "root": BaseNode,
         "literal": CodeNode,
-        "wadl:doc": WadlDocNode,
         "warning": CodeNode
     }
 
