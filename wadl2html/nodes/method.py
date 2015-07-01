@@ -45,6 +45,7 @@ class MethodNode(BaseNode):
             "http_method": self.attributes.get("name", ''),
             "method_table": None,
             "query_table": None,
+            "request_examples": [],
             "responses_table": None,
             "response_examples": [],
             "short_desc": short_desc_node.to_rst(),
@@ -66,6 +67,13 @@ class MethodNode(BaseNode):
             if request_params is not None:
                 output['query_table'] = request_params.to_table("query")
                 output['body_table'] = request_params.to_table("plain")
+
+            # stash any request examples
+            representations = request_node.find("representation")
+            for representation in representations:
+                example = representation.to_example()
+                if example is not None:
+                    output['request_examples'].append(example)
 
         # setup the reponses node stuff
         if responses_node is not None:
