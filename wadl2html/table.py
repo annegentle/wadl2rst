@@ -3,14 +3,14 @@ import copy
 import re
 
 # Delimiters used by rst for the table rows
-START_DELIMITER = "| "
-END_DELIMITER = " |"
-SEPERATOR = " | "
+START_DELIMITER = "|"
+END_DELIMITER = "|"
+SEPERATOR = "|"
 
 # Characters we use to split the string as part of the word wrap.
 # NOTE: the order here is important, and any punctuation that ends with spaces
 # should come becore spaces themselves.
-SPLIT_DELIMITERS = re.compile(r"-|/|, | ")
+SPLIT_DELIMITERS = re.compile(r"-|, |,| ")
 
 
 def create_table(columns, data):
@@ -56,15 +56,16 @@ def calculate_column_sizes(columns, rows):
             if len(words) > 0:
                 max_word_size = len(max(words, key=len))
                 if max_word_size > column_sizes[idx]:
-                    column_sizes[idx] = max_word_size
+                    column_sizes[idx] = max_word_size + 1
 
     taken_space = sum(column_sizes)
 
-    if sum(column_sizes) > column_space:
-        raise Exception("can't fit without splitting.")
+    if column_space < taken_space:
+        return column_sizes
 
     for idx in range(column_space - taken_space):
-        column_sizes[idx % len(columns)] += 1
+        smallest_index = column_sizes.index(min(column_sizes))
+        column_sizes[smallest_index] += 1
 
     return column_sizes
 
@@ -175,7 +176,7 @@ def row_line(column_sizes, character="-"):
 
     output = []
     for size in column_sizes:
-        output.append(character * (size + 2))
+        output.append(character * size)
 
     return "+" + "+".join(output) + "+"
 

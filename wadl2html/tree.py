@@ -1,7 +1,6 @@
 
 import xml.parsers.expat
 
-from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
 from wadl2html.nodes.code import CodeNode
@@ -13,10 +12,6 @@ from wadl2html.nodes.note import NoteNode
 from wadl2html.nodes.para import ParaNode
 from wadl2html.nodes.parameter import ParameterNode
 from wadl2html.nodes.parameters import ParametersNode
-from wadl2html.nodes.request import RequestNode
-from wadl2html.nodes.responses import ResponsesNode
-from wadl2html.nodes.response import ResponseNode
-from wadl2html.nodes.wadl_doc import WadlDocNode
 
 
 class ParserState(object):
@@ -36,7 +31,6 @@ class ParserState(object):
         "params": ParametersNode,
         "parameter": CodeNode,
         "representation": BaseNode,
-        "response": ResponseNode,
         "literal": CodeNode,
         "warning": CodeNode
     }
