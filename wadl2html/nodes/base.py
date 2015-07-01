@@ -43,6 +43,14 @@ class BaseNode(object):
         self.visit(finder)
         return nodes
 
+    def find_each(self, names):
+        output = []
+
+        for name in names:
+            output.extend(self.find(name))
+
+        return output
+
     def find_first(self, name):
         """ Do a breadth-first search for a node with the specified name. """
 

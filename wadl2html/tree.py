@@ -12,6 +12,7 @@ from wadl2html.nodes.note import NoteNode
 from wadl2html.nodes.para import ParaNode
 from wadl2html.nodes.parameter import ParameterNode
 from wadl2html.nodes.parameters import ParametersNode
+from wadl2html.nodes.representation import RepresentationNode
 
 
 class ParserState(object):
@@ -30,7 +31,7 @@ class ParserState(object):
         "param": ParameterNode,
         "params": ParametersNode,
         "parameter": CodeNode,
-        "representation": BaseNode,
+        "representation": RepresentationNode,
         "literal": CodeNode,
         "warning": CodeNode
     }

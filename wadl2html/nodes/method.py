@@ -18,7 +18,6 @@ class MethodNode(BaseNode):
     template = templates['method']
     document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
-    sample_names = ["xsdxt:sample"]
 
     def to_rst(self):
         """ Return the html representation of this tag and it's children. """
@@ -47,6 +46,7 @@ class MethodNode(BaseNode):
             "method_table": None,
             "query_table": None,
             "responses_table": None,
+            "response_examples": [],
             "short_desc": short_desc_node.to_rst(),
             "title": document_node.attributes.get("title", '').title(),
             "uri_table": None,
@@ -71,32 +71,16 @@ class MethodNode(BaseNode):
         if responses_node is not None:
             response_params = responses_node.find_first("params")
 
+            # stash the responses table
             if response_params is not None:
                 output['response_table'] = response_params.to_table("plain")
 
+            # stash any response examples
             representations = responses_node.find("representation")
-
-            response_examples = []
-            if representations:
-                delimiter = "    "
-
-                for representation in representations:
-                    code = representation.find_first("xsdxt:sample")
-                    if code is None:
-                        continue
-                    code_children = code.children[0].attributes['text']
-                    code_children = code_children.split("\n")
-                    code_lines = []
-                    for line in code_children:
-                        line = delimiter + line
-                        code_lines.append(line)
-                    code_lines = "\n".join(code_lines)
-                    response_examples.append({
-                        "type": representation.attributes['mediaType'],
-                        "code": code_lines
-                    })
-            output['response_examples'] = response_examples
-
+            for representation in representations:
+                example = representation.to_example()
+                if example is not None:
+                    output['response_examples'].append(example)
 
         # handle the method table
         output['method_table'] = self.get_method_table(output)
