@@ -4,7 +4,6 @@
 import argparse
 import functools
 import os
-import shutil
 import sys
 
 from wadl2html import tree

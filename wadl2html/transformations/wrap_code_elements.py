@@ -1,4 +1,3 @@
-import functools
 
 from wadl2html.nodes.base import BaseNode
 

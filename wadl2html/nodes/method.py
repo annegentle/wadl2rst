@@ -1,8 +1,5 @@
 
 import re
-import functools
-
-import jinja2
 
 from wadl2html import table
 from wadl2html.nodes.base import BaseNode
@@ -22,12 +19,9 @@ class MethodNode(BaseNode):
     def to_rst(self):
         """ Return the html representation of this tag and it's children. """
 
-        child_rst = " ".join([child.to_rst() for child in self.children])
         return self.template.render(**self.template_params())
 
     def template_params(self):
-        method_id = self.attributes.get("id", "")
-
         try:
             document_node = self.find_one_of(self.document_node_names)
             short_desc_node = document_node.find_one_of(self.para_names)

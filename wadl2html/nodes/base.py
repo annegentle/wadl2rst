@@ -1,6 +1,4 @@
 
-import functools
-
 
 class BaseNode(object):
     """ Base Node. This represents a node in the html output. """

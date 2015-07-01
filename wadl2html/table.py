@@ -32,8 +32,8 @@ def create_table(columns, data):
 
     # handle the rows
     for row in data:
-         rows.extend(formatted_row(column_sizes, row))
-         rows.append(row_line(column_sizes))
+        rows.extend(formatted_row(column_sizes, row))
+        rows.append(row_line(column_sizes))
 
     return "\n" + "\n".join(rows) + "\n"
 
@@ -144,6 +144,7 @@ def split_cell_values(cell):
         output.append(cell[start:])
 
     return output
+
 
 def split_sentence(column_size, cell):
     """ Return enough words to fill the column."""
