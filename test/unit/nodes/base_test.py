@@ -4,7 +4,7 @@ from nose.tools import raises
 
 from unittest import TestCase
 
-from wadl2html.nodes.base import BaseNode
+from wadl2rst.nodes.base import BaseNode
 
 
 class TestBaseNode(TestCase):

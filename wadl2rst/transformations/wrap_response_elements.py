@@ -1,7 +1,7 @@
 
 import functools
 
-from wadl2html.nodes.responses import ResponsesNode
+from wadl2rst.nodes.responses import ResponsesNode
 
 
 def wrap_response_elements(tree):

@@ -1,8 +1,8 @@
 
 from unittest import TestCase
 
-from wadl2html import tree
-from wadl2html.transformations.cleanup_application_node import cleanup_application_node
+from wadl2rst import tree
+from wadl2rst.transformations.cleanup_application_node import cleanup_application_node
 
 
 class CleanupApplicationNodeTest(TestCase):

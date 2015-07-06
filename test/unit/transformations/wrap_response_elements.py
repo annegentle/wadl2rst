@@ -1,8 +1,8 @@
 
 from unittest import TestCase
 
-from wadl2html import tree
-from wadl2html.transformations.wrap_response_elements import wrap_response_elements
+from wadl2rst import tree
+from wadl2rst.transformations.wrap_response_elements import wrap_response_elements
 
 
 class WrapResponseElementsTest(TestCase):

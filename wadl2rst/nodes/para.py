@@ -1,7 +1,7 @@
 
 import re
 
-from wadl2html.nodes.base import BaseNode
+from wadl2rst.nodes.base import BaseNode
 
 COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,.)")
 

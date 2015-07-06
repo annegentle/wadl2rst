@@ -3,7 +3,7 @@ import functools
 
 from unittest import TestCase
 
-from wadl2html.nodes.char import CharNode
+from wadl2rst.nodes.char import CharNode
 
 
 class TestCharNode(TestCase):

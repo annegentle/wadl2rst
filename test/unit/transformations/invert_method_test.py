@@ -1,9 +1,9 @@
 
 from unittest import TestCase
 
-from wadl2html import tree
-from wadl2html.transformations.collapse_resources import collapse_resources
-from wadl2html.transformations.invert_method import invert_method
+from wadl2rst import tree
+from wadl2rst.transformations.collapse_resources import collapse_resources
+from wadl2rst.transformations.invert_method import invert_method
 
 
 class InvertMethodTest(TestCase):

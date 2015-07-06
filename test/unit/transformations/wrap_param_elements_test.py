@@ -1,8 +1,8 @@
 
 from unittest import TestCase
 
-from wadl2html import tree
-from wadl2html.transformations.wrap_param_elements import wrap_param_elements
+from wadl2rst import tree
+from wadl2rst.transformations.wrap_param_elements import wrap_param_elements
 
 
 class WrapParamElementsTest(TestCase):

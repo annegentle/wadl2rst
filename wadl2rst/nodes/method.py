@@ -1,9 +1,9 @@
 
 import re
 
-from wadl2html import table
-from wadl2html.nodes.base import BaseNode
-from wadl2html.templates import templates
+from wadl2rst import table
+from wadl2rst.nodes.base import BaseNode
+from wadl2rst.templates import templates
 
 
 FILENAME_TITLE = re.compile(r" ")

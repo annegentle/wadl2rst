@@ -129,7 +129,7 @@ def resolve_entities(wadl):
 
 
 def convert_to_html(wadl):
-    """ use wadl2html to convert the resolved wadl into an html page. """
+    """ use wadl2rst to convert the resolved wadl into an html page. """
 
     # get the name of the wadl output
     file_name = os.path.split(wadl)[-1]
@@ -137,7 +137,7 @@ def convert_to_html(wadl):
     output_file = os.path.join(output_dir, file_base + ".html")
 
     try:
-        cmd = ["wadl2html", wadl]
+        cmd = ["wadl2rst", wadl]
         output = subprocess.check_output(cmd)
 
         with open(output_file, 'w') as f:

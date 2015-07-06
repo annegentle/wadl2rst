@@ -5,7 +5,7 @@ import functools
 import os
 import sys
 
-from wadl2html.nodes.char import CharNode
+from wadl2rst.nodes.char import CharNode
 
 
 def resolve_external_code(base_path, tree):

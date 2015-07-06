@@ -1,7 +1,7 @@
 
 import functools
 
-from wadl2html.nodes.parameters import ParametersNode
+from wadl2rst.nodes.parameters import ParametersNode
 
 
 def wrap_param_elements(tree):

@@ -1,18 +1,18 @@
 
 import xml.parsers.expat
 
-from wadl2html.nodes.base import BaseNode
-from wadl2html.nodes.char import CharNode
-from wadl2html.nodes.code import CodeNode
-from wadl2html.nodes.itemized_list import ItemizedListNode
-from wadl2html.nodes.link import LinkNode
-from wadl2html.nodes.list_item import ListItemNode
-from wadl2html.nodes.method import MethodNode
-from wadl2html.nodes.note import NoteNode
-from wadl2html.nodes.para import ParaNode
-from wadl2html.nodes.parameter import ParameterNode
-from wadl2html.nodes.parameters import ParametersNode
-from wadl2html.nodes.representation import RepresentationNode
+from wadl2rst.nodes.base import BaseNode
+from wadl2rst.nodes.char import CharNode
+from wadl2rst.nodes.code import CodeNode
+from wadl2rst.nodes.itemized_list import ItemizedListNode
+from wadl2rst.nodes.link import LinkNode
+from wadl2rst.nodes.list_item import ListItemNode
+from wadl2rst.nodes.method import MethodNode
+from wadl2rst.nodes.note import NoteNode
+from wadl2rst.nodes.para import ParaNode
+from wadl2rst.nodes.parameter import ParameterNode
+from wadl2rst.nodes.parameters import ParametersNode
+from wadl2rst.nodes.representation import RepresentationNode
 
 
 class ParserState(object):
