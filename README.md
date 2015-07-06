@@ -25,7 +25,7 @@ Mockup to correlate WADL code with transformed HTML output created.
 
     cd /path/to/wadl2rst
     workon wadl2rst
-    python setup.py nosetests
+    python setup.py nosetests [--with-coverage]
 
 ## Running pyflakes & pep8
 
