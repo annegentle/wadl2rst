@@ -20,19 +20,6 @@ class TestBaseNode(TestCase):
         self.parent_node.remove_child(self.child_node)
         self.assertEquals(0, len(self.parent_node.children))
 
-    def test_should_render_no_children(self):
-        result = self.single_node.to_html()
-        self.assertEquals("hello", result)
-
-    def test_should_render_with_children(self):
-        result = self.parent_node.to_html()
-        self.assertEquals("hello world", result)
-
-    def test_should_handle_attributes(self):
-        node = FakeAttributeNode(None, "test", {'foo': 'bar'})
-        result = node.to_html()
-        self.assertEquals("bar", result)
-
     def test_should_find_first_no_results(self):
         result = self.parent_node.find_first("no")
         self.assertEquals(result, None)
