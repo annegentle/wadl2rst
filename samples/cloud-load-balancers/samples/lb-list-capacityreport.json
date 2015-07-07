@@ -1,0 +1,14 @@
+{
+  "hostCapacityReports": [
+    {
+      "totalConcurrentConnectionCapacity": 150000,
+      "hostName": "FirstBestHost",
+      "hostId": 1
+    },
+    {
+      "totalConcurrentConnectionCapacity": 150000,
+      "hostName": "SecondBestHost",
+      "hostId": 2
+    },
+  ]
+}

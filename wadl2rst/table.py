@@ -127,6 +127,9 @@ def split_cell_values(cell):
     start = 0
     output = []
 
+    if cell == "":
+        return []
+
     # prep the cell by striping, removing newlines, and duplicate spaces.
     cell = cell.strip()
     cell = cell.replace('\n', ' ').replace('\r', '')
@@ -174,7 +177,7 @@ def is_output_plus_word_ok(column_size, output, word):
     data = copy.deepcopy(output)
     data.append(word)
     new = "".join(data)
-    return len(new) < column_size
+    return len(new) <= column_size
 
 
 def row_line(column_sizes, character="-"):

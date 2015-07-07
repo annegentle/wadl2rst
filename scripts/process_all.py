@@ -128,20 +128,17 @@ def resolve_entities(wadl):
         print e
 
 
-def convert_to_html(wadl):
-    """ use wadl2rst to convert the resolved wadl into an html page. """
+def convert_to_rst(wadl):
+    """ use wadl2rst to convert the resolved wadl into an rst page. """
 
     # get the name of the wadl output
     file_name = os.path.split(wadl)[-1]
     file_base = re.sub('\.resolved.wadl$', '', file_name)
-    output_file = os.path.join(output_dir, file_base + ".html")
+    output_dir = os.path.join(output_dir, file_base)
 
     try:
-        cmd = ["wadl2rst", wadl]
-        output = subprocess.check_output(cmd)
-
-        with open(output_file, 'w') as f:
-            f.write(output)
+        cmd = ["wadl2rst", wadl, output_dir]
+        subprocess.check_output(cmd)
 
     except Exception, e:
         print e
@@ -161,6 +158,6 @@ if __name__ == "__main__":
     # do the xmllint entity resolution on all the wadls
     pool = multiprocessing.Pool(processes=4)
     pool.map(resolve_entities, get_file_list('.wadl'))
-    pool.map(convert_to_html, get_file_list('.resolved.wadl'))
+    pool.map(convert_to_rst, get_file_list('.resolved.wadl'))
     pool.close()
     pool.join()

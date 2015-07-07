@@ -72,7 +72,7 @@ class TestBaseNode(TestCase):
 #
 
 class FakeNode(BaseNode):
-    template = "hello{{child_html}}"
+    template = "hello{{child_rst}}"
 
 
 class FakeChildNode(BaseNode):

@@ -49,7 +49,7 @@ def get_file_contents(file):
 
 
 def get_inline_code(node):
-    return node.to_html()
+    return node.to_rst()
 
 
 def get_media_type(node):
