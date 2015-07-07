@@ -35,7 +35,11 @@ This table shows the body parameters for the request:
 {% endif %}
 
 {% for item in request_examples %}
+{% if not item['title'] %}
 **Example  {{title}}: {{item['type']}} request**
+{% else %}
+**Example {{item['title']}}**
+{% endif %}
 
 .. code::
 
@@ -51,10 +55,13 @@ This table shows the body parameters for the response:
 {% endif %}
 
 {% for item in response_examples %}
-**Example  {{title}}: {{item['type']}} response**
+{% if not item['title'] %}
+**Example  {{title}}: {{item['type']}} request**
+{% else %}
+**Example {{item['title']}}**
+{% endif %}
 
 .. code::
 
 {{item['code']}}
-
 {% endfor %}

@@ -130,10 +130,16 @@ class MethodNode(BaseNode):
         for rep in reps:
             clone.remove_child(rep)
 
-        doc_node = node.find_one_of(self.document_node_names)
+        title = ""
+
+        try:
+            doc_node = node.find_one_of(self.document_node_names)
+            title = doc_node.attributes.get('title', '')
+        except ValueError, e:
+            title = ""
 
         return [
             node.attributes['status'],
-            doc_node.attributes.get('title', ''),
+            title,
             clone.to_rst()
         ]

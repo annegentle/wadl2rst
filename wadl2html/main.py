@@ -120,7 +120,7 @@ def convert_ir_to_rst(ir, output_dir):
         print "Generating file: {}".format(full_path)
 
         with open(full_path, 'w') as f:
-            f.write(rst)
+            f.write(rst.encode('utf-8', 'ignore'))
 
 
 def get_method_nodes(memory, node):
