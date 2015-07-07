@@ -3,7 +3,7 @@ import functools
 
 from unittest import TestCase
 
-from wadl2html.nodes.response import ResponseNode
+from wadl2rst.nodes.response import ResponseNode
 
 
 class TestResponseNode(TestCase):

@@ -4,7 +4,7 @@ from nose.tools import raises
 
 from unittest import TestCase
 
-from wadl2html.nodes.base import BaseNode
+from wadl2rst.nodes.base import BaseNode
 
 
 class TestBaseNode(TestCase):
@@ -21,16 +21,16 @@ class TestBaseNode(TestCase):
         self.assertEquals(0, len(self.parent_node.children))
 
     def test_should_render_no_children(self):
-        result = self.single_node.to_html()
+        result = self.single_node.to_rst()
         self.assertEquals("hello", result)
 
     def test_should_render_with_children(self):
-        result = self.parent_node.to_html()
+        result = self.parent_node.to_rst()
         self.assertEquals("hello world", result)
 
     def test_should_handle_attributes(self):
         node = FakeAttributeNode(None, "test", {'foo': 'bar'})
-        result = node.to_html()
+        result = node.to_rst()
         self.assertEquals("bar", result)
 
     def test_should_find_first_no_results(self):
@@ -68,7 +68,7 @@ class TestBaseNode(TestCase):
 #
 
 class FakeNode(BaseNode):
-    template = "hello{{child_html}}"
+    template = "hello{{child_rst}}"
 
 
 class FakeChildNode(BaseNode):

@@ -6,15 +6,15 @@ import functools
 import os
 import sys
 
-from wadl2html import tree
-from wadl2html.transformations.cleanup_application_node import cleanup_application_node
-from wadl2html.transformations.collapse_resources import collapse_resources
-from wadl2html.transformations.invert_method import invert_method
-from wadl2html.transformations.resolve_external_code import resolve_external_code
-from wadl2html.transformations.resolve_internal import resolve_internal
-from wadl2html.transformations.wrap_code_elements import wrap_code_elements
-from wadl2html.transformations.wrap_param_elements import wrap_param_elements
-from wadl2html.transformations.wrap_response_elements import wrap_response_elements
+from wadl2rst import tree
+from wadl2rst.transformations.cleanup_application_node import cleanup_application_node
+from wadl2rst.transformations.collapse_resources import collapse_resources
+from wadl2rst.transformations.invert_method import invert_method
+from wadl2rst.transformations.resolve_external_code import resolve_external_code
+from wadl2rst.transformations.resolve_internal import resolve_internal
+from wadl2rst.transformations.wrap_code_elements import wrap_code_elements
+from wadl2rst.transformations.wrap_param_elements import wrap_param_elements
+from wadl2rst.transformations.wrap_response_elements import wrap_response_elements
 
 
 def main():

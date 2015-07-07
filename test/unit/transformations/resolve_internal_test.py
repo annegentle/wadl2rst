@@ -1,8 +1,8 @@
 
 from unittest import TestCase
 
-from wadl2html import tree
-from wadl2html.transformations.resolve_internal import resolve_internal
+from wadl2rst import tree
+from wadl2rst.transformations.resolve_internal import resolve_internal
 
 
 class ResolveInternalTest(TestCase):

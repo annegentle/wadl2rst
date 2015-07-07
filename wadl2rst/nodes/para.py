@@ -1,7 +1,7 @@
 
 import re
 
-from wadl2html.nodes.base import BaseNode
+from wadl2rst.nodes.base import BaseNode
 
 COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,.)")
 
@@ -9,7 +9,7 @@ COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,.)")
 class ParaNode(BaseNode):
 
     def to_rst(self):
-        """ Return the html representation of this tag and it's children. """
+        """ Return the rst representation of this tag and it's children. """
 
         child_rst = " ".join([child.to_rst() for child in self.children])
 

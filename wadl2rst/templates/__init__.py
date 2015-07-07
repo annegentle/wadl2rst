@@ -18,7 +18,7 @@ class Data(dict):
             keep_trailing_newline=True,
         )
 
-        glob_path = os.path.join(resource_filename('wadl2html', 'templates'), '*.jinja')
+        glob_path = os.path.join(resource_filename('wadl2rst', 'templates'), '*.jinja')
 
         for file_path in glob.glob(glob_path):
             name_parts = os.path.basename(file_path).split('.')[0:-1]

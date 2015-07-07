@@ -1,7 +1,7 @@
 
 
 class BaseNode(object):
-    """ Base Node. This represents a node in the html output. """
+    """ Base Node. This represents a node in the rst output. """
 
     def __init__(self, parent, name, attributes):
         self.parent = parent
@@ -91,7 +91,7 @@ class BaseNode(object):
             child.visit(function)
 
     def to_rst(self):
-        """ Return the html representation of this tag and it's children. """
+        """ Return the rst representation of this tag and it's children. """
 
         child_rst = "".join([child.to_rst() for child in self.children])
         return child_rst

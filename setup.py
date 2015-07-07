@@ -18,7 +18,7 @@ setup_requires = [
 # See: http://bashelton.com/2009/04/setuptools-tutorial/ for a nice
 # setuptools tutorial.
 setup(
-    name="wadl2html",
+    name="wadl2rst",
     version="0.1",
 
     # packaging info
@@ -31,7 +31,7 @@ setup(
 
     entry_points={
         'console_scripts': [
-            'wadl2html = wadl2html.main:main'
+            'wadl2rst = wadl2rst.main:main'
         ]
     },
 

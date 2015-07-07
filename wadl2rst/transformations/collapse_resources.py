@@ -1,8 +1,8 @@
 
 import functools
 
-from wadl2html.nodes.base import BaseNode
-from wadl2html.nodes.parameters import ParametersNode
+from wadl2rst.nodes.base import BaseNode
+from wadl2rst.nodes.parameters import ParametersNode
 
 
 def collapse_resources(tree):
