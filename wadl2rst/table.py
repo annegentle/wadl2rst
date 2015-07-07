@@ -39,14 +39,13 @@ def create_table(columns, data):
 
 
 def calculate_column_sizes(columns, rows):
-    """ Based on the columns and their names, split the spaces reasonably evenly.
-    TODO: this doesn't handle when the column space is smaller than the titles."""
+    """ Based on the columns and their names, split the spaces reasonably evenly. """
 
     markup_length = (len(columns) - 1) * len(SEPERATOR) + len(START_DELIMITER) + len(END_DELIMITER)
     column_space = 80 - markup_length
     column_sizes = []
 
-    # grab the base column sizes
+    # grab the base column sizes, adding a character for slop
     for idx, column in enumerate(columns):
         column_sizes.append(len(column) + 1)
 
@@ -71,9 +70,7 @@ def calculate_column_sizes(columns, rows):
 
 
 def formatted_row(column_sizes, row):
-    """ Given a row and specified column sizes, return a properly formatted row.
-    TODO: this may eventually want to try to split on spaces instead of just
-    wherever. """
+    """ Given a row and specified column sizes, return a properly formatted row. """
 
     output = []
     row_state = copy.deepcopy(row)
@@ -155,6 +152,14 @@ def split_sentence(column_size, cell):
     # if the total cell sizes are smaller the the column size, just return it
     if len("".join(cell)) < column_size:
         return (cell, [])
+
+    # if any of the items in the cell are >= the column size, we'll need to fail
+    max_word_size = len(max(cell, key=len))
+    if max_word_size > column_size:
+        raise ValueError("Cell {} has a word greater than or equal to the column size {}".format(
+            cell,
+            column_size
+        ))
 
     text = []
     rest = copy.deepcopy(cell)

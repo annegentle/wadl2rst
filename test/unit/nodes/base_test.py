@@ -20,19 +20,6 @@ class TestBaseNode(TestCase):
         self.parent_node.remove_child(self.child_node)
         self.assertEquals(0, len(self.parent_node.children))
 
-    def test_should_render_no_children(self):
-        result = self.single_node.to_rst()
-        self.assertEquals("hello", result)
-
-    def test_should_render_with_children(self):
-        result = self.parent_node.to_rst()
-        self.assertEquals("hello world", result)
-
-    def test_should_handle_attributes(self):
-        node = FakeAttributeNode(None, "test", {'foo': 'bar'})
-        result = node.to_rst()
-        self.assertEquals("bar", result)
-
     def test_should_find_first_no_results(self):
         result = self.parent_node.find_first("no")
         self.assertEquals(result, None)
@@ -47,6 +34,19 @@ class TestBaseNode(TestCase):
         self.assertNotEquals(id(self.parent_node), id(clone))
         self.assertNotEquals(id(self.child_node), id(clone.children[0]))
 
+    def test_should_find_nodes(self):
+        nodes = self.parent_node.find("child")
+        self.assertIn(self.child_node, nodes)
+
+    def test_should_find_each_nodes(self):
+        other_child = FakeChildNode(self.parent_node, "other_child", {})
+        self.parent_node.children.append(other_child)
+
+        nodes = self.parent_node.find_each(["child", "other_child"])
+
+        self.assertIn(self.child_node, nodes)
+        self.assertIn(other_child, nodes)
+
     def test_visitor_should_visit_nodes(self):
         nodes = []
         func = functools.partial(fake_visit, nodes)
@@ -58,6 +58,10 @@ class TestBaseNode(TestCase):
     def test_find_one_of(self):
         actual = self.parent_node.find_one_of(["child"])
         self.assertEquals(actual, self.child_node)
+
+    def test_repr(self):
+        expected = "<FakeNode name='parent' attributes='{}'>"
+        self.assertEquals(expected, str(self.parent_node))
 
     @raises(ValueError)
     def test_find_one_of_not_exists(self):
