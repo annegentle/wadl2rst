@@ -37,7 +37,6 @@ class MethodNode(BaseNode):
             "docs_rst": document_node.to_rst(),
             "filename": "",
             "http_method": self.attributes.get("name", ''),
-            "method_table": None,
             "query_table": None,
             "request_examples": [],
             "responses_table": None,
@@ -83,9 +82,6 @@ class MethodNode(BaseNode):
                 example = representation.to_example()
                 if example is not None:
                     output['response_examples'].append(example)
-
-        # handle the method table
-        output['method_table'] = self.get_method_table(output)
 
         # handle responses nodes
         responses = [self.get_response_info(child) for child in responses_node.children]
