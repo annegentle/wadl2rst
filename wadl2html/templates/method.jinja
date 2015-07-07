@@ -1,13 +1,60 @@
-<div id="{{method_id}}" class="method">
-    {{docs_html}}
+=============================================================================
+{{title}}  - {{book_title}} - API v2.2
+=============================================================================
 
-    <div class="method_signature">
-        <h3>Method Signature</h3>
-        <div class="method_signature_info">
-            {{method_name}} {{full_path}}
-        </div>
-    </div>
+{{title}}
+~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    {{params_html}}
-    {{child_html}}
-</div>
+`Request <{{filename}}#request>`__
+`Response <{{filename}}#response>`__
+
+{{method_table}}
+
+{{docs_rst}}
+
+This table shows the possible response codes for this operation:
+
+{{responses_table}}
+
+Request
+^^^^^^^^^^^^^^^^^
+
+{% if uri_table -%}
+This table shows the URI parameters for the request:
+{{uri_table}}
+{%- endif %}
+
+{% if query_table %}
+This table shows the query parameters for the request:
+{{query_table}}
+{% endif %}
+
+{% if body_table %}
+This table shows the body parameters for the request:
+{{body_table}}
+{% endif %}
+
+{% for item in request_examples %}
+**Example  {{title}}: {{item['type']}} request**
+
+.. code::
+
+{{item['code']}}
+{% endfor %}
+
+Response
+^^^^^^^^^^^^^^^^^^
+
+{% if response_table %}
+This table shows the body parameters for the response:
+{{response_table}}
+{% endif %}
+
+{% for item in response_examples %}
+**Example  {{title}}: {{item['type']}} response**
+
+.. code::
+
+{{item['code']}}
+
+{% endfor %}

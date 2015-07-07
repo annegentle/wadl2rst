@@ -1,91 +1,139 @@
 
-import jinja2
 import re
 
+from wadl2html import table
 from wadl2html.nodes.base import BaseNode
 from wadl2html.templates import templates
 
 
+FILENAME_TITLE = re.compile(r" ")
+FILENAME_PATH = re.compile(r"/|{|}")
+FILENAME_UNDERSCORES = re.compile(r"[_]+")
+
+
 class MethodNode(BaseNode):
     template = templates['method']
-    doc_names = ["wadl:doc", "doc"]
+    document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
 
-    def get_filename(self):
-        args = self.get_template_arguments()
+    def to_rst(self):
+        """ Return the html representation of this tag and it's children. """
 
-        title = args['title'].strip().lower()
-        title = re.sub(ur" ", "_", title)
+        return self.template.render(**self.template_params())
 
-        full_path = args['full_path'].strip().lower()
-        full_path = re.sub(ur"/", "_", full_path)
-        full_path = re.sub(ur"{", "", full_path)
-        full_path = re.sub(ur"}", "", full_path)
-
-        http_method = args['http_method'].strip()
-
-        output = "{}_{}_{}.html".format(http_method, title, full_path)
-        output = re.sub(ur"__", "_", output)
-        return output
-
-    def to_html(self):
-        # this was a link that could not be resolved, so don't show anything
-        if "href" in self.attributes:
-            return ""
-
-        template = jinja2.Template(self.template)
-        return template.render(**self.get_template_arguments())
-
-    def get_template_arguments(self):
-        """ Get the arguments for the jinja2 template.  Since the wadls vary so
-        widly, this is written to be super defensive. """
-
-        resource = None
-        params = None
-        docs = None
-        short_desc = None
-        method_id = self.attributes.get("id", "")
-
+    def template_params(self):
         try:
-            resource = self.find_first("resource")
-            params = resource.find_first("params")
-            docs = self.find_one_of(self.doc_names)
-            short_desc = docs.find_one_of(self.para_names)
+            document_node = self.find_one_of(self.document_node_names)
+            short_desc_node = document_node.find_one_of(self.para_names)
+            resource_node = self.find_first("resource")
+            responses_node = self.find_first("responses")
+            request_node = self.find_first("request")
         except Exception:
             # we handle failures here below
             pass
 
-        # defaults for the output
         output = {
-            "child_html": "",
-            "docs_html": "",
-            "full_path": "",
-            "method_id": method_id,
-            "method_name": "",
-            "params_html": "",
-            "title": ""
+            "body_table": None,
+            "docs_rst": document_node.to_rst(),
+            "filename": "",
+            "http_method": self.attributes.get("name", ''),
+            "method_table": None,
+            "query_table": None,
+            "request_examples": [],
+            "responses_table": None,
+            "response_examples": [],
+            "short_desc": short_desc_node.to_rst(),
+            "title": document_node.attributes.get("title", '').title(),
+            "uri_table": None,
+            "uri": resource_node.attributes.get("full_path", ''),
         }
 
-        if docs is not None:
-            output["docs_html"] = docs.to_html()
+        # setup the resource node stuff
+        if resource_node is not None:
+            uri_params = resource_node.find_first("params")
+            if uri_params is not None:
+                output['uri_table'] = uri_params.to_table()
 
-            if "title" in docs.attributes:
-                output["title"] = docs.attributes['title']
+        # setup some request node stuff
+        if request_node is not None:
+            request_params = request_node.find_first("params")
 
-        if short_desc is not None:
-            output["desc_html"] = short_desc.to_html()
+            if request_params is not None:
+                output['query_table'] = request_params.to_table("query")
+                output['body_table'] = request_params.to_table("plain")
 
-        if "name" in self.attributes:
-            output["http_method"] = self.attributes['name']
+            # stash any request examples
+            representations = request_node.find("representation")
+            for representation in representations:
+                example = representation.to_example()
+                if example is not None:
+                    output['request_examples'].append(example)
 
-        if (resource is not None) and ("full_path" in resource.attributes):
-            output["full_path"] = resource.attributes['full_path']
+        # setup the reponses node stuff
+        if responses_node is not None:
+            response_params = responses_node.find_first("params")
 
-        for child in self.children:
-            # skip these, we're placing them manually
-            if child in [docs, resource, params]:
-                continue
+            # stash the responses table
+            if response_params is not None:
+                output['response_table'] = response_params.to_table("plain")
 
-            output['child_html'] += child.to_html()
+            # stash any response examples
+            representations = responses_node.find("representation")
+            for representation in representations:
+                example = representation.to_example()
+                if example is not None:
+                    output['response_examples'].append(example)
+
+        # handle the method table
+        output['method_table'] = self.get_method_table(output)
+
+        # handle responses nodes
+        responses = [self.get_response_info(child) for child in responses_node.children]
+        output['responses_table'] = self.get_responses_table(responses)
+
+        # create the filename
+        output['filename'] = self.get_filename(output, 'html')
 
         return output
+
+    def get_filename(self, data=None, extention="rst"):
+        http_method = data['http_method']
+
+        title = FILENAME_TITLE.sub("_", data['title'].lower())
+        uri = FILENAME_PATH.sub("_", data['uri'].lower())
+
+        output = "{}_{}_{}.{}".format(
+            http_method,
+            title,
+            uri,
+            extention
+        )
+
+        output = FILENAME_UNDERSCORES.sub("_", output)
+        return output
+
+    def get_method_table(self, data):
+        columns = ["Method", "URI", "Description"]
+        http_method = "**{}**".format(data['http_method'])
+        uri = "``{}``".format(data['uri'])
+        desc = data['short_desc']
+        return table.create_table(columns, [[http_method, uri, desc]])
+
+    def get_responses_table(self, responses):
+        columns = ["Response Code", "Name", "Description"]
+        return table.create_table(columns, responses)
+
+    def get_response_info(self, node):
+        clone = node.clone()
+
+        reps = [child for child in clone.children if child.name == "representation"]
+        for rep in reps:
+            clone.remove_child(rep)
+
+        doc_node = node.find_one_of(self.document_node_names)
+
+        return [
+            node.attributes['status'],
+            doc_node.attributes.get('title', ''),
+            clone.to_rst()
+        ]

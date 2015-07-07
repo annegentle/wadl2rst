@@ -4,7 +4,6 @@
 import argparse
 import functools
 import os
-import shutil
 import sys
 
 from wadl2html import tree
@@ -13,13 +12,14 @@ from wadl2html.transformations.collapse_resources import collapse_resources
 from wadl2html.transformations.invert_method import invert_method
 from wadl2html.transformations.resolve_external_code import resolve_external_code
 from wadl2html.transformations.resolve_internal import resolve_internal
+from wadl2html.transformations.wrap_code_elements import wrap_code_elements
 from wadl2html.transformations.wrap_param_elements import wrap_param_elements
 from wadl2html.transformations.wrap_response_elements import wrap_response_elements
 
 
 def main():
     """ Application entry point.
-    Collects the command line options and passes them to wadl2html for
+    Collects the command line options and passes them to wadl2rst for
     processing. """
 
     # get our arguments from the command line
@@ -31,15 +31,15 @@ def main():
     # execute our transfomations against the ir
     execute_translations(ir, args.wadl_file)
 
-    # convert it into HTML
-    convert_ir_to_html(ir, args.output_dir)
+    # convert it into rst
+    convert_ir_to_rst(ir, args.output_dir)
 
 
 def parse_arguments():
     """Parses the command line options."""
 
     parser = argparse.ArgumentParser(
-        description="""Given a wadl, return the html representation""")
+        description="""Given a wadl, return the rst representation""")
 
     parser.add_argument("wadl_file",
                         type=argparse.FileType('r'),
@@ -81,6 +81,9 @@ def execute_translations(ir, wadl_file):
     # resolve the internal references in the tree
     resolve_internal(ir)
 
+    # make sure all the code elements are wrapped in samples
+    wrap_code_elements(ir)
+
     # resolve the external code references
     path = os.path.abspath(os.path.dirname(wadl_file.name))
     resolve_external_code(path, ir)
@@ -98,8 +101,8 @@ def execute_translations(ir, wadl_file):
     cleanup_application_node(ir)
 
 
-def convert_ir_to_html(ir, output_dir):
-    """Create an HTML file in the output_dir for each method node in the IR."""
+def convert_ir_to_rst(ir, output_dir):
+    """Create an rst file in the output_dir for each method node in the IR."""
 
     path = os.path.abspath(output_dir)
 
@@ -109,12 +112,15 @@ def convert_ir_to_html(ir, output_dir):
     ir.visit(method_nodes_visitor)
 
     for node in method_nodes:
-        html = node.to_html()
-        full_path = os.path.join(path, node.get_filename())
+        rst = node.to_rst()
+        params = node.template_params()
+        filename = node.get_filename(params, "rst")
+        full_path = os.path.join(path, filename)
 
         print "Generating file: {}".format(full_path)
+
         with open(full_path, 'w') as f:
-            f.write(html)
+            f.write(rst)
 
 
 def get_method_nodes(memory, node):

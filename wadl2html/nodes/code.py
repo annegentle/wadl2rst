@@ -1,7 +1,11 @@
 
 from wadl2html.nodes.base import BaseNode
-from wadl2html.templates import templates
 
 
 class CodeNode(BaseNode):
-    template = templates['code']
+
+    def to_rst(self):
+        """ Return the html representation of this tag and it's children. """
+
+        child_rst = " ".join([child.to_rst() for child in self.children])
+        return "``" + child_rst + "``"

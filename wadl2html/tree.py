@@ -1,7 +1,6 @@
 
 import xml.parsers.expat
 
-from wadl2html.nodes.application import ApplicationNode
 from wadl2html.nodes.base import BaseNode
 from wadl2html.nodes.char import CharNode
 from wadl2html.nodes.code import CodeNode
@@ -13,22 +12,16 @@ from wadl2html.nodes.note import NoteNode
 from wadl2html.nodes.para import ParaNode
 from wadl2html.nodes.parameter import ParameterNode
 from wadl2html.nodes.parameters import ParametersNode
-from wadl2html.nodes.request import RequestNode
-from wadl2html.nodes.responses import ResponsesNode
-from wadl2html.nodes.response import ResponseNode
-from wadl2html.nodes.wadl_doc import WadlDocNode
+from wadl2html.nodes.representation import RepresentationNode
 
 
 class ParserState(object):
 
     node_mapping = {
-        "application": ApplicationNode,
         "code": CodeNode,
         "replaceable": CodeNode,
         "command": CodeNode,
         "errorcode": CodeNode,
-        "grammars": BaseNode,
-        "include": BaseNode,
         "itemizedlist": ItemizedListNode,
         "link": LinkNode,
         "listitem": ListItemNode,
@@ -38,16 +31,8 @@ class ParserState(object):
         "param": ParameterNode,
         "params": ParametersNode,
         "parameter": CodeNode,
-        "representation": BaseNode,
-        "request": BaseNode,
-        "resource": BaseNode,
-        "resources": BaseNode,
-        "response": ResponseNode,
-        "responses": ResponsesNode,
-        "request": RequestNode,
-        "root": BaseNode,
+        "representation": RepresentationNode,
         "literal": CodeNode,
-        "wadl:doc": WadlDocNode,
         "warning": CodeNode
     }
 

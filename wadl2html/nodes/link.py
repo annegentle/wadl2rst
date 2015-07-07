@@ -1,7 +1,16 @@
 
 from wadl2html.nodes.base import BaseNode
-from wadl2html.templates import templates
 
 
 class LinkNode(BaseNode):
-    template = templates['link']
+
+    def to_rst(self):
+        """ Return the html representation of this tag and it's children. """
+
+        child_rst = "".join([child.to_rst() for child in self.children])
+        href = self.attributes.get("href")
+
+        if href is None:
+            href = self.attributes.get("xlink:href")
+
+        return "`{} <{}>`__".format(child_rst, href)

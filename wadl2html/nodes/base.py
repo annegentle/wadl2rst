@@ -1,13 +1,7 @@
 
-import jinja2
-
-from wadl2html.templates import templates
-
 
 class BaseNode(object):
     """ Base Node. This represents a node in the html output. """
-
-    template = templates['default']
 
     def __init__(self, parent, name, attributes):
         self.parent = parent
@@ -36,6 +30,25 @@ class BaseNode(object):
 
         return clone
 
+    def find(self, name):
+        # TODO: use everywhere
+        nodes = []
+
+        def finder(node):
+            if (node.name == name):
+                nodes.append(node)
+
+        self.visit(finder)
+        return nodes
+
+    def find_each(self, names):
+        output = []
+
+        for name in names:
+            output.extend(self.find(name))
+
+        return output
+
     def find_first(self, name):
         """ Do a breadth-first search for a node with the specified name. """
 
@@ -56,7 +69,12 @@ class BaseNode(object):
         output = None
 
         for name in names:
-            output = self.find_first(name)
+            for child in self.children:
+                if child.name == name:
+                    return child
+
+        for child in self.children:
+            output = child.find_one_of(names)
             if output is not None:
                 return output
 
@@ -72,13 +90,12 @@ class BaseNode(object):
         for child in self.children:
             child.visit(function)
 
-    def to_html(self):
+    def to_rst(self):
         """ Return the html representation of this tag and it's children. """
 
-        child_html = " ".join([child.to_html() for child in self.children])
+        child_rst = "".join([child.to_rst() for child in self.children])
+        return child_rst
 
-        template = jinja2.Template(self.template)
-        return template.render(node=self,
-                               node_name=self.name,
-                               attributes=self.attributes,
-                               child_html=child_html)
+    def __repr__(self):
+        class_name = self.__class__.__name__
+        return "<{} name='{}' attributes='{}'>".format(class_name, self.name, self.attributes)
