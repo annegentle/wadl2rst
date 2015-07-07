@@ -5,10 +5,15 @@ from wadl2rst.nodes.base import BaseNode
 class ParameterNode(BaseNode):
 
     def get_table_row(self):
-        type = self.attributes.get('type', '')
+        param_type = self.attributes.get('type', '')
         name = self.attributes.get('name', '')
 
         if self.attributes.get('style', '') == "template":
             name = "{" + name + "}"
 
-        return [name, type, self.to_rst()]
+        necessity = self.attributes.get('required', None)
+        if necessity is not None:
+            necessity = 'Required' if necessity else 'Optional'
+            param_type += " *({})*".format(necessity)
+
+        return [name, param_type, self.to_rst()]
