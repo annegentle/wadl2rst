@@ -14,10 +14,10 @@ FILENAME_UNDERSCORES = re.compile(r"[_]+")
 class MethodNode(BaseNode):
     template = templates['method']
     document_node_names = ["wadl:doc", "doc"]
-    para_names = ["para", "p", "db:para", "xhtml:p"]
+    para_names = ["para", "p", "db:para", "xrst:p"]
 
     def to_rst(self):
-        """ Return the html representation of this tag and it's children. """
+        """ Return the rst representation of this tag and it's children. """
 
         return self.template.render(**self.template_params())
 
@@ -92,7 +92,7 @@ class MethodNode(BaseNode):
         output['responses_table'] = self.get_responses_table(responses)
 
         # create the filename
-        output['filename'] = self.get_filename(output, 'html')
+        output['filename'] = self.get_filename(output, 'rst')
 
         return output
 
