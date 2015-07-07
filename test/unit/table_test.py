@@ -49,7 +49,7 @@ class TestIsOutputPlusWordOk(TestCase):
 
     def test_equal_to_column_size(self):
         output = table.is_output_plus_word_ok(5, [""], "-" * 5)
-        self.assertTrue(not output)
+        self.assertTrue(output)
 
     def test_greater_than_column_size(self):
         output = table.is_output_plus_word_ok(5, [""], "-" * 6)
@@ -69,8 +69,8 @@ class TestSplitSentence(TestCase):
 
     def test_split_sentence_in_half(self):
         text, rest = table.split_sentence(3, self.cell)
-        self.assertEquals(text, ["1", "2"])
-        self.assertEquals(rest, ["3", "4", "5", "6"])
+        self.assertEquals(text, ["1", "2", "3"])
+        self.assertEquals(rest, ["4", "5", "6"])
 
     @raises(ValueError)
     def test_pathological_case(self):
@@ -114,7 +114,7 @@ class TestFormattedRow(TestCase):
         self.assertEquals("|foo  |bar  |baz  |", output[0])
 
     def test_handle_word_wrap(self):
-        self.rows[0] += " new"
+        self.rows[0].append("new")
         output = table.formatted_row(self.column_sizes, self.rows)
         self.assertEquals(len(output), 2)
         self.assertEquals("|foo  |bar  |baz  |", output[0])

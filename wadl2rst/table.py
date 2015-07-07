@@ -155,7 +155,7 @@ def split_sentence(column_size, cell):
 
     # if any of the items in the cell are >= the column size, we'll need to fail
     max_word_size = len(max(cell, key=len))
-    if max_word_size >= column_size:
+    if max_word_size > column_size:
         raise ValueError("Cell {} has a word greater than or equal to the column size {}".format(
             cell,
             column_size
