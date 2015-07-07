@@ -3,7 +3,7 @@ import re
 
 from wadl2rst.nodes.base import BaseNode
 
-COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,.)")
+COMMA_CLEANUP = re.compile("[\s]+(?P<foo>,|\.)")
 
 
 class ParaNode(BaseNode):
