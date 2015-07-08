@@ -9,10 +9,38 @@ Mockup to correlate WADL code with transformed rst output created.
 
 [WADL Reference](http://www.w3.org/Submission/wadl/)
 
-## Command Line
+## Command Line Usage
 
-    xmllint -noent [input file] > [output file]
-    wadl2rst [title] [WADL file] [output directory]
+    usage: wadl2rst [-h] [--version] [config_file]
+
+    Given a config file, generate rST based on the WADLs contained therein. If
+    there is no config_file given, it will look for a file named
+    'wadl2html.config.yaml' in the current working directory.
+
+    positional arguments:
+     config_file  configuration file containing information to run
+
+    optional arguments:
+     -h, --help   show this help message and exit
+     --version    print the version of the application and exit
+
+## Config file Format
+
+File format:
+
+    [wadl_path]:
+        title: [book_title]
+        output_directory: [output_directory]
+
+- *wadl_path*: Path to the wadl file to process, can be relative or absolute
+- *book_title*: Book title as shown on the title of the rST pages
+- *output_directory*: Target directory to put the results into, can be relative or absolute
+
+File format example:
+
+    samples/cloud-load-balancers/wadl/rax-cloudLoadBalancers-api-v1.wadl:
+        title: Rackspace Cloud Load Balancers Developer Guide - API v1.0
+        output_directory: dist/cloud_load_balancers
 
 ## Developer Setup
 
