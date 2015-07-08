@@ -49,7 +49,6 @@ class MethodNode(BaseNode):
             "docs_rst": "",
             "filename": "",
             "http_method": self.attributes.get("name", ''),
-            "method_table": None,
             "query_table": None,
             "request_examples": [],
             "responses_table": None,
@@ -108,9 +107,6 @@ class MethodNode(BaseNode):
                 if example is not None:
                     output['response_examples'].append(example)
 
-        # handle the method table
-        output['method_table'] = self.get_method_table(output)
-
         # create the filename
         output['filename'] = self.get_filename(output, 'rst')
 
@@ -131,13 +127,6 @@ class MethodNode(BaseNode):
 
         output = FILENAME_UNDERSCORES.sub("_", output)
         return output
-
-    def get_method_table(self, data):
-        columns = ["Method", "URI", "Description"]
-        http_method = "**{}**".format(data['http_method'])
-        uri = "``{}``".format(data['uri'])
-        desc = data['short_desc']
-        return table.create_table(columns, [[http_method, uri, desc]])
 
     def get_responses_table(self, responses):
         columns = ["Response Code", "Name", "Description"]

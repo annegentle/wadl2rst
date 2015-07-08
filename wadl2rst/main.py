@@ -143,7 +143,6 @@ def convert_ir_to_rst(ir, output_dir, book_title):
     method_nodes = ir.find("method")
 
     for node in method_nodes:
-        print node.attributes
         rst = node.to_rst(book_title)
 
         if rst == "":
