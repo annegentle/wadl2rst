@@ -14,27 +14,39 @@ FILENAME_UNDERSCORES = re.compile(r"[_]+")
 class MethodNode(BaseNode):
     template = templates['method']
     document_node_names = ["wadl:doc", "doc"]
-    para_names = ["para", "p", "db:para", "xrst:p"]
+    para_names = ["para", "p", "db:para", "xhtml:p"]
 
     def to_rst(self, book_title):
         """ Return the rst representation of this tag and it's children. """
 
+        if "href" in self.attributes:
+            print "Unresolved method {}".format(self.attributes['href'])
+            return ""
+
         return self.template.render(book_title=book_title, **self.template_params())
 
     def template_params(self):
+
+        resource_node = None
+        responses_node = None
+        request_node = None
+        document_node = None
+        short_desc_node = None
+
         try:
-            document_node = self.find_one_of(self.document_node_names)
-            short_desc_node = document_node.find_one_of(self.para_names)
             resource_node = self.find_first("resource")
             responses_node = self.find_first("responses")
             request_node = self.find_first("request")
+            document_node = self.find_one_of(self.document_node_names)
+            short_desc_node = document_node.find_one_of(self.para_names)
         except Exception:
             # we handle failures here below
             pass
 
+
         output = {
             "body_table": None,
-            "docs_rst": document_node.to_rst(),
+            "docs_rst": "",
             "filename": "",
             "http_method": self.attributes.get("name", ''),
             "method_table": None,
@@ -42,14 +54,22 @@ class MethodNode(BaseNode):
             "request_examples": [],
             "responses_table": None,
             "response_examples": [],
-            "short_desc": short_desc_node.to_rst(),
-            "title": document_node.attributes.get("title", '').title(),
+            "short_desc": "",
+            "title": "",
             "uri_table": None,
-            "uri": resource_node.attributes.get("full_path", ''),
+            "uri": "",
         }
+
+        if document_node is not None:
+            output['docs_rst'] = document_node.to_rst()
+            output['title'] = document_node.attributes.get("title", '').title()
+
+        if short_desc_node is not None:
+            output['short_desc'] = short_desc_node.to_rst()
 
         # setup the resource node stuff
         if resource_node is not None:
+            output['uri'] = resource_node.attributes.get("full_path", '')
             uri_params = resource_node.find_first("params")
             if uri_params is not None:
                 output['uri_table'] = uri_params.to_table()
@@ -77,6 +97,10 @@ class MethodNode(BaseNode):
             if response_params is not None:
                 output['response_table'] = response_params.to_table("plain")
 
+            # handle responses nodes
+            responses = [self.get_response_info(child) for child in responses_node.children]
+            output['responses_table'] = self.get_responses_table(responses)
+
             # stash any response examples
             representations = responses_node.find("representation")
             for representation in representations:
@@ -86,10 +110,6 @@ class MethodNode(BaseNode):
 
         # handle the method table
         output['method_table'] = self.get_method_table(output)
-
-        # handle responses nodes
-        responses = [self.get_response_info(child) for child in responses_node.children]
-        output['responses_table'] = self.get_responses_table(responses)
 
         # create the filename
         output['filename'] = self.get_filename(output, 'rst')

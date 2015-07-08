@@ -120,16 +120,19 @@ def resolve_entities(wadl):
         print e
 
 
-def convert_to_rst(wadl, title):
+def convert_to_rst(wadl):
     """ use wadl2rst to convert the resolved wadl into an rst page. """
 
     # get the name of the wadl output
     file_name = os.path.split(wadl)[-1]
     file_base = re.sub('\.resolved.wadl$', '', file_name)
-    output_dir = os.path.join(output_dir, file_base)
+    book_dir = os.path.join(output_dir, file_base)
+
+    print wadl
 
     try:
-        cmd = ["wadl2rst", "Book Title Placeholder", wadl, output_dir]
+        os.mkdir(book_dir)
+        cmd = ["wadl2rst", "Book Title Placeholder", wadl, book_dir]
         subprocess.check_output(cmd)
 
     except Exception, e:
