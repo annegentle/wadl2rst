@@ -1,13 +1,10 @@
 # wadl2rst
 
-Automates the process of taking the development wadl information from the
-products and turning it into rst.
+Automates the process of taking the WADL API information and outputting it as rST.
 
-[DevDoc Inventory](https://docs.google.com/spreadsheets/d/1tOHqx7xkDZ755f3PNUeXljoRRgCTNm_olwyKT6PFgb4/edit#gid=103489210) -
+## Installation
 
-Mockup to correlate WADL code with transformed rst output created.
-
-[WADL Reference](http://www.w3.org/Submission/wadl/)
+    pip install -e git+git@github.rackspace.com:Product-DevOps/wadl2rst.git@master#egg=wadl2rst
 
 ## Command Line Usage
 
