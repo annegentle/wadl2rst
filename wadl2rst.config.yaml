@@ -1,0 +1,12 @@
+
+#
+# Example wadl2rst config file
+#
+
+samples/cloud-images/wadl/image-2.0.wadl:
+    title: Rackspace Cloud Images Developer Guide - API v2.2
+    output_directory: dist/cloud_images
+
+samples/cloud-load-balancers/wadl/rax-cloudLoadBalancers-api-v1.wadl:
+    title: Rackspace Cloud Load Balancers Developer Guide - API v1.0
+    output_directory: dist/cloud_load_balancers
