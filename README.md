@@ -12,7 +12,7 @@ Mockup to correlate WADL code with transformed rst output created.
 ## Command Line
 
     xmllint -noent [input file] > [output file]
-    wadl2rst [input file] > [output file]
+    wadl2rst [title] [WADL file] [output directory]
 
 ## Developer Setup
 

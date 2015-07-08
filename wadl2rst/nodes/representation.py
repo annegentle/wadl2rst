@@ -22,7 +22,7 @@ class RepresentationNode(BaseNode):
         code_text = char_node.attributes['text']
         output = ["    " + line for line in code_text.split("\n")]
 
-        media_type = self.attributes['mediaType']
+        media_type = self.attributes.get('mediaType', None)
         media_type = mimetype_translation.get(media_type, "JSON")
 
         return {
