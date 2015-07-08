@@ -4,6 +4,7 @@
 import argparse
 import functools
 import os
+import pkg_resources
 import sys
 
 from wadl2rst import tree
@@ -32,44 +33,76 @@ def main():
     execute_translations(ir, args.wadl_file)
 
     # convert it into rst
-    convert_ir_to_rst(ir, args.output_dir)
+    convert_ir_to_rst(ir, args.output_dir, args.title)
 
 
 def parse_arguments():
     """Parses the command line options."""
 
     parser = argparse.ArgumentParser(
-        description="""Given a wadl, return the rst representation""")
+        description="""Given a wadl file, spit out an rST file for each method.""")
+
+    parser.add_argument("--version",
+                        action="store_true",
+                        default=False,
+                        help="print the version of the application and exit")
+
+    parser.add_argument("title",
+                        type=str,
+                        help="book title",
+                        nargs="?")
 
     parser.add_argument("wadl_file",
                         type=argparse.FileType('r'),
-                        help="Input file to process.")
+                        help="input file to process",
+                        nargs="?")
 
     parser.add_argument("output_dir",
                         type=str,
-                        help="Destination directory.")
+                        help="destination directory",
+                        nargs="?")
 
     args = parser.parse_args()
+
+    if args.version:
+        print_version()
+        sys.exit(0)
+
+    validate_args(args, parser)
+    return args
+
+
+def print_version():
+    dist = pkg_resources.get_distribution("wadl2rst")
+    print "wadl2rst {}".format(dist.version)
+
+
+def validate_args(args, parser):
+
+    # title, wadl_file, and output_dir are manditory, but I couldn't set them
+    # so and allow for a version to be printed :(
+    if (not args.output_dir) or (not args.wadl_file) or (not args.title):
+        print "Error: title, wadl_file, and output_dir are all required"
+        parser.print_usage()
+        sys.exit(1)
 
     # grab the parent of the given directory
     path = os.path.abspath(args.output_dir)
 
     if not os.path.exists(path):
         print "Error: Output directory {} must exist.".format(path)
-        parser.print_help()
+        parser.print_usage()
         sys.exit(1)
 
     if not os.path.isdir(path):
         print "Error: Output directory {} must be a directory.".format(path)
-        parser.print_help()
+        parser.print_usage()
         sys.exit(1)
 
     if not os.access(path, os.W_OK):
         print "Error: Output directory {} must be writable.".format(path)
-        parser.print_help()
+        parser.print_usage()
         sys.exit(1)
-
-    return args
 
 
 def execute_translations(ir, wadl_file):
@@ -101,18 +134,20 @@ def execute_translations(ir, wadl_file):
     cleanup_application_node(ir)
 
 
-def convert_ir_to_rst(ir, output_dir):
+def convert_ir_to_rst(ir, output_dir, book_title):
     """Create an rst file in the output_dir for each method node in the IR."""
 
     path = os.path.abspath(output_dir)
 
     # get all the method nodes in the IR
-    method_nodes = []
-    method_nodes_visitor = functools.partial(get_method_nodes, method_nodes)
-    ir.visit(method_nodes_visitor)
+    method_nodes = ir.find("method")
 
     for node in method_nodes:
-        rst = node.to_rst()
+        rst = node.to_rst(book_title)
+
+        if rst == "":
+            continue
+
         params = node.template_params()
         filename = node.get_filename(params, "rst")
         full_path = os.path.join(path, filename)
@@ -121,8 +156,3 @@ def convert_ir_to_rst(ir, output_dir):
 
         with open(full_path, 'w') as f:
             f.write(rst.encode('utf-8', 'ignore'))
-
-
-def get_method_nodes(memory, node):
-    if (node.name == "method"):
-        memory.append(node)
