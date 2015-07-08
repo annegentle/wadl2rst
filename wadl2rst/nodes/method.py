@@ -16,10 +16,10 @@ class MethodNode(BaseNode):
     document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xrst:p"]
 
-    def to_rst(self):
+    def to_rst(self, book_title):
         """ Return the rst representation of this tag and it's children. """
 
-        return self.template.render(**self.template_params())
+        return self.template.render(book_title=book_title, **self.template_params())
 
     def template_params(self):
         try:

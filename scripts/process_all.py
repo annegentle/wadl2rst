@@ -79,14 +79,6 @@ def clean_build_env():
     os.mkdir(output_dir)
 
 
-def copy_css():
-    """ Copy the includes directory to the dist. """
-
-    source = os.path.join(base_dir, "includes")
-    dest = os.path.join(output_dir, "includes")
-    shutil.copytree(source, dest)
-
-
 def clone_repo(repo):
     """ clone each of the repos into the "build" repo. """
 
@@ -128,7 +120,7 @@ def resolve_entities(wadl):
         print e
 
 
-def convert_to_rst(wadl):
+def convert_to_rst(wadl, title):
     """ use wadl2rst to convert the resolved wadl into an rst page. """
 
     # get the name of the wadl output
@@ -137,7 +129,7 @@ def convert_to_rst(wadl):
     output_dir = os.path.join(output_dir, file_base)
 
     try:
-        cmd = ["wadl2rst", wadl, output_dir]
+        cmd = ["wadl2rst", "Book Title Placeholder", wadl, output_dir]
         subprocess.check_output(cmd)
 
     except Exception, e:
@@ -147,9 +139,6 @@ def convert_to_rst(wadl):
 if __name__ == "__main__":
     # cleanup our build environment
     clean_build_env()
-
-    # copy our css to the output directory
-    copy_css()
 
     # clone all the repos
     for repo in git_repos:
