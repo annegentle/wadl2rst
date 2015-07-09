@@ -20,6 +20,7 @@ class RepresentationNode(BaseNode):
             title = None
 
         code_text = char_node.attributes['text']
+
         output = ["    " + line for line in code_text.split("\n")]
 
         media_type = self.attributes.get('mediaType', None)

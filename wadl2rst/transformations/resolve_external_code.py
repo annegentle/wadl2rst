@@ -22,7 +22,7 @@ def resolve_external_code(base_path, tree):
         if 'href' in node.attributes:
             href = node.attributes['href']
             path = os.path.normpath(os.path.join(base_path, href))
-            text = get_file_contents(path)
+            text = unicode(get_file_contents(path), "utf-8")
             mimetype = get_media_type(node)
         else:
             text = get_inline_code(node)

@@ -80,7 +80,12 @@ def xml_string_to_tree(input_xml):
     """ Parse the XML string into our intermediate representation. """
 
     parser, state = setup_parser_and_state()
-    parser.Parse(input_xml, True)
+
+    try:
+        input_xml = input_xml.encode("utf-8")
+        parser.Parse(input_xml, True)
+    except Exception, e:
+        raise e
 
     if len(state.root.children) == 0:
         return None
@@ -92,7 +97,7 @@ def setup_parser_and_state():
     """ Return a configured parser and state objects. """
 
     state = ParserState()
-    parser = xml.parsers.expat.ParserCreate()
+    parser = xml.parsers.expat.ParserCreate("UTF-8")
     parser.StartElementHandler = state.start_element
     parser.EndElementHandler = state.end_element
     parser.CharacterDataHandler = state.char_data

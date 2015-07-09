@@ -6,7 +6,7 @@ from wadl2rst.nodes.base import BaseNode
 from wadl2rst.templates import templates
 
 
-FILENAME_TITLE = re.compile(r" ")
+FILENAME_TITLE = re.compile(r" |/")
 FILENAME_PATH = re.compile(r"/|{|}")
 FILENAME_UNDERSCORES = re.compile(r"[_]+")
 
@@ -19,14 +19,20 @@ class MethodNode(BaseNode):
     def to_rst(self, book_title):
         """ Return the rst representation of this tag and it's children. """
 
+        # we were not able to resolve this method, so skip it
         if "href" in self.attributes:
             print "Unresolved method {}".format(self.attributes['href'])
             return ""
 
-        return self.template.render(book_title=book_title, **self.template_params())
+        params = self.template_params()
+
+        try:
+            return self.template.render(book_title=book_title, **params)
+        except Exception, e:
+            print params
+            raise e
 
     def template_params(self):
-
         resource_node = None
         responses_node = None
         request_node = None
@@ -35,8 +41,20 @@ class MethodNode(BaseNode):
 
         try:
             resource_node = self.find_first("resource")
+        except Exception:
+            pass
+
+        try:
             responses_node = self.find_first("responses")
+        except Exception:
+            pass
+
+        try:
             request_node = self.find_first("request")
+        except Exception:
+            pass
+
+        try:
             document_node = self.find_one_of(self.document_node_names)
             short_desc_node = document_node.find_one_of(self.para_names)
         except Exception:
@@ -148,7 +166,7 @@ class MethodNode(BaseNode):
             title = ""
 
         return [
-            node.attributes['status'],
+            node.attributes.get('status', ''),
             title,
             clone.to_rst()
         ]
