@@ -45,6 +45,7 @@ File format example:
     git clone git@github.rackspace.com:Product-DevOps/wadl2rst.git
     cd wadl2rst
     python setup.py develop
+    pip install -r requirements.txt
 
 ## Running the Tests
 

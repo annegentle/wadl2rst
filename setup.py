@@ -8,13 +8,6 @@ install_requires = [
     "PyYAML==3.11"
 ]
 
-# setup and testing dependencies
-setup_requires = [
-    "nose==1.3.6",
-    "coverage==4.0a5",
-    "flake8"
-]
-
 # Setuptools configuration, used to create python .eggs and such.
 # See: http://bashelton.com/2009/04/setuptools-tutorial/ for a nice
 # setuptools tutorial.
@@ -28,7 +21,6 @@ setup(
 
     # requirements
     install_requires=install_requires,
-    setup_requires=setup_requires,
 
     entry_points={
         'console_scripts': [

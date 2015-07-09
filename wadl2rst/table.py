@@ -93,8 +93,8 @@ def formatted_row(column_sizes, row):
             next_state.append(rest)
 
             # append exactly column_size characters from cell, padding if necessary
-            fmt = "{:<" + str(column_size) + "}"
-            data = fmt.format("".join(text))
+            fmt = u"{:<" + str(column_size) + "}"
+            data = fmt.format(u"".join(text))
             current_row.append(data)
 
         # return the current row in text
@@ -133,7 +133,7 @@ def split_cell_values(cell):
     # prep the cell by striping, removing newlines, and duplicate spaces.
     cell = cell.strip()
     cell = cell.replace('\n', ' ').replace('\r', '')
-    cell = ' '.join(cell.split())
+    cell = u' '.join(cell.split())
 
     for match in SPLIT_DELIMITERS.finditer(cell):
         end = match.end()
@@ -176,18 +176,18 @@ def split_sentence(column_size, cell):
 def is_output_plus_word_ok(column_size, output, word):
     data = copy.deepcopy(output)
     data.append(word)
-    new = "".join(data)
+    new = u"".join(data)
     return len(new) <= column_size
 
 
-def row_line(column_sizes, character="-"):
+def row_line(column_sizes, character=u"-"):
     """Create a line, with the little pluses where they belong."""
 
     output = []
     for size in column_sizes:
         output.append(character * size)
 
-    return "+" + "+".join(output) + "+"
+    return u"+" + u"+".join(output) + u"+"
 
 
 def characters_left_in_row(row):

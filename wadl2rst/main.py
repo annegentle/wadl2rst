@@ -33,14 +33,16 @@ def main():
 
     # for each wadl_file in the options
     for filename, options in config.items():
+        print "Processing WADL: {}".format(filename)
+
         # resolve the entities in the wadl docs
         proc = subprocess.Popen(
-            ['xmllint', '-noent', filename],
+            ['xmllint', '-noent', "-encode", "utf8", filename],
             stdout=subprocess.PIPE,
             stderr=subprocess.PIPE
         )
 
-        output, err = proc.communicate()
+        xml_data, err = proc.communicate()
 
         # if the returncode from this is bad, throw an error
         if proc.returncode != 0:
@@ -48,7 +50,8 @@ def main():
             sys.exit(1)
 
         # parse the xml file
-        ir = tree.xml_string_to_tree(output)
+        xml_data = unicode(xml_data, "utf-8")
+        ir = tree.xml_string_to_tree(xml_data)
         execute_translations(ir, filename)
         convert_ir_to_rst(ir, options['output_directory'], options['title'])
 
@@ -154,4 +157,4 @@ def convert_ir_to_rst(ir, output_dir, book_title):
         print "Generating file: {}".format(full_path)
 
         with open(full_path, 'w') as f:
-            f.write(rst.encode('utf-8', 'ignore'))
+            f.write(rst.encode("utf-8", "ignore"))
