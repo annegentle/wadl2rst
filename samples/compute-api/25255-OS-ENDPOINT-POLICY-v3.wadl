@@ -1,0 +1,1011 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved    -->
+<!--*******************************************************-->
+<!-- Import Common XML Entities                            -->
+<!--                                                       -->
+<!-- You can resolve the entities with xmllint             -->
+<!--                                                       -->
+<!-- xmllint -noent OS-OS-ENDPOINT-POLICY-v3.wadl          -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xsi:schemaLocation="http://docs.openstack.org/identity/api/v3 ../xsd/api.xsd     http://docs.openstack.org/common/api/v1.0 ../xsd/api-common.xsd     http://wadl.dev.java.net/2009/02 http://www.w3.org/Submission/wadl/wadl.xsd"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/wadl/OS-ENDPOINT-POLICY-v3.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="dict">
+         <para/>
+      </rax:type>
+      <rax:type prefix="capi"
+                namespace="http://docs.openstack.org/common/api/v1.0"
+                name="uuid">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+                    
+
+    
+        
+            The policy ID.
+        
+    
+
+                    
+                        <rax:resource rax:id="endpoints">
+         <rax:resource rax:id="endpoint_id"/>
+      </rax:resource>
+                        
+                            <rax:resource rax:id="service_id"/>
+                            
+                                <rax:resource rax:id="region_id"/>
+                            
+                        
+                        <rax:resource rax:id="policy"/>
+                    
+                
+            
+        </rax:resources>
+    <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02"><!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/xsd/api.xsd-->
+      <wadl:include href="25255-OS-ENDPOINT-POLICY-v3-xsd-1.xsd"/>
+      <!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/xsd/api-common.xsd-->
+      <wadl:include href="25255-OS-ENDPOINT-POLICY-v3-xsd-2.xsd"/>
+   </wadl:grammars>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <resources xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:identity="http://docs.openstack.org/identity/api/v3"
+              xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://localhost:5000"
+              xml:id="OS-OS-ENDPOINT-POLICY-v3">
+        <resource id="endpoints"
+                path="/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints">
+         <param name="policy_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The policy ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listPolicyEndpointAssociations">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List policy and service endpoint associations">
+               <para role="shortdesc">
+                Lists all the endpoints that are currently associated with a
+                policy through any of the association methods.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "endpoints": [
+        {
+            "id": "1",
+            "interface": "public",
+            "links": {
+                "self": "http://identity:35357/v3/endpoints/1"
+            },
+            "region": "north",
+            "service_id": "9242e05f0c23467bbd1cf1f7a6e5e596",
+            "url": "http://identity:35357/"
+        },
+        {
+            "id": "1",
+            "interface": "internal",
+            "links": {
+                "self": "http://identity:35357/v3/endpoints/1"
+            },
+            "region": "south",
+            "service_id": "9242e05f0c23467bbd1cf1f7a6e5e596",
+            "url": "http://identity:35357/"
+        }
+    ],
+    "links": {
+        "next": null,
+        "previous": null,
+        "self": "http://identity:35357/v3/OS-ENDPOINT-POLICY/policies/13c92821e4c4476a878d3aae7444f52f/endpoints"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="endpoints"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            An <code>endpoints</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The endpoint UUID.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="interface"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The interface type, which describes the visibility of the
+            endpoint.
+        </para>
+                        <para>
+            Value is:
+        </para>
+                        <itemizedlist>
+                           <listitem>
+                              <para>
+                                 <code>public</code>. Visible by end users on a
+                    publicly available network interface.
+                </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>internal</code>. Visible by end users on
+                    an unmetered internal network interface.
+                </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>admin</code>. Visible by administrative users on a
+                    secure network interface.
+                </para>
+                           </listitem>
+                        </itemizedlist>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="links"
+                         style="plain"
+                         type="xsd:dict"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The links for the <code>endpoint</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="next"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>next</code> relative link for the <code>endpoint</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>previous</code> relative link for the <code>endpoint</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="self"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>self</code> relative link for the <code>endpoint</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="region"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            (Deprecated in v3.2) The geographic location of the service
+            endpoint.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="service_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The UUID of the service to which the endpoint belongs.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="url"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The endpoint URL.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="links"
+                         style="plain"
+                         type="xsd:dict"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The links for the <code>endpoints</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="next"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>next</code> relative link for the <code>endpoints</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>previous</code> relative link for the <code>endpoints</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="self"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The <code>self</code> relative link for the <code>endpoints</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                            
+                            <resource id="endpoint_id"
+                path="/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/endpoints/{endpoint_id}">
+         <param name="policy_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The policy ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <param name="endpoint_id"
+                style="template"
+                type="capi:uuid"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The endpoint ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <method name="PUT" rax:id="associatePolicyAndEndpoint">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Associate policy and endpoint">
+               <para role="shortdesc">
+                Associates a policy and an endpoint.
+            </para>
+               <para>
+                If an association already exists between the endpoint and
+                another policy, this call replaces that association.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="GET" rax:id="getPolicyAndEndpointAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Verify a policy and endpoint association">
+               <para role="shortdesc">
+                Verifies an association between a policy and an endpoint.
+            </para>
+               <para>
+                A <command>HEAD</command> version of this API is also supported.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="DELETE" rax:id="deletePolicyAndEndpointAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete a policy and endpoint association">
+               <para role="shortdesc">
+                Deletes an association between a policy and an endpoint.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                
+
+                                
+                                
+                                
+                            
+                        <resource id="service_id"
+                path="/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/{service_id}">
+         <param name="policy_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The policy ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <param name="service_id"
+                style="template"
+                type="capi:uuid"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The service ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <method name="PUT" rax:id="associatePolicyAndService">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Associate policy and service-type endpoint">
+               <para role="shortdesc">
+                Associates a policy and any endpoint of a service type.
+            </para>
+               <para>
+                If an association already exists between the endpoint of a
+                service type and another policy, this call replaces that
+                association.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="GET" rax:id="getPolicyAndServiceAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Verify a policy and service-type endpoint association">
+               <para role="shortdesc">
+                Verifies an association between a policy and an endpoint of a
+                service type.
+            </para>
+               <para>
+                A <command>HEAD</command> version of this API is also supported.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="DELETE" rax:id="deletePolicyAndServiceAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete a policy and service-type endpoint association">
+               <para role="shortdesc">
+                Deletes an association between a policy and an endpoint of a
+                service type.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                
+
+                                
+                                
+                                
+                            <resource id="region_id"
+                path="/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/services/regions/{region_id}">
+         <param name="policy_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The policy ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <param name="region_id"
+                style="template"
+                type="capi:uuid"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The region ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <method name="PUT" rax:id="associatePolicyAndServiceRegion">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Associate policy and service-type endpoint in a region">
+               <para role="shortdesc">
+                Associates a policy and an endpoint of a service type in a region.
+            </para>
+               <para>
+                If an association already exists between the service in a
+                region and another policy, this call replaces that
+                association.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="GET" rax:id="getPolicyAndServiceRegionAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Verify a policy and service-type endpoint in a region association">
+               <para role="shortdesc">
+                Verifies an association between a policy and service-type
+                endpoint in a region.
+            </para>
+               <para>
+                A <command>HEAD</command> version of this API is also supported.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="DELETE" rax:id="deletePolicyAndServiceRegionAssociation">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete a policy and service-type endpoint in a region association">
+               <para role="shortdesc">
+                Deletes an association between a policy and service-type
+                endpoint in a region.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                    
+
+                                    
+                                    
+                                    
+                                <resource id="policy" path="/v3/policies/{policy_id}/OS-ENDPOINT-POLICY/policy">
+         <param name="policy_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+            The policy ID.
+        </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showPolicyForEndpoint">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show policy for endpoint">
+               <para role="shortdesc">
+                Shows a policy for an endpoint.
+            </para>
+               <para>
+                The extension finds the policy by traversing the ordered
+                sequence of methods of association. The extension shows the
+                policy for the first association that it finds. If the region
+                of the endpoint has a parent, the extension examines the
+                region associations up the region tree in ascending order.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "policy": {
+        "blob": {
+            "foobar_user": [
+                "role:compute-user"
+            ]
+        },
+        "id": "13c92821e4c4476a878d3aae7444f52f",
+        "links": {
+            "self": "http://identity:35357/v3/policies/13c92821e4c4476a878d3aae7444f52f"
+        },
+        "type": "application/json"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="policy"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            A <code>policy</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="blob"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The policy rule set itself, as a serialized blob.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="id"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The ID of the policy.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="links"
+                         style="plain"
+                         type="csapi:dict"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The links for the <code>policy</code> resource.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param name="type"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The MIME media type of the serialized policy blob. From the
+            perspective of the Identity API, a policy blob can be based on any
+            technology. In OpenStack, the <code>policy.json</code> blob
+            (<code>type="application/json"</code>) is the conventional
+            solution. However, you might want to use an alternative policy
+            engine that uses a different policy language type. For example,
+            <code>type="application/xacml+xml"</code>.
+        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="HEAD" rax:id="checkPolicyForEndpoint">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Check policy and service endpoint association">
+               <para role="shortdesc">
+                Checks whether a policy is associated with an endpoint.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+      </resource>
+                            
+                            
+                        
+    </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listPolicyEndpointAssociations">
+        
+        <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="endpoints"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+    
+</param>
+            
+            <param name="interface"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            
+            <param name="links"
+                   style="plain"
+                   type="xsd:dict"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="next"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+    
+</param>
+            
+            <param name="previous"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+    
+</param>
+            
+            <param name="self"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+    
+</param>
+            
+            <param name="region"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            
+            <param name="service_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+    
+</param>
+            
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            
+            <param name="links"
+                   style="plain"
+                   type="xsd:dict"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="next"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="previous"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="self"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+         </representation>
+      </response>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showPolicyForEndpoint">
+        
+        <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="policy"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="blob"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="id"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="links"
+                   style="plain"
+                   type="csapi:dict"
+                   required="true"
+                   rax:id="">
+    
+</param>
+            
+            <param name="type"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+    
+</param>
+         </representation>
+      </response>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="HEAD"
+           id="checkPolicyForEndpoint">
+        
+        <response status="200"/>
+    </method>
+    <!-- policy and endpoint associations -->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="associatePolicyAndEndpoint">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="getPolicyAndEndpointAssociation">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deletePolicyAndEndpointAssociation">
+        
+        <response status="204"/>
+    </method>
+    <!-- Policy and any endpoint of a given service type associations -->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="associatePolicyAndService">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="getPolicyAndServiceAssociation">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deletePolicyAndServiceAssociation">
+        
+        <response status="204"/>
+    </method>
+    <!-- Policy and endpoint of a service type in a region associations -->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="associatePolicyAndServiceRegion">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="getPolicyAndServiceRegionAssociation">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deletePolicyAndServiceRegionAssociation">
+        
+        <response status="204"/>
+    </method>
+</wadl:application>

@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent metadefs-resource_types-v2.wadl -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/image-api/src/v2/wadl/metadefs-resource_types-v2.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/image/api/v2"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                <rax:resource rax:id="resource_types"/>
+                
+                    
+                        
+
+   
+      
+         The UUID of the namespace.
+      
+   
+
+                        <rax:resource rax:id="resource_types_assoc">
+         <rax:resource rax:id="name"/>
+      </rax:resource>
+                    
+                
+            
+        </rax:resources>
+    <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02"><!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/image-api/src/v2/xsd/api.xsd-->
+      <wadl:include href="24198-metadefs-resource_types-v2-xsd-1.xsd"/>
+      <!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/image-api/src/v2/xsd/api-common.xsd-->
+      <wadl:include href="24198-metadefs-resource_types-v2-xsd-2.xsd"/>
+   </wadl:grammars>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:common="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:imageapi="http://docs.openstack.org/image/api/v2"
+              xmlns:csapi="http://docs.openstack.org/image/api/v2"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://glance.example.com/"
+              xml:id="os-metadef-resourcetype-v2">
+        <resource id="resource_types" path="/v2/metadefs/resource_types">
+         <method name="GET" rax:id="listResourceTypes-v2">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List resource types">
+               <para role="shortdesc">
+                Lists all resource types.
+            </para>
+               <para>
+                You can assign metadata definition namespaces to these
+                resource types. See the metadata definition resource types
+                section.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "resource_types": [
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Glance::Image",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Cinder::Volume",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Flavor",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Aggregate",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Instance",
+            "updated_at": "2014-08-28T18:13:04Z"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+      <resource id="resource_types_assoc"
+                path="/v2/metadefs/namespaces/{namespace_id}/resource_types">
+         <param name="namespace_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Namespace UUID">
+               <para>
+         The UUID of the namespace.
+      </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createResourceTypeAssoc-v2">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create resource type association">
+               <para role="shortdesc">
+                Creates a resource type association in a namespace.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json" element="image">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "name": "OS::Cinder::Volume",
+    "prefix": "hw_",
+    "properties_target": "image"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="name"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Name of the resource type.</para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="prefix"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          Prefix for any properties in the namespace that
+          you want to apply to the resource type. If you
+          specify a prefix, you must append a prefix
+          separator, such as the colon (<code>:</code>)
+          character.
+      </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="properties_target"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          Some resource types allow more than one key and
+          value pair for each instance. For example, the
+          Image service allows both user and image metadata
+          on volumes. The <code>properties_target</code>
+          parameter enables a namespace target to remove the
+          ambiguity.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "created_at": "2014-09-19T16:09:13Z",
+    "name": "OS::Cinder::Volume",
+    "prefix": "hw_",
+    "properties_target": "image",
+    "updated_at": "2014-09-19T16:09:13Z"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="GET" rax:id="listResourceTypeAssocs-v2">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List resource type associations">
+               <para role="shortdesc">
+                Lists resource type associations in a namespace.
+            </para>
+               <para>
+                The response body lists resource type association entities.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "resource_types": [
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Glance::Image",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Cinder::Volume",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Flavor",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Aggregate",
+            "updated_at": "2014-08-28T18:13:04Z"
+        },
+        {
+            "created_at": "2014-08-28T18:13:04Z",
+            "name": "OS::Nova::Instance",
+            "updated_at": "2014-08-28T18:13:04Z"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+      <resource path="/v2/metadefs/namespaces/{namespace_id}/resource_types/{name}"
+                id="name">
+         <param name="namespace_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Namespace UUID">
+               <para>
+         The UUID of the namespace.
+      </para>
+            </wadl:doc>
+         </param>
+         <param name="name"
+                style="template"
+                required="true"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+         Name of the resource type.
+      </para>
+            </wadl:doc>
+         </param>
+         <method name="DELETE" rax:id="deleteResourceTypeAssoc-v2">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Remove resource type association">
+               <para role="shortdesc">
+                Removes a resource type association in a
+                namespace.
+            </para>
+               <para>
+                To remove an association, first make an update namespace
+                request to set the <code>protected</code> attribute to false
+                (boolean) on the namespace. Then, remove the association. If
+                the operation succeeds, the response returns the HTTP 204
+                status code.
+            </para>
+               <para>
+                If you try to remove resource type associations in a namespace
+                with the <code>protected</code> attribute set to true
+                (boolean), the operation fails and the response returns the
+                HTTP 403 error code.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+            <response status="403"/>
+         </method>
+      </resource>
+                                
+
+                                
+                            
+    </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <!-- Property methods -->
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:imageapi="http://docs.openstack.org/image/api/v2"
+           xmlns:csapi="http://docs.openstack.org/image/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createResourceTypeAssoc-v2">
+        
+        <request>
+            <representation mediaType="application/json" element="image">
+                
+                
+            <param name="name"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+   
+</param>
+                
+            <param name="prefix"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+  
+</param>
+                
+            <param name="properties_target"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:imageapi="http://docs.openstack.org/image/api/v2"
+           xmlns:csapi="http://docs.openstack.org/image/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listResourceTypes-v2">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:imageapi="http://docs.openstack.org/image/api/v2"
+           xmlns:csapi="http://docs.openstack.org/image/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listResourceTypeAssocs-v2">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:imageapi="http://docs.openstack.org/image/api/v2"
+           xmlns:csapi="http://docs.openstack.org/image/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteResourceTypeAssoc-v2">
+        
+        <response status="204"/>
+        <response status="403"/>
+    </method>
+</wadl:application>

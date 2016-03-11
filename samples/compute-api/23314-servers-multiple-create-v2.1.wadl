@@ -1,0 +1,1534 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2014 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-multiple-create-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="ServerForCreate">
+         <para/>
+      </rax:type>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="string">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="202"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                <rax:resource rax:id="servers"/>
+            
+        </rax:resources>
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-multiple-create-v2.1">
+        <resource id="servers" path="/v2.1/{tenant_id}/servers">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createServers">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create multiple servers">
+               <para role="shortdesc">
+                Creates one or more servers.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Create multiple servers without reservation ID">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "server": {
+        "name": "new-server-test",
+        "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b",
+        "flavorRef": "http://openstack.example.com/openstack/flavors/1",
+        "metadata": {
+            "My Server Name": "Apache1"
+        },
+        "min_count": "2",
+        "max_count": "3"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="security_groups"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      One or more security groups. Specify the name of the security group in
+      the <code>name</code> attribute. If you omit this attribute, the API
+      creates the server in the <code>default</code> security group.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="user_data"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Configuration information or scripts to use upon launch. Must be Base64
+      encoded.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="os-availability-zone:availability_zone"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability zone from which to launch the server. When you
+      provision resources, you specify from which availability zone you want
+      your instance to be built.
+    </para>
+                        <para>
+      Typically, you use availability zones to arrange OpenStack compute hosts
+      into logical groups. An availability zone provides a form of physical
+      isolation and redundancy from other availability zones. For instance, if
+      some racks in your data center are on a separate power source, you can
+      put servers in those racks in their own availability zone. Availability
+      zones can also help separate different classes of hardware.
+    </para>
+                        <para>
+      By segregating resources into availability zones, you can ensure that
+      your application resources are spread across disparate machines to
+      achieve high availability in the event of hardware or other failure.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="server"
+                         style="plain"
+                         required="true"
+                         type="csapi:ServerForCreate"
+                         path="/csapi:server"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="imageRef"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The image reference, as a UUID or full URL, for the image to use for
+      your server instance.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="flavorRef"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The flavor reference, as a UUID or full URL, for the flavor for
+      your server instance.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="networks"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>networks</code> object. By default, the API provisions the
+      server instance with all isolated networks for the tenant.
+   </para>
+                        <para>
+      Optionally, you can create one or more NICs on the server.
+   </para>
+                        <para>
+      To provision the server instance with a NIC for a network, specify the
+      UUID of the network in the <code>uuid</code> attribute in a
+      <code>networks</code> object.
+   </para>
+                        <para>
+      To provision the server instance with a NIC for an already existing
+      port, specify the port-id in the <code>port</code> attribute in a
+      <code>networks</code> object.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="uuid"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To provision the server instance with a NIC for a network, specify the
+      UUID of the network in the <code>uuid</code> attribute in a
+      <code>networks</code> object. Required if you omit the <code>port</code>
+      attribute.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="port"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To provision the server instance with a NIC for an already existing
+      port, specify the port-id in the <code>port</code> attribute in a
+      <code>networks</code> object. The port status must be <code>DOWN</code>.
+      required if you omit the <code>uuid</code> attribute.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ip"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A fixed IPv4 address for the NIC. Valid with a
+      <code>neutron</code> or <code>nova-networks</code> network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The server name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata"
+                         style="plain"
+                         required="false"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Metadata key and value pairs. The maximum size of the metadata key and
+      value is 255 bytes each.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="personality"
+                         style="plain"
+                         required="false"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The file path and contents, text only, to inject into the server at
+      launch. The maximum size of the file path data is 255 bytes. The maximum
+      limit is The number of allowed bytes in the decoded, rather than
+      encoded, data.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="block_device_mapping_v2"
+                         style="plain"
+                         type="csapi:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Enables you to boot a server from a volume when you specify additional
+      parameters. If you specify the volume status, you must set it to
+      <code>available</code>. In the OpenStack Block Storage database, the
+      volume <code>attach_status</code> must be <code>detached</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="device_name"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.device_name"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A path to the device for the volume that you want to use to
+      boot the server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_type"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.source_type"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The source type of the volume. A valid value is <code>blank</code>,
+      <code>snapshot</code>, <code>volume</code>, or <code>image</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="destination_type"
+                         style="plain"
+                         type="csapi:string"
+                         required="false"
+                         path="$.parameters.block_device_mapping_v2.destination_type"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Defines where the volume comes from. A valid value is <code>local</code>
+      or <code>volume</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="delete_on_termination"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.delete_on_termination"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To delete the boot volume when the server is destroyed, specify
+      <code>true</code>. Otherwise, specify <code>false</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="guest_format"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.guest_format"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Specifies the guest server disk file system format, such as
+      <code>ephemeral</code> or <code>swap</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="boot_index"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.boot_index"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Defines the order in which a hypervisor tries devices when it attempts
+      to boot the guest from storage.
+   </para>
+                        <para>
+      Give each device a unique boot index starting from <code>0</code>. To
+      disable a device from booting, set the boot index to a negative value or
+      use the default boot index value, which is <code>None</code>.
+   </para>
+                        <para>
+      The simplest usage is, set the boot index of the boot device to
+      <code>0</code> and use the default boot index value, <code>None</code>,
+      for any other devices.
+   </para>
+                        <para>
+      Some hypervisors might not support booting from multiple devices; these
+      hypervisors consider only the device with a boot index of
+      <code>0</code>.
+   </para>
+                        <para>
+      Some hypervisors support booting from multiple devices but only if the
+      devices are of different types. For example, a disk and CD-ROM.
+   </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param name="config_drive"
+                         style="plain"
+                         type="xsd:boolean"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether a configuration drive enables metadata injection.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_name"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Key pair name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="os:scheduler_hints"
+                         style="plain"
+                         required="false"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The dictionary of data to send to the scheduler.
+      Alternatively, you can specify <code>OS-SCH-HNT:scheduler_hints</code>
+      as the string.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  
+                  <param name="OS-DCF:diskConfig"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Controls how the API partitions the disk when you create, rebuild, or
+      resize servers. A server inherits the <code>OS-DCF:diskConfig</code>
+      value from the image from which it was created, and an image inherits
+      the <code>OS-DCF:diskConfig</code> value from the server from which
+      it was created. To override the inherited setting, you can include
+      this attribute in the request body of a server create, rebuild, or
+      resize request.
+    </para>
+                        <para>
+      If the <code>OS-DCF:diskConfig</code> value for an image is
+      <code>MANUAL</code>, you cannot create a server from that image and set
+      its <code>OS-DCF:diskConfig</code> value to <code>AUTO</code>.
+    </para>
+                        <para>
+      A valid value is:
+    </para>
+                        <itemizedlist>
+                           <listitem>
+                              <para>
+                                 <code>AUTO</code>. The API builds the server with a single partition
+          the size of the target flavor disk. The API automatically adjusts the file
+          system to fit the entire partition.
+        </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>MANUAL</code>. The API builds the server by using whatever
+          partition scheme and file system is in the source image. If the target flavor
+          disk is larger, the API does not partition the remaining disk space.
+        </para>
+                           </listitem>
+                        </itemizedlist>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="return_reservation_id"
+                         style="plain"
+                         required="false"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+        Set to <code>True</code> to request that the response return a
+        reservation ID instead of instance information. Default is
+        <code>False</code>.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Create multiple servers without reservation ID">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "server": {
+        "OS-DCF:diskConfig": "AUTO",
+        "adminPass": "zPnp2GseTqG4",
+        "id": "8195065c-fea4-4d57-b93f-5c5c63fe90e8",
+        "links": [
+            {
+                "href": "http://openstack.example.com/v2/openstack/servers/8195065c-fea4-4d57-b93f-5c5c63fe90e8",
+                "rel": "self"
+            },
+            {
+                "href": "http://openstack.example.com/openstack/servers/8195065c-fea4-4d57-b93f-5c5c63fe90e8",
+                "rel": "bookmark"
+            }
+        ],
+        "security_groups": [
+            {
+                "name": "default"
+            }
+        ]
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="server"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="server">
+                        <para>
+      A <code>server</code> object.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="adminPass"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="adminPass">
+                        <para>
+      The administrative password of the server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="links"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         Server links.
+      </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param name="OS-DCF:diskConfig"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       Disk configuration. The value is either:
+    </para>
+                        <itemizedlist>
+                           <listitem>
+                              <para>
+                                 <code>AUTO</code>. The API builds the server with a single
+          partition the size of the target flavor disk. The API automatically adjusts
+          the file system to fit the entire partition.
+        </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>MANUAL</code>. The API builds the server by using the
+          partition scheme and file system that is in the source image. If the target
+          flavor disk is larger, The API does not partition the remaining disk space.
+        </para>
+                           </listitem>
+                        </itemizedlist>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="Security groups object">
+                        <para>Security groups object.</para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="POST" rax:id="createServersResId">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create multiple servers with reservation ID">
+               <para role="shortdesc">
+                Creates one or more servers with a reservation ID.
+            </para>
+               <para>
+                Set <code>"return_reservation_id": "True"</code> in the
+                request body to request that a reservation ID be returned
+                instead of the newly created instance information. With this
+                parameter, the response shows only the reservation ID.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Create multiple servers with reservation ID">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "server": {
+        "name": "new-server-test",
+        "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b",
+        "flavorRef": "http://openstack.example.com/openstack/flavors/1",
+        "metadata": {
+            "My Server Name": "Apache1"
+        },
+        "return_reservation_id": "True",
+        "min_count": "2",
+        "max_count": "3"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="security_groups"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      One or more security groups. Specify the name of the security group in
+      the <code>name</code> attribute. If you omit this attribute, the API
+      creates the server in the <code>default</code> security group.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="user_data"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Configuration information or scripts to use upon launch. Must be Base64
+      encoded.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="os-availability-zone:availability_zone"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability zone from which to launch the server. When you
+      provision resources, you specify from which availability zone you want
+      your instance to be built.
+    </para>
+                        <para>
+      Typically, you use availability zones to arrange OpenStack compute hosts
+      into logical groups. An availability zone provides a form of physical
+      isolation and redundancy from other availability zones. For instance, if
+      some racks in your data center are on a separate power source, you can
+      put servers in those racks in their own availability zone. Availability
+      zones can also help separate different classes of hardware.
+    </para>
+                        <para>
+      By segregating resources into availability zones, you can ensure that
+      your application resources are spread across disparate machines to
+      achieve high availability in the event of hardware or other failure.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="server"
+                         style="plain"
+                         required="true"
+                         type="csapi:ServerForCreate"
+                         path="/csapi:server"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="imageRef"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The image reference, as a UUID or full URL, for the image to use for
+      your server instance.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="flavorRef"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The flavor reference, as a UUID or full URL, for the flavor for
+      your server instance.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="networks"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>networks</code> object. By default, the API provisions the
+      server instance with all isolated networks for the tenant.
+   </para>
+                        <para>
+      Optionally, you can create one or more NICs on the server.
+   </para>
+                        <para>
+      To provision the server instance with a NIC for a network, specify the
+      UUID of the network in the <code>uuid</code> attribute in a
+      <code>networks</code> object.
+   </para>
+                        <para>
+      To provision the server instance with a NIC for an already existing
+      port, specify the port-id in the <code>port</code> attribute in a
+      <code>networks</code> object.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="uuid"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To provision the server instance with a NIC for a network, specify the
+      UUID of the network in the <code>uuid</code> attribute in a
+      <code>networks</code> object. Required if you omit the <code>port</code>
+      attribute.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="port"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To provision the server instance with a NIC for an already existing
+      port, specify the port-id in the <code>port</code> attribute in a
+      <code>networks</code> object. The port status must be <code>DOWN</code>.
+      required if you omit the <code>uuid</code> attribute.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ip"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A fixed IPv4 address for the NIC. Valid with a
+      <code>neutron</code> or <code>nova-networks</code> network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The server name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata"
+                         style="plain"
+                         required="false"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Metadata key and value pairs. The maximum size of the metadata key and
+      value is 255 bytes each.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="personality"
+                         style="plain"
+                         required="false"
+                         type="csapi:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The file path and contents, text only, to inject into the server at
+      launch. The maximum size of the file path data is 255 bytes. The maximum
+      limit is The number of allowed bytes in the decoded, rather than
+      encoded, data.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="block_device_mapping_v2"
+                         style="plain"
+                         type="csapi:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Enables you to boot a server from a volume when you specify additional
+      parameters. If you specify the volume status, you must set it to
+      <code>available</code>. In the OpenStack Block Storage database, the
+      volume <code>attach_status</code> must be <code>detached</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="device_name"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.device_name"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A path to the device for the volume that you want to use to
+      boot the server.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_type"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.source_type"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The source type of the volume. A valid value is <code>blank</code>,
+      <code>snapshot</code>, <code>volume</code>, or <code>image</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="destination_type"
+                         style="plain"
+                         type="csapi:string"
+                         required="false"
+                         path="$.parameters.block_device_mapping_v2.destination_type"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Defines where the volume comes from. A valid value is <code>local</code>
+      or <code>volume</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="delete_on_termination"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.delete_on_termination"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To delete the boot volume when the server is destroyed, specify
+      <code>true</code>. Otherwise, specify <code>false</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="guest_format"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.guest_format"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Specifies the guest server disk file system format, such as
+      <code>ephemeral</code> or <code>swap</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="boot_index"
+                         style="plain"
+                         type="csapi:string"
+                         required="true"
+                         path="$.parameters.block_device_mapping_v2.boot_index"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Defines the order in which a hypervisor tries devices when it attempts
+      to boot the guest from storage.
+   </para>
+                        <para>
+      Give each device a unique boot index starting from <code>0</code>. To
+      disable a device from booting, set the boot index to a negative value or
+      use the default boot index value, which is <code>None</code>.
+   </para>
+                        <para>
+      The simplest usage is, set the boot index of the boot device to
+      <code>0</code> and use the default boot index value, <code>None</code>,
+      for any other devices.
+   </para>
+                        <para>
+      Some hypervisors might not support booting from multiple devices; these
+      hypervisors consider only the device with a boot index of
+      <code>0</code>.
+   </para>
+                        <para>
+      Some hypervisors support booting from multiple devices but only if the
+      devices are of different types. For example, a disk and CD-ROM.
+   </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param name="config_drive"
+                         style="plain"
+                         type="xsd:boolean"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether a configuration drive enables metadata injection.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_name"
+                         style="plain"
+                         type="xsd:string"
+                         required="false"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Key pair name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="os:scheduler_hints"
+                         style="plain"
+                         required="false"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The dictionary of data to send to the scheduler.
+      Alternatively, you can specify <code>OS-SCH-HNT:scheduler_hints</code>
+      as the string.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  
+                  <param name="OS-DCF:diskConfig"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Controls how the API partitions the disk when you create, rebuild, or
+      resize servers. A server inherits the <code>OS-DCF:diskConfig</code>
+      value from the image from which it was created, and an image inherits
+      the <code>OS-DCF:diskConfig</code> value from the server from which
+      it was created. To override the inherited setting, you can include
+      this attribute in the request body of a server create, rebuild, or
+      resize request.
+    </para>
+                        <para>
+      If the <code>OS-DCF:diskConfig</code> value for an image is
+      <code>MANUAL</code>, you cannot create a server from that image and set
+      its <code>OS-DCF:diskConfig</code> value to <code>AUTO</code>.
+    </para>
+                        <para>
+      A valid value is:
+    </para>
+                        <itemizedlist>
+                           <listitem>
+                              <para>
+                                 <code>AUTO</code>. The API builds the server with a single partition
+          the size of the target flavor disk. The API automatically adjusts the file
+          system to fit the entire partition.
+        </para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>MANUAL</code>. The API builds the server by using whatever
+          partition scheme and file system is in the source image. If the target flavor
+          disk is larger, the API does not partition the remaining disk space.
+        </para>
+                           </listitem>
+                        </itemizedlist>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="return_reservation_id"
+                         style="plain"
+                         required="false"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+        Set to <code>True</code> to request that the response return a
+        reservation ID instead of instance information. Default is
+        <code>False</code>.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Create multiple servers with reservation ID">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "reservation_id": "r-3fhpjulh"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="reservation_id"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         The reservation ID of the server.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                
+    </resources>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createServers">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param name="security_groups"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="user_data"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="os-availability-zone:availability_zone"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="server"
+                   style="plain"
+                   required="true"
+                   type="csapi:ServerForCreate"
+                   path="/csapi:server"
+                   rax:id="">
+
+</param>
+            <param name="imageRef"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="flavorRef"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="networks"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="uuid"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="port"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="fixed_ip"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="metadata"
+                   style="plain"
+                   required="false"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="personality"
+                   style="plain"
+                   required="false"
+                   type="csapi:string"
+                   rax:id="">
+  
+</param>
+            <param name="block_device_mapping_v2"
+                   style="plain"
+                   type="csapi:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="device_name"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.device_name"
+                   rax:id="">
+
+</param>
+            <param name="source_type"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.source_type"
+                   rax:id="">
+
+</param>
+            <param name="destination_type"
+                   style="plain"
+                   type="csapi:string"
+                   required="false"
+                   path="$.parameters.block_device_mapping_v2.destination_type"
+                   rax:id="">
+
+</param>
+            <param name="delete_on_termination"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.delete_on_termination"
+                   rax:id="">
+
+</param>
+            <param name="guest_format"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.guest_format"
+                   rax:id="">
+
+</param>
+            <param name="boot_index"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.boot_index"
+                   rax:id="">
+
+</param>
+
+            <param name="config_drive"
+                   style="plain"
+                   type="xsd:boolean"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="key_name"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="os:scheduler_hints"
+                   style="plain"
+                   required="false"
+                   type="xsd:dict"
+                   rax:id="">
+
+</param>
+                  
+            <param name="OS-DCF:diskConfig"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="return_reservation_id"
+                   style="plain"
+                   required="false"
+                   type="xsd:boolean"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+                
+            <param name="server"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+
+</param>
+            <param name="adminPass"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   required="true"
+                   rax:id="">
+  
+</param>
+            <param name="links"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+
+            <param name="OS-DCF:diskConfig"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createServersResId">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param name="security_groups"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="user_data"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="os-availability-zone:availability_zone"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="server"
+                   style="plain"
+                   required="true"
+                   type="csapi:ServerForCreate"
+                   path="/csapi:server"
+                   rax:id="">
+
+</param>
+            <param name="imageRef"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="flavorRef"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="networks"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="uuid"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="port"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="fixed_ip"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="metadata"
+                   style="plain"
+                   required="false"
+                   type="csapi:string"
+                   rax:id="">
+
+</param>
+            <param name="personality"
+                   style="plain"
+                   required="false"
+                   type="csapi:string"
+                   rax:id="">
+  
+</param>
+            <param name="block_device_mapping_v2"
+                   style="plain"
+                   type="csapi:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="device_name"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.device_name"
+                   rax:id="">
+
+</param>
+            <param name="source_type"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.source_type"
+                   rax:id="">
+
+</param>
+            <param name="destination_type"
+                   style="plain"
+                   type="csapi:string"
+                   required="false"
+                   path="$.parameters.block_device_mapping_v2.destination_type"
+                   rax:id="">
+
+</param>
+            <param name="delete_on_termination"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.delete_on_termination"
+                   rax:id="">
+
+</param>
+            <param name="guest_format"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.guest_format"
+                   rax:id="">
+
+</param>
+            <param name="boot_index"
+                   style="plain"
+                   type="csapi:string"
+                   required="true"
+                   path="$.parameters.block_device_mapping_v2.boot_index"
+                   rax:id="">
+
+</param>
+
+            <param name="config_drive"
+                   style="plain"
+                   type="xsd:boolean"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="key_name"
+                   style="plain"
+                   type="xsd:string"
+                   required="false"
+                   rax:id="">
+
+</param>
+            <param name="os:scheduler_hints"
+                   style="plain"
+                   required="false"
+                   type="xsd:dict"
+                   rax:id="">
+
+</param>
+                  
+            <param name="OS-DCF:diskConfig"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="return_reservation_id"
+                   style="plain"
+                   required="false"
+                   type="xsd:boolean"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+                
+            <param name="reservation_id"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response>
+    </method>
+</wadl:application>
