@@ -1,0 +1,1414 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved    -->
+<!--*******************************************************-->
+<!-- Import Common XML Entities                            -->
+<!--                                                       -->
+<!-- You can resolve the entities with xmllint             -->
+<!--                                                       -->
+<!-- xmllint -noent OS-INHERIT-v3.wadl                     -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  xsi:schemaLocation="http://docs.openstack.org/identity/api/v3 ../xsd/api.xsd     http://docs.openstack.org/common/api/v1.0 ../xsd/api-common.xsd     http://wadl.dev.java.net/2009/02 http://www.w3.org/Submission/wadl/wadl.xsd     "
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/wadl/OS-INHERIT-v3.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="badRequest">
+         <para/>
+      </rax:response>
+      <rax:response status="401"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="unauthorized">
+         <para/>
+      </rax:response>
+      <rax:response status="403"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="forbidden">
+         <para/>
+      </rax:response>
+      <rax:response status="404"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="itemNotFound">
+         <para/>
+      </rax:response>
+      <rax:response status="405"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="badMethod">
+         <para/>
+      </rax:response>
+      <rax:response status="413"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="overLimit">
+         <para/>
+      </rax:response>
+      <rax:response status="503"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="serviceUnavailable">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            <rax:resource rax:id="role_assignments"/>
+            
+                
+                    
+                        
+                            
+                                
+                                    The UUID of the project.
+                                
+                            
+                        
+                        
+                            
+                                
+                                    
+                                        
+                                            The UUID of the user.
+                                        
+                                    
+                                
+                                
+                                    <rax:resource rax:id="inherited_to_projects"/>
+                                    
+                                        
+                                            
+                                                
+                                                    The UUID of the role.
+                                                
+                                            
+                                        
+                                        <rax:resource rax:id="inherited_to_projects2"/>
+                                    
+                                
+                            
+                        
+                        
+                            
+                                
+                                    
+                                        
+                                            The UUID of the group.
+                                        
+                                    
+                                
+                                
+                                    <rax:resource rax:id="inherited_to_projects3"/>
+                                    
+                                        
+                                            
+                                                
+                                                    The UUID of the role.
+                                                
+                                            
+                                        
+                                        <rax:resource rax:id="inherited_to_projects4"/>
+                                    
+                                
+                            
+                        
+                    
+                
+                
+                    
+                        
+                            
+                                
+                                    The UUID of the domain.
+                                
+                            
+                        
+                        
+                            
+                                
+                                    
+                                        
+                                            The UUID of the user.
+                                        
+                                    
+                                
+                                
+                                    <rax:resource rax:id="inherited_to_projects-domain"/>
+                                    
+                                        
+                                            
+                                                
+                                                    The UUID of the role.
+                                                
+                                            
+                                        
+                                        <rax:resource rax:id="inherited_to_projects2-domain"/>
+                                    
+                                
+                            
+                        
+                        
+                            
+                                
+                                    
+                                        
+                                            The UUID of the group.
+                                        
+                                    
+                                
+                                
+                                    <rax:resource rax:id="inherited_to_projects3-domain"/>
+                                    
+                                        
+                                            
+                                                
+                                                    The UUID of the role.
+                                                
+                                            
+                                        
+                                        <rax:resource rax:id="inherited_to_projects4-domain"/>
+                                    
+                                
+                            
+                        
+                    
+                
+            
+        </rax:resources>
+    <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02"><!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/xsd/api.xsd-->
+      <wadl:include href="36186-OS-INHERIT-v3-xsd-1.xsd"/>
+      <!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v3/xsd/api-common.xsd-->
+      <wadl:include href="36186-OS-INHERIT-v3-xsd-2.xsd"/>
+   </wadl:grammars>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <!-- We should use SSL in production -->
+    <resources xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:identity="http://docs.openstack.org/identity/api/v3"
+              xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://localhost:5000"
+              xml:id="OS-INHERIT-v3">
+        <!-- FYI: double slash needed in path to get a single slash to display -->
+        <resource id="role_assignments" path="/v3/role_assignments">
+         <param name="group.id"
+                style="query"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Filters the response by a group, by ID. For
+                            example, to list all role assignments for a group,
+                            specify <code>group.id={group_id}</code>.
+                        </para>
+                     </wadl:doc>
+                </param>
+         <param name="role.id"
+                style="query"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Filters the response by a role, by ID. For
+                            example, to list all role assignments for a role,
+                            specify <code>role.id={role_id}</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+         <param name="scope.domain.id"
+                style="query"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Filters the response by a domain, by ID. For
+                            example, to list all role assignments for a
+                            domain, specify
+                            <code>scope.domain.id={domain_id}</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+         <param name="scope.project.id"
+                style="query"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Filters the response by a project, by ID. For
+                            example, to list all role assignments for a
+                            project, specify
+                            <code>scope.project.id={project_id}</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+         <param name="user.id"
+                style="query"
+                type="xsd:string"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Filters the response by a user, by ID. For
+                            example, to list all role assignments for a user,
+                            specify <code>user.id={user_id}</code>.
+                        </para>
+                    </wadl:doc>
+                </param>
+         <param name="effective"
+                style="query"
+                type="xsd:key"
+                required="false"
+                rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Lists effective assignments at the user, project,
+                            and domain level, allowing for the effects of
+                            group membership.
+                        </para>
+                        <para>
+                            The collection does not include the group role
+                            assignment entities themselves.
+                        </para>
+                        <para>
+                            This represents the effective role assignments
+                            that a scoped token includes. You can use the
+                            other query parameters with the
+                            <code>effective</code> parameter.
+                        </para>
+                    </wadl:doc>
+                </param>
+         <method name="GET" rax:id="listRoleAssignments">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List role assignments">
+               <para role="shortdesc">Lists role assignments.</para>
+               <para>
+            The scope section in the list response is extended to allow the
+            representation of role assignments that are inherited to projects.
+        </para>
+               <para>The list of all role assignments can be long. To
+            filter the list, use the query parameters.</para>
+               <para>Some typical examples are:</para>
+               <para>
+                  <code>GET /role_assignments?user.id={user_id}</code>
+            lists all role assignments for a
+            user.</para>
+               <para>
+                  <code>GET
+                /role_assignments?scope.project.id={project_id}</code>
+            lists all role assignments for a
+            project.</para>
+               <para>Each role assignment entity in the collection
+            contains a link to the assignment that created this
+            entity.</para>
+               <para>
+            Use the <code>effective</code> query parameter to list effective
+            assignments at the user, project, and domain level. This parameter
+            allows for the effects of group membership as well as inheritance
+            from the parent domain or project, for role assignments that were
+            made using OS-INHERIT assignment APIs.
+        </para>
+               <para>
+            The group role assignment entities themselves are not returned in
+            the collection. Because, like group membership, the effects of
+            inheritance have already been allowed for, the role assignment
+            entities themselves that specify the inheritance are not returned
+            in the collection. This represents the effective role assignments
+            that would be included in a scoped token. You can use the other
+            query parameters with the <code>effective</code> parameter.
+        </para>
+               <para>For example, to determine what a user can actually
+            do, issue this request: <code>GET
+                /role_assignments?user.id={user_id}&amp;effective</code>
+               </para>
+               <para>
+            To get the equivalent set of role assignments that would be
+            included in the token response of a project-scoped token, issue
+            <code>GET /role_assignments?user.id={user_id}&amp;scope.project.id={project_id}&amp;effective</code>
+               </para>
+               <para>In the response, the entity <code>links</code>
+            section for entities that are included by virtue of
+            group members also contains a url that you can use to
+            access the membership of the group.</para>
+               <para>
+            Use the <code>scope.OS-INHERIT:inherited_to</code> query parameter
+            to filter the response by inherited role assignments. The
+            <code>scope.OS-INHERIT:inherited_to</code> value of
+            <code>projects</code> is currently supported. This value indicates
+            that this role is inherited to all projects of the owning domain
+            or parent project.
+        </para>
+               <para>
+            An example response for an API call with the <code>effective</code> query string:
+        </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            title="List all role assignments: JSON response">
+                     <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "role_assignments": [
+        {
+            "links": {
+                "assignment": "http://identity:35357/v3/OS-INHERIT/domains/1234/users/5678/roles/91011/inherited_to_projects"
+            },
+            "role": {
+                "id": "91011"
+            },
+            "scope": {
+                "domain": {
+                    "id": "1234"
+                },
+                "OS-INHERIT:inherited_to": "projects"
+            },
+            "user": {
+                "id": "5678"
+            }
+        },
+        {
+            "group": {
+                "id": "5678"
+            },
+            "links": {
+                "assignment": "http://identity:35357/v3/projects/1234/groups/5678/roles/91011"
+            },
+            "role": {
+                "id": "91011"
+            },
+            "scope": {
+                "project": {
+                    "id": "1234"
+                }
+            }
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/role_assignments",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                     </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            title="List all role assignments: JSON response">
+                     <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "role_assignments": [
+        {
+            "links": {
+                "assignment": "http://identity:35357/v3/OS-INHERIT/domains/12131/users/41516/roles/91011/inherited_to_projects"
+            },
+            "role": {
+                "id": "91011"
+            },
+            "scope": {
+                "project": {
+                    "id": "1234"
+                }
+            },
+            "user": {
+                "id": "41516"
+            }
+        },
+        {
+            "links": {
+                "assignment": "http://identity:35357/v3/projects/1234/groups/5678/roles/91011",
+                "membership": "http://identity:35357/v3/groups/5678/users/41516"
+            },
+            "role": {
+                "id": "91011"
+            },
+            "scope": {
+                "project": {
+                    "id": "1234"
+                }
+            },
+            "user": {
+                "id": "41516"
+            }
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/role_assignments?effective",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                     </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+                
+                
+                
+                
+                
+            <resource id="inherited_to_projects"
+                path="/v3/OS-INHERIT/projects/{project_id}/users/{user_id}/roles/inherited_to_projects">
+         <param name="project_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the project.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="user_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the user.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <method name="GET" rax:id="listRolesForUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List roles for user">
+               <para role="shortdesc">
+                Lists the project roles that a user in a project inherits from
+                a parent project.
+            </para>
+               <para>
+                The list shows only roles that the user project inherits from
+                the parent project.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        },
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/OS-INHERIT/projects/1234/users/5678/roles/inherited_to_projects",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                    </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                        
+                                    <resource id="inherited_to_projects2"
+                path="/v3/OS-INHERIT/projects/{project_id}/users/{user_id}/roles/{role_id}/inherited_to_projects">
+         <param name="project_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the project.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="user_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the user.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <param name="role_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                                <para>
+                                                    The UUID of the role.
+                                                </para>
+                                            </wadl:doc>
+                                        </param>
+         <method name="PUT" rax:id="assignRoleToUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Assign role to user">
+               <para role="shortdesc">
+                Assigns a role to a user in projects in a subtree.
+            </para>
+               <para>
+                The API anchors the inherited role assignment to a project and
+                applies it to its subtree in the projects hierarchy to both
+                existing and future projects.
+            </para>
+               <para>
+                A user can have both a regular, non-inherited role assignment
+                and an inherited role assignment in the same project.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="HEAD" rax:id="checkRoleForUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Check role for user">
+               <para role="shortdesc">
+                Checks whether a user has a role assignment with the
+                <code>inherited_to_projects</code> flag in a
+                project.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+         <method name="DELETE" rax:id="revokeRoleFromUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Revoke role from user">
+               <para role="shortdesc">
+                Revokes an inherited role from a user in a project.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                            
+                                            
+                                            
+                                        <resource id="inherited_to_projects3"
+                path="/v3/OS-INHERIT/projects/{project_id}/groups/{group_id}/roles/inherited_to_projects">
+         <param name="project_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the project.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="group_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the group.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <method name="GET" rax:id="listRolesForGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List roles for group">
+               <para role="shortdesc">
+                Lists the project roles that a group in a project inherits from
+                a parent project.
+            </para>
+               <para>
+                The list shows only roles that the group project inherits from the
+                parent project.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        },
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/OS-INHERIT/projects/1234/groups/5678/roles/inherited_to_projects",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                    </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                        
+                                    <resource id="inherited_to_projects4"
+                path="/v3/OS-INHERIT/projects/{project_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects">
+         <param name="project_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the project.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="group_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the group.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <param name="role_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                                <para>
+                                                    The UUID of the role.
+                                                </para>
+                                            </wadl:doc>
+                                        </param>
+         <method name="PUT" rax:id="assignRoleToGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Assign role to group">
+               <para role="shortdesc">
+                Assigns a role to a group in projects in a subtree.
+            </para>
+               <para>
+                The API anchors the inherited role assignment to a project and
+                applies it to its subtree in the projects hierarchy to both
+                existing and future projects.
+            </para>
+               <para>
+                A group can have both a regular, non-inherited role assignment
+                and an inherited role assignment in the same project.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="HEAD" rax:id="checkRoleForGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Check role for group">
+               <para role="shortdesc">
+                Checks whether a group has a role assignment with the
+                <code>inherited_to_projects</code> flag in a
+                project.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+         <method name="DELETE" rax:id="revokeRoleFromGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Revoke role from group">
+               <para role="shortdesc">
+                Revokes an inherited role from a group in a project.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                            
+                                            
+                                            
+                                        <resource id="inherited_to_projects-domain"
+                path="/v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/inherited_to_projects">
+         <param name="domain_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the domain.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="user_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the user.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <method name="GET" rax:id="listRolesForUser-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List project roles for user in domain">
+               <para role="shortdesc">
+                Lists the project roles that a user inherits from a parent
+                project in a domain.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        },
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/OS-INHERIT/domains/1234/users/5678/roles/inherited_to_projects",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                    </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                        
+                                    <resource id="inherited_to_projects2-domain"
+                path="/v3/OS-INHERIT/domains/{domain_id}/users/{user_id}/roles/{role_id}/inherited_to_projects">
+         <param name="domain_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the domain.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="user_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the user.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <param name="role_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                                <para>
+                                                    The UUID of the role.
+                                                </para>
+                                            </wadl:doc>
+                                        </param>
+         <method name="PUT" rax:id="assignRoleToUser-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Assign role to user owned by domain projects">
+               <para role="shortdesc">
+                Assigns a role to a user in projects owned by a domain.
+            </para>
+               <para>
+                The API applies the inherited role to the existing and future
+                owned projects. The inherited role does not appear as a role
+                in a domain-scoped token.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="HEAD" rax:id="checkRoleForUser-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Check project role for user in domain">
+               <para role="shortdesc">
+                Checks whether a user has an inherited project role in a
+                domain.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+         <method name="DELETE" rax:id="revokeRoleFromUser-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Revoke project role from user in domain">
+               <para role="shortdesc">
+                Revokes an inherited project role from a user in a domain.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                            
+                                            
+                                            
+                                        <resource id="inherited_to_projects3-domain"
+                path="/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/inherited_to_projects">
+         <param name="domain_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the domain.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="group_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the group.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <method name="GET" rax:id="listRolesForGroup-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List project roles for group in domain">
+               <para role="shortdesc">
+                Lists the project roles that a group inherits from a parent
+                project in a domain.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook">
+                    <xsdxt:sample>
+                        <xsdxt:code>
+                           <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        },
+        {
+            "id": "91011",
+            "links": {
+                "self": "http://identity:35357/v3/roles/91011"
+            },
+            "name": "admin"
+        }
+    ],
+    "links": {
+        "self": "http://identity:35357/v3/OS-INHERIT/domains/1234/groups/5678/roles/inherited_to_projects",
+        "previous": null,
+        "next": null
+    }
+}
+</programlisting>
+                        </xsdxt:code>
+                    </xsdxt:sample>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                        
+                                    <resource id="inherited_to_projects4-domain"
+                path="/v3/OS-INHERIT/domains/{domain_id}/groups/{group_id}/roles/{role_id}/inherited_to_projects">
+         <param name="domain_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>
+                                    The UUID of the domain.
+                                </para>
+                            </wadl:doc>
+                        </param>
+         <param name="group_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                        <para>
+                                            The UUID of the group.
+                                        </para>
+                                    </wadl:doc>
+                                </param>
+         <param name="role_id"
+                style="template"
+                type="csapi:UUID"
+                required="true"
+                rax:id="">
+                                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                                <para>
+                                                    The UUID of the role.
+                                                </para>
+                                            </wadl:doc>
+                                        </param>
+         <method name="PUT" rax:id="assignRoleToGroup-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Assign role to group in domain projects">
+               <para role="shortdesc">
+                Assigns a role to a group in projects owned by a domain.
+            </para>
+               <para>
+                The API applies the inherited role to owned projects, both
+                existing and future. The inherited role does not appear as a
+                role in a domain-scoped token.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="HEAD" rax:id="checkRoleForGroup-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Check project role for group in domain">
+               <para role="shortdesc">
+                Checks whether a group has an inherited project role
+                in a domain.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+         <method name="DELETE" rax:id="revokeRoleFromGroup-domain">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Revoke project role from group in domain">
+               <para role="shortdesc">
+                Revokes an inherited project role from a group in a domain.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                                            
+                                            
+                                            
+                                        
+    </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <!--Consumers Operations-->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="assignRoleToUser">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="HEAD"
+           id="checkRoleForUser">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeRoleFromUser">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRolesForUser">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+     <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="assignRoleToGroup">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="HEAD"
+           id="checkRoleForGroup">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeRoleFromGroup">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRolesForGroup">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <!-- Domains -->
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="assignRoleToUser-domain">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="HEAD"
+           id="checkRoleForUser-domain">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeRoleFromUser-domain">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRolesForUser-domain">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="assignRoleToGroup-domain">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="HEAD"
+           id="checkRoleForGroup-domain">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeRoleFromGroup-domain">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRolesForGroup-domain">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:identity="http://docs.openstack.org/identity/api/v3"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRoleAssignments">
+    
+      <response status="200">
+        <representation mediaType="application/json">
+            
+        </representation>
+        <representation mediaType="application/json">
+            
+        </representation>
+      </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+</wadl:application>

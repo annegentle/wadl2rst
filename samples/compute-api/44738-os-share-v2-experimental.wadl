@@ -1,0 +1,3420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/share-api/src/v2/experimental/wadl/os-share-v2-experimental.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/share/api/v1.0"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="202"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+      <rax:resource rax:id="versions">
+            <rax:resource rax:id="extensions"/>
+            
+               
+                  
+                     
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to true. For
+                        example, "X-OpenStack-Manila-API-Experimental:
+                        true".
+                     
+                  
+               
+               
+                  
+                     
+                        The tenant ID in a multi-tenancy cloud.
+                  
+               
+               
+                  
+                     
+                        
+                           
+                              The ID of the share.
+                           
+                        
+                     
+                     <rax:resource rax:id="action"/>
+                  
+               
+               <rax:resource rax:id="consistency-groups">
+            <rax:resource rax:id="detail-consistency-groups"/>
+            <rax:resource rax:id="consistency_group_id">
+               <rax:resource rax:id="consistency-groups-action"/>
+            </rax:resource>
+         </rax:resource>
+               <rax:resource rax:id="cgsnapshots">
+            <rax:resource rax:id="detail-cgsnapshots"/>
+            <rax:resource rax:id="cgsnapshot_id">
+               <rax:resource rax:id="cgsnapshot-members"/>
+               <rax:resource rax:id="cgsnapshots-action"/>
+            </rax:resource>
+         </rax:resource>
+            
+         </rax:resource>
+   </rax:resources>
+   <resources xmlns:common="http://docs.openstack.org/common/api/v1.0"
+              xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://share_server_id.example.com/"
+              xml:id="os-share-v2.0-experimental">
+      <resource id="action" path="/v2/{tenant_id}/shares/{share_id}/action">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="share_id" style="template" type="csapi:UUID" rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>
+                              The ID of the share.
+                           </para>
+                        </wadl:doc>
+                     </param>
+         <method name="POST" rax:id="migrateShare">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Migrate share">
+               <para role="shortdesc">
+            Migrates a share from one back end to another.
+         </para>
+               <para>
+            You can migrate a share from one back end to another but both back
+            ends must set the <code>driver_handles_share_servers</code>
+            parameter to <code>False</code>. If a share driver handles one of
+            the back ends, this action is not supported. You can configure a
+            back end in the <code>manila.conf</code> file.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "os-migrate_share": {
+        "force_host_copy": false,
+        "host": "manila2@ams_backend#AMS_BACKEND"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="host"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The host pool of the destination back end, in this format:
+      <code>host@backend#POOL</code>.
+   </para>
+                        <itemizedlist>
+                           <listitem>
+                              <para>
+                                 <code>host</code>. The host name for the destination back end.</para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>backend</code>. The name of the destination back end.</para>
+                           </listitem>
+                           <listitem>
+                              <para>
+                                 <code>POOL</code>. The pool name for the destination back end.</para>
+                           </listitem>
+                        </itemizedlist>
+                     </wadl:doc>
+                  </param>
+                  <param name="force_host_copy"
+                         style="plain"
+                         required="true"
+                         type="xsd:bool"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Enables or disables generic host-based forced migrations, which bypasses
+      driver optimizations. Default value is <code>false</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                        
+                     <resource id="consistency-groups" path="/v2/{tenant_id}/consistency-groups">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <method name="POST" rax:id="createConsistencyGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create consistency group">
+               <para role="shortdesc">Creates a consistency group.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_group": {
+        "share_types": [
+            "d2ad4f9d-cae3-4660-b0b6-58c06b385203"
+        ],
+        "name": "my-cg1",
+        "share_network_id": "d8ae6799-2567-4a89-aafb-fa4424350d2b",
+        "description": "my first consistency group"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="share_types"
+                         style="plain"
+                         required="false"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       A list of one or more share type IDs.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_network_id"
+                         style="plain"
+                         required="false"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of a share network.
+   </para>
+                        <para>
+       Note that when using a share type with the
+       <code>driver_handles_share_servers</code> extra spec as
+       <code>False</code>, you should not provide a
+       <code>share_network_id</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_cgsnapshot_id"
+                         style="plain"
+                         required="false"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of the consistency group snapshot from which to create the
+       consistency group.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_group": {
+        "status": "creating",
+        "description": "my first consistency group",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                "rel": "bookmark"
+            }
+        ],
+        "source_cgsnapshot_id": null,
+        "created_at": "2015-09-16T09:28:52.880949",
+        "share_network_id": "d8ae6799-2567-4a89-aafb-fa4424350d2b",
+        "host": null,
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "share_types": [
+            "d2ad4f9d-cae3-4660-b0b6-58c06b385203"
+        ],
+        "id": "6f519a48-3183-46cf-a32f-41815f813986",
+        "name": "my-cg1"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group status. A valid value is
+       <code>creating</code>, <code>available</code>, <code>error</code>,
+       <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_cgsnapshot_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot ID. A valid value is <code>null</code> or
+       the ID of the consistency group snapshot, if the consistency group was
+       created from a snapshot.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_network_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of a share network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="host"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group host name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_types"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       A list of share type IDs.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="GET" rax:id="listConsistencyGroups">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List consistency groups">
+               <para role="shortdesc">Lists all consistency groups.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_groups": [
+        {
+            "id": "6f519a48-3183-46cf-a32f-41815f813986",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "my-cg1"
+        },
+        {
+            "id": "aed36625-a6d7-4681-ba59-c7ba3d18c148",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "my-cg2"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                  
+                  
+                  <resource path="/v2/{tenant_id}/consistency-groups/detail"
+                id="detail-consistency-groups">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <method name="GET" rax:id="listConsistencyGroupsDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List consistency groups with details">
+               <para role="shortdesc">Lists all consistency groups with details.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_groups": [
+        {
+            "status": "available",
+            "description": "my first consistency group",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/6f519a48-3183-46cf-a32f-41815f813986",
+                    "rel": "bookmark"
+                }
+            ],
+            "source_cgsnapshot_id": null,
+            "created_at": "2015-09-16T09:28:52.000000",
+            "share_network_id": "d8ae6799-2567-4a89-aafb-fa4424350d2b",
+            "host": null,
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "share_types": [
+                "d2ad4f9d-cae3-4660-b0b6-58c06b385203"
+            ],
+            "id": "6f519a48-3183-46cf-a32f-41815f813986",
+            "name": "my-cg1"
+        },
+        {
+            "status": "error",
+            "description": "Edited description",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                    "rel": "bookmark"
+                }
+            ],
+            "source_cgsnapshot_id": null,
+            "created_at": "2015-09-16T09:31:15.000000",
+            "share_network_id": "713df749-aac0-4a54-af52-10f6c991e80c",
+            "host": null,
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "share_types": [
+                "be27425c-f807-4500-a056-d00721db45cf"
+            ],
+            "id": "aed36625-a6d7-4681-ba59-c7ba3d18c148",
+            "name": "my-cg2"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group status. A valid value is
+       <code>creating</code>, <code>available</code>, <code>error</code>,
+       <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_cgsnapshot_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot ID. A valid value is <code>null</code> or
+       the ID of the consistency group snapshot, if the consistency group was
+       created from a snapshot.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_network_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of a share network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="host"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group host name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_types"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       A list of share type IDs.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                     
+                  
+                  <resource path="/v2/{tenant_id}/consistency-groups/{consistency_group_id}"
+                id="consistency_group_id">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="consistency_group_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The UUID of the consistency group.</para>
+                        </wadl:doc>
+                     </param>
+         <method name="GET" rax:id="showConsistencyGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show consistency group details">
+               <para role="shortdesc">Shows details for a consistency group.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_group": {
+        "status": "available",
+        "description": "My first CG.",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/9397c191-8427-4661-a2e8-b23820dc01d4",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/9397c191-8427-4661-a2e8-b23820dc01d4",
+                "rel": "bookmark"
+            }
+        ],
+        "source_cgsnapshot_id": null,
+        "created_at": "2015-09-16T16:50:31.000000",
+        "share_network_id": "f9b2e754-ac01-4466-86e1-5c569424754e",
+        "share_server_id": null,
+        "host": "manila2@generic1#GENERIC1",
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "share_types": [
+            "be27425c-f807-4500-a056-d00721db45cf"
+        ],
+        "id": "9397c191-8427-4661-a2e8-b23820dc01d4",
+        "name": "cg1"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group status. A valid value is
+       <code>creating</code>, <code>available</code>, <code>error</code>,
+       <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_cgsnapshot_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot ID. A valid value is <code>null</code> or
+       the ID of the consistency group snapshot, if the consistency group was
+       created from a snapshot.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_network_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of a share network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="host"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group host name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_types"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       A list of share type IDs.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateConsistencyGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update consistency group">
+               <para role="shortdesc">Updates a consistency group.</para>
+               <para>You can update only these attributes:</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>
+                        <code>name</code>, which changes the consistency group name.
+               </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                        <code>description</code>, which changes the consistency group description.
+               </para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_group": {
+        "description": "Edited description"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="name"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "consistency_group": {
+        "status": "error",
+        "description": "Edited description",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/consistency_groups/aed36625-a6d7-4681-ba59-c7ba3d18c148",
+                "rel": "bookmark"
+            }
+        ],
+        "source_cgsnapshot_id": null,
+        "created_at": "2015-09-16T09:31:15.000000",
+        "share_network_id": "713df749-aac0-4a54-af52-10f6c991e80c",
+        "host": null,
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "share_types": [
+            "be27425c-f807-4500-a056-d00721db45cf"
+        ],
+        "id": "aed36625-a6d7-4681-ba59-c7ba3d18c148",
+        "name": "my-cg2"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group status. A valid value is
+       <code>creating</code>, <code>available</code>, <code>error</code>,
+       <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="source_cgsnapshot_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot ID. A valid value is <code>null</code> or
+       the ID of the consistency group snapshot, if the consistency group was
+       created from a snapshot.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_network_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The ID of a share network.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="host"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group host name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_types"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       A list of share type IDs.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteConsistencyGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete consistency group">
+               <para role="shortdesc">Deletes a consistency group.</para>
+            </wadl:doc>
+            <response status="202"/>
+         </method>
+      </resource>
+                     
+                     
+                     
+                     
+                     <resource id="consistency-groups-action"
+                path="/v2/{tenant_id}/consistency-groups/{consistency_group_id}/action">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="consistency_group_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The UUID of the consistency group.</para>
+                        </wadl:doc>
+                     </param>
+         <method name="POST" rax:id="resetConsistencyGroupState">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Reset consistency group state">
+               <para role="shortdesc">
+            Administrator only. Explicitly updates the state of a consistency
+            group.
+         </para>
+               <para>
+            Use the <code>policy.json</code> file to grant permissions for
+            this action to other roles.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "os-reset_status": {
+        "status": "available"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group status. A valid value is <code>creating</code>,
+      <code>error</code>, <code>available</code>, <code>deleting</code>, or
+      <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="force-deleteConsistencyGroup">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Force-delete consistency group">
+               <para role="shortdesc">
+            Administrator only. Force-deletes a consistency group.
+         </para>
+               <para>
+            Use the <code>policy.json</code> file to grant permissions for
+            this action to other roles.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "os-force_delete": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="os-force_delete"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To force-delete a consistency group, set this value to <code>null</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                        
+                        
+                     
+                  
+               <resource id="cgsnapshots" path="/v2/{tenant_id}/cgsnapshots">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <method name="POST" rax:id="createConsistencyGroupSnapshot">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create consistency group snapshot">
+               <para role="shortdesc">Creates a consistency group snapshot.</para>
+               <para>
+            You can create a consistency group snapshot for a consistency group
+            in <code>available</code> state only.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot": {
+        "consistency_group_id": "9397c191-8427-4661-a2e8-b23820dc01d4",
+        "name": "snapshot_cg1",
+        "description": "Snapshot of cg1"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="consistency_group_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the consistency group from which to create a snapshot.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot": {
+        "status": "creating",
+        "name": "snapshot_cg1",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                "rel": "bookmark"
+            }
+        ],
+        "created_at": "2015-09-16T17:34:06.031997",
+        "consistency_group_id": "9397c191-8427-4661-a2e8-b23820dc01d4",
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+        "description": "Snapshot of cg1"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot status, which is
+      <code>available</code>, <code>creating</code>, <code>error</code>,
+      <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="consistency_group_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the consistency group from which the snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="GET" rax:id="listConsistencyGroupsnapshots">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List consistency group snapshots">
+               <para role="shortdesc">Lists all consistency group snapshots.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshots": [
+        {
+            "id": "7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "snapshot_CG2"
+        },
+        {
+            "id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                    "rel": "bookmark"
+                }
+            ],
+            "name": "snapshot_cg1"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                  
+                  
+                  <resource path="/v2/{tenant_id}/cgsnapshots/detail" id="detail-cgsnapshots">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <method name="GET" rax:id="listConsistencyGroupsnapshotsDetails">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List consistency group snapshots with details">
+               <para role="shortdesc">Lists all consistency group snapshots with details.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshots": [
+        {
+            "status": "available",
+            "name": "snapshot_CG2",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                    "rel": "bookmark"
+                }
+            ],
+            "created_at": "2015-09-16T17:37:40.000000",
+            "consistency_group_id": "2d5c2600-ae67-4dff-b13c-a1c20b335e8e",
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "id": "7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+            "description": "Snapshot of CG2"
+        },
+        {
+            "status": "available",
+            "name": "snapshot_cg1",
+            "links": [
+                {
+                    "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                    "rel": "bookmark"
+                }
+            ],
+            "created_at": "2015-09-16T17:34:15.000000",
+            "consistency_group_id": "9397c191-8427-4661-a2e8-b23820dc01d4",
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+            "description": "Snapshot of cg1"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot status, which is
+      <code>available</code>, <code>creating</code>, <code>error</code>,
+      <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="consistency_group_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the consistency group from which the snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                     
+                  
+                  <resource path="/v2/{tenant_id}/cgsnapshots/{cgsnapshot_id}" id="cgsnapshot_id">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="cgsnapshot_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The UUID of the consistency group snapshot.</para>
+                        </wadl:doc>
+                     </param>
+         <method name="GET" rax:id="listConsistencyGroupsnapshot">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show consistency group snapshot details">
+               <para role="shortdesc">Shows details for a consistency group snapshot.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot": {
+        "status": "available",
+        "name": "snapshot_cg1",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+                "rel": "bookmark"
+            }
+        ],
+        "created_at": "2015-09-16T17:34:15.000000",
+        "consistency_group_id": "9397c191-8427-4661-a2e8-b23820dc01d4",
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+        "description": "Snapshot of cg1"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot status, which is
+      <code>available</code>, <code>creating</code>, <code>error</code>,
+      <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="consistency_group_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the consistency group from which the snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateConsistencyGroupSnapshot">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update consistency group snapshot">
+               <para role="shortdesc">Updates a consistency group snapshot.</para>
+               <para>You can update only these attributes:</para>
+               <itemizedlist>
+                  <listitem>
+                     <para>
+                        <code>name</code>, which changes the consistency group snapshot name.
+               </para>
+                  </listitem>
+                  <listitem>
+                     <para>
+                        <code>description</code>, which changes the consistency group snapshot description.
+               </para>
+                  </listitem>
+               </itemizedlist>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot": {
+        "description": "Changed description: there is a snapshot of CG2"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="name"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot": {
+        "status": "available",
+        "name": "snapshot_CG2",
+        "links": [
+            {
+                "href": "http://172.18.198.54:8786/v2/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                "rel": "self"
+            },
+            {
+                "href": "http://172.18.198.54:8786/16e1ab15c35a457e9c2b2aa189f544e1/cgsnapshot/7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+                "rel": "bookmark"
+            }
+        ],
+        "created_at": "2015-09-16T17:37:40.000000",
+        "consistency_group_id": "2d5c2600-ae67-4dff-b13c-a1c20b335e8e",
+        "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+        "id": "7e5c3ca7-d54b-438d-9a9c-c65ece6bc6c6",
+        "description": "Changed description: there is a snapshot of CG2"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot status, which is
+      <code>available</code>, <code>creating</code>, <code>error</code>,
+      <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="consistency_group_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the consistency group from which the snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot name.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot description.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the consistency group snapshot was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteConsistencyGroupSnapshot">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete consistency group snapshot">
+               <para role="shortdesc">Deletes a consistency group snapshot.</para>
+            </wadl:doc>
+            <response status="202"/>
+         </method>
+      </resource>
+                     
+                     
+                     
+                     
+                     <resource path="/v2/{tenant_id}/cgsnapshots/{cgsnapshot_id}/members"
+                id="cgsnapshot-members">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="cgsnapshot_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The UUID of the consistency group snapshot.</para>
+                        </wadl:doc>
+                     </param>
+         <method name="GET" rax:id="listConsistencyGroupsnapshotMembers">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show consistency group snapshot member">
+               <para role="shortdesc">Shows information about a consistency group snapshot member.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "cgsnapshot_members": [
+        {
+            "share_type_id": "be27425c-f807-4500-a056-d00721db45cf",
+            "share_id": "609e4924-f062-45e0-928d-7b739348c4d6",
+            "created_at": "2015-09-16T17:34:15.000000",
+            "cgsnapshot_id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+            "share_protocol": "NFS",
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "id": "84098fde-40ec-4c96-a908-bc532c52b3af",
+            "size": 1
+        },
+        {
+            "share_type_id": "be27425c-f807-4500-a056-d00721db45cf",
+            "share_id": "c4a2ced4-2c9f-4ae1-adaa-6171833e64df",
+            "created_at": "2015-09-16T17:34:15.000000",
+            "cgsnapshot_id": "b44c894d-4bec-47aa-b389-cc8c6f0044a5",
+            "share_protocol": "NFS",
+            "project_id": "16e1ab15c35a457e9c2b2aa189f544e1",
+            "id": "db492d38-dd3a-4d6b-a3b6-e65377990892",
+            "size": 1
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot member ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the share that is a consistency group snapshot member.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_type_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The share type ID of the member.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time stamp when the member was created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cgsnapshot_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+       The consistency group snapshot ID.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="share_protocol"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The file system protocol of the member, which is <code>NFS</code>,
+      <code>CIFS</code>, <code>GlusterFS</code>, or <code>HDFS</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="project_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the project in which the consistency group snapshot member was
+      created.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="size"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The member size, in GBs.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                        
+                     
+                     <resource id="cgsnapshots-action"
+                path="/v2/{tenant_id}/cgsnapshots/{cgsnapshot_id}/action">
+         <param name="X-Openstack-Manila-Api-Version"
+                style="header"
+                type="xsd:string"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+                  A valid Shared File Systems API micro-version. For example,
+                  <code>"X-Openstack-Manila-Api-Version: 2.6"</code>. If you
+                  omit this header, the default micro-version is 2.0.
+               </para>
+            </wadl:doc>
+         </param>
+         <param name="X-OpenStack-Manila-API-Experimental"
+                style="header"
+                type="xsd:bool"
+                required="true"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        Indicates that this is an experimental Shared File
+                        Systems API request. Set to <code>true</code>. For
+                        example, <code>"X-OpenStack-Manila-API-Experimental:
+                        true"</code>.
+                     </para>
+                  </wadl:doc>
+               </param>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+                        The tenant ID in a multi-tenancy cloud.</para>
+                  </wadl:doc>
+               </param>
+         <param name="cgsnapshot_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The UUID of the consistency group snapshot.</para>
+                        </wadl:doc>
+                     </param>
+         <method name="POST" rax:id="resetConsistencyGroupSnapshotState">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Reset consistency group snapshot state">
+               <para role="shortdesc">
+            Administrator only. Explicitly updates the state of a consistency
+            group snapshot.
+         </para>
+               <para>
+            Administrators can use the <code>policy.json</code> file to permit
+            other roles to complete this action.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "os-reset_status": {
+        "status": "error"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="status"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The consistency group snapshot status. A valid value is
+      <code>creating</code>, <code>error</code>, <code>available</code>,
+      <code>deleting</code>, or <code>error_deleting</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="force-deleteConsistencyGroupSnapshot">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Force-delete consistency group snapshot">
+               <para role="shortdesc">
+            Administrator only. Force-deletes a consistency group snapshot.
+         </para>
+               <para>
+            Use the <code>policy.json</code> file to grant permissions for this action to other roles.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "os-force_delete": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="os-force_delete"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      To force-delete a consistency group snapshot, set this value to
+      <code>null</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                        
+                        
+                     
+                  
+               
+   </resources>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="migrateShare">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="host"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="force_host_copy"
+                   style="plain"
+                   required="true"
+                   type="xsd:bool"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createConsistencyGroup">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="share_types"
+                   style="plain"
+                   required="false"
+                   type="xsd:list"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="share_network_id"
+                   style="plain"
+                   required="false"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="source_cgsnapshot_id"
+                   style="plain"
+                   required="false"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="source_cgsnapshot_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="share_network_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="host"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_types"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroups">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroupsDetails">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="source_cgsnapshot_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="share_network_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="host"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_types"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showConsistencyGroup">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="source_cgsnapshot_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="share_network_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="host"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_types"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateConsistencyGroup">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="name"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="source_cgsnapshot_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="share_network_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="host"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_types"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteConsistencyGroup">
+      
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="resetConsistencyGroupState">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="force-deleteConsistencyGroup">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="os-force_delete"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createConsistencyGroupSnapshot">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="consistency_group_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="consistency_group_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroupsnapshots">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroupsnapshotsDetails">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="consistency_group_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroupsnapshot">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="consistency_group_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listConsistencyGroupsnapshotMembers">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_type_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="cgsnapshot_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="share_protocol"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="size"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateConsistencyGroupSnapshot">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="name"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="project_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="consistency_group_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteConsistencyGroupSnapshot">
+      
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="resetConsistencyGroupSnapshotState">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="status"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="202"/>
+   </method>
+   <method xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/share/api/v1.0"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="force-deleteConsistencyGroupSnapshot">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+            
+            <param name="os-force_delete"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </request>
+      <response status="202"/>
+   </method>
+</wadl:application>

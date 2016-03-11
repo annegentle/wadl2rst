@@ -1,0 +1,1023 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent data-sources.wadl               -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/dataprocessing-api/src/v1.1/wadl/data-sources.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="capi"
+                namespace="http://docs.openstack.org/common/api/v1.0"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant.
+    
+  
+
+                <rax:resource rax:id="data-sources">
+         <rax:resource rax:id="data_source_id"/>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="data-sources-v1.1">
+        <resource id="data-sources" path="/v1.1/{tenant_id}/data-sources">
+         <method name="GET" rax:id="listDataSources">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List data sources">
+               <para role="shortdesc">
+                Lists all data sources.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "data_sources": [
+        {
+            "is_public": false,
+            "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+            "is_protected": false,
+            "created_at": "2015-03-26 11:18:10",
+            "id": "953831f2-0852-49d8-ac71-af5805e25256",
+            "name": "swift_input",
+            "updated_at": null,
+            "description": "This is input",
+            "url": "swift://container/text",
+            "type": "swift"
+        },
+        {
+            "is_public": false,
+            "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+            "is_protected": false,
+            "created_at": "2015-03-26 11:09:36",
+            "id": "d7fffe9c-3b42-46a9-8be8-e98f586fa7a9",
+            "name": "hdfs_input",
+            "updated_at": null,
+            "description": "This is hdfs input",
+            "url": "hdfs://test-master-node:8020/user/hadoop/input",
+            "type": "hdfs"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="url"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The url of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is public.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was created.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="POST" rax:id="createDataSource">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create data source">
+               <para role="shortdesc">
+                Creates a data source.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "description": "This is input",
+    "url": "swift://container/text",
+    "credentials": {
+        "password": "swordfish",
+        "user": "dev"
+    },
+    "type": "swift",
+    "name": "swift_input"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "description": "This is hdfs input",
+    "url": "hdfs://test-master-node:8020/user/hadoop/input",
+    "type": "hdfs",
+    "name": "hdfs_input"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "data_source": {
+        "is_public": false,
+        "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+        "is_protected": false,
+        "created_at": "2015-03-26 11:18:10.691493",
+        "id": "953831f2-0852-49d8-ac71-af5805e25256",
+        "updated_at": null,
+        "name": "swift_input",
+        "description": "This is input",
+        "url": "swift://container/text",
+        "type": "swift"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "data_source": {
+        "is_public": false,
+        "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+        "is_protected": false,
+        "created_at": "2015-03-26 11:09:36.148464",
+        "id": "d7fffe9c-3b42-46a9-8be8-e98f586fa7a9",
+        "updated_at": null,
+        "name": "hdfs_input",
+        "description": "This is hdfs input",
+        "url": "hdfs://test-master-node:8020/user/hadoop/input",
+        "type": "hdfs"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="url"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The url of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is public.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was created.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    <resource id="data_source_id"
+                path="/v1.1/{tenant_id}/data-sources/{data_source_id}">
+         <param name="data_source_id"
+                style="template"
+                type="capi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the data source.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showDataSource">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show data source details">
+               <para role="shortdesc">
+                Shows details for a data source.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "data_source": {
+        "is_public": false,
+        "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+        "is_protected": false,
+        "created_at": "2015-03-26 11:18:10.691493",
+        "id": "953831f2-0852-49d8-ac71-af5805e25256",
+        "updated_at": null,
+        "name": "swift_input",
+        "description": "This is input",
+        "url": "swift://container/text",
+        "type": "swift"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="url"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The url of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of the data source object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is public.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was created.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateDataSource">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update data source">
+               <para role="shortdesc">
+                Updates a data source.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update data source: JSON request">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "description": "This is public input",
+    "is_protected": true
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "data_source": {
+        "is_public": true,
+        "tenant_id": "9cd1314a0a31493282b6712b76a8fcda",
+        "is_protected": false,
+        "created_at": "2015-09-15 12:32:24.847493",
+        "id": "953831f2-0852-49d8-ac71-af5805e25256",
+        "updated_at": "2015-09-15 12:34:42.597435",
+        "name": "swift_input",
+        "description": "This is public input",
+        "url": "swift://container/text",
+        "type": "swift"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteDataSource">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete data source">
+               <para role="shortdesc">
+                Deletes a data source.
+            </para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+      </resource>
+                        
+
+                        
+                        
+                        
+                    
+                
+    </resources>
+    <!-- *******************************************************-->
+    <!--      data sources            -->
+    <!--*******************************************************-->
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listDataSources">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showDataSource">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createDataSource">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/json">
+                
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteDataSource">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateDataSource">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+</wadl:application>

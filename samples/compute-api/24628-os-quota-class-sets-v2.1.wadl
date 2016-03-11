@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2014-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-class-sets-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="xsd"
+                namespace="http://docs.rackspacecloud.com/xsd/v1.0"
+                name="string">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                
+                    <rax:resource rax:id="class_id"/>
+                
+            
+        </rax:resources>
+    <resources xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-quota-class-sets-v2.1">
+        <resource id="class_id" path="/v2.1/{tenant_id}/os-quota-class-sets/{class_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="class_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the quota class.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showquota">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Show quota">
+               <para role="shortdesc">Shows the quota for a
+                class.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_class_set": {
+        "cores": 20,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "id": "test_class",
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 10,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updatequota">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update quota">
+               <para role="shortdesc">Updates quota for a
+                class.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_class_set": {
+        "instances": 50,
+        "cores": 50,
+        "ram": 51200,
+        "floating_ips": 10,
+        "metadata_items": 128,
+        "injected_files": 5,
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "security_groups": 10,
+        "security_group_rules": 20,
+        "key_pairs": 100
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_class_set": {
+        "cores": 50,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 50,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                        
+
+                        
+                        
+                    
+    </resources>
+    <!-- *******************************************************-->
+    <!--      OS Quota Class Sets           -->
+    <!--*******************************************************-->
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showquota">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updatequota">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+</wadl:application>

@@ -1,0 +1,4116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2011-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint          -->
+<!--                                                       -->
+<!--        xmllint -noent OS-KSADM-admin.wadl             -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v2.0/wadl/OS-KSADM-admin.wadl">
+   <rax:types/>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="badRequest">
+         <para/>
+      </rax:response>
+      <rax:response status="401"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="unauthorized">
+         <para/>
+      </rax:response>
+      <rax:response status="403"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="forbidden">
+         <para/>
+      </rax:response>
+      <rax:response status="404"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="itemNotFound">
+         <para/>
+      </rax:response>
+      <rax:response status="405"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="badMethod">
+         <para/>
+      </rax:response>
+      <rax:response status="413"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="overLimit">
+         <para/>
+      </rax:response>
+      <rax:response status="503"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="serviceUnavailable">
+         <para/>
+      </rax:response>
+      <rax:response status="409"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="TenantConflictFault">
+         <para/>
+      </rax:response>
+      <rax:response status="415"
+                    prefix="identity"
+                    namespace="http://docs.openstack.org/identity/api/v2.0"
+                    name="badMediaType">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+         
+            
+               A valid authentication token for an administrative user.
+            
+         
+         <rax:resource rax:id="users-v2.0">
+         <rax:resource rax:id="userById-v2.0">
+                  <rax:resource rax:id="enableUser-v2.0"/>
+               <rax:resource rax:id="userRoles-v2.0">
+                     <rax:resource rax:id="userRoleById-v2.0"/>
+                  </rax:resource>
+         </rax:resource>
+      </rax:resource>
+         <rax:resource rax:id="tenants-v2.0">
+         <rax:resource rax:id="tenantById-v2.0">
+            <rax:resource rax:id="usersForTenant-v2.0">
+                     
+                        
+                           The user ID.
+                        
+                     
+                     
+                        
+                           <rax:resource rax:id="userSpecificRoleForTenant-v2.0"/>
+                        
+                     
+                  </rax:resource>
+         </rax:resource>
+      </rax:resource>
+         <rax:resource rax:id="role-service-OS-KSADM-v2.0">
+              <rax:resource rax:id="name"/>
+             <rax:resource rax:id="roleId-v2.0"/>
+         <rax:resource rax:id="roles_list-v2.0"/>
+      </rax:resource>
+          <rax:resource rax:id="services-v2.0">
+         <rax:resource rax:id="serviceName-v2.0"/>
+         <rax:resource rax:id="serviceId-v2.0"/>
+      </rax:resource>
+       </rax:resources>
+    <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02"><!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/identity-api/src/v2.0/xsd/OS-KSADM.xsd-->
+      <wadl:include href="10101-OS-KSADM-admin-xsd-1.xsd"/>
+   </wadl:grammars>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <!-- We should use SSL in production -->
+    <resources xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+              xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="http://localhost:35357"
+              xml:id="OS-KSADM-admin-v2.0">
+      <resource id="users-v2.0" path="/v2.0/users">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listUsers">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List users">
+               <para role="shortdesc">Lists all users.</para>
+            </wadl:doc>
+            <request>
+            
+
+               <param name="limit"
+                      style="query"
+                      required="false"
+                      type="xsd:int"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+
+               <param name="marker"
+                      style="query"
+                      required="false"
+                      type="xsd:string"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "users": [
+        {
+            "id": "u1000",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        },
+        {
+            "id": "u1001",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        }
+    ],
+    "users_links": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="createUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create user">
+               <para role="shortdesc">Creates a user.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "name": "jqsmith",
+        "email": "john.smith@example.org",
+        "enabled": true,
+        "OS-KSADM:password": "secretsecret"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "id": "u1000",
+        "name": "jqsmith",
+        "email": "john.smith@example.org",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+            
+            
+            <resource id="userById-v2.0" path="/v2.0/users/{userId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The ID of the user for which to perform the request.</para>
+                  </wadl:doc>
+               </param>
+         <method name="PUT" rax:id="updateUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Update user">
+               <para role="shortdesc">Updates a user.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "id": "u1000",
+        "name": "jqsmith",
+        "email": "john.smith@example.org",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "id": "u1000",
+        "name": "jqsmith",
+        "email": "john.smith@example.org",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete user">
+               <para role="shortdesc">Deletes a user.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+               
+               
+               
+               <resource id="enableUser-v2.0" path="/v2.0/users/{userId}/OS-KSADM/enabled">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The ID of the user for which to perform the request.</para>
+                  </wadl:doc>
+               </param>
+         <method name="PUT" rax:id="enableUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Enable user">
+               <para role="shortdesc">Enables a user.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "user": {
+        "id": "u1000",
+        "name": "jqsmith",
+        "email": "john.smith@example.org",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    
+                  
+               <resource id="userRoles-v2.0" path="/v2.0/users/{userId}/roles">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The ID of the user for which to perform the request.</para>
+                  </wadl:doc>
+               </param>
+         <param name="serviceId"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The service ID.</para>
+                     </wadl:doc>
+                  </param>
+         <method name="GET" rax:id="listUserGlobalRoles">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List global roles for user">
+               <para role="shortdesc">
+                Lists global roles for a user.
+            </para>
+            </wadl:doc>
+            <request>
+            
+
+               <param name="limit"
+                      style="query"
+                      required="false"
+                      type="xsd:int"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+
+               <param name="marker"
+                      style="query"
+                      required="false"
+                      type="xsd:string"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "8341d3603a1d4d5985bff09f10704d4d",
+            "name": "service"
+        },
+        {
+            "id": "2e66d57df76946fdbe034bc4da6fdec0",
+            "name": "admin"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                  
+                  
+                  <resource id="userRoleById-v2.0"
+                path="/v2.0/users/{userId}/roles/OS-KSADM/{roleId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="userId"
+                style="template"
+                required="true"
+                type="xsd:string"
+                rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The ID of the user for which to perform the request.</para>
+                  </wadl:doc>
+               </param>
+         <param name="roleId" style="template" type="xsd:int" rax:id="">
+                           <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                              <para>The role ID.</para>
+                           </wadl:doc>
+                        </param>
+         <method name="PUT" rax:id="grantGlobalRoleToUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Grant global role to user">
+               <para role="shortdesc">Grants a global role to a
+             user.</para>
+            </wadl:doc>
+            <response status="201"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="revokeGlobalRoleFromUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete global role from user">
+               <para role="shortdesc">Deletes a global role from
+                a user.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                        
+                        
+                        
+                     
+               
+            
+         <resource id="tenants-v2.0" path="/v2.0/tenants">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create tenant">
+               <para role="shortdesc">Creates a tenant.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "tenant": {
+        "name": "ACME corp",
+        "description": "A description ...",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "tenant": {
+        "id": "1234",
+        "name": "ACME corp",
+        "description": "A description ...",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+            
+            <resource id="tenantById-v2.0" path="/v2.0/tenants/{tenantId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="tenantId" style="template" type="xsd:string" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The tenant ID.</para>
+                  </wadl:doc>
+               </param>
+         <method name="POST" rax:id="updateTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update tenant">
+               <para role="shortdesc">Updates a tenant.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "tenant": {
+        "id": "1234",
+        "name": "ACME corp",
+        "description": "A description ...",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "tenant": {
+        "id": "1234",
+        "name": "ACME corp",
+        "description": "A description ...",
+        "enabled": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete tenant">
+               <para role="shortdesc">Deletes a tenant.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+               
+               
+               
+               <resource id="usersForTenant-v2.0" path="/v2.0/tenants/{tenantId}/users">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="tenantId" style="template" type="xsd:string" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The tenant ID.</para>
+                  </wadl:doc>
+               </param>
+         <method name="GET" rax:id="listUsersForTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List users on a tenant">
+               <para role="shortdesc">
+              Lists all users for a tenant.
+            </para>
+            </wadl:doc>
+            <request>
+            
+
+               <param name="limit"
+                      style="query"
+                      required="false"
+                      type="xsd:int"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+
+               <param name="marker"
+                      style="query"
+                      required="false"
+                      type="xsd:string"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "users": [
+        {
+            "id": "u1000",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        },
+        {
+            "id": "u1001",
+            "name": "jqsmith",
+            "email": "john.smith@example.org",
+            "enabled": true
+        }
+    ],
+    "users_links": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203"/>
+        
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                  
+                  <resource id="userSpecificRoleForTenant-v2.0"
+                path="/v2.0/tenants/{tenantId}/users/{userId}/roles/OS-KSADM/{roleId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="tenantId" style="template" type="xsd:string" rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>The tenant ID.</para>
+                  </wadl:doc>
+               </param>
+         <param name="userId" style="template" type="xsd:string" rax:id="">
+                        <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                           <para>The user ID.</para>
+                        </wadl:doc>
+                     </param>
+         <param name="roleId" style="template" type="xsd:string" rax:id="">
+                                 <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                    <para>The role ID.</para>
+                                 </wadl:doc>
+                              </param>
+         <method name="PUT" rax:id="grantRoleToUserOnTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Grant roles to user on tenant">
+               <para role="shortdesc">Grants a role to a user for
+                a tenant.</para>
+            </wadl:doc>
+            <response status="201"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+       
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="revokeRoleFromUserOnTenant">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Revoke role from user on tenant">
+               <para role="shortdesc">Revokes a role from a
+                 user for a tenant.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                              
+                              
+                              
+                           
+               
+            
+         <resource id="role-service-OS-KSADM-v2.0" path="/v2.0/OS-KSADM">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createRole">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Create role">
+               <para role="shortdesc">Creates a role.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "role": {
+        "id": "123",
+        "name": "Guest",
+        "description": "Guest Access"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "role": {
+        "id": "123",
+        "name": "Guest",
+        "description": "Guest Access"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">The location.</wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+            <resource id="name" path="/v2.0/OS-KSADM/roles/{role_name}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="name" style="template" type="xsd:string" rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                       <para>The role name.</para>
+                    </wadl:doc>
+                 </param>
+         <method name="GET" rax:id="showRoleByName">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show role information by name">
+               <para role="shortdesc">Shows information for a role, by name.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "role": {
+        "id": "123",
+        "name": "Guest",
+        "description": "Guest Access"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            ID.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            name.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+        The role description.
+      </para>
+                     </wadl:doc>
+                  </param> 
+                  <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">The location.</wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                 
+                 
+               
+             <resource id="roleId-v2.0" path="/v2.0/OS-KSADM/{roleId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="roleId" style="template" type="xsd:string" rax:id="">
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                      <para>The role ID.</para>
+                   </wadl:doc>
+                </param>
+         <method name="GET" rax:id="showRoleByID">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show role details, by ID">
+               <para role="shortdesc">Shows details for a
+                role, by ID.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "role": {
+        "id": "123",
+        "name": "Guest",
+        "description": "Guest Access"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            ID.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            name.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+        The role description.
+      </para>
+                     </wadl:doc>
+                  </param> 
+                  <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">The location.</wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteRole">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Delete role">
+               <para role="shortdesc">Deletes a role.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+                
+             
+             <resource id="roles_list-v2.0" path="/v2.0/OS-KSADM/">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listRoles">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List roles">
+               <para role="shortdesc">Lists all roles.</para>
+            </wadl:doc>
+            <request>
+            
+
+               <param name="limit"
+                      style="query"
+                      required="false"
+                      type="xsd:int"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+
+               <param name="marker"
+                      style="query"
+                      required="false"
+                      type="xsd:string"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "roles": [
+        {
+            "id": "123",
+            "name": "compute:admin",
+            "description": "Nova Administrator"
+        }
+    ],
+    "roles_links": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="roles"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>A <code>roles</code>
+                        object.</para>
+                     </wadl:doc>
+                  </param> 
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            ID.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The role
+            name.</para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+        The role description.
+      </para>
+                     </wadl:doc>
+                  </param> 
+                  <param name="roles_links"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Role
+                        links.</para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+             
+             
+          <resource id="services-v2.0" path="/v2.0/services">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listServices">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List services">
+               <para role="shortdesc">Lists all services.</para>
+            </wadl:doc>
+            <request>
+            
+
+               <param name="limit"
+                      style="query"
+                      required="false"
+                      type="xsd:int"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+
+               <param name="marker"
+                      style="query"
+                      required="false"
+                      type="xsd:string"
+                      rax:id="">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                  </wadl:doc>
+               </param>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:services": [
+        {
+            "id": "123",
+            "name": "nova",
+            "type": "compute",
+            "description": "OpenStack Compute Service"
+        },
+        {
+            "id": "234",
+            "name": "glance",
+            "type": "image",
+            "description": "OpenStack Image Service"
+        }
+    ],
+    "OS-KSADM:services_links": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:services": [
+        {
+            "id": "123",
+            "name": "nova",
+            "type": "compute",
+            "description": "OpenStack Compute Service"
+        },
+        {
+            "id": "234",
+            "name": "glance",
+            "type": "image",
+            "description": "OpenStack Image Service"
+        }
+    ],
+    "OS-KSADM:services_links": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="createService">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create service">
+               <para role="shortdesc">Creates a service.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:service": {
+        "id": "123",
+        "name": "nova",
+        "type": "compute",
+        "description": "OpenStack Compute Service"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:service": {
+        "id": "123",
+        "name": "nova",
+        "type": "compute",
+        "description": "OpenStack Compute Service"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">The location.</wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+             
+             
+             <resource id="serviceName-v2.0" path="/v2.0/services/{serviceName}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="name"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                      <para>The service name.</para>
+                   </wadl:doc>
+                </param>
+         <method name="GET" rax:id="showServiceByName">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show service information by name">
+               <para role="shortdesc">Shows information for a service, by name.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:service": {
+        "id": "123",
+        "name": "nova",
+        "type": "compute",
+        "description": "OpenStack Compute Service"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+             
+             <resource id="serviceId-v2.0" path="/v2.0/services/{serviceId}">
+         <param name="X-Auth-Token"
+                style="header"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>A valid authentication token for an administrative user.</para>
+            </wadl:doc>
+         </param>
+         <param name="serviceId" style="template" type="xsd:string" rax:id="">
+                   <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                      <para>The service ID.</para>
+                   </wadl:doc>
+                </param>
+         <method name="GET" rax:id="showServiceByID">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Shows service information by ID">
+               <para role="shortdesc">Shows information for a service, by ID.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code>
+                        <programlisting language="javascript">{
+    "OS-KSADM:service": {
+        "id": "123",
+        "name": "nova",
+        "type": "compute",
+        "description": "OpenStack Compute Service"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+            <response status="203"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteService">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete service">
+               <para role="shortdesc">Deletes a service.</para>
+            </wadl:doc>
+            <response status="204"/> 
+
+            <response status="400" rax:phrase="Bad Request">
+               <representation mediaType="application/xml" element="identity:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="401" rax:phrase="Unauthorized">
+               <representation mediaType="application/xml" element="identity:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="403" rax:phrase="Forbidden">
+               <representation mediaType="application/xml" element="identity:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="404" rax:phrase="Not Found">
+               <representation mediaType="application/xml" element="identity:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="405" rax:phrase="Method Not Allowed">
+               <representation mediaType="application/xml" element="identity:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="409">
+               <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="413" rax:phrase="Request Entity Too Large">
+               <representation mediaType="application/xml" element="identity:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="415" rax:phrase="Unsupported Media Type">
+               <representation mediaType="application/xml" element="identity:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+            <response status="503" rax:phrase="Service Unavailable">
+               <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+                
+             
+          
+   </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <!-- Tenant Operations -->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createTenant">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="updateTenant">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteTenant">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listUsersForTenant">
+        
+        <request>
+            
+
+         <param name="limit"
+                style="query"
+                required="false"
+                type="xsd:int"
+                rax:id="">
+    
+</param>
+
+         <param name="marker"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+    
+</param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203"/>
+        
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="grantRoleToUserOnTenant">
+        
+        <response status="201"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+       
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeRoleFromUserOnTenant">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <!-- User Operations -->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listUsers">
+        
+        <request>
+            
+
+         <param name="limit"
+                style="query"
+                required="false"
+                type="xsd:int"
+                rax:id="">
+    
+</param>
+
+         <param name="marker"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+    
+</param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createUser">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateUser">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteUser">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="enableUser">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <!-- User Roles -->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listUserGlobalRoles">
+        
+        <request>
+            
+
+         <param name="limit"
+                style="query"
+                required="false"
+                type="xsd:int"
+                rax:id="">
+    
+</param>
+
+         <param name="marker"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+    
+</param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="grantGlobalRoleToUser">
+        
+        <response status="201"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="revokeGlobalRoleFromUser">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <!-- Roles -->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listRoles">
+        
+        <request>
+            
+
+         <param name="limit"
+                style="query"
+                required="false"
+                type="xsd:int"
+                rax:id="">
+    
+</param>
+
+         <param name="marker"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+    
+</param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                <param name="roles"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param> 
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+    
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param> 
+            <param name="roles_links"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+                    
+                </param>
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createRole">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+                <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    
+                </param>
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showRoleByName">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+    
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param> 
+            <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    
+                </param>
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showRoleByID">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+    
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param> 
+            <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    
+                </param>
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteRole">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <!-- Service Operations -->
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listServices">
+        
+        <request>
+            
+
+         <param name="limit"
+                style="query"
+                required="false"
+                type="xsd:int"
+                rax:id="">
+    
+</param>
+
+         <param name="marker"
+                style="query"
+                required="false"
+                type="xsd:string"
+                rax:id="">
+    
+</param>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showServiceByName">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showServiceByID">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+        <response status="203"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createService">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+                <param name="Location" type="xsd:anyURI" style="header" rax:id="">
+                    
+                </param>
+            </representation>
+        </response> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:identity="http://docs.openstack.org/identity/api/v2.0"
+           xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:HP-IDM="http://docs.openstack.org/identity/api/ext/HP-IDM/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteService">
+        
+        <response status="204"/> 
+
+      <response status="400" rax:phrase="Bad Request">
+         <representation mediaType="application/xml" element="identity:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="401" rax:phrase="Unauthorized">
+         <representation mediaType="application/xml" element="identity:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="403" rax:phrase="Forbidden">
+         <representation mediaType="application/xml" element="identity:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="404" rax:phrase="Not Found">
+         <representation mediaType="application/xml" element="identity:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="405" rax:phrase="Method Not Allowed">
+         <representation mediaType="application/xml" element="identity:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="409">
+         <representation mediaType="application/xml" element="identity:TenantConflictFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="413" rax:phrase="Request Entity Too Large">
+         <representation mediaType="application/xml" element="identity:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="415" rax:phrase="Unsupported Media Type">
+         <representation mediaType="application/xml" element="identity:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+      <response status="503" rax:phrase="Service Unavailable">
+         <representation mediaType="application/xml" element="identity:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+</wadl:application>

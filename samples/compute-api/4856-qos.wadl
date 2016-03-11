@@ -1,0 +1,2519 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent qos.wadl                        -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/networking-api/src/wadl/qos.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v1.1"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status="401"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="unauthorized">
+         <para/>
+      </rax:response>
+      <rax:response status="500"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="Internal-server-error">
+         <para/>
+      </rax:response>
+      <rax:response status="503"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="serviceUnavailable">
+         <para/>
+      </rax:response>
+      <rax:response status="404"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="itemNotFound">
+         <para/>
+      </rax:response>
+      <rax:response status="409"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="conflict">
+         <para/>
+      </rax:response>
+      <rax:response status="413"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="overLimit">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="badRequest">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                <rax:resource rax:id="policies">
+         <rax:resource rax:id="policy_id">
+            <rax:resource rax:id="bandwidth_limit_rules">
+               <rax:resource rax:id="rule_id"/>
+            </rax:resource>
+         </rax:resource>
+      </rax:resource>
+            
+        </rax:resources>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:linkend="http://www.w3.org/1999/linkend"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://neutron.example.com/"
+              xml:id="os-qos-v2.0">
+        <resource id="policies" path="/v2.0/qos/policies">
+         <method name="GET" rax:id="listPolicies">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List QoS policies">
+               <para role="shortdesc">
+                Lists all QoS policies that are associated with your tenant
+                account.
+            </para>
+               <para>
+                The list might be empty.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policies": [
+        {
+            "tenant_id": "8d4c70a21fed4aeba121a1a429ba0d04",
+            "id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+            "name": "10Mbit",
+            "description": "This policy limits the ports to 10Mbit max.",
+            "shared": false,
+            "bandwidth_limit_rules": [
+                {
+                    "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+                    "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+                    "max_kbps": "10000",
+                    "max_burst_kbps": "0"
+                }
+            ]
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A list of QoS <code>policy</code> objects.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The generated UUID of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this policy is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="bandwidth_limit_rules"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A list of bandwidth limit rules associated with the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="createPolicy">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create QoS policy">
+               <para role="shortdesc">
+                Creates a QoS policy.
+            </para>
+               <para>
+                Creates a QoS policy by using the configuration that you
+                define in the request object. A response object is returned.
+                The object contains a unique ID.
+            </para>
+               <para>
+                If the caller is not an administrative user, this call returns
+                the HTTP <code>Forbidden (403)</code> response code.
+            </para>
+               <para>
+                Users with an administrative role can create policies on
+                behalf of other tenants by specifying a tenant UUID that is
+                different than their own.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policy": {
+        "name": "10Mbit",
+        "description": "This policy limits the ports to 10Mbit max.",
+        "shared": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A QoS <code>policy</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The QoS policy name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The QoS policy description.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Set to <code>true</code> to share this policy with other tenants.
+    </para>
+                        <para>
+      Default is <code>false</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The tenant UUID of QoS policy owner. Only administrative
+      users can specify a tenant UUID other than their own. You cannot
+      change this value through authorization policies.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="type"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policy": {
+        "name": "10Mbit",
+        "description": "This policy limits the ports to 10Mbit max.",
+        "id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "tenant_id": "8d4c70a21fed4aeba121a1a429ba0d04",
+        "shared": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A QoS <code>policy</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The generated UUID of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this policy is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:conflict"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    <resource id="policy_id" path="/v2.0/qos/policies/{policy_id}">
+         <param type="csapi:UUID"
+                style="template"
+                required="true"
+                name="policy_id"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Policy UUID">
+               <para>
+      The UUID of the policy.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showPolicy">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show QoS policy details">
+               <para role="shortdesc">
+                Shows details for a QoS policy.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policy": {
+        "tenant_id": "8d4c70a21fed4aeba121a1a429ba0d04",
+        "id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "name": "10Mbit",
+        "description": "This policy limits the ports to 10Mbit max.",
+        "shared": false,
+        "bandwidth_limit_rules": [
+            {
+                "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+                "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+                "max_kbps": "10000",
+                "max_burst_kbps": "0"
+            }
+        ]
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A QoS <code>policy</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The generated UUID of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this policy is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="bandwidth_limit_rules"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A list of bandwidth limit rules associated with the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updatePolicy">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update QoS policy">
+               <para role="shortdesc">
+                Updates a QoS policy.
+            </para>
+               <para>
+                If the request is valid, the service returns the
+                <code>Accepted (202)</code> response code.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policy": {
+        "name": "10Mbit",
+        "description": "This policy limits the ports to 10Mbit max.",
+        "shared": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A QoS <code>policy</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The QoS policy name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The QoS policy description.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Set to <code>true</code> to share this policy with other tenants.
+    </para>
+                        <para>
+      Default is <code>false</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The tenant UUID of QoS policy owner. Only administrative
+      users can specify a tenant UUID other than their own. You cannot
+      change this value through authorization policies.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="type"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "policy": {
+        "name": "10Mbit",
+        "description": "This policy limits the ports to 10Mbit max.",
+        "id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "tenant_id": "8d4c70a21fed4aeba121a1a429ba0d04",
+        "shared": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="policy"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A QoS <code>policy</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The generated UUID of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="description"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this policy is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deletePolicy">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete QoS policy">
+               <para role="shortdesc">
+                Deletes a QoS policy.
+            </para>
+            </wadl:doc>
+            <response status="204"/> 
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                        
+
+                        
+                        
+                        
+                        <resource id="bandwidth_limit_rules"
+                path="/v2.0/qos/policies/{policy_id}/bandwidth_limit_rules">
+         <param type="csapi:UUID"
+                style="template"
+                required="true"
+                name="policy_id"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Policy UUID">
+               <para>
+      The UUID of the policy.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listBandwidthLimitRules">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List bandwidth limit rules for QoS policy">
+               <para role="shortdesc">
+                Lists all bandwidth limit rules for a QoS policy.
+            </para>
+               <para>
+                The list might be empty.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rules": [
+        {
+            "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+            "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+            "max_kbps": "10000",
+            "max_burst_kbps": "0"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param required="true"
+                         name="bandwidth_limit_rules"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A list of bandwidth limit rules associated with the QoS policy.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="createBandwidthLimitRule">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create bandwidth limit rule">
+               <para role="shortdesc">
+                Creates a bandwidth limit rule for a QoS policy.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rule": {
+        "max_kbps": "10000"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="bandwidth_limit_rule"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          A <code>bandwidth_limit_rule</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value. If you specify this value, must be greater than
+      0. Default is <code>null</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value. Default is <code>0</code>
+                        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rule": {
+        "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+        "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "max_kbps": "10000",
+        "max_burst_kbps": "0"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="bandwidth_limit_rule"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          A <code>bandwidth_limit_rule</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:conflict"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                            
+                            
+                            <resource id="rule_id"
+                path="/v2.0/qos/policies/{policy_id}/bandwidth_limit_rules/{rule_id}">
+         <param type="csapi:UUID"
+                style="template"
+                required="true"
+                name="policy_id"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Policy UUID">
+               <para>
+      The UUID of the policy.
+    </para>
+            </wadl:doc>
+         </param>
+         <param name="rule_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the rule.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showBandwidthLimitRule">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show bandwidth limit rule details">
+               <para role="shortdesc">
+                Shows details for a bandwidth limit rule for a QoS policy.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rule": {
+        "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+        "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "max_kbps": "10000",
+        "max_burst_kbps": "0"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param required="true"
+                         name="bandwidth_limit_rule"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          A <code>bandwidth_limit_rule</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+            
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateBandwidthLimitRule">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update bandwidth limit rule">
+               <para role="shortdesc">
+                Updates a bandwidth limit rule for a QoS policy.
+            </para>
+               <para>
+                If the request is valid, the service returns the
+                <code>Accepted (202)</code> response code.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rule": {
+        "max_kbps": "10000"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="bandwidth_limit_rule"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          A <code>bandwidth_limit_rule</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value. If you specify this value, must be greater than
+      0. Default is <code>null</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value. Default is <code>0</code>
+                        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "bandwidth_limit_rule": {
+        "id": "5f126d84-551a-4dcf-bb01-0e9c0df0c793",
+        "policy_id": "46ebaec0-0570-43ac-82f6-60d2b03168c4",
+        "max_kbps": "10000",
+        "max_burst_kbps": "0"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="bandwidth_limit_rule"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+          A <code>bandwidth_limit_rule</code> object.
+        </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="policy_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the QoS policy that is associated with the rule.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="max_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="max_burst_kbps"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The burst over the maximum KBPS value.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteBandwidthLimitRule">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete bandwidth limit rule">
+               <para role="shortdesc">
+                Deletes a bandwidth limit rule for a QoS policy.
+            </para>
+            </wadl:doc>
+            <response status="204"/> 
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="413">
+               <representation mediaType="application/xml" element="csapi:overLimit"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="500">
+               <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                                
+
+                                
+                                
+                                
+                            
+                        
+                    
+                
+    </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listPolicies">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="bandwidth_limit_rules"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+        </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createPolicy">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="type"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:conflict"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showPolicy">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="bandwidth_limit_rules"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+        </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updatePolicy">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="type"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="policy"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="description"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deletePolicy">
+        
+        <response status="204"/> 
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listBandwidthLimitRules">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            
+            <param required="true"
+                   name="bandwidth_limit_rules"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+        </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createBandwidthLimitRule">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="bandwidth_limit_rule"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+    
+</param>
+                
+            <param required="false"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="bandwidth_limit_rule"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+    
+</param>
+                
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:conflict"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showBandwidthLimitRule">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            
+            <param required="true"
+                   name="bandwidth_limit_rule"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+    
+</param>
+            
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+        </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateBandwidthLimitRule">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="bandwidth_limit_rule"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+    
+</param>
+                
+            <param required="false"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="bandwidth_limit_rule"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+    
+</param>
+                
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="policy_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="max_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="max_burst_kbps"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteBandwidthLimitRule">
+        
+        <response status="204"/> 
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="413">
+         <representation mediaType="application/xml" element="csapi:overLimit"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="500">
+         <representation mediaType="application/xml" element="csapi:Internal-server-error"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+</wadl:application>

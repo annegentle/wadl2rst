@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-assisted-volume-snapshots-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                <rax:resource rax:id="os-assisted-volume-snapshots">
+         <rax:resource rax:id="snapshot_id"/>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-assisted-volume-snapshots-v2.1">
+        <resource id="os-assisted-volume-snapshots"
+                path="/v2.1/{tenant_id}/os-assisted-volume-snapshots">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createsnapshots">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create assisted volume snapshots">
+               <para role="shortdesc">Creates an assisted volume snapshot.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "snapshot": {
+        "volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+        "create_info": {
+            "snapshot_id": "421752a6-acf6-4b2d-bc7a-119f9148cd8c",
+            "type": "qcow2",
+            "new_file": "new_file_name"
+        }
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="volume_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The source volume ID.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="create_info"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Information for snapshot creation.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="snapshot_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The snapshot ID.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The snapshot type.
+                              A valid value is <code>qcow2</code>.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="new_file"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The name of the qcow2 file
+                            that Block Storage creates,
+                            which becomes the active image for the VM.
+                        </para>
+                    </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "snapshot": {
+        "id": 100,
+        "volumeId": "521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The snapshot ID.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="volume_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>The source volume ID.
+                        </para>
+                    </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    <resource id="snapshot_id"
+                path="/v2.1/{tenant_id}/os-assisted-volume-snapshots/{snapshot_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="snapshot_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+         The UUID of the snapshot.
+      </para>
+            </wadl:doc>
+         </param>
+         <method name="DELETE" rax:id="deletesnapshots">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete assisted volume snapshot">
+               <para role="shortdesc">
+                Deletes an assisted volume snapshot.
+            </para>
+               <para>
+                To make this request, add the <code>delete_info</code>
+                query parameter to the URI, as follows:
+            </para>
+               <programlisting language="json">DELETE /os-assisted-volume-snapshots?delete_info='{"volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c"}'</programlisting>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <param name="delete_info"
+                         style="query"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            Information for snapshot deletion. Include the ID
+                            of the associated volume. For example:
+                        </para>
+                        <programlisting language="json">DELETE /os-assisted-volume-snapshots?delete_info='{"volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c"}'</programlisting>
+                    </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="204">
+        </response>
+         </method>
+      </resource>
+                        
+
+                        
+                    
+                
+    </resources>
+    <!-- *******************************************************-->
+    <!--             Assisted Volume Snapshots                 -->
+    <!--*******************************************************-->
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createsnapshots">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                <param name="volume_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="create_info"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+                    
+                </param>
+                <param name="snapshot_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="new_file"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="volume_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deletesnapshots">
+        
+        <request>
+            <representation mediaType="application/json">
+                <param name="delete_info"
+                   style="query"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+            </representation>
+        </request>
+        <response status="204">
+        </response>
+    </method>
+</wadl:application>
