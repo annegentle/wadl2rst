@@ -4,7 +4,7 @@ Automates the process of taking the WADL API information and outputting it as rS
 
 ## Installation
 
-    pip install -e git+git@github.rackspace.com:Product-DevOps/wadl2rst.git@master#egg=wadl2rst
+    pip install -e git+git@github.com:annegentle/wadl2rst.git@master#egg=wadl2rst
 
 ## Command Line Usage
 
@@ -29,20 +29,24 @@ File format:
         title: [book_title]
         output_directory: [output_directory]
 
-- *wadl_path*: Path to the wadl file to process, can be relative or absolute
-- *book_title*: Book title as shown on the title of the rST pages
+- *wadl_path*: Path to the WADL file to process, can be relative or absolute
+- *book_title*: Book title as shown on the title of the RST pages
 - *output_directory*: Target directory to put the results into, can be relative or absolute
 
 File format example:
 
-    samples/cloud-load-balancers/wadl/rax-cloudLoadBalancers-api-v1.wadl:
-        title: Rackspace Cloud Load Balancers Developer Guide - API v1.0
-        output_directory: dist/cloud_load_balancers
+    samples/compute-api/src/v2.1/wadl/diagnostics-v2.1.wadl:
+        title: OpenStack Compute API v2.1
+        output_directory: dist
+
+    samples/compute-api/src/v2.1/wadl/extensions-v2.1.wadl:
+        title: OpenStack Compute API v2.1
+        output_directory: dist
 
 ## Developer Setup
 
     mkvirtualenv wadl2rst
-    git clone git@github.rackspace.com:Product-DevOps/wadl2rst.git
+    git clone git@github.com:annegentle/wadl2rst.git
     cd wadl2rst
     python setup.py develop
     pip install -r requirements.txt

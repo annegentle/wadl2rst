@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2013-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-cells-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status="501"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/identity/api/v3"
+                    name="notImplemented">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                <rax:resource rax:id="os-cells">
+         <rax:resource rax:id="cell_id">
+            <rax:resource rax:id="capacities"/>
+         </rax:resource>
+      </rax:resource>
+           
+       </rax:resources>
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-cells-v2.1">
+        <resource id="os-cells" path="/v2.1/{tenant_id}/os-cells">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listCells">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List cells">
+               <para role="shortdesc">Lists cells.</para>
+               <para>
+                When cells are not enabled, the call returns the <code>Not
+                Implemented (501)</code> response code.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "cells": [
+        {
+            "name": "cell1",
+            "rpc_host": null,
+            "rpc_port": null,
+            "type": "child",
+            "username": "username1"
+        },
+        {
+            "name": "cell3",
+            "rpc_host": null,
+            "rpc_port": null,
+            "type": "child",
+            "username": "username3"
+        },
+        {
+            "name": "cell5",
+            "rpc_host": null,
+            "rpc_port": null,
+            "type": "child",
+            "username": "username5"
+        },
+        {
+            "name": "cell2",
+            "rpc_host": null,
+            "rpc_port": null,
+            "type": "parent",
+            "username": "username2"
+        },
+        {
+            "name": "cell4",
+            "rpc_host": null,
+            "rpc_port": null,
+            "type": "parent",
+            "username": "username4"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="501">
+               <representation mediaType="application/xml" element="csapi:notImplemented"/>
+               <representation mediaType="application/json"/>
+            </response> 
+         </method>
+         <method name="GET" rax:id="listCellssDetail">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List cells with details">
+               <para role="shortdesc">Lists cells with details.</para>
+               <para>
+                When cells are not enabled, the call returns the <code>Not
+                Implemented (501)</code> response code.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "cells": []
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="501">
+               <representation mediaType="application/xml" element="csapi:notImplemented"/>
+               <representation mediaType="application/json"/>
+            </response> 
+         </method>
+      </resource>
+                    
+                    
+                    <resource id="cell_id" path="/v2.1/{tenant_id}/os-cells/{cell_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="cell_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+         The UUID of the cell.
+      </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showCellData">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show cell data">
+               <para role="shortdesc">
+                Shows data for a cell.
+            </para>
+               <para>
+                When cells are not enabled, the call returns the <code>Not
+                Implemented (501)</code> response code.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "cell": {
+        "name": "cell3",
+        "rpc_host": null,
+        "rpc_port": null,
+        "type": "child",
+        "username": "username3"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="501">
+               <representation mediaType="application/xml" element="csapi:notImplemented"/>
+               <representation mediaType="application/json"/>
+            </response> 
+         </method>
+      </resource>
+                        
+
+                        
+                        <resource id="capacities" path="/v2.1/{tenant_id}/os-cells/{cell_id}/capacities">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="cell_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+         The UUID of the cell.
+      </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showCellCapacities">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show cell capacities">
+               <para role="shortdesc">
+                Shows capacities for a cell.
+            </para>
+               <para>
+                When cells are not enabled, the call returns the <code>Not
+                Implemented (501)</code> response code.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "cell": {
+        "capacities": {
+            "disk_free": {
+                "total_mb": 1052672,
+                "units_by_mb": {
+                    "0": 0,
+                    "163840": 5,
+                    "20480": 46,
+                    "40960": 23,
+                    "81920": 11
+                }
+            },
+            "ram_free": {
+                "total_mb": 7680,
+                "units_by_mb": {
+                    "16384": 0,
+                    "2048": 3,
+                    "4096": 1,
+                    "512": 13,
+                    "8192": 0
+                }
+            }
+        }
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response> 
+            <response status="501">
+               <representation mediaType="application/xml" element="csapi:notImplemented"/>
+               <representation mediaType="application/json"/>
+            </response> 
+         </method>
+      </resource>
+                            
+                        
+                   
+               
+   </resources>
+    <!--*******************************************************-->
+    <!--             OS Cells                                  -->
+    <!--*******************************************************-->
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showCellCapacities">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response> 
+      <response status="501">
+         <representation mediaType="application/xml" element="csapi:notImplemented"/>
+         <representation mediaType="application/json"/>
+      </response> 
+   </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showCellData">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response> 
+      <response status="501">
+         <representation mediaType="application/xml" element="csapi:notImplemented"/>
+         <representation mediaType="application/json"/>
+      </response> 
+   </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listCellssDetail">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response> 
+      <response status="501">
+         <representation mediaType="application/xml" element="csapi:notImplemented"/>
+         <representation mediaType="application/json"/>
+      </response> 
+   </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listCells">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response> 
+      <response status="501">
+         <representation mediaType="application/xml" element="csapi:notImplemented"/>
+         <representation mediaType="application/json"/>
+      </response> 
+   </method>
+</wadl:application>

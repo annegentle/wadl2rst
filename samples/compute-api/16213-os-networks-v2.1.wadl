@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-networks-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                <rax:resource rax:id="os-networks">
+         <rax:resource rax:id="add"/>
+         <rax:resource rax:id="network_id">
+            <rax:resource rax:id="action"/>
+         </rax:resource>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-networks-v2.1">
+        <resource id="os-networks" path="/v2.1/{tenant_id}/os-networks">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="createNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create network">
+               <para role="shortdesc">
+                Creates a network.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "label": "new net 111",
+        "cidr": "10.20.105.0/24",
+        "mtu": 9000,
+        "dhcp_server": "10.20.105.2",
+        "enable_dhcp": false,
+        "share_address": true,
+        "allowed_start": "10.20.105.10",
+        "allowed_end": "10.20.105.200"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "bridge": null,
+        "bridge_interface": null,
+        "broadcast": "10.20.105.255",
+        "cidr": "10.20.105.0/24",
+        "cidr_v6": null,
+        "created_at": null,
+        "deleted": null,
+        "deleted_at": null,
+        "dhcp_server": "10.20.105.2",
+        "dhcp_start": "10.20.105.2",
+        "dns1": null,
+        "dns2": null,
+        "enable_dhcp": false,
+        "gateway": "10.20.105.1",
+        "gateway_v6": null,
+        "host": null,
+        "id": "d7a17c0c-457e-4ab4-a99c-4fa1762f5359",
+        "injected": null,
+        "label": "new net 111",
+        "mtu": 9000,
+        "multi_host": null,
+        "netmask": "255.255.255.0",
+        "netmask_v6": null,
+        "priority": null,
+        "project_id": null,
+        "rxtx_base": null,
+        "share_address": true,
+        "updated_at": null,
+        "vlan": null,
+        "vpn_private_address": null,
+        "vpn_public_address": null,
+        "vpn_public_port": null
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="GET" rax:id="listNetworks">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List networks">
+               <para role="shortdesc">
+                Lists networks for the project.
+            </para>
+               <para>
+                Policy defaults enable all users to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "networks": [
+        {
+            "bridge": "br100",
+            "bridge_interface": "eth0",
+            "broadcast": "10.0.0.7",
+            "cidr": "10.0.0.0/29",
+            "cidr_v6": null,
+            "created_at": "2011-08-15T06:19:19.387525",
+            "deleted": false,
+            "deleted_at": null,
+            "dhcp_server": "10.0.0.1",
+            "dhcp_start": "10.0.0.3",
+            "dns1": null,
+            "dns2": null,
+            "enable_dhcp": true,
+            "gateway": "10.0.0.1",
+            "gateway_v6": null,
+            "host": "nsokolov-desktop",
+            "id": "20c8acc0-f747-4d71-a389-46d078ebf047",
+            "injected": false,
+            "label": "mynet_0",
+            "mtu": null,
+            "multi_host": false,
+            "netmask": "255.255.255.248",
+            "netmask_v6": null,
+            "priority": null,
+            "project_id": "1234",
+            "rxtx_base": null,
+            "share_address": false,
+            "updated_at": "2011-08-16T09:26:13.048257",
+            "vlan": 100,
+            "vpn_private_address": "10.0.0.2",
+            "vpn_public_address": "127.0.0.1",
+            "vpn_public_port": 1000
+        },
+        {
+            "bridge": "br101",
+            "bridge_interface": "eth0",
+            "broadcast": "10.0.0.15",
+            "cidr": "10.0.0.10/29",
+            "cidr_v6": null,
+            "created_at": "2011-08-15T06:19:19.885495",
+            "deleted": false,
+            "deleted_at": null,
+            "dhcp_server": "10.0.0.9",
+            "dhcp_start": "10.0.0.11",
+            "dns1": null,
+            "dns2": null,
+            "enable_dhcp": true,
+            "gateway": "10.0.0.9",
+            "gateway_v6": null,
+            "host": null,
+            "id": "20c8acc0-f747-4d71-a389-46d078ebf000",
+            "injected": false,
+            "label": "mynet_1",
+            "mtu": null,
+            "multi_host": false,
+            "netmask": "255.255.255.248",
+            "netmask_v6": null,
+            "priority": null,
+            "project_id": null,
+            "rxtx_base": null,
+            "share_address": false,
+            "updated_at": null,
+            "vlan": 101,
+            "vpn_private_address": "10.0.0.10",
+            "vpn_public_address": null,
+            "vpn_public_port": 1001
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    <resource path="/v2.1/{tenant_id}/os-networks/add" id="add">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="addNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Add network">
+               <para role="shortdesc">
+                Adds a network to a project.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role to
+                perform this operation. Cloud providers can change these permissions
+                through the <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "id": "1"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                        
+                    
+                    <resource id="network_id" path="/v2.1/{tenant_id}/os-networks/{network_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="network_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the network.</para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show network details">
+               <para role="shortdesc">
+                Shows details for a network.
+            </para>
+               <para>
+               Policy defaults enable all users to perform this operation. Cloud
+               providers can change these permissions through the
+               <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "bridge": "br100",
+        "bridge_interface": "eth0",
+        "broadcast": "10.0.0.7",
+        "cidr": "10.0.0.0/29",
+        "cidr_v6": null,
+        "created_at": "2011-08-15T06:19:19.387525",
+        "deleted": false,
+        "deleted_at": null,
+        "dhcp_server": "10.0.0.1",
+        "dhcp_start": "10.0.0.3",
+        "dns1": null,
+        "dns2": null,
+        "enable_dhcp": true,
+        "gateway": "10.0.0.1",
+        "gateway_v6": null,
+        "host": "nsokolov-desktop",
+        "id": "20c8acc0-f747-4d71-a389-46d078ebf047",
+        "injected": false,
+        "label": "mynet_0",
+        "mtu": null,
+        "multi_host": false,
+        "netmask": "255.255.255.248",
+        "netmask_v6": null,
+        "priority": null,
+        "project_id": "1234",
+        "rxtx_base": null,
+        "share_address": false,
+        "updated_at": "2011-08-16T09:26:13.048257",
+        "vlan": 100,
+        "vpn_private_address": "10.0.0.2",
+        "vpn_public_address": "127.0.0.1",
+        "vpn_public_port": 1000
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete network">
+               <para role="shortdesc">
+                Deletes a network.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <response status="202"/>
+         </method>
+      </resource>
+                        
+
+                        
+                        
+                        <resource path="/v2.1/{tenant_id}/os-networks/{network_id}/action" id="action">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="network_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the network.</para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="associateHost">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Associate host">
+               <para role="shortdesc">
+                Associates a network with a host.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "associate_host": "testHost"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="disassociateHost">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Disassociate host">
+               <para role="shortdesc">
+                Disassociates a host from a network.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "disassociate_host": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="disassociateNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Disassociate network">
+               <para role="shortdesc">
+                Disassociates a network from a project. You can then reuse the network.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "disassociate": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="disassociateProject">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Disassociate project">
+               <para role="shortdesc">
+                Disassociates a project from a network.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "disassociate_project": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                            
+                            
+                            
+                            
+                        
+                    
+                
+    </resources>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listNetworks">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showNetwork">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteNetwork">
+        
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="disassociateNetwork">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="disassociateProject">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="disassociateHost">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="associateHost">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="addNetwork">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createNetwork">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+</wadl:application>

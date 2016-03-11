@@ -1,0 +1,634 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent job-binaries.wadl               -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/dataprocessing-api/src/v1.1/wadl/job-binaries.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="capi"
+                namespace="http://docs.openstack.org/common/api/v1.0"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant.
+    
+  
+
+                <rax:resource rax:id="job-binaries">
+         <rax:resource rax:id="job-binary-id">
+            <rax:resource rax:id="job-binaries-id-data"/>
+         </rax:resource>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="job-binaries-v1.1">
+        <resource id="job-binaries" path="/v1.1/{tenant_id}/job-binaries">
+         <method name="GET" rax:id="listJobBinaries">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List job binaries">
+               <para role="shortdesc">
+                Lists the available job binaries.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "binaries": [
+        {
+            "is_public": false,
+            "description": "",
+            "url": "internal-db://d2498cbf-4589-484a-a814-81436c18beb3",
+            "tenant_id": "11587919cc534bcbb1027a161c82cf58",
+            "created_at": "2013-10-15 12:36:59.375060",
+            "updated_at": null,
+            "id": "84248975-3c82-4206-a58d-6e7fb3a563fd",
+            "name": "example.pig",
+            "is_protected": false
+        },
+        {
+            "is_public": false,
+            "description": "",
+            "url": "internal-db://22f1d87a-23c8-483e-a0dd-cb4a16dde5f9",
+            "tenant_id": "11587919cc534bcbb1027a161c82cf58",
+            "created_at": "2013-10-15 12:43:52.265899",
+            "updated_at": null,
+            "id": "508fc62d-1d58-4412-b603-bdab307bb926",
+            "name": "udf.jar",
+            "is_protected": false
+        },
+        {
+            "is_public": false,
+            "description": "",
+            "url": "swift://container/jar-example.jar",
+            "tenant_id": "11587919cc534bcbb1027a161c82cf58",
+            "created_at": "2013-10-15 14:25:04.970513",
+            "updated_at": null,
+            "id": "a716a9cd-9add-4b12-b1b6-cdb71aaef350",
+            "name": "jar-example.jar",
+            "is_protected": false
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="binaries"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of job binary internal objects.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the job binary object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="url"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The url of the job binary object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is public.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the object is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was created.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the object was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the object.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    <resource id="job-binaries-id-data"
+                path="/v1.1/{tenant_id}/job-binaries/{job_binary_id}/data">
+         <param name="job_binary_id"
+                style="template"
+                type="capi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the job binary.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showJobBinaryData">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show job binary data">
+               <para role="shortdesc">
+                Shows data for a job binary.
+            </para>
+               <para>
+                The response body shows the job binary raw data and the
+                response headers show the data length.
+            </para>
+               <para>Example response:</para>
+               <programlisting>HTTP/1.1 200 OK
+Connection: keep-alive
+Content-Length: 161
+Content-Type: text/html; charset=utf-8
+Date: Sat, 28 Mar 2016 02:42:48 GMT
+
+A = load '$INPUT' using PigStorage(':') as (fruit: chararray);
+B = foreach A generate com.hadoopbook.pig.Trim(fruit);
+store B into '$OUTPUT' USING PigStorage();</programlisting>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <param name="Content-Length"
+                         style="header"
+                         type="xsd:string"
+                         required="true"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            The length of the data, in bytes.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <!-- the following element is present to suppress the output
+                     about this method not returning a body -->
+               </representation>
+            </response>
+         </method>
+      </resource>
+                          
+                        
+                
+    </resources>
+    <!-- *******************************************************-->
+    <!--             Job binary actions                         -->
+    <!-- *******************************************************-->
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listJobBinaries">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="binaries"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="job-binaries-create">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="job-binaries-show">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="url"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="job-binaries-delete">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showJobBinaryData">
+        
+        <response status="200">
+             <representation mediaType="application/json">
+                <param name="Content-Length"
+                   style="header"
+                   type="xsd:string"
+                   required="true"
+                   rax:id="">
+                    
+                </param>
+                <!-- the following element is present to suppress the output
+                     about this method not returning a body -->
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="job-binaries-update">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+</wadl:application>

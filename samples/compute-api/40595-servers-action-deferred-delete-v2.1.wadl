@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2014-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-deferred-delete-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/identity/api/v3"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="xsd"
+                namespace="http://docs.rackspacecloud.com/xsd/v1.0"
+                name="string">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="202"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                
+                    
+                        
+
+  
+    
+      The UUID of the server.
+   
+  
+
+                        <rax:resource rax:id="action"/>
+                    
+                
+            
+        </rax:resources>
+    <resources xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-deferred-delete-v2.1">
+        <resource id="action" path="/v2.1/{tenant_id}/servers/{server_id}/action">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="server_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the server.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="POST" rax:id="forceDelete">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Force-delete server (forceDelete action)">
+               <para role="shortdesc">
+                Force-deletes a server before deferred cleanup.
+            </para>
+               <para>
+                Specify the <code>forceDelete</code> action in the request body.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "forceDelete": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="forceDelete"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+     The action.
+  </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+         <method name="POST" rax:id="restore">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Restore soft-deleted instance (restore action)">
+               <para role="shortdesc">
+                Restores a previously soft-deleted server instance. You cannot
+                use this method to restore deleted instances.
+            </para>
+               <para>
+                Specify the <code>restore</code> action in the request body.
+            </para>
+               <para>
+                Policy defaults enable only users with the administrative role
+                or the owner of the server to perform this operation. Cloud
+                providers can change these permissions through the
+                <code>policy.json</code> file.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "restore": null
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="restore"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+     The action.
+  </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="202"/>
+         </method>
+      </resource>
+                            
+                            
+                        
+    </resources>
+    <!--*******************************************************-->
+    <!--             OS Deferred Delete         -->
+    <!--*******************************************************-->
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="forceDelete">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param name="forceDelete"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/identity/api/v3"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="restore">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param name="restore"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            </representation>
+        </request>
+        <response status="202"/>
+    </method>
+</wadl:application>

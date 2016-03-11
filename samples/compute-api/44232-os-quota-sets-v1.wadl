@@ -1,0 +1,3116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2013-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/volume-api/src/v1/wadl/os-quota-sets-v1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/api/openstack-block-storage/v1"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+                
+                    <rax:resource rax:id="tenant_id-quotas-cinder-v1"/>
+                    <rax:resource rax:id="defaults-cinder-v1"/>
+                    
+                        
+
+  
+    
+      The UUID of the administrative tenant.
+   
+  
+
+                        <rax:resource rax:id="user_id-cinder-v1"/>
+                        
+                            <rax:resource rax:id="user_id-detail-cinder-v1"/>
+                        
+                    
+                
+            
+        </rax:resources>
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://volume.example.com/"
+              xml:id="os-quota-sets-cinder-v1">
+        <resource path="/v1/{tenant_id}/os-quota-sets/{tenant_id}"
+                id="tenant_id-quotas-cinder-v1">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="admin_tenant_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the administrative tenant.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showQuota">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Show quotas">
+               <para role="shortdesc">
+                Shows quotas for a tenant.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/xml">
+                
+                  <param name="usage"
+                         style="query"
+                         required="false"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Set to <code>usage=True</code> to show quota usage. Default is
+      <code>False</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": 20,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "id": "fake_tenant",
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 10,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas response: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set id="fake_tenant"&gt;
+  &lt;cores&gt;20&lt;/cores&gt;
+  &lt;fixed_ips&gt;-1&lt;/fixed_ips&gt;
+  &lt;floating_ips&gt;10&lt;/floating_ips&gt;
+  &lt;injected_file_content_bytes&gt;10240&lt;/injected_file_content_bytes&gt;
+  &lt;injected_file_path_bytes&gt;255&lt;/injected_file_path_bytes&gt;
+  &lt;injected_files&gt;5&lt;/injected_files&gt;
+  &lt;instances&gt;10&lt;/instances&gt;
+  &lt;key_pairs&gt;100&lt;/key_pairs&gt;
+  &lt;metadata_items&gt;128&lt;/metadata_items&gt;
+  &lt;ram&gt;51200&lt;/ram&gt;
+  &lt;security_group_rules&gt;20&lt;/security_group_rules&gt;
+  &lt;security_groups&gt;10&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each
+      tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The in use data size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Reserved volume size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="PUT" rax:id="updateQuota">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update quotas">
+               <para role="shortdesc">
+                Updates quotas for a tenant.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quotas response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "security_groups": 45
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas response: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set id="fake_tenant"&gt;
+  &lt;security_groups&gt;45&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quota response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": 20,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 10,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 45
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quota response: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set&gt;
+  &lt;cores&gt;20&lt;/cores&gt;
+  &lt;fixed_ips&gt;-1&lt;/fixed_ips&gt;
+  &lt;floating_ips&gt;10&lt;/floating_ips&gt;
+  &lt;injected_file_content_bytes&gt;10240&lt;/injected_file_content_bytes&gt;
+  &lt;injected_file_path_bytes&gt;255&lt;/injected_file_path_bytes&gt;
+  &lt;injected_files&gt;5&lt;/injected_files&gt;
+  &lt;instances&gt;10&lt;/instances&gt;
+  &lt;key_pairs&gt;100&lt;/key_pairs&gt;
+  &lt;metadata_items&gt;128&lt;/metadata_items&gt;
+  &lt;ram&gt;51200&lt;/ram&gt;
+  &lt;security_group_rules&gt;20&lt;/security_group_rules&gt;
+  &lt;security_groups&gt;45&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each
+      tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The in use data size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Reserved volume size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteQuotas">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete quotas">
+               <para role="shortdesc">
+                Deletes quotas for a tenant so the
+                quotas revert to default values.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+      </resource>
+                        
+
+                        
+                        
+                        
+                    <resource path="/v1/{tenant_id}/os-quota-sets/defaults" id="defaults-cinder-v1">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showQuotaDefaults">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show default quotas">
+               <para role="shortdesc">
+                Shows default quotas for a tenant.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show default quotas: JSON response">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": 20,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "id": "fake_tenant",
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 10,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show default quotas: XML response">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set id="fake_tenant"&gt;
+  &lt;cores&gt;20&lt;/cores&gt;
+  &lt;fixed_ips&gt;-1&lt;/fixed_ips&gt;
+  &lt;floating_ips&gt;10&lt;/floating_ips&gt;
+  &lt;injected_file_content_bytes&gt;10240&lt;/injected_file_content_bytes&gt;
+  &lt;injected_file_path_bytes&gt;255&lt;/injected_file_path_bytes&gt;
+  &lt;injected_files&gt;5&lt;/injected_files&gt;
+  &lt;instances&gt;10&lt;/instances&gt;
+  &lt;key_pairs&gt;100&lt;/key_pairs&gt;
+  &lt;metadata_items&gt;128&lt;/metadata_items&gt;
+  &lt;ram&gt;51200&lt;/ram&gt;
+  &lt;security_group_rules&gt;20&lt;/security_group_rules&gt;
+  &lt;security_groups&gt;10&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each
+      tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The in use data size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Reserved volume size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                        
+                    <resource id="user_id-cinder-v1"
+                path="/v1/{tenant_id}/os-quota-sets/{tenant_id}/{user_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="admin_tenant_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the administrative tenant.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="user_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>  
+      The user ID. Specify in the URI as <code>user_id={user_id}</code>.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showQuotaUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show quotas for user">
+               <para role="shortdesc">
+                Enables an admin user to show quotas for a
+                tenant and user.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas for user response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": 20,
+        "fixed_ips": -1,
+        "floating_ips": 10,
+        "id": "fake_tenant",
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 10,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas for user response: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set id="fake_tenant"&gt;
+  &lt;cores&gt;20&lt;/cores&gt;
+  &lt;fixed_ips&gt;-1&lt;/fixed_ips&gt;
+  &lt;floating_ips&gt;10&lt;/floating_ips&gt;
+  &lt;injected_file_content_bytes&gt;10240&lt;/injected_file_content_bytes&gt;
+  &lt;injected_file_path_bytes&gt;255&lt;/injected_file_path_bytes&gt;
+  &lt;injected_files&gt;5&lt;/injected_files&gt;
+  &lt;instances&gt;10&lt;/instances&gt;
+  &lt;key_pairs&gt;100&lt;/key_pairs&gt;
+  &lt;metadata_items&gt;128&lt;/metadata_items&gt;
+  &lt;ram&gt;51200&lt;/ram&gt;
+  &lt;security_group_rules&gt;20&lt;/security_group_rules&gt;
+  &lt;security_groups&gt;10&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each
+      tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The in use data size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Reserved volume size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="POST" rax:id="updateQuotaUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update quotas for user">
+               <para role="shortdesc">
+                Updates quotas for a tenant and user.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quotas for user request: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "force": "True",
+        "instances": 9
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quotas for user request: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set id="fake_tenant"&gt;
+  &lt;force&gt;True&lt;/force&gt;
+  &lt;instances&gt;9&lt;/instances&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Update quotas for user response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": 20,
+        "floating_ips": 10,
+        "fixed_ips": -1,
+        "injected_file_content_bytes": 10240,
+        "injected_file_path_bytes": 255,
+        "injected_files": 5,
+        "instances": 9,
+        "key_pairs": 100,
+        "metadata_items": 128,
+        "ram": 51200,
+        "security_group_rules": 20,
+        "security_groups": 10
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quotas for user response: XML">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="xml">&lt;?xml version='1.0' encoding='UTF-8'?&gt;
+&lt;quota_set&gt;
+  &lt;cores&gt;20&lt;/cores&gt;
+  &lt;floating_ips&gt;10&lt;/floating_ips&gt;
+  &lt;fixed_ips&gt;-1&lt;/fixed_ips&gt;
+  &lt;injected_file_content_bytes&gt;10240&lt;/injected_file_content_bytes&gt;
+  &lt;injected_file_path_bytes&gt;255&lt;/injected_file_path_bytes&gt;
+  &lt;injected_files&gt;5&lt;/injected_files&gt;
+  &lt;instances&gt;9&lt;/instances&gt;
+  &lt;key_pairs&gt;100&lt;/key_pairs&gt;
+  &lt;metadata_items&gt;128&lt;/metadata_items&gt;
+  &lt;ram&gt;51200&lt;/ram&gt;
+  &lt;security_group_rules&gt;20&lt;/security_group_rules&gt;
+  &lt;security_groups&gt;10&lt;/security_groups&gt;
+&lt;/quota_set&gt;
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>quota_set</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instance cores that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of fixed IP addresses that are allowed for each tenant. Must
+      be equal to or greater than the number of allowed instances.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of floating IP addresses that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID for the quota set.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes of content that are allowed for each injected file.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of bytes that are allowed for each injected file path.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of injected files that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of instances that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of key pairs that are allowed for each user.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of metadata items that are allowed for each instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The amount of instance RAM in megabytes that are allowed for each
+      tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of rules that are allowed for each security group.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of security groups that are allowed for each tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The in use data size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Reserved volume size. Visible only if you set the
+      <code>usage=True</code> query parameter.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteQuotasUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete quotas for user">
+               <para role="shortdesc">
+                Deletes quotas for a user so that
+                the quotas revert to default values.
+            </para>
+            </wadl:doc>
+            <response status="200"/>
+         </method>
+      </resource>
+                            
+
+                            
+                            
+                            
+                        <resource id="user_id-detail-cinder-v1"
+                path="/v1/{tenant_id}/os-quota-sets/{tenant_id}/detail/{user_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="admin_tenant_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the administrative tenant.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="user_id"
+                style="template"
+                type="xsd:string"
+                required="true"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>  
+      The user ID. Specify in the URI as <code>user_id={user_id}</code>.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showQuotaDetailUser">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show quota details for user">
+               <para role="shortdesc">
+                Shows details for quotas for a tenant and
+                user.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                            xml:lang="EN"
+                            title="Show quota details for user response: JSON">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "quota_set": {
+        "cores": {
+            "in_use": 0,
+            "limit": 20,
+            "reserved": 0
+        },
+        "fixed_ips": {
+            "in_use": 0,
+            "limit": -1,
+            "reserved": 0
+        },
+        "floating_ips": {
+            "in_use": 0,
+            "limit": 10,
+            "reserved": 0
+        },
+        "injected_files": {
+            "in_use": 0,
+            "limit": 5,
+            "reserved": 0
+        },
+        "instances": {
+            "in_use": 0,
+            "limit": 10,
+            "reserved": 0
+        },
+        "key_pairs": {
+            "in_use": 0,
+            "limit": 100,
+            "reserved": 0
+        },
+        "metadata_items": {
+            "in_use": 0,
+            "limit": 128,
+            "reserved": 0
+        },
+        "ram": {
+            "in_use": 0,
+            "limit": 51200,
+            "reserved": 0
+        },
+        "security_groups": {
+            "in_use": 0,
+            "limit": 10,
+            "reserved": 0
+        },
+        "injected_file_content_bytes": {
+            "in_use": 0,
+            "limit": 10240,
+            "reserved": 0
+        },
+        "injected_file_path_bytes": {
+            "in_use": 0,
+            "limit": 255,
+            "reserved": 0
+        },
+        "security_group_rules": {
+            "in_use": 0,
+            "limit": 20,
+            "reserved": 0
+        }
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                  <param name="quota_set"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="quota_set">
+                        <para>
+                            A <code>quota_set</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="cores"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="cores">
+                        <para>
+                            A <code>cores</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="fixed_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="fixed_ips">
+                        <para>
+                            A <code>fixed_ips</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="floating_ips"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="floating_ips">
+                        <para>
+                            A <code>floating_ips</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="id">
+                        <para>
+                            The ID for the quota
+                            set.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="injected_file_content_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                            An <code>injected_file_content_bytes</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="injected_file_path_bytes"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="Show quota details for user">
+                        <para>
+                            An <code>injected_file_path_bytes</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="injected_files"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="injected_files">
+                        <para>
+                            An <code>injected_files</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="instances"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="instances">
+                        <para>
+                            An <code>instances</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="key_pairs"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="key_pairs">
+                        <para>
+                            A <code>key_pairs</code>
+                            object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="metadata_items"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="metadata_items">
+                        <para>
+                            A <code>metadata_items</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="ram"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="ram">
+                        <para>
+                            A <code>ram</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="security_group_rules"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="security_group_rules">
+                        <para>
+                            A <code>security_group_rules</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                               xml:lang="EN"
+                               title="security_groups">
+                        <para>
+                            A <code>security_groups</code> object.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="in_use"
+                         style="plain"
+                         type="xsd:int"
+                         required="true"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="in_use">
+                        <para>
+                            The number of items in use.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="limit"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="limit">
+                        <para>
+                            The number of items permitted for this tenant.
+                        </para>
+                    </wadl:doc>
+                  </param>
+                  <param name="reserved"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                    <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="reserved">
+                        <para>
+                            The number of reserved items.
+                        </para>
+                    </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                                
+
+                                
+                            
+    </resources>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showQuotaDefaults">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="in_use"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="reserved"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showQuota">
+        
+        <request>
+            <representation mediaType="application/xml">
+                
+            <param name="usage"
+                   style="query"
+                   required="false"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="in_use"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="reserved"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateQuota">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="in_use"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="reserved"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteQuotas">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showQuotaUser">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="in_use"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="reserved"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="updateQuotaUser">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="200">
+            <representation mediaType="application/json">
+                
+            </representation>
+            <representation mediaType="application/xml">
+                
+                
+
+            <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_group_rules"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="in_use"
+                   style="plain"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="reserved"
+                   style="plain"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteQuotasUser">
+        
+        <response status="200"/>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/api/openstack-block-storage/v1"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showQuotaDetailUser">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                <param name="quota_set"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="cores"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="fixed_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="floating_ips"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+                    
+                </param>
+                <param name="injected_file_content_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="injected_file_path_bytes"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="injected_files"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="instances"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="key_pairs"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="metadata_items"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="ram"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="security_group_rules"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+                    
+                </param>
+                <param name="in_use"
+                   style="plain"
+                   type="xsd:int"
+                   required="true"
+                   rax:id="">
+                    
+                </param>
+                <param name="limit"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+                    
+                </param>
+                <param name="reserved"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+                    
+                </param>
+            </representation>
+        </response>
+    </method>
+</wadl:application>

@@ -1,0 +1,587 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent plugins.wadl                    -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/dataprocessing-api/src/v1.1/wadl/plugins.wadl">
+   <rax:types/>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant.
+    
+  
+
+                <rax:resource rax:id="plugins">
+         <rax:resource rax:id="pluginSimple">
+            <rax:resource rax:id="pluginDetailed"/>
+         </rax:resource>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="plugins-v1.1">
+        <resource id="plugins" path="/v1.1/{tenant_id}/plugins">
+         <method name="GET" rax:id="listPlugins">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List plugins">
+               <para role="shortdesc">
+                Lists all registered plugins.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "plugins": [
+        {
+            "name": "vanilla",
+            "description": "The Apache Vanilla plugin provides the ability to launch upstream Vanilla Apache Hadoop cluster without any management consoles. It can also deploy the Oozie component.",
+            "versions": [
+                "1.2.1",
+                "2.4.1",
+                "2.6.0"
+            ],
+            "title": "Vanilla Apache Hadoop"
+        },
+        {
+            "name": "hdp",
+            "description": "The Hortonworks Sahara plugin automates the deployment of the Hortonworks Data Platform (HDP) on OpenStack.",
+            "versions": [
+                "1.3.2",
+                "2.0.6"
+            ],
+            "title": "Hortonworks Data Platform"
+        },
+        {
+            "name": "spark",
+            "description": "This plugin provides an ability to launch Spark on Hadoop CDH cluster without any management consoles.",
+            "versions": [
+                "1.0.0",
+                "0.9.1"
+            ],
+            "title": "Apache Spark"
+        },
+        {
+            "name": "cdh",
+            "description": "The Cloudera Sahara plugin provides the ability to launch the Cloudera distribution of Apache Hadoop (CDH) with Cloudera Manager management console.",
+            "versions": [
+                "5",
+                "5.3.0"
+            ],
+            "title": "Cloudera Plugin"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="plugins"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of plugins.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The full description of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="versions"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of plugin versions.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="title"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The title of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    <resource id="pluginSimple" path="/v1.1/{tenant_id}/plugins/{plugin_name}">
+         <param name="plugin_name" style="template" type="xsd:string" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      Name of the plugin.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showPlugin">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show plugin details">
+               <para role="shortdesc">
+                Shows details for a plugin.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "plugin": {
+        "name": "vanilla",
+        "versions": [
+            "1.2.1",
+            "2.4.1",
+            "2.6.0"
+        ],
+        "title": "Vanilla Apache Hadoop",
+        "description": "The Apache Vanilla plugin provides the ability to launch upstream Vanilla Apache Hadoop cluster without any management consoles. It can also deploy the Oozie component."
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The full description of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="versions"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of plugin versions.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="title"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The title of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                        
+
+                        
+                        <resource id="pluginDetailed"
+                path="/v1.1/{tenant_id}/plugins/{plugin_name}/{version}">
+         <param name="plugin_name" style="template" type="xsd:string" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      Name of the plugin.
+    </para>
+            </wadl:doc>
+         </param>
+         <param name="version" style="template" type="xsd:string" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      Version of the plugin.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showPluginVersion">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show plugin version details">
+               <para role="shortdesc">
+                Shows details for a plugin version.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "plugin": {
+        "name": "vanilla",
+        "versions": [
+            "1.2.1",
+            "2.4.1",
+            "2.6.0"
+        ],
+        "description": "The Apache Vanilla plugin provides the ability to launch upstream Vanilla Apache Hadoop cluster without any management consoles. It can also deploy the Oozie component.",
+        "required_image_tags": [
+            "vanilla",
+            "2.6.0"
+        ],
+        "node_processes": {
+            "JobFlow": [
+                "oozie"
+            ],
+            "HDFS": [
+                "namenode",
+                "datanode",
+                "secondarynamenode"
+            ],
+            "YARN": [
+                "resourcemanager",
+                "nodemanager"
+            ],
+            "MapReduce": [
+                "historyserver"
+            ],
+            "Hadoop": [],
+            "Hive": [
+                "hiveserver"
+            ]
+        },
+        "configs": [
+            {
+                "default_value": "/tmp/hadoop-${user.name}",
+                "name": "hadoop.tmp.dir",
+                "priority": 2,
+                "config_type": "string",
+                "applicable_target": "HDFS",
+                "is_optional": true,
+                "scope": "node",
+                "description": "A base for other temporary directories."
+            },
+            {
+                "default_value": true,
+                "name": "hadoop.native.lib",
+                "priority": 2,
+                "config_type": "bool",
+                "applicable_target": "HDFS",
+                "is_optional": true,
+                "scope": "node",
+                "description": "Should native hadoop libraries, if present, be used."
+            },
+            {
+                "default_value": 1024,
+                "name": "NodeManager Heap Size",
+                "config_values": null,
+                "priority": 1,
+                "config_type": "int",
+                "applicable_target": "YARN",
+                "is_optional": false,
+                "scope": "node",
+                "description": null
+            },
+            {
+                "default_value": true,
+                "name": "Enable Swift",
+                "config_values": null,
+                "priority": 1,
+                "config_type": "bool",
+                "applicable_target": "general",
+                "is_optional": false,
+                "scope": "cluster",
+                "description": null
+            },
+            {
+                "default_value": true,
+                "name": "Enable MySQL",
+                "config_values": null,
+                "priority": 1,
+                "config_type": "bool",
+                "applicable_target": "general",
+                "is_optional": true,
+                "scope": "cluster",
+                "description": null
+            }
+        ],
+        "title": "Vanilla Apache Hadoop"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The full description of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="versions"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of plugin versions.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="title"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The title of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                            
+
+                            
+                        
+                    
+                
+    </resources>
+    <!-- *******************************************************-->
+    <!--      Plugins            -->
+    <!--*******************************************************-->
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listPlugins">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="plugins"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+                
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="versions"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="title"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showPlugin">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="versions"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="title"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showPluginVersion">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="versions"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="title"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+</wadl:application>

@@ -1,0 +1,2561 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2012-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent images-v2.1.wadl               -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/images-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="ImageStatus">
+         <para/>
+      </rax:type>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="ImagesWithOnlyIDsNamesLinks">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status=""
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="computeFault">
+         <para/>
+      </rax:response>
+      <rax:response status="503"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="serviceUnavailable">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="badRequest">
+         <para/>
+      </rax:response>
+      <rax:response status="401"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="unauthorized">
+         <para/>
+      </rax:response>
+      <rax:response status="403"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="forbidden">
+         <para/>
+      </rax:response>
+      <rax:response status="405"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="badMethod">
+         <para/>
+      </rax:response>
+      <rax:response status="404"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="itemNotFound">
+         <para/>
+      </rax:response>
+      <rax:response status="200"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="metadata">
+         <para/>
+      </rax:response>
+      <rax:response status="415"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="badMediaType">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="NetworkNotFound">
+         <para/>
+      </rax:response>
+      <rax:response status="409"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v2"
+                    name="buildInProgress">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+         
+            
+               
+
+  
+    
+      The UUID of the tenant in a multi-tenancy cloud.
+   
+  
+
+               
+                  
+                  <rax:resource rax:id="image_id">
+                        <rax:resource rax:id="imageMetadataKey"/>
+                     </rax:resource>
+               
+            
+         
+      </rax:resources>
+   <wadl:grammars xmlns:db="http://docbook.org/ns/docbook"
+                  xmlns="http://wadl.dev.java.net/2009/02"><!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/xsd/api.xsd-->
+      <wadl:include href="47933-images-v2.1-xsd-1.xsd"/>
+      <!--Original xsd: file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/xsd/api-common.xsd-->
+      <wadl:include href="47933-images-v2.1-xsd-2.xsd"/>
+   </wadl:grammars>
+   <!--*******************************************************-->
+   <!--             All Resources                             -->
+   <!--*******************************************************-->
+   <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:db="http://docbook.org/ns/docbook"
+              xmlns:common="http://docs.openstack.org/common/api/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="images-v2.1">
+      <resource id="Images" path="/v2.1/{tenant_id}/images">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="Image list">
+            <para>
+            A list of images. Each image contains IDs, names, and links.
+            Other attributes are omitted.
+         </para>
+         </wadl:doc>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listImages">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN" title="List images">
+               <para role="shortdesc">
+            Lists IDs, names, and links for available images.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/xml">
+            
+                  <param name="changes-since"
+                         style="query"
+                         required="false"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    Filters the response by a date and time when the image last changed
+    status.
+  </para>
+                        <para>
+    Use this query parameter to check for changes since a previous request
+    rather than re-downloading and re-parsing the full status at each polling
+    interval. If data has changed, the call returns only the items changed
+    since the <code>changes-since</code> time. If data has not changed since the
+    <code>changes-since</code> time, the call returns an empty list.
+  </para>
+                        <para>
+    To enable you to keep track of changes, this filter also displays images
+    that were deleted if the <code>changes-since</code> value specifies a date
+    in the last 30 days. Items deleted more than 30 days ago might be
+    returned, but it is not guaranteed.
+  </para>
+                        <para>
+    The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+  </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+    The <code>±hh:mm</code> value, if included, returns the time zone as an
+    offset from UTC.
+  </para>
+                        <para>
+    For example, <code>2015-08-27T09:49:58-05:00</code>.
+  </para>
+                        <para>
+    If you omit the time zone, the UTC time zone is assumed.
+  </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="server"
+                         style="query"
+                         required="false"
+                         type="xsd:anyURI"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a server, as a URL.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image name, as a
+      string.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="query"
+                         required="false"
+                         type="csapi:ImageStatus"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image status, as a string.
+      For example, <code>ACTIVE</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="minDisk"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a minimum disk size.
+      For example, <code>100</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="minRam"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a minimum RAM size.
+      For example, <code>512</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         default="ALL"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image type. For example,
+      <code>snapshot</code> or <code>backup</code>.
+   </para>
+                     </wadl:doc>
+                     <option value="snapshot"/>
+                     <option value="backup"/>
+                  </param>
+            
+
+                  <param name="limit"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param name="marker"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "images": [
+        {
+            "id": "70a599e0-31e7-49b7-b260-868f441e862b",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage7"
+        },
+        {
+            "id": "155d900f-4e14-4e4c-a73d-069cbf4541e6",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage123456"
+        },
+        {
+            "id": "a2459075-d96c-40d5-893e-577ff92e721c",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage123456"
+        },
+        {
+            "id": "a440c04b-79fa-479c-bed1-0b816eaec379",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage6"
+        },
+        {
+            "id": "c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage123456"
+        },
+        {
+            "id": "cedef40a-ed67-4d10-800e-17455edce175",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage123456"
+        },
+        {
+            "id": "76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "name": "fakeimage123456"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+            
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    A unique ID for tracking the request. The request ID associated with the
+    request appears in the log lines for that request. By default, the
+    middleware configuration ensures that the request ID appears in the log
+    files.
+  </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="images"
+                         style="plain"
+                         required="true"
+                         type="csapi:ImagesWithOnlyIDsNamesLinks"
+                         path="/csapi:images"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Image information.
+               </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="next"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:images/atom:link[@rel='next']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the next metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageList" rel="next"/>
+                  </param>
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:images/atom:link[@rel='previous']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>Moves to the previous metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageList" rel="previous"/>
+                  </param>
+               </representation>
+            </response>
+            <response status="203">
+      </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+         </method>
+      </resource>
+      <resource id="image_detail" path="/v2.1/{tenant_id}/images/detail">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                   xml:lang="EN"
+                   title="Detail image list">
+            <para>
+            A detailed image list.
+         </para>
+         </wadl:doc>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="listDetailImages">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List images details">
+               <para role="shortdesc">
+            Lists all details for available images.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/xml">
+            
+                  <param name="changes-since"
+                         style="query"
+                         required="false"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    Filters the response by a date and time when the image last changed
+    status.
+  </para>
+                        <para>
+    Use this query parameter to check for changes since a previous request
+    rather than re-downloading and re-parsing the full status at each polling
+    interval. If data has changed, the call returns only the items changed
+    since the <code>changes-since</code> time. If data has not changed since the
+    <code>changes-since</code> time, the call returns an empty list.
+  </para>
+                        <para>
+    To enable you to keep track of changes, this filter also displays images
+    that were deleted if the <code>changes-since</code> value specifies a date
+    in the last 30 days. Items deleted more than 30 days ago might be
+    returned, but it is not guaranteed.
+  </para>
+                        <para>
+    The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+  </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+    The <code>±hh:mm</code> value, if included, returns the time zone as an
+    offset from UTC.
+  </para>
+                        <para>
+    For example, <code>2015-08-27T09:49:58-05:00</code>.
+  </para>
+                        <para>
+    If you omit the time zone, the UTC time zone is assumed.
+  </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="server"
+                         style="query"
+                         required="false"
+                         type="xsd:anyURI"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a server, as a URL.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image name, as a
+      string.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="status"
+                         style="query"
+                         required="false"
+                         type="csapi:ImageStatus"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image status, as a string.
+      For example, <code>ACTIVE</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="minDisk"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a minimum disk size.
+      For example, <code>100</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="minRam"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by a minimum RAM size.
+      For example, <code>512</code>.
+   </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="type"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         default="ALL"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Filters the response by an image type. For example,
+      <code>snapshot</code> or <code>backup</code>.
+   </para>
+                     </wadl:doc>
+                     <option value="snapshot"/>
+                     <option value="backup"/>
+                  </param>
+            
+
+                  <param name="limit"
+                         style="query"
+                         required="false"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            Requests a page size of items. Returns a number of items up to a
+            limit value. Use the <code>limit</code> parameter to make an
+            initial limited request and use the ID of the last-seen item from
+            the response as the <code>marker</code> parameter value in a
+            subsequent limited request.
+        </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param name="marker"
+                         style="query"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+            The ID of the last-seen item. Use the <code>limit</code> parameter
+            to make an initial limited request and use the ID of the last-seen
+            item from the response as the <code>marker</code> parameter value
+            in a subsequent limited request.
+        </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "images": [
+        {
+            "OS-EXT-IMG-SIZE:size": "74185822",
+            "created": "2011-01-01T01:02:03Z",
+            "id": "70a599e0-31e7-49b7-b260-868f441e862b",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "architecture": "x86_64",
+                "auto_disk_config": "True",
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage7",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "OS-EXT-IMG-SIZE:size": "74185821",
+            "created": "2011-01-01T01:02:03Z",
+            "id": "155d900f-4e14-4e4c-a73d-069cbf4541e6",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "architecture": "x86_64",
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage123456",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "created": "2011-01-01T01:02:03Z",
+            "id": "a2459075-d96c-40d5-893e-577ff92e721c",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/a2459075-d96c-40d5-893e-577ff92e721c",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage123456",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "created": "2011-01-01T01:02:03Z",
+            "id": "a440c04b-79fa-479c-bed1-0b816eaec379",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/a440c04b-79fa-479c-bed1-0b816eaec379",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "architecture": "x86_64",
+                "auto_disk_config": "False",
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage6",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "created": "2011-01-01T01:02:03Z",
+            "id": "c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/c905cedb-7281-47e4-8a62-f26bc5fc4c77",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "kernel_id": "155d900f-4e14-4e4c-a73d-069cbf4541e6",
+                "ramdisk_id": null
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage123456",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "created": "2011-01-01T01:02:03Z",
+            "id": "cedef40a-ed67-4d10-800e-17455edce175",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/cedef40a-ed67-4d10-800e-17455edce175",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage123456",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        },
+        {
+            "created": "2011-01-01T01:02:03Z",
+            "id": "76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "self"
+                },
+                {
+                    "href": "http://openstack.example.com/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "bookmark"
+                },
+                {
+                    "href": "http://glance.openstack.example.com/images/76fa36fc-c930-4bf3-8c8a-ea2a2420deb6",
+                    "rel": "alternate",
+                    "type": "application/vnd.openstack.image"
+                }
+            ],
+            "metadata": {
+                "kernel_id": "nokernel",
+                "ramdisk_id": "nokernel"
+            },
+            "minDisk": 0,
+            "minRam": 0,
+            "name": "fakeimage123456",
+            "progress": 100,
+            "status": "ACTIVE",
+            "updated": "2011-01-01T01:02:03Z"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+            
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    A unique ID for tracking the request. The request ID associated with the
+    request appears in the log lines for that request. By default, the
+    middleware configuration ensures that the request ID appears in the log
+    files.
+  </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="next"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:images/atom:link[@rel='next']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the next metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#DetailImageList" rel="next"/>
+                  </param>
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:images/atom:link[@rel='previous']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the previous metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#DetailImageList" rel="previous"/>
+                  </param>
+               </representation>
+            </response>
+            <response status="203">
+      </response>
+            <!-- Common Faults --> 
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+
+         </method>
+      </resource>
+      <resource id="image_id" path="/v2.1/{tenant_id}/images/{image_id}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="image_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the image.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showImage">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show image details">
+               <para role="shortdesc">
+            Shows details for an image.
+         </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "image": {
+        "OS-EXT-IMG-SIZE:size": "74185822",
+        "created": "2011-01-01T01:02:03Z",
+        "id": "70a599e0-31e7-49b7-b260-868f441e862b",
+        "links": [
+            {
+                "href": "http://openstack.example.com/v2.1/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                "rel": "self"
+            },
+            {
+                "href": "http://openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                "rel": "bookmark"
+            },
+            {
+                "href": "http://glance.openstack.example.com/images/70a599e0-31e7-49b7-b260-868f441e862b",
+                "rel": "alternate",
+                "type": "application/vnd.openstack.image"
+            }
+        ],
+        "metadata": {
+            "architecture": "x86_64",
+            "auto_disk_config": "True",
+            "kernel_id": "nokernel",
+            "ramdisk_id": "nokernel"
+        },
+        "minDisk": 0,
+        "minRam": 0,
+        "name": "fakeimage7",
+        "progress": 100,
+        "status": "ACTIVE",
+        "updated": "2011-01-01T01:02:03Z"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    A unique ID for tracking the request. The request ID associated with the
+    request appears in the log lines for that request. By default, the
+    middleware configuration ensures that the request ID appears in the log
+    files.
+  </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="203">
+      </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteImage">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete image">
+               <para role="shortdesc">
+            Deletes an image.
+         </para>
+            </wadl:doc>
+            <response status="204"/>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                     
+
+                     
+                     
+                     <resource id="image_metadata" path="/v2.1/{tenant_id}/images/{image_id}/metadata">
+         <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                   xml:lang="EN"
+                   title="Image metadata list">
+            <para>
+            Metadata details for an image.
+         </para>
+         </wadl:doc>
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="image_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the image.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showImageMetadata">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show image metadata">
+               <para role="shortdesc">
+            Shows metadata for an image.
+         </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "metadata": {
+        "architecture": "x86_64",
+        "auto_disk_config": "True",
+        "kernel_id": "nokernel",
+        "ramdisk_id": "nokernel"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+            
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    A unique ID for tracking the request. The request ID associated with the
+    request appears in the log lines for that request. By default, the
+    middleware configuration ensures that the request ID appears in the log
+    files.
+  </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="next"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='next']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the next metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ServerMetadataDetails" rel="next"/>
+                  </param>
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the previous metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ServerMetadataDetails" rel="previous"/>
+                  </param>
+               </representation>
+            </response>
+            <response status="203">
+      </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="PUT" rax:id="createImageMetadata">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create or replace image metadata">
+               <para role="shortdesc">
+            Creates or replaces metadata for an image.
+         </para>
+               <para>
+            Replaces items that match keys. If you omit a key that
+            already exists, this key retains its value.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "metadata": {
+        "auto_disk_config": "True",
+        "Label": "Changed"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "metadata": {
+        "Label": "Changed",
+        "auto_disk_config": "True"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml" element="csapi:metadata">
+                  <param name="next"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='next']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the next metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageMetadataDetails" rel="next"/>
+                  </param>
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the previous metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageMetadataDetails" rel="previous"/>
+                  </param>
+               </representation>
+            </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="415">
+               <representation mediaType="application/xml" element="csapi:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+      
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="updateImageMetadata">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update image metadata items">
+               <para role="shortdesc">
+            Updates metadata items, by key, for an image.
+         </para>
+               <para>
+            Replaces items that match keys. Does not modify items not
+            in the request.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "metadata": {
+        "kernel_id": "False",
+        "Label": "UpdatedImage"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "metadata": {
+        "Label": "UpdatedImage",
+        "architecture": "x86_64",
+        "auto_disk_config": "True",
+        "kernel_id": "False",
+        "ramdisk_id": "nokernel"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+               <representation mediaType="application/xml">
+                  <param name="next"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='next']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the next metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageMetadataDetails" rel="next"/>
+                  </param>
+                  <param name="previous"
+                         style="plain"
+                         type="xsd:anyURI"
+                         path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+                  Moves to the previous metadata item.
+               </para>
+                     </wadl:doc>
+                     <link resource_type="#ImageMetadataDetails" rel="previous"/>
+                  </param>
+               </representation>
+            </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="415">
+               <representation mediaType="application/xml" element="csapi:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+      
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+      <resource id="imageMetadataKey"
+                path="/v2.1/{tenant_id}/images/{image_id}/metadata/{key}">
+         <param name="tenant_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the tenant in a multi-tenancy cloud.
+   </para>
+            </wadl:doc>
+         </param>
+         <param name="image_id" style="template" type="csapi:UUID" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the image.
+    </para>
+            </wadl:doc>
+         </param>
+         <param name="key" style="template" type="xsd:string" rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The metadata item key, as a string. Maximum length is 255 characters.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showImageMetadataItem">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show image metadata item details">
+               <para role="shortdesc">
+            Shows details for a metadata item, by key, for an image.
+         </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "meta": {
+        "architecture": "x86_64",
+        "auto_disk_config": "True",
+        "kernel_id": "nokernel",
+        "ramdisk_id": "nokernel"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+            
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+    A unique ID for tracking the request. The request ID associated with the
+    request appears in the log lines for that request. By default, the
+    middleware configuration ensures that the request ID appears in the log
+    files.
+  </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="203">
+      </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="PUT" rax:id="setImageMetadataItem">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create or update image metadata item">
+               <para role="shortdesc">
+            Creates or updates a metadata item, by key, for an image.
+         </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "meta": {
+        "auto_disk_config": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                     <xsdxt:code>
+                        <programlisting language="javascript">{
+    "meta": {
+        "auto_disk_config": "False"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="415">
+               <representation mediaType="application/xml" element="csapi:badMediaType"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+      
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteImageMetadataItem">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete image metadata item">
+               <para role="shortdesc">
+            Deletes a metadata item, by key, for an image.
+         </para>
+            </wadl:doc>
+            <response status="204"/>
+      
+            <response>
+               <representation mediaType="application/xml" element="csapi:computeFault"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="503">
+               <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="403">
+               <representation mediaType="application/xml" element="csapi:forbidden"/>
+               <representation mediaType="application/json"/>
+            </response>
+            <response status="405">
+               <representation mediaType="application/xml" element="csapi:badMethod"/>
+               <representation mediaType="application/json"/>
+            </response>
+ 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="409">
+               <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                           
+
+                           
+                           
+                           
+                        
+                  
+   </resources>
+   <!--*******************************************************-->
+   <!--               Resource Types                          -->
+   <!--*******************************************************-->
+   
+   
+   
+   <!--*******************************************************-->
+   <!--               All Methods                             -->
+   <!--*******************************************************-->
+   <!-- Images -->
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listDetailImages">
+      
+      <request>
+         <representation mediaType="application/xml">
+            
+            <param name="changes-since"
+                   style="query"
+                   required="false"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="server"
+                   style="query"
+                   required="false"
+                   type="xsd:anyURI"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="query"
+                   required="false"
+                   type="csapi:ImageStatus"
+                   rax:id="">
+
+</param>
+            <param name="minDisk"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+
+</param>
+            <param name="minRam"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+
+</param>
+            <param name="type"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   default="ALL"
+                   rax:id="">
+
+               <option value="snapshot"/>
+               <option value="backup"/>
+            </param>
+            
+
+            <param name="limit"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+    
+</param>
+
+            <param name="marker"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+         <representation mediaType="application/xml">
+            
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="next"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:images/atom:link[@rel='next']/@href"
+                   rax:id="">
+            
+            
+            </param>
+            <param name="previous"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:images/atom:link[@rel='previous']/@href"
+                   rax:id="">
+            
+            
+            </param>
+         </representation>
+      </response>
+      <response status="203">
+      </response>
+      <!-- Common Faults --> 
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listImages">
+      
+      <request>
+         <representation mediaType="application/xml">
+            
+            <param name="changes-since"
+                   style="query"
+                   required="false"
+                   type="xsd:dateTime"
+                   rax:id="">
+
+</param>
+            <param name="server"
+                   style="query"
+                   required="false"
+                   type="xsd:anyURI"
+                   rax:id="">
+
+</param>
+            <param name="name"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="status"
+                   style="query"
+                   required="false"
+                   type="csapi:ImageStatus"
+                   rax:id="">
+
+</param>
+            <param name="minDisk"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+
+</param>
+            <param name="minRam"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+
+</param>
+            <param name="type"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   default="ALL"
+                   rax:id="">
+
+               <option value="snapshot"/>
+               <option value="backup"/>
+            </param>
+            
+
+            <param name="limit"
+                   style="query"
+                   required="false"
+                   type="xsd:int"
+                   rax:id="">
+    
+</param>
+
+            <param name="marker"
+                   style="query"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+    
+</param>
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+         <representation mediaType="application/xml">
+            
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="images"
+                   style="plain"
+                   required="true"
+                   type="csapi:ImagesWithOnlyIDsNamesLinks"
+                   path="/csapi:images"
+                   rax:id="">
+            
+            </param>
+            <param name="next"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:images/atom:link[@rel='next']/@href"
+                   rax:id="">
+            
+            
+            </param>
+            <param name="previous"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:images/atom:link[@rel='previous']/@href"
+                   rax:id="">
+            
+            
+            </param>
+         </representation>
+      </response>
+      <response status="203">
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showImage">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+      <response status="203">
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteImage">
+      
+      <response status="204"/>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <!-- Metadata -->
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showImageMetadata">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+         <representation mediaType="application/xml">
+            
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+            <param name="next"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='next']/@href"
+                   rax:id="">
+            
+            
+            </param>
+            <param name="previous"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                   rax:id="">
+            
+            
+            </param>
+         </representation>
+      </response>
+      <response status="203">
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="updateImageMetadata">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+         <representation mediaType="application/xml">
+            <param name="next"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='next']/@href"
+                   rax:id="">
+            
+            
+            </param>
+            <param name="previous"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                   rax:id="">
+            
+            
+            </param>
+         </representation>
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="415">
+         <representation mediaType="application/xml" element="csapi:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+      
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="createImageMetadata">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+         <representation mediaType="application/xml" element="csapi:metadata">
+            <param name="next"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='next']/@href"
+                   rax:id="">
+            
+            
+            </param>
+            <param name="previous"
+                   style="plain"
+                   type="xsd:anyURI"
+                   path="/csapi:metadata/atom:link[@rel='previous']/@href"
+                   rax:id="">
+            
+            
+            </param>
+         </representation>
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="415">
+         <representation mediaType="application/xml" element="csapi:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+      
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showImageMetadataItem">
+      
+      <response status="200">
+         <representation mediaType="application/json">
+            
+            
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+
+</param>
+         </representation>
+      </response>
+      <response status="203">
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="setImageMetadataItem">
+      
+      <request>
+         <representation mediaType="application/json">
+            
+         </representation>
+      </request>
+      <response status="200">
+         <representation mediaType="application/json">
+            
+         </representation>
+      </response>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="415">
+         <representation mediaType="application/xml" element="csapi:badMediaType"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:NetworkNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+      
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+   <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:db="http://docbook.org/ns/docbook"
+           xmlns:common="http://docs.openstack.org/common/api/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteImageMetadataItem">
+      
+      <response status="204"/>
+      
+      <response>
+         <representation mediaType="application/xml" element="csapi:computeFault"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="503">
+         <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="403">
+         <representation mediaType="application/xml" element="csapi:forbidden"/>
+         <representation mediaType="application/json"/>
+      </response>
+      <response status="405">
+         <representation mediaType="application/xml" element="csapi:badMethod"/>
+         <representation mediaType="application/json"/>
+      </response>
+ 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="409">
+         <representation mediaType="application/xml" element="csapi:buildInProgress"/>
+         <representation mediaType="application/json"/>
+      </response>
+   </method>
+</wadl:application>

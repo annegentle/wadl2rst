@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 Cisco Systems Inc, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--  xmllint -noent networks-vlan-transparency.wadl       -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/networking-api/src/wadl/networks-vlan-transparency.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v1.1"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+      <rax:response status="401"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="unauthorized">
+         <para/>
+      </rax:response>
+      <rax:response status="400"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="badRequest">
+         <para/>
+      </rax:response>
+      <rax:response status="404"
+                    prefix="csapi"
+                    namespace="http://docs.openstack.org/compute/api/v1.1"
+                    name="itemNotFound">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            <rax:resource rax:id="VLANnetworks">
+         <rax:resource rax:id="network_id"/>
+      </rax:resource>
+        </rax:resources>
+    <!--*******************************************************-->
+    <!--             All Resources                             -->
+    <!--*******************************************************-->
+    <resources xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns:linkend="http://www.w3.org/1999/linkend"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://neutron.example.com/"
+              xml:id="os-networks-vlan-transparency-ext-v2.0">
+        <resource id="VLANnetworks" path="/v2.0/networks">
+         <method name="GET" rax:id="listVTNetworks">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List networks with VLAN transparency attribute">
+               <para role="shortdesc">
+                Lists networks. The response shows the VLAN transparency
+                attribute.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "networks": [
+        {
+            "status": "ACTIVE",
+            "subnets": [],
+            "name": "net1",
+            "admin_state_up": true,
+            "tenant_id": "e252a863-92ee-480f-8bd8-71be77089499",
+            "shared": false,
+            "router:external": false,
+            "vlan_transparent": true,
+            "id": "f5e6d63c-04a4-4b2c-8b27-a9854412d5a7"
+        },
+        {
+            "status": "ACTIVE",
+            "subnets": [
+                "3daba37a-bced-4153-a4bb-d83dcc0552d9"
+            ],
+            "name": "private",
+            "admin_state_up": true,
+            "tenant_id": "109e5fae-d976-4791-84c7-6ae0bb3896c3",
+            "shared": true,
+            "router:external": false,
+            "vlan_transparent": false,
+            "id": "37e11503-3244-49f1-b92a-9f21bab017d9"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param required="true"
+                         name="networks"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A list of <code>network</code> objects.
+    </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param required="true"
+                         name="admin_state_up"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The administrative state of the network, which is up
+      (<code>true</code>) or down (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="status"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network status.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="subnets"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The associated subnets.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="router:external"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is externally accessible.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="mtu"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The MTU of a network resource.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="port_security_enabled"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The port security status. A valid value is enabled
+      (<code>true</code>) or disabled (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="vlan_transparent"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The state of the network, which is VLAN transparent
+      (<code>true</code>) or not VLAN transparent (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+         <method name="POST" rax:id="createVTNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Create VLAN-transparent network"
+                      xml:lang="EN">
+               <para role="shortdesc">
+                Creates a VLAN-transparent network.
+            </para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "name": "net1",
+        "admin_state_up": true,
+        "vlan_transparent": true
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param required="true"
+                         name="network"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>network</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="false"
+                         name="admin_state_up"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The administrative state of the network, which is up
+      (<code>true</code>) or down (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="false"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http:/docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="false"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Admin-only. Indicates whether this network is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param required="false"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the network. Only administrative users
+      can specify a tenant UUID other than their own. You cannot change this
+      value through authorization policies.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="false"
+                         name="router:external"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is externally accessible.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="false"
+                         name="port_security_enabled"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The port security status. A valid value is enabled (<code>true</code>)
+      or disabled (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="vlan_transparent"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The state of the network, which is VLAN transparent
+      (<code>true</code>) or not VLAN transparent (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </request>
+            <response status="201">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "status": "ACTIVE",
+        "subnets": [],
+        "name": "net1",
+        "admin_state_up": true,
+        "vlan_transparent": true,
+        "tenant_id": "5831268f-1f52-49a7-88d5-bc0d7a74d523",
+        "router:external": false,
+        "shared": false,
+        "id": "3114f6e9-f9bc-4570-a941-7329b3b9759f"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param required="true"
+                         name="network"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>network</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param required="true"
+                         name="admin_state_up"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The administrative state of the network, which is up
+      (<code>true</code>) or down (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="status"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network status.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="subnets"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The associated subnets.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="router:external"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is externally accessible.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="mtu"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The MTU of a network resource.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="port_security_enabled"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The port security status. A valid value is enabled
+      (<code>true</code>) or disabled (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="vlan_transparent"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The state of the network, which is VLAN transparent
+      (<code>true</code>) or not VLAN transparent (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="400">
+               <representation mediaType="application/xml" element="csapi:badRequest"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                
+                
+                <resource path="/v2.0/networks/{network_id}" id="network_id">
+         <param required="true"
+                name="network_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+               <para>
+      The UUID of the network.
+    </para>
+            </wadl:doc>
+         </param>
+         <method name="GET" rax:id="showVTNetwork">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      title="Show VLAN-transparent network details">
+               <para role="shortdesc">
+                Shows details for a VLAN-transparent network.
+            </para>
+            </wadl:doc>
+            <response status="200">
+                <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "network": {
+        "status": "ACTIVE",
+        "subnets": [],
+        "name": "net1",
+        "admin_state_up": true,
+        "tenant_id": "e926fd5a-e9f6-4dc8-8043-a352d974ceaf",
+        "router:external": false,
+        "vlan_transparent": true,
+        "shared": false,
+        "id": "20403fe9-6c9c-48e5-9edb-c3426a955068"
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+
+                  <param required="true"
+                         name="network"
+                         style="plain"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A <code>network</code> object.
+    </para>
+                     </wadl:doc>
+                  </param>
+
+                  <param required="true"
+                         name="admin_state_up"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The administrative state of the network, which is up
+      (<code>true</code>) or down (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="name"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network name.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="shared"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is shared across all tenants.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="status"
+                         style="plain"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The network status.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="subnets"
+                         style="plain"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The associated subnets.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="tenant_id"
+                         style="plain"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant who owns the network.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="router:external"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      Indicates whether this network is externally accessible.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="mtu"
+                         style="plain"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The MTU of a network resource.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param required="true"
+                         name="port_security_enabled"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The port security status. A valid value is enabled
+      (<code>true</code>) or disabled (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+                
+                  <param required="true"
+                         name="vlan_transparent"
+                         style="plain"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The state of the network, which is VLAN transparent
+      (<code>true</code>) or not VLAN transparent (<code>false</code>).
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response> 
+            <response status="401">
+               <representation mediaType="application/xml" element="csapi:unauthorized"/>
+               <representation mediaType="application/json"/>
+            </response> 
+            <response status="404">
+               <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+               <representation mediaType="application/json"/>
+            </response>
+         </method>
+      </resource>
+                    
+
+                    
+                
+            
+    </resources>
+    <!--*******************************************************-->
+    <!--               All Methods                             -->
+    <!--*******************************************************-->
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listVTNetworks">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+
+            <param required="true"
+                   name="networks"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+
+            <param required="true"
+                   name="admin_state_up"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="status"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="subnets"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="router:external"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="mtu"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="port_security_enabled"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="vlan_transparent"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createVTNetwork">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+                
+            <param required="true"
+                   name="network"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+                
+            <param required="false"
+                   name="admin_state_up"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="false"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="false"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+
+            <param required="false"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="false"
+                   name="router:external"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="false"
+                   name="port_security_enabled"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="vlan_transparent"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </request>
+        <response status="201">
+            <representation mediaType="application/json">
+                
+                
+
+            <param required="true"
+                   name="network"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+
+            <param required="true"
+                   name="admin_state_up"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="status"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="subnets"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="router:external"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="mtu"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="port_security_enabled"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="vlan_transparent"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="400">
+         <representation mediaType="application/xml" element="csapi:badRequest"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+    <method xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns:linkend="http://www.w3.org/1999/linkend"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v1.1"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showVTNetwork">
+        
+        <response status="200">
+                <representation mediaType="application/json">
+                
+                
+
+            <param required="true"
+                   name="network"
+                   style="plain"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+
+            <param required="true"
+                   name="admin_state_up"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="name"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="shared"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="status"
+                   style="plain"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="subnets"
+                   style="plain"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="tenant_id"
+                   style="plain"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="router:external"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="mtu"
+                   style="plain"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param required="true"
+                   name="port_security_enabled"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+                
+            <param required="true"
+                   name="vlan_transparent"
+                   style="plain"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response> 
+      <response status="401">
+         <representation mediaType="application/xml" element="csapi:unauthorized"/>
+         <representation mediaType="application/json"/>
+      </response> 
+      <response status="404">
+         <representation mediaType="application/xml" element="csapi:itemNotFound"/>
+         <representation mediaType="application/json"/>
+      </response>
+    </method>
+</wadl:application>

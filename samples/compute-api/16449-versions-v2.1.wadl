@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2014-2016 OpenStack Foundation, All Rights Reserved -->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/versions-v2.1.wadl">
+   <rax:types>
+      <rax:type prefix="xsd"
+                namespace="http://docs.rackspacecloud.com/xsd/v1.0"
+                name="string">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+      <rax:resource rax:id="versions"/>
+   </rax:resources>
+    <resources xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="os-versions-v2.1">
+        <resource id="versions" path="/">
+         <method name="GET" rax:id="listVersionsv2.1">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List API versions">
+               <para role="shortdesc">
+                Lists information about all Compute API versions.
+            </para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "versions": [
+        {
+            "id": "v2.0",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2/",
+                    "rel": "self"
+                }
+            ],
+            "status": "SUPPORTED",
+            "version": "",
+            "min_version": "",
+            "updated": "2011-01-21T11:33:21Z"
+        },
+        {
+            "id": "v2.1",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/",
+                    "rel": "self"
+                }
+            ],
+            "status": "CURRENT",
+            "version": "2.14",
+            "min_version": "2.1",
+            "updated": "2013-07-23T11:33:21Z"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+            <response status="300">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "versions": [
+        {
+            "id": "v2.0",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2/",
+                    "rel": "self"
+                }
+            ],
+            "status": "SUPPORTED",
+            "version": "",
+            "min_version": "",
+            "updated": "2011-01-21T11:33:21Z"
+        },
+        {
+            "id": "v2.1",
+            "links": [
+                {
+                    "href": "http://openstack.example.com/v2.1/",
+                    "rel": "self"
+                }
+            ],
+            "status": "CURRENT",
+            "version": "2.14",
+            "min_version": "2.1",
+            "updated": "2013-07-23T11:33:21Z"
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc> 
+                  <param name="x-openstack-request-id"
+                         style="header"
+                         required="false"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+         A unique request ID that provides tracking for the request. Provider
+         must configure middleware to return a request ID header in a
+         response.
+      </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+            
+        
+    </resources>
+    <!-- *******************************************************-->
+    <!--             Versions                                   -->
+    <!--*******************************************************-->
+    <method xmlns:xsd="http://docs.rackspacecloud.com/xsd/v1.0"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listVersionsv2.1">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response>
+        <response status="300">
+            <representation mediaType="application/json">
+                 
+            <param name="x-openstack-request-id"
+                   style="header"
+                   required="false"
+                   type="xsd:string"
+                   rax:id="">
+   
+</param>
+            </representation>
+        </response>
+    </method>
+</wadl:application>

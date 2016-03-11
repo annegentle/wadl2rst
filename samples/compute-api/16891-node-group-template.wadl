@@ -1,0 +1,2049 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- (C) 2015-2016 OpenStack Foundation, All Rights Reserved -->
+<!--*******************************************************-->
+<!--         Import Common XML Entities                    -->
+<!--                                                       -->
+<!--     You can resolve the entities with xmllint         -->
+<!--                                                       -->
+<!--        xmllint -noent node-group-template.wadl        -->
+<!--*******************************************************-->
+<wadl:application xmlns="http://docbook.org/ns/docbook"
+                  xmlns:wadl="http://wadl.dev.java.net/2009/02"
+                  xmlns:rax="http://docs.rackspace.com/api"
+                  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                  rax:original-wadl="file:/Users/annegentle/src/api-site/api-ref/src/wadls/dataprocessing-api/src/v1.1/wadl/node-group-template.wadl">
+   <rax:types>
+      <rax:type prefix="csapi"
+                namespace="http://docs.openstack.org/compute/api/v2"
+                name="UUID">
+         <para/>
+      </rax:type>
+      <rax:type prefix="capi"
+                namespace="http://docs.openstack.org/common/api/v1.0"
+                name="UUID">
+         <para/>
+      </rax:type>
+   </rax:types>
+   <rax:responses><!--A list of unique responses in the wadl -->
+      <rax:response status="200"
+                    prefix=""
+                    namespace="http://wadl.dev.java.net/2009/02"
+                    name="">
+         <para/>
+      </rax:response>
+   </rax:responses>
+   <!--
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	    ! This is a representation of the resources tree           !
+	    ! for use in generating a reference directly from the wadl.!
+	    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	  -->
+   <rax:resources xmlns="http://wadl.dev.java.net/2009/02">
+            
+                
+
+  
+    
+      The UUID of the tenant.
+    
+  
+
+                <rax:resource rax:id="node-group-templates">
+         <rax:resource rax:id="node_group_template_id"/>
+      </rax:resource>
+            
+        </rax:resources>
+    <resources xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+              xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+              xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              xmlns="http://wadl.dev.java.net/2009/02"
+              base="https://servers.api.openstack.com"
+              xml:id="node-group-templates-v1.1">
+        <resource id="node-group-templates" path="/v1.1/{tenant_id}/node-group-templates">
+         <method name="GET" rax:id="listNodeGroupTemplates">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="List node group templates">
+               <para role="shortdesc">Lists available node group
+                templates.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "node_group_templates": [
+        {
+            "is_public": false,
+            "image_id": null,
+            "tenant_id": "808d5032ea0446889097723bfc8e919d",
+            "shares": null,
+            "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+            "node_configs": {},
+            "auto_security_group": false,
+            "is_default": false,
+            "availability_zone": null,
+            "plugin_name": "vanilla",
+            "flavor_id": "2",
+            "id": "0bb9f1a4-0c44-4dc5-9452-6741c62ed9ae",
+            "description": null,
+            "hadoop_version": "2.7.1",
+            "use_autoconfig": true,
+            "volumes_availability_zone": null,
+            "created_at": "2015-09-14T10:20:11",
+            "is_protected": false,
+            "updated_at": null,
+            "volumes_per_node": 0,
+            "is_proxy_gateway": false,
+            "name": "master",
+            "volume_mount_prefix": "/volumes/disk",
+            "node_processes": [
+                "namenode",
+                "resourcemanager",
+                "oozie",
+                "historyserver"
+            ],
+            "volumes_size": 0,
+            "volume_local_to_instance": false,
+            "security_groups": null,
+            "volume_type": null
+        },
+        {
+            "is_public": false,
+            "image_id": null,
+            "tenant_id": "808d5032ea0446889097723bfc8e919d",
+            "shares": null,
+            "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+            "node_configs": {},
+            "auto_security_group": false,
+            "is_default": false,
+            "availability_zone": null,
+            "plugin_name": "vanilla",
+            "flavor_id": "2",
+            "id": "846edb31-add5-46e6-a4ee-a4c339f99251",
+            "description": null,
+            "hadoop_version": "2.7.1",
+            "use_autoconfig": true,
+            "volumes_availability_zone": null,
+            "created_at": "2015-09-14T10:27:00",
+            "is_protected": false,
+            "updated_at": null,
+            "volumes_per_node": 0,
+            "is_proxy_gateway": false,
+            "name": "worker",
+            "volume_mount_prefix": "/volumes/disk",
+            "node_processes": [
+                "datanode",
+                "nodemanager"
+            ],
+            "volumes_size": 0,
+            "volume_local_to_instance": false,
+            "security_groups": null,
+            "volume_type": null
+        }
+    ]
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the node is public in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="image_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the image.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="capi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="shares"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The sharing of resources in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ip_pool"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the pool in the template.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_configs"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A set of key and value pairs that contain the node configuration in the
+      cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="auto_security_group"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the cluster group is automatically secured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_default"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code> the node is the default node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="plugin_name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="flavor_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the flavor.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="hadoop_version"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The version of the Hadoop.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="use_autoconfig"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is auto configured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability zone of the volumes.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was created in the cluster.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_per_node"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of volumes for the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_proxy_gateway"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is the proxy gateway.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_mount_prefix"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The mount point of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_processes"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of the processes performed by the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_size"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The size of the volumes in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_local_to_instance"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the volume is local to the instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of volume in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The security groups of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="POST" rax:id="createNodeGroupTemplate">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Create node group template">
+               <para role="shortdesc">Creates a node group template.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "plugin_name": "vanilla",
+    "hadoop_version": "2.7.1",
+    "node_processes": [
+        "namenode",
+        "resourcemanager",
+        "oozie",
+        "historyserver"
+    ],
+    "name": "master",
+    "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+    "flavor_id": "2"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "node_group_template": {
+        "is_public": false,
+        "tenant_id": "808d5032ea0446889097723bfc8e919d",
+        "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+        "node_configs": {},
+        "auto_security_group": false,
+        "is_default": false,
+        "availability_zone": null,
+        "plugin_name": "vanilla",
+        "is_protected": false,
+        "flavor_id": "2",
+        "id": "0bb9f1a4-0c44-4dc5-9452-6741c62ed9ae",
+        "hadoop_version": "2.7.1",
+        "use_autoconfig": true,
+        "volumes_availability_zone": null,
+        "created_at": "2015-09-14T10:20:11",
+        "security_groups": null,
+        "volumes_per_node": 0,
+        "is_proxy_gateway": false,
+        "name": "master",
+        "volume_mount_prefix": "/volumes/disk",
+        "node_processes": [
+            "namenode",
+            "resourcemanager",
+            "oozie",
+            "historyserver"
+        ],
+        "volumes_size": 0,
+        "volume_local_to_instance": false,
+        "volume_type": null
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the node is public in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="image_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the image.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="capi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="shares"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The sharing of resources in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ip_pool"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the pool in the template.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_configs"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A set of key and value pairs that contain the node configuration in the
+      cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="auto_security_group"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the cluster group is automatically secured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_default"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code> the node is the default node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="plugin_name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="flavor_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the flavor.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="hadoop_version"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The version of the Hadoop.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="use_autoconfig"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is auto configured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability zone of the volumes.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was created in the cluster.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_per_node"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of volumes for the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_proxy_gateway"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is the proxy gateway.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_mount_prefix"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The mount point of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_processes"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of the processes performed by the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_size"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The size of the volumes in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_local_to_instance"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the volume is local to the instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of volume in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The security groups of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                    
+                    
+                    <resource id="node_group_template_id"
+                path="/v1.1/{tenant_id}/node-group-templates/{node_group_template_id}">
+         <param name="node_group_template_id"
+                style="template"
+                type="csapi:UUID"
+                rax:id="">
+                            <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                                <para>The UUID of the node group template.</para>
+                            </wadl:doc>
+                        </param>
+         <method name="GET" rax:id="showNodeGroupTemplate">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Show node group template details">
+               <para role="shortdesc">Shows a node group template, by ID.</para>
+            </wadl:doc>
+            <response status="200">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "node_group_template": {
+        "is_public": false,
+        "image_id": null,
+        "tenant_id": "808d5032ea0446889097723bfc8e919d",
+        "shares": null,
+        "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+        "node_configs": {},
+        "auto_security_group": false,
+        "is_default": false,
+        "availability_zone": null,
+        "plugin_name": "vanilla",
+        "flavor_id": "2",
+        "id": "0bb9f1a4-0c44-4dc5-9452-6741c62ed9ae",
+        "description": null,
+        "hadoop_version": "2.7.1",
+        "use_autoconfig": true,
+        "volumes_availability_zone": null,
+        "created_at": "2015-09-14T10:20:11",
+        "is_protected": false,
+        "updated_at": null,
+        "volumes_per_node": 0,
+        "is_proxy_gateway": false,
+        "name": "master",
+        "volume_mount_prefix": "/volumes/disk",
+        "node_processes": [
+            "namenode",
+            "resourcemanager",
+            "oozie",
+            "historyserver"
+        ],
+        "volumes_size": 0,
+        "volume_local_to_instance": false,
+        "security_groups": null,
+        "volume_type": null
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+                
+                  <param name="is_public"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the node is public in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="image_id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the image.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="tenant_id"
+                         style="plain"
+                         required="true"
+                         type="capi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the tenant.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="shares"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The sharing of resources in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="floating_ip_pool"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the pool in the template.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_configs"
+                         style="plain"
+                         required="true"
+                         type="xsd:dict"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      A set of key and value pairs that contain the node configuration in the
+      cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="auto_security_group"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code>, the cluster group is automatically secured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_default"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>True</code> the node is the default node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="plugin_name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the plugin.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="flavor_id"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The ID of the flavor.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="id"
+                         style="plain"
+                         required="true"
+                         type="csapi:UUID"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The UUID of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="description"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The description of the node in the cluster.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="hadoop_version"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The version of the Hadoop.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="use_autoconfig"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is auto configured.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_availability_zone"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The availability zone of the volumes.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="created_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was created in the cluster.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_protected"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is protected.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="updated_at"
+                         style="plain"
+                         required="true"
+                         type="xsd:dateTime"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The date and time when the node was updated.
+    </para>
+                        <para>
+      The date and time stamp format is <link xlink:href="https://en.wikipedia.org/wiki/ISO_8601">ISO 8601</link>:
+    </para>
+                        <programlisting>CCYY-MM-DDThh:mm:ss±hh:mm</programlisting>
+                        <para>
+      The <code>±hh:mm</code> value, if included, returns the time zone as an
+      offset from UTC.
+    </para>
+                        <para>
+      For example, <code>2015-08-27T09:49:58-05:00</code>.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_per_node"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The number of volumes for the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="is_proxy_gateway"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the node is the proxy gateway.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="name"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The name of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_mount_prefix"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The mount point of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="node_processes"
+                         style="plain"
+                         required="true"
+                         type="xsd:list"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The list of the processes performed by the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volumes_size"
+                         style="plain"
+                         required="true"
+                         type="xsd:int"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The size of the volumes in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_local_to_instance"
+                         style="plain"
+                         required="true"
+                         type="xsd:boolean"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      If set to <code>true</code>, the volume is local to the instance.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="volume_type"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The type of volume in a node.
+    </para>
+                     </wadl:doc>
+                  </param>
+                  <param name="security_groups"
+                         style="plain"
+                         required="true"
+                         type="xsd:string"
+                         rax:id="">
+                     <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                        <para>
+      The security groups of the node.
+    </para>
+                     </wadl:doc>
+                  </param>
+               </representation>
+            </response>
+         </method>
+         <method name="DELETE" rax:id="deleteNodeGroupTemplate">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Delete node group template">
+               <para role="shortdesc">Deletes a node group template.</para>
+            </wadl:doc>
+            <response status="204"/>
+         </method>
+         <method name="PUT" rax:id="updateNodeGroupTemplate">
+            <wadl:doc xmlns="http://docbook.org/ns/docbook"
+                      xml:lang="EN"
+                      title="Update node group template">
+               <para role="shortdesc">Updates a node group template.</para>
+            </wadl:doc>
+            <request>
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "plugin_name": "vanilla",
+    "hadoop_version": "2.7.1",
+    "node_processes": [
+        "datanode"
+    ],
+    "name": "new",
+    "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+    "flavor_id": "2"
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </request>
+            <response status="202">
+               <representation mediaType="application/json">
+                  <wadl:doc xmlns="http://docbook.org/ns/docbook" xml:lang="EN">
+                    <xsdxt:code xmlns:db="http://docbook.org/ns/docbook">
+                        <programlisting language="javascript">{
+    "node_group_template": {
+        "is_public": false,
+        "tenant_id": "808d5032ea0446889097723bfc8e919d",
+        "floating_ip_pool": "033debed-aeb8-488c-b7d0-adb74c61faa5",
+        "node_configs": {},
+        "auto_security_group": false,
+        "is_default": false,
+        "availability_zone": null,
+        "plugin_name": "vanilla",
+        "is_protected": false,
+        "flavor_id": "2",
+        "id": "0bb9f1a4-0c44-4dc5-9452-6741c62ed9ae",
+        "hadoop_version": "2.7.1",
+        "use_autoconfig": true,
+        "volumes_availability_zone": null,
+        "created_at": "2015-09-14T10:20:11",
+        "security_groups": null,
+        "volumes_per_node": 0,
+        "is_proxy_gateway": false,
+        "name": "new",
+        "volume_mount_prefix": "/volumes/disk",
+        "node_processes": [
+            "datanode"
+        ],
+        "volumes_size": 0,
+        "volume_local_to_instance": false,
+        "volume_type": null
+    }
+}
+</programlisting>
+                     </xsdxt:code>
+                  </wadl:doc>
+               </representation>
+            </response>
+         </method>
+      </resource>
+                        
+                        
+                        
+                        
+                    
+                
+    </resources>
+    <!-- *******************************************************-->
+    <!--             OS Node group templates actions           -->
+    <!--******************************************************-->
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="listNodeGroupTemplates">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="image_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="capi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="shares"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ip_pool"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="node_configs"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="auto_security_group"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="is_default"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="plugin_name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="flavor_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="hadoop_version"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="use_autoconfig"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_per_node"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="is_proxy_gateway"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="volume_mount_prefix"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="node_processes"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_size"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="volume_local_to_instance"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volume_type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="GET"
+           id="showNodeGroupTemplate">
+        
+        <response status="200">
+            <representation mediaType="application/json">
+                
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="image_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="capi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="shares"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ip_pool"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="node_configs"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="auto_security_group"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="is_default"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="plugin_name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="flavor_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="hadoop_version"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="use_autoconfig"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_per_node"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="is_proxy_gateway"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="volume_mount_prefix"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="node_processes"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_size"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="volume_local_to_instance"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volume_type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="POST"
+           id="createNodeGroupTemplate">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+                
+            <param name="is_public"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="image_id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="tenant_id"
+                   style="plain"
+                   required="true"
+                   type="capi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="shares"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="floating_ip_pool"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="node_configs"
+                   style="plain"
+                   required="true"
+                   type="xsd:dict"
+                   rax:id="">
+  
+</param>
+            <param name="auto_security_group"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="is_default"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="plugin_name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="flavor_id"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="id"
+                   style="plain"
+                   required="true"
+                   type="csapi:UUID"
+                   rax:id="">
+  
+</param>
+            <param name="description"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="hadoop_version"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="use_autoconfig"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_availability_zone"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="created_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="is_protected"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="updated_at"
+                   style="plain"
+                   required="true"
+                   type="xsd:dateTime"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_per_node"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="is_proxy_gateway"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="name"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="volume_mount_prefix"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="node_processes"
+                   style="plain"
+                   required="true"
+                   type="xsd:list"
+                   rax:id="">
+  
+</param>
+            <param name="volumes_size"
+                   style="plain"
+                   required="true"
+                   type="xsd:int"
+                   rax:id="">
+  
+</param>
+            <param name="volume_local_to_instance"
+                   style="plain"
+                   required="true"
+                   type="xsd:boolean"
+                   rax:id="">
+  
+</param>
+            <param name="volume_type"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            <param name="security_groups"
+                   style="plain"
+                   required="true"
+                   type="xsd:string"
+                   rax:id="">
+  
+</param>
+            </representation>
+        </response>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="DELETE"
+           id="deleteNodeGroupTemplate">
+        
+        <response status="204"/>
+    </method>
+    <method xmlns:capi="http://docs.openstack.org/common/api/v1.0"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:xsdxt="http://docs.rackspacecloud.com/xsd-ext/v1.0"
+           xmlns:csapi="http://docs.openstack.org/compute/api/v2"
+           xmlns:xlink="http://www.w3.org/1999/xlink"
+           xmlns="http://wadl.dev.java.net/2009/02"
+           name="PUT"
+           id="updateNodeGroupTemplate">
+        
+        <request>
+            <representation mediaType="application/json">
+                
+            </representation>
+        </request>
+        <response status="202">
+            <representation mediaType="application/json">
+                
+            </representation>
+        </response>
+    </method>
+</wadl:application>
