@@ -4,7 +4,7 @@ Automates the process of taking the WADL API information and outputting it as rS
 
 ## Installation
 
-    pip install -e git+git@github.rackspace.com:Product-DevOps/wadl2rst.git@master#egg=wadl2rst
+    pip install -e git+git@github.com:annegentle/wadl2rst.git@master#egg=wadl2rst
 
 ## Command Line Usage
 
@@ -42,7 +42,7 @@ File format example:
 ## Developer Setup
 
     mkvirtualenv wadl2rst
-    git clone git@github.rackspace.com:Product-DevOps/wadl2rst.git
+    git clone git@github.com:annegentle/wadl2rst.git
     cd wadl2rst
     python setup.py develop
     pip install -r requirements.txt
