@@ -1,6 +1,7 @@
 # wadl2rst
 
-Automates the process of taking the WADL API information and outputting it as rST.
+Automates the process of taking the WADL API information and outputting it as
+RST.
 
 ## Installation
 
@@ -33,15 +34,35 @@ File format:
 - *book_title*: Book title as shown on the title of the RST pages
 - *output_directory*: Target directory to put the results into, can be relative or absolute
 
+Place the config file in a directory near where the WADL files can have their
+entity references and request example inclusions properly resolved. For
+example, you can clone the openstack/api-site repo and then place a
+`config.yaml` file in the `api-ref/src/wadls/` directory.
+
 File format example:
 
-    samples/compute-api/src/v2.1/wadl/diagnostics-v2.1.wadl:
+    compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
         title: OpenStack Compute API v2.1
         output_directory: dist
+        
+## Known Issues
 
-    samples/compute-api/src/v2.1/wadl/extensions-v2.1.wadl:
-        title: OpenStack Compute API v2.1
-        output_directory: dist
+* Outputting too many characters for heading markup. For example:
+
+    Request
+    ^^^^^^^^^^^^^^^^^
+
+* Can't resolve XSD references to error messages. For example, the `common.ent`
+  files use this for the response status:
+  
+    <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
+      <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
+      <representation mediaType="application/json"/>
+    </response>
+
+However, wadl2rst doesn't seem to go to the XSDs to resolve
+`csapi:serviceUnavailable` so the tables output have nothing for Name or
+Description.
 
 ## Developer Setup
 
