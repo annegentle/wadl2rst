@@ -1,0 +1,6 @@
+compute-api/src/v2.1/wadl/os-hosts-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-hosts
+compute-api/src/v2.1/wadl/os-hypervisors-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-hypervisors

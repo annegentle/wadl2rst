@@ -1,0 +1,24 @@
+compute-api/src/v2.1/wadl/os-fixed-ips-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-fixed-ips
+compute-api/src/v2.1/wadl/os-flavor-access-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-flavor-access
+compute-api/src/v2.1/wadl/os-flavor-extra-specs-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-flavor-extra-specs
+compute-api/src/v2.1/wadl/os-floating-ip-dns-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-floating-ip-dns
+compute-api/src/v2.1/wadl/os-floating-ip-pools-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-floating-ip-pools
+compute-api/src/v2.1/wadl/os-floating-ips-bulk-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-floating-ips-bulk
+compute-api/src/v2.1/wadl/os-floating-ips-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-floating-ips
+compute-api/src/v2.1/wadl/os-fping-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-fping
