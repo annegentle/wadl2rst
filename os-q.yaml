@@ -1,0 +1,6 @@
+compute-api/src/v2.1/wadl/os-quota-class-sets-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-quota-class-sets
+compute-api/src/v2.1/wadl/os-quota-sets-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_directory: dist/os-quota-sets
