@@ -40,11 +40,11 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
 |{admin_tenant_id}         |csapi:UUID               |The UUID of the          |
 |                          |                         |administrative tenant.   |
++--------------------------+-------------------------+-------------------------+
+|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
+|                          |                         |in a multi-tenancy cloud.|
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -148,7 +148,13 @@ This table shows the body parameters for the request:
 
 .. code::
 
-    {"quota_set": {"force": true,"key_pairs": 120}}
+    {
+        "quota_set": {
+            "force": true,
+            "key_pairs": 120
+        }
+    }
+    
 
 
 Response
@@ -232,5 +238,23 @@ This table shows the body parameters for the response:
 
 .. code::
 
-    {"quota_set": {"injected_file_content_bytes": 10240,"metadata_items": 128,"server_group_members": 10,"server_groups": 10,"ram": 51200,"floating_ips": 10,"key_pairs": 120,"instances": 10,"security_group_rules": 20,"injected_files": 5,"cores": 20,"fixed_ips": -1,"injected_file_path_bytes": 255,"security_groups": 10}}
+    {
+        "quota_set": {
+            "injected_file_content_bytes": 10240,
+            "metadata_items": 128,
+            "server_group_members": 10,
+            "server_groups": 10,
+            "ram": 51200,
+            "floating_ips": 10,
+            "key_pairs": 120,
+            "instances": 10,
+            "security_group_rules": 20,
+            "injected_files": 5,
+            "cores": 20,
+            "fixed_ips": -1,
+            "injected_file_path_bytes": 255,
+            "security_groups": 10
+        }
+    }
+    
 

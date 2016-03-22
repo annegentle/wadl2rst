@@ -36,10 +36,10 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{server_id}               |csapi:UUID               |The UUID of the server.  |
-+--------------------------+-------------------------+-------------------------+
 |{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
 |                          |                         |in a multi-tenancy cloud.|
++--------------------------+-------------------------+-------------------------+
+|{server_id}               |csapi:UUID               |The UUID of the server.  |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -61,5 +61,15 @@ Response
 
 .. code::
 
-    {"addresses": {"private": [{"addr": "192.168.0.3","version": 4}]}}
+    {
+        "addresses": {
+            "private": [
+                {
+                    "addr": "192.168.0.3",
+                    "version": 4
+                }
+            ]
+        }
+    }
+    
 

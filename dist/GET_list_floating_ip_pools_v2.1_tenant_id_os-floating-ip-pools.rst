@@ -59,5 +59,15 @@ Response
 
 .. code::
 
-    {"floating_ip_pools": [{"name": "pool1"},{"name": "pool2"}]}
+    {
+        "floating_ip_pools": [
+            {
+                "name": "pool1"
+            },
+            {
+                "name": "pool2"
+            }
+        ]
+    }
+    
 

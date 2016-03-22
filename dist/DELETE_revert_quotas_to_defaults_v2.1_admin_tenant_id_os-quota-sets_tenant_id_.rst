@@ -36,11 +36,11 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
 |{admin_tenant_id}         |csapi:UUID               |The UUID of the          |
 |                          |                         |administrative tenant.   |
++--------------------------+-------------------------+-------------------------+
+|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
+|                          |                         |in a multi-tenancy cloud.|
 +--------------------------+-------------------------+-------------------------+
 
 

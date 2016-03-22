@@ -51,11 +51,11 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{fixed_ip}                |xsd:string *(Required)*  |The fixed IP of interest |
-|                          |                         |to you.                  |
-+--------------------------+-------------------------+-------------------------+
 |{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
 |                          |                         |in a multi-tenancy cloud.|
++--------------------------+-------------------------+-------------------------+
+|{fixed_ip}                |xsd:string *(Required)*  |The fixed IP of interest |
+|                          |                         |to you.                  |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -70,7 +70,10 @@ This table shows the URI parameters for the request:
 
 .. code::
 
-    {"reserve": null}
+    {
+        "reserve": null
+    }
+    
 
 
 Response
