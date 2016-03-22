@@ -12,7 +12,7 @@ List Default Quotas For Tenant
 
     GET /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}/defaults
 
-Lists the default quotas for a project or a project and a user.
+Lists the default quotas for a project.
 
 In the request URI, you specify both the ID of the administrative project and the ID of the project for which you want to show default quotas. These project IDs can match.
 
@@ -36,11 +36,11 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
 |{admin_tenant_id}         |csapi:UUID               |The UUID of the          |
 |                          |                         |administrative tenant.   |
++--------------------------+-------------------------+-------------------------+
+|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
+|                          |                         |in a multi-tenancy cloud.|
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -131,5 +131,24 @@ This table shows the body parameters for the response:
 
 .. code::
 
-    {"quota_set": {"injected_file_content_bytes": 10240,"metadata_items": 128,"server_group_members": 10,"server_groups": 10,"ram": 51200,"floating_ips": 10,"key_pairs": 100,"id": "91a3c6da787643c78f2a7c7428fa54f2","instances": 10,"security_group_rules": 20,"injected_files": 5,"cores": 20,"fixed_ips": -1,"injected_file_path_bytes": 255,"security_groups": 10}}
+    {
+        "quota_set": {
+            "injected_file_content_bytes": 10240,
+            "metadata_items": 128,
+            "server_group_members": 10,
+            "server_groups": 10,
+            "ram": 51200,
+            "floating_ips": 10,
+            "key_pairs": 100,
+            "id": "91a3c6da787643c78f2a7c7428fa54f2",
+            "instances": 10,
+            "security_group_rules": 20,
+            "injected_files": 5,
+            "cores": 20,
+            "fixed_ips": -1,
+            "injected_file_path_bytes": 255,
+            "security_groups": 10
+        }
+    }
+    
 

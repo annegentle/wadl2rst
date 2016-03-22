@@ -47,11 +47,11 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{fixed_ip}                |xsd:string *(Required)*  |The fixed IP of interest |
-|                          |                         |to you.                  |
-+--------------------------+-------------------------+-------------------------+
 |{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
 |                          |                         |in a multi-tenancy cloud.|
++--------------------------+-------------------------+-------------------------+
+|{fixed_ip}                |xsd:string *(Required)*  |The fixed IP of interest |
+|                          |                         |to you.                  |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -73,5 +73,13 @@ Response
 
 .. code::
 
-    {"fixed_ip": {"address": "192.168.1.1","cidr": "192.168.1.0/24","host": "host","hostname": "openstack"}}
+    {
+        "fixed_ip": {
+            "address": "192.168.1.1",
+            "cidr": "192.168.1.0/24",
+            "host": "host",
+            "hostname": "openstack"
+        }
+    }
+    
 

@@ -36,10 +36,10 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{network_id}              |csapi:UUID               |The UUID of the network. |
-+--------------------------+-------------------------+-------------------------+
 |{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
 |                          |                         |in a multi-tenancy cloud.|
++--------------------------+-------------------------+-------------------------+
+|{network_id}              |csapi:UUID               |The UUID of the network. |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -54,7 +54,10 @@ This table shows the URI parameters for the request:
 
 .. code::
 
-    {"disassociate": null}
+    {
+        "disassociate": null
+    }
+    
 
 
 Response

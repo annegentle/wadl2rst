@@ -36,14 +36,14 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{network_label}           |xsd:string               |The network label, such  |
-|                          |                         |as ``public`` or         |
-|                          |                         |``private``.             |
+|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
+|                          |                         |in a multi-tenancy cloud.|
 +--------------------------+-------------------------+-------------------------+
 |{server_id}               |csapi:UUID               |The UUID of the server.  |
 +--------------------------+-------------------------+-------------------------+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
+|{network_label}           |xsd:string               |The network label, such  |
+|                          |                         |as ``public`` or         |
+|                          |                         |``private``.             |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -65,5 +65,13 @@ Response
 
 .. code::
 
-    {"private": [{"addr": "192.168.0.3","version": 4}]}
+    {
+        "private": [
+            {
+                "addr": "192.168.0.3",
+                "version": 4
+            }
+        ]
+    }
+    
 

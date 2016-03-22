@@ -52,7 +52,10 @@ This table shows the URI parameters for the request:
 
 .. code::
 
-    {"id": "1"}
+    {
+        "id": "1"
+    }
+    
 
 
 Response

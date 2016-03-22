@@ -73,7 +73,17 @@ This table shows the body parameters for the request:
 
 .. code::
 
-    {"snapshot": {"volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c","create_info": {"snapshot_id": "421752a6-acf6-4b2d-bc7a-119f9148cd8c","type": "qcow2","new_file": "new_file_name"}}}
+    {
+        "snapshot": {
+            "volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
+            "create_info": {
+                "snapshot_id": "421752a6-acf6-4b2d-bc7a-119f9148cd8c",
+                "type": "qcow2",
+                "new_file": "new_file_name"
+            }
+        }
+    }
+    
 
 
 Response
@@ -99,5 +109,11 @@ This table shows the body parameters for the response:
 
 .. code::
 
-    {"snapshot": {"id": 100,"volumeId": "521752a6-acf6-4b2d-bc7a-119f9148cd8c"}}
+    {
+        "snapshot": {
+            "id": 100,
+            "volumeId": "521752a6-acf6-4b2d-bc7a-119f9148cd8c"
+        }
+    }
+    
 

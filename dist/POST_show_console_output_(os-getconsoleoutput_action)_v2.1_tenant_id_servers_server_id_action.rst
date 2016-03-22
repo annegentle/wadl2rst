@@ -37,10 +37,10 @@ This table shows the URI parameters for the request:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{server_id}               |csapi:UUID               |The UUID of the server.  |
-+--------------------------+-------------------------+-------------------------+
 |{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
 |                          |                         |in a multi-tenancy cloud.|
++--------------------------+-------------------------+-------------------------+
+|{server_id}               |csapi:UUID               |The UUID of the server.  |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -69,7 +69,12 @@ This table shows the body parameters for the request:
 
 .. code::
 
-    {"os-getConsoleOutput": {"length": 50}}
+    {
+        "os-getConsoleOutput": {
+            "length": 50
+        }
+    }
+    
 
 
 Response
@@ -84,5 +89,8 @@ Response
 
 .. code::
 
-    {"output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"}
+    {
+        "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
+    }
+    
 
