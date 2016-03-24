@@ -150,7 +150,9 @@ class MethodNode(BaseNode):
     def get_error_responses(self, responses):
         # This should only contain errors, and a successful request should
         # be a single response HTTP code, but not sure how to return single
-        return table.create_table(responses_types)
+        responses_types_headings = ["Status Code", "Reason"]
+        
+        return table.create_table(responses_types_headings, responses)
 
     def get_response_info(self, node):
         clone = node.clone()
@@ -160,24 +162,22 @@ class MethodNode(BaseNode):
             clone.remove_child(rep)
 
         faults = ""
-        computeAPIFault = "A generic Compute API fault."
-        itemNotFoundAPIFault = "The item or resource could not be found."
-        buildInProgressAPIFault = "The operation is not allowed because"
-            + " the corresponding server is in a build state."
-        serverCapacityUnavailable = "There is not enough capacity to honor the request."
-        backupOrResizeInProgress = "The operation is not allowed because the"
-            + " corresponding server is being re-sized or backed up."
-        serviceUnavailable = "The API service is currently unavailable."
-        unauthorizedAPIFault = "Insufficient privileges to honor the request,"
-            + " perhaps an authentication token needs to be obtained or renewed."
-        forbiddenAPIFault = "Authentication has been validated. However, the"
-            + " operation is unauthorized."
-        overLimitAPIFault = "A rate limit has been exceeded."
-        badRequest = "The request is malformed."
-        badMediaType = "The Content Type of the request is not supported."
-        badMethod = "The HTTP method (or verb) is not supported by the"
-            + "corresponding resource."
-        notImplemented = "The operation is currently not implemented."
+        # How do you wrap at 79 chars when value string is long?
+        computefaults = {
+        'computeAPIFault': 'A generic Compute API fault.',
+        'itemNotFoundAPIFault': 'The item or resource could not be found.'
+        'buildInProgressAPIFault': 'The operation is not allowed because the corresponding server is in a build state.'
+        'serverCapacityUnavailable': 'There is not enough capacity to honor the request.'
+        'backupOrResizeInProgress': 'The operation is not allowed because the corresponding server is being re-sized or backed up.'
+        'serviceUnavailable': 'The API service is currently unavailable.'
+        'unauthorizedAPIFault': 'Insufficient privileges to honor the request, perhaps an authentication token needs to be obtained or renewed.'
+        'forbiddenAPIFault': 'Authentication has been validated. However, the operation is unauthorized.'
+        'overLimitAPIFault': 'A rate limit has been exceeded.'
+        'badRequest': 'The request is malformed.'
+        'badMediaType': 'The Content Type of the request is not supported.'
+        'badMethod': 'The HTTP method (or verb) is not supported by the corresponding resource.'
+        'notImplemented': 'The operation is currently not implemented.'
+        }
 
         try:
             doc_node = node.find_one_of(self.document_node_names)
