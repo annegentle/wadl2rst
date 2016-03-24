@@ -61,7 +61,6 @@ class MethodNode(BaseNode):
             # we handle failures here below
             pass
 
-
         output = {
             "body_table": None,
             "docs_rst": "",
@@ -116,7 +115,6 @@ class MethodNode(BaseNode):
 
             # handle responses nodes
             responses = [self.get_response_info(child) for child in responses_node.children]
-            if responses =
             output['responses_list'] = self.get_error_responses(responses)
 
             # stash any response examples
@@ -151,7 +149,6 @@ class MethodNode(BaseNode):
         # This should only contain errors, and a successful request should
         # be a single response HTTP code, but not sure how to return single
         responses_types_headings = ["Status Code", "Reason"]
-        
         return table.create_table(responses_types_headings, responses)
 
     def get_response_info(self, node):
@@ -164,36 +161,35 @@ class MethodNode(BaseNode):
         faults = ""
         computefaults = {
         'computeAPIFault': 'A generic Compute API fault.',
-        'itemNotFoundAPIFault': 'The item or resource could not be found.'
+        'itemNotFoundAPIFault': 'The item or resource could not be found.',
         'buildInProgressAPIFault': 'The operation is not allowed because the '
-                                   'corresponding server is in a build state.'
+                        'corresponding server is in a build state.',
         'serverCapacityUnavailable': 'There is not enough capacity to honor '
-                                    'the request.'
+                        'the request.',
         'backupOrResizeInProgress': 'The operation is not allowed because the '
-                                    'corresponding server is being re-sized '
-                                    'or backed up.'
-        'serviceUnavailable': 'The API service is currently unavailable.'
+                        'corresponding server is being re-sized or backed up.',
+        'serviceUnavailable': 'The API service is currently unavailable.',
         'unauthorizedAPIFault': 'Insufficient privileges to honor the request. '
-                                'Perhaps obtain or renew an authentication '
-                                'token.'
+                             'Perhaps obtain or renew an authentication token.',
         'forbiddenAPIFault': 'Authentication has been validated. However, '
-                             'the operation is unauthorized.'
-        'overLimitAPIFault': 'A rate limit has been exceeded.'
-        'badRequest': 'The request is malformed.'
-        'badMediaType': 'The Content Type of the request is not supported.'
+            'the operation is unauthorized.',
+        'overLimitAPIFault': 'A rate limit has been exceeded.',
+        'badRequest': 'The request is malformed.',
+        'badMediaType': 'The Content Type of the request is not supported.',
         'badMethod': 'The HTTP method (or verb) is not supported by the '
-                     'corresponding resource.'
+            'corresponding resource.',
         'notImplemented': 'The operation is currently not implemented.'
         }
 
         try:
             doc_node = node.find_one_of(self.document_node_names)
             faults = doc_node.attributes.get('element', '')
-            # if the element matches one of the ones above, output that string
-            if doc_node.attributes.get('element') in computefaults:
-                error_reason = computefaults[doc_node.attributes.get('element')]
-                return error_reason
-            
+            for faults in computefaults:
+                # if the element matches one of the ones above, output that string
+                if doc_node.attributes.get('element') in computefaults:
+                    error_reason = computefaults[doc_node.attributes.get('element')]
+                    return error_reason
+
         except ValueError, e:
             faults = ""
 
