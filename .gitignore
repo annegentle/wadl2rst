@@ -19,6 +19,7 @@ sdist/
 var/
 *.egg
 .eggs/
+*.egg-info/
 
 # Installer logs
 pip-log.txt
@@ -36,3 +37,8 @@ coverage.xml
 # Translations
 *.mo
 
+# Pyenv
+.python-version
+
+# Editors
+.idea/
