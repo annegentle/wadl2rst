@@ -162,7 +162,6 @@ class MethodNode(BaseNode):
             clone.remove_child(rep)
 
         faults = ""
-        # How do you wrap at 79 chars when value string is long?
         computefaults = {
         'computeAPIFault': 'A generic Compute API fault.',
         'itemNotFoundAPIFault': 'The item or resource could not be found.'
@@ -191,6 +190,9 @@ class MethodNode(BaseNode):
             doc_node = node.find_one_of(self.document_node_names)
             faults = doc_node.attributes.get('element', '')
             # if the element matches one of the ones above, output that string
+            if doc_node.attributes.get('element') in computefaults:
+                error_reason = computefaults[doc_node.attributes.get('element')]
+                return error_reason
             
         except ValueError, e:
             faults = ""
