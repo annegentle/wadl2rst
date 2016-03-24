@@ -14,12 +14,8 @@
 
 {{docs_rst}}
 
-This table shows the possible response codes for this operation:
-
-{{responses_table}}
-
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
 {% if uri_table -%}
 This table shows the URI parameters for the request:
@@ -49,7 +45,7 @@ This table shows the body parameters for the request:
 {% endfor %}
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 {% if response_table %}
 This table shows the body parameters for the response:
@@ -67,3 +63,15 @@ This table shows the body parameters for the response:
 
 {{item['code']}}
 {% endfor %}
+
+Success
+^^^^^^^
+
+Successful requests will always return an HTTP `{{ success }}` response code.
+
+Errors
+^^^^^^
+
+There may be multiple error codes returned from the operation.
+
+{{responses_list}}

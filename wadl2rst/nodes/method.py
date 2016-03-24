@@ -69,7 +69,7 @@ class MethodNode(BaseNode):
             "http_method": self.attributes.get("name", ''),
             "query_table": None,
             "request_examples": [],
-            "responses_table": None,
+            "error_responses": None,
             "response_examples": [],
             "short_desc": "",
             "title": "",
@@ -116,7 +116,8 @@ class MethodNode(BaseNode):
 
             # handle responses nodes
             responses = [self.get_response_info(child) for child in responses_node.children]
-            output['responses_table'] = self.get_responses_table(responses)
+            if responses =
+            output['responses_list'] = self.get_error_responses(responses)
 
             # stash any response examples
             representations = responses_node.find("representation")
@@ -146,9 +147,10 @@ class MethodNode(BaseNode):
         output = FILENAME_UNDERSCORES.sub("_", output)
         return output
 
-    def get_responses_table(self, responses):
-        columns = ["Response Code", "Name", "Description"]
-        return table.create_table(columns, responses)
+    def get_error_responses(self, responses):
+        # This should only contain errors, and a successful request should
+        # be a single response HTTP code, but not sure how to return single
+        return table.create_table(responses_types)
 
     def get_response_info(self, node):
         clone = node.clone()
@@ -157,16 +159,36 @@ class MethodNode(BaseNode):
         for rep in reps:
             clone.remove_child(rep)
 
-        title = ""
+        faults = ""
+        computeAPIFault = "A generic Compute API fault."
+        itemNotFoundAPIFault = "The item or resource could not be found."
+        buildInProgressAPIFault = "The operation is not allowed because"
+            + " the corresponding server is in a build state."
+        serverCapacityUnavailable = "There is not enough capacity to honor the request."
+        backupOrResizeInProgress = "The operation is not allowed because the"
+            + " corresponding server is being re-sized or backed up."
+        serviceUnavailable = "The API service is currently unavailable."
+        unauthorizedAPIFault = "Insufficient privileges to honor the request,"
+            + " perhaps an authentication token needs to be obtained or renewed."
+        forbiddenAPIFault = "Authentication has been validated. However, the"
+            + " operation is unauthorized."
+        overLimitAPIFault = "A rate limit has been exceeded."
+        badRequest = "The request is malformed."
+        badMediaType = "The Content Type of the request is not supported."
+        badMethod = "The HTTP method (or verb) is not supported by the"
+            + "corresponding resource."
+        notImplemented = "The operation is currently not implemented."
 
         try:
             doc_node = node.find_one_of(self.document_node_names)
-            title = doc_node.attributes.get('title', '')
+            faults = doc_node.attributes.get('element', '')
+            # if the element matches one of the ones above, output that string
+            
         except ValueError, e:
-            title = ""
+            faults = ""
 
         return [
             node.attributes.get('status', ''),
-            title,
+            faults,
             clone.to_rst()
         ]
