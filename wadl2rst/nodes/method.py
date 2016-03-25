@@ -16,6 +16,10 @@ class MethodNode(BaseNode):
     document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
 
+    # TODO(auggy): should this take params as an argument?
+    # self.template_params() is called twice, once here and
+    # once after this returns to get the filename
+
     def to_rst(self, book_title):
         """ Return the rst representation of this tag and it's children. """
 
@@ -89,7 +93,7 @@ class MethodNode(BaseNode):
             output['uri'] = resource_node.attributes.get("full_path", '')
             uri_params = resource_node.find_first("params")
             if uri_params is not None:
-                output['uri_table'] = uri_params.to_table()
+                output['uri_table'] = uri_params.to_keypairs()
 
         # setup some request node stuff
         if request_node is not None:
