@@ -160,25 +160,25 @@ class MethodNode(BaseNode):
 
         faults = ""
         computefaults = {
-        'computeAPIFault': 'A generic Compute API fault.',
-        'itemNotFoundAPIFault': 'The item or resource could not be found.',
-        'buildInProgressAPIFault': 'The operation is not allowed because the '
-                        'corresponding server is in a build state.',
-        'serverCapacityUnavailable': 'There is not enough capacity to honor '
-                        'the request.',
-        'backupOrResizeInProgress': 'The operation is not allowed because the '
-                        'corresponding server is being re-sized or backed up.',
-        'serviceUnavailable': 'The API service is currently unavailable.',
-        'unauthorizedAPIFault': 'Insufficient privileges to honor the request. '
-                             'Perhaps obtain or renew an authentication token.',
-        'forbiddenAPIFault': 'Authentication has been validated. However, '
-            'the operation is unauthorized.',
-        'overLimitAPIFault': 'A rate limit has been exceeded.',
-        'badRequest': 'The request is malformed.',
-        'badMediaType': 'The Content Type of the request is not supported.',
-        'badMethod': 'The HTTP method (or verb) is not supported by the '
-            'corresponding resource.',
-        'notImplemented': 'The operation is currently not implemented.'
+            'computeAPIFault': 'A generic Compute API fault.',
+            'itemNotFoundAPIFault': 'The item or resource could not be found.',
+            'buildInProgressAPIFault': 'The operation is not allowed because the '
+                                       'corresponding server is in a build state.',
+            'serverCapacityUnavailable': 'There is not enough capacity to honor '
+                                         'the request.',
+            'backupOrResizeInProgress': 'The operation is not allowed because the '
+                                        'corresponding server is being re-sized or backed up.',
+            'serviceUnavailable': 'The API service is currently unavailable.',
+            'unauthorizedAPIFault': 'Insufficient privileges for the request. Try '
+                                    'to obtain or renew an authentication token.',
+            'forbiddenAPIFault': 'Authentication has been validated. However, '
+                                 'the operation is unauthorized.',
+            'overLimitAPIFault': 'A rate limit has been exceeded.',
+            'badRequest': 'The request is malformed.',
+            'badMediaType': 'The Content Type of the request is not supported.',
+            'badMethod': 'The HTTP method (or verb) is not supported by the '
+                         'corresponding resource.',
+            'notImplemented': 'The operation is currently not implemented.'
         }
 
         try:
