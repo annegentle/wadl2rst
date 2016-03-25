@@ -5,6 +5,14 @@ from wadl2rst.nodes.base import BaseNode
 
 class ParametersNode(BaseNode):
 
+    def to_keypairs(self, style=None):
+        params = self.get_params(style)
+        output = "\t- " + "\n\t- ".join(
+            [param_node.attributes.get('name', '') + ": " + param_node.attributes.get('name', '')
+             for param_node in params])
+
+        return output
+
     def to_table(self, style=None):
         """ Create a table from these params """
 
