@@ -26,8 +26,13 @@ def scrape_url(url):
     operations = tree.xpath('//a[@class="operation-anchor"]/following::div[1]/text()')
     #Match up Verbs and Operations and output a printed list
     methods = zip(verbs, operations)
-    for verbs, operations in methods:
-        print verbs + ' ' + operations    
+    print len(verbs)
+    print len(operations)
+    if len(verbs) == len(operations):
+        for verbs, operations in methods:
+            print verbs + ' ' + operations
+    elif:
+        print "Number of verbs doesn't match number of operations for ", page.url
 
 def start_scrape(urllist):
     urllist = get_urls_to_scrape(page)
