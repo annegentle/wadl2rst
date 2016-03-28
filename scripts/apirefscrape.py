@@ -22,10 +22,8 @@ def scrape_url(url):
     page = requests.get('http://developer.openstack.org/' + url)
     tree = html.fromstring(page.content)
     #Create a list of HTTP verbs
-    verbs =
-tree.xpath('//a[@class="operation-anchor"]/following::span[1]/text()')
-    operations =
-tree.xpath('//a[@class="operation-anchor"]/following::div[1]/text()')
+    verbs = tree.xpath('//a[@class="operation-anchor"]/following::span[1]/text()')
+    operations = tree.xpath('//a[@class="operation-anchor"]/following::div[1]/text()')
     #Match up Verbs and Operations and output a printed list
     methods = zip(verbs, operations)
     for verbs, operations in methods:
