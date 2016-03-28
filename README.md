@@ -47,12 +47,7 @@ File format example:
         
 ## Known Issues
 
-* Outputting too many characters for heading markup. For example:
-
-    Request
-    ^^^^^^^^^^^^^^^^^
-
-* Can't resolve XSD references to error messages. For example, the `common.ent`
+* (Issue)[https://github.com/annegentle/wadl2rst/issues/6]: Can't resolve XSD references to error messages. For example, the `common.ent`
   files use this for the response status:
   
     <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
