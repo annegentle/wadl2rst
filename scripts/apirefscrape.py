@@ -31,7 +31,7 @@ def scrape_url(url):
     if len(verbs) == len(operations):
         for verbs, operations in methods:
             print verbs + ' ' + operations
-    elif:
+    else:
         print "Number of verbs doesn't match number of operations for ", page.url
 
 def start_scrape(urllist):
