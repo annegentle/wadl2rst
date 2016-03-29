@@ -41,6 +41,5 @@ def start_scrape(urllist):
         print '----------'
         scrape_url(url)
 
-get_urls_to_scrape(page)
 start_scrape(urllist)
 
