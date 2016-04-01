@@ -120,7 +120,9 @@ class MethodNode(BaseNode):
 
             # handle responses nodes
             responses = [self.get_response_info(child) for child in responses_node.children]
-            output['responses_table'] = self.get_responses_table(responses)
+            # output['responses_table'] = self.get_responses_table(responses)
+            output['error_responses'] = self.get_error_responses_list(responses)
+            output['normal_responses'] = self.get_normal_responses_list(responses)
 
             # stash any response examples
             representations = responses_node.find("representation")
@@ -153,6 +155,15 @@ class MethodNode(BaseNode):
     def get_responses_table(self, responses):
         columns = ["Response Code", "Name", "Description"]
         return table.create_table(columns, responses)
+
+    def get_error_responses_list(self, responses):
+        # TODO(auggy): actually implement this, looks like it's not getting into the data
+        return u'''computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)'''
+
+    def get_normal_responses_list(self, responses):
+        normal_responses = [i[0] for i in responses]
+        return ','.join(normal_responses)
 
     def get_response_info(self, node):
         clone = node.clone()
