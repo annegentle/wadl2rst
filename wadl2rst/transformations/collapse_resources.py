@@ -15,6 +15,29 @@ def collapse_resources(tree):
     resource_visitor = functools.partial(get_resource_nodes, resource_nodes)
     tree.visit(resource_visitor)
 
+    # get resource types and add methods to resource nodes
+    resource_type_nodes = []
+    resource_type_visitor = functools.partial(get_resource_type_nodes, resource_type_nodes)
+    tree.visit(resource_type_visitor)
+
+    # append to the appropriate resource node
+    for node in resource_type_nodes:
+        # extract method node
+        for child in node.children:
+            if child.name == "method":
+                method_node = child
+        for rnode in resource_nodes:
+            if ('type' in rnode.attributes) and (rnode.attributes['type'] == '#' + node.attributes['id']):
+                # remove the resource_type node from the tree
+                #  this prevents an id conflict down the line
+                node.parent.remove_child(node)
+                # change the parent of the method node to the resource node
+                method_node.parent = rnode
+                # add the method node to the resource node's children
+                rnode.add_child(method_node)
+
+
+
     # setup the path for each node properly
     for node in resource_nodes:
         setup_node_path(node)
@@ -109,4 +132,11 @@ def get_resource_nodes(memory, node):
     child_names = [child.name for child in node.children]
 
     if (node.name == "resource") and ("method" in child_names):
+        memory.append(node)
+
+
+def get_resource_type_nodes(memory, node):
+    child_names = [child.name for child in node.children]
+
+    if (node.name == "resource_type") and ("method" in child_names):
         memory.append(node)
