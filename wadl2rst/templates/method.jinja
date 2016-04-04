@@ -1,28 +1,26 @@
-=============================================================================
-{{title}}  -  {{book_title}}
-=============================================================================
 
 {{title}}
-~~~~~~~~~~~~~~~~~~~~~~~~~
+{% for i in range(title)|count -%}
+=
+{%- endfor -%}
 
 `Request <{{filename}}#request>`__
 `Response <{{filename}}#response>`__
 
-.. code-block:: javascript
-
-    {{http_method}} {{uri}}
+.. rest_method:: {{http_method}} {{uri}}
 
 {{docs_rst}}
 
-This table shows the possible response codes for this operation:
+Normal response codes: {{normal_responses}}
 
-{{responses_table}}
+Error response codes: {{error_responses}}
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
 {% if uri_table -%}
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
+
 {{uri_table}}
 {%- endif %}
 
@@ -49,7 +47,7 @@ This table shows the body parameters for the request:
 {% endfor %}
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 {% if response_table %}
 This table shows the body parameters for the response:

@@ -16,6 +16,10 @@ class MethodNode(BaseNode):
     document_node_names = ["wadl:doc", "doc"]
     para_names = ["para", "p", "db:para", "xhtml:p"]
 
+    # TODO(auggy): should this take params as an argument?
+    # self.template_params() is called twice, once here and
+    # once after this returns to get the filename
+
     def to_rst(self, book_title):
         """ Return the rst representation of this tag and it's children. """
 
@@ -89,7 +93,7 @@ class MethodNode(BaseNode):
             output['uri'] = resource_node.attributes.get("full_path", '')
             uri_params = resource_node.find_first("params")
             if uri_params is not None:
-                output['uri_table'] = uri_params.to_table()
+                output['uri_table'] = uri_params.to_keypairs()
 
         # setup some request node stuff
         if request_node is not None:
@@ -116,7 +120,9 @@ class MethodNode(BaseNode):
 
             # handle responses nodes
             responses = [self.get_response_info(child) for child in responses_node.children]
-            output['responses_table'] = self.get_responses_table(responses)
+            # output['responses_table'] = self.get_responses_table(responses)
+            output['error_responses'] = self.get_error_responses_list(responses)
+            output['normal_responses'] = self.get_normal_responses_list(responses)
 
             # stash any response examples
             representations = responses_node.find("representation")
@@ -149,6 +155,15 @@ class MethodNode(BaseNode):
     def get_responses_table(self, responses):
         columns = ["Response Code", "Name", "Description"]
         return table.create_table(columns, responses)
+
+    def get_error_responses_list(self, responses):
+        # TODO(auggy): actually implement this, looks like it's not getting into the data
+        return u'''computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)'''
+
+    def get_normal_responses_list(self, responses):
+        normal_responses = [i[0] for i in responses]
+        return ','.join(normal_responses)
 
     def get_response_info(self, node):
         clone = node.clone()
