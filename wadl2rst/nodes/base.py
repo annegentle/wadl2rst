@@ -82,7 +82,7 @@ class BaseNode(object):
             names, self.attributes))
 
     def visit(self, function):
-        """ Execute a function against this node and each of it's children in a
+        """ Execute a function against this node and each of its children in a
         breadth-first manner. """
 
         function(self)
