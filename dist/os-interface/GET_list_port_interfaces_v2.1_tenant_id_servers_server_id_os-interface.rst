@@ -39,11 +39,6 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|interfaceAttachment       |xsd:string *(Required)*  |Specify the              |
-|                          |                         |``interfaceAttachment``  |
-|                          |                         |action in the response   |
-|                          |                         |body.                    |
-+--------------------------+-------------------------+-------------------------+
 |port_state                |xsd:string *(Required)*  |The port state.          |
 +--------------------------+-------------------------+-------------------------+
 |fixed_ips                 |xsd:list *(Required)*    |Fixed IP addresses with  |

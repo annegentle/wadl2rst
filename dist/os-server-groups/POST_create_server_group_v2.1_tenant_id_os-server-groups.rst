@@ -83,32 +83,7 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|server_groups             |xsd:list *(Required)*    |A ``server_groups``      |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of the server   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The name of the server   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|policies                  |xsd:list *(Required)*    |A list of policies for   |
-|                          |                         |the server group.        |
-+--------------------------+-------------------------+-------------------------+
-|members                   |xsd:list *(Required)*    |A list of members in the |
-|                          |                         |server group.            |
-+--------------------------+-------------------------+-------------------------+
-|metadata                  |xsd:dict *(Required)*    |A dictionary of metadata |
-|                          |                         |key-and-value pairs,     |
-|                          |                         |which is maintained for  |
-|                          |                         |backward compatibility.  |
-|                          |                         |The API always returns   |
-|                          |                         |an empty metadata        |
-|                          |                         |dictionary.              |
-+--------------------------+-------------------------+-------------------------+
-|project_id                |xsd:string *(Required)*  |The ID of the project.   |
-+--------------------------+-------------------------+-------------------------+
-|user_id                   |xsd:string *(Required)*  |The ID of the user.      |
+|security_group            |xsd:string *(Required)*  |Security group object.   |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -128,9 +103,7 @@ This table shows the body parameters for the response:
                 "anti-affinity"
             ],
             "members": [],
-            "metadata": {},
-            "project_id": "test-project",
-            "user_id": "test-user"
+            "metadata": {}
         }
     }
     

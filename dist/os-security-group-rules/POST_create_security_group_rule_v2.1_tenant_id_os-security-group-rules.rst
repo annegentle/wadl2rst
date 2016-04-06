@@ -82,7 +82,7 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|security_group_rule       |xsd:dict *(Required)*    |A                        |
+|security_group_rule       |csapi:UUID *(Required)*  |A                        |
 |                          |                         |``security_group_rule``  |
 |                          |                         |object.                  |
 +--------------------------+-------------------------+-------------------------+
@@ -93,19 +93,21 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |to_port                   |xsd:int *(Required)*     |The port at end of range.|
 +--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:dict *(Required)*    |An ``ip_range`` object.  |
+|ip_range                  |xsd:string *(Required)*  |An ``ip_range`` object.  |
 +--------------------------+-------------------------+-------------------------+
 |cidr                      |xsd:string *(Required)*  |The CIDR for address     |
 |                          |                         |range.                   |
 +--------------------------+-------------------------+-------------------------+
 |id                        |csapi:UUID *(Required)*  |The security group ID.   |
 +--------------------------+-------------------------+-------------------------+
-|group                     |xsd:dict *(Required)*    |A ``group`` object.      |
+|group                     |xsd:string *(Required)*  |A ``group`` object.      |
 |                          |                         |Includes the tenant ID   |
 |                          |                         |and the source security  |
 |                          |                         |group name.              |
 +--------------------------+-------------------------+-------------------------+
-|parent_group_id           |csapi:UUID *(Required)*  |Security group ID.       |
+|tenant_id                 |csapi:UUID *(Required)*  |The UUID of the tenant   |
+|                          |                         |who owns the source      |
+|                          |                         |security group.          |
 +--------------------------+-------------------------+-------------------------+
 |name                      |xsd:string *(Required)*  |The source security      |
 |                          |                         |group name.              |

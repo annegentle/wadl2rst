@@ -88,7 +88,7 @@ This table shows the body parameters for the response:
 |                          |                         |value is ICMP, TCP, or   |
 |                          |                         |UDP.                     |
 +--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:dict *(Required)*    |An IP range object.      |
+|ip_range                  |xsd:string *(Required)*  |An IP range object.      |
 +--------------------------+-------------------------+-------------------------+
 |cidr                      |xsd:string *(Required)*  |The CIDR for address     |
 |                          |                         |range.                   |

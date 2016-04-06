@@ -83,10 +83,6 @@ This table shows the body parameters for the response:
 |                          |                         |an empty metadata        |
 |                          |                         |dictionary.              |
 +--------------------------+-------------------------+-------------------------+
-|project_id                |xsd:string *(Required)*  |The ID of the project.   |
-+--------------------------+-------------------------+-------------------------+
-|user_id                   |xsd:string *(Required)*  |The ID of the user.      |
-+--------------------------+-------------------------+-------------------------+
 
 
 
@@ -106,9 +102,7 @@ This table shows the body parameters for the response:
                     "anti-affinity"
                 ],
                 "members": [],
-                "metadata": {},
-                "project_id": "test-project",
-                "user_id": "test-user"
+                "metadata": {}
             }
         ]
     }

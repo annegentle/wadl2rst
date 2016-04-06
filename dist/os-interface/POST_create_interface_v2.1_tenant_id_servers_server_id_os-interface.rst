@@ -100,11 +100,6 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|interfaceAttachment       |xsd:string *(Required)*  |Specify the              |
-|                          |                         |``interfaceAttachment``  |
-|                          |                         |action in the response   |
-|                          |                         |body.                    |
-+--------------------------+-------------------------+-------------------------+
 |fixed_ips                 |xsd:list *(Required)*    |Fixed IP addresses with  |
 |                          |                         |subnet IDs.              |
 +--------------------------+-------------------------+-------------------------+
