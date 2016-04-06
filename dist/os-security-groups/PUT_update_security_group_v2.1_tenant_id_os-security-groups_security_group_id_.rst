@@ -1,47 +1,28 @@
-=============================================================================
-Update Security Group -  OpenStack Compute API v2.1
-=============================================================================
 
 Update Security Group
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================
 
 `Request <PUT_update_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#request>`__
 `Response <PUT_update_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    PUT /v2.1/{tenant_id}/os-security-groups/{security_group_id}
+.. rest_method:: PUT /v2.1/{tenant_id}/os-security-groups/{security_group_id}
 
 Updates a security group.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |Update security group:   |                         |
-|                          |JSON response            |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{security_group_id}       |xsd:int                  |The ID of the security   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
 
 
 
@@ -76,7 +57,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -94,7 +75,7 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |name                      |xsd:string *(Required)*  |The security group name. |
 +--------------------------+-------------------------+-------------------------+
-|rules                     |xsd:dict *(Required)*    |A security group rules   |
+|rules                     |xsd:list *(Required)*    |A security group rules   |
 |                          |                         |object.                  |
 +--------------------------+-------------------------+-------------------------+
 |tenant_id                 |xsd:string *(Required)*  |The tenant ID.           |

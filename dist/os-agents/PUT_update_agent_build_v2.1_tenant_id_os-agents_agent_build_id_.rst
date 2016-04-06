@@ -1,46 +1,28 @@
-=============================================================================
-Update Agent Build -  OpenStack Compute API v2.1
-=============================================================================
 
 Update Agent Build
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==================
 
 `Request <PUT_update_agent_build_v2.1_tenant_id_os-agents_agent_build_id_.rst#request>`__
 `Response <PUT_update_agent_build_v2.1_tenant_id_os-agents_agent_build_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    PUT /v2.1/{tenant_id}/os-agents/{agent_build_id}
+.. rest_method:: PUT /v2.1/{tenant_id}/os-agents/{agent_build_id}
 
 Updates an agent build.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{agent_build_id}          |csapi:UUID               |The UUID of the agent    |
-|                          |                         |build.                   |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- agent_build_id: agent_build_id
 
 
 
@@ -78,7 +60,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:

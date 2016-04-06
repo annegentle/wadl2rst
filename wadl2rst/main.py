@@ -21,7 +21,6 @@ from wadl2rst.transformations.wrap_code_elements import wrap_code_elements
 from wadl2rst.transformations.wrap_param_elements import wrap_param_elements
 from wadl2rst.transformations.wrap_response_elements import wrap_response_elements
 
-
 def main():
     """ Application entry point.
     Collects the command line options and passes them to wadl2rst for
@@ -61,7 +60,7 @@ def parse_arguments():
 
     parser = argparse.ArgumentParser(
         description="""Given a config file, generate rST based on the WADLs contained therein.
-        If there is no config_file given, it will look for a file named 'wadl2html.config.yaml'
+        If there is no config_file given, it will look for a file named 'wadl2rst.config.yaml'
         in the current working directory.""")
 
     parser.add_argument("--version",
@@ -158,3 +157,7 @@ def convert_ir_to_rst(ir, output_dir, book_title):
 
         with open(full_path, 'w') as f:
             f.write(rst.encode("utf-8", "ignore"))
+
+# TODO remove this; for pycharm only
+if __name__ == '__main__':
+    main()

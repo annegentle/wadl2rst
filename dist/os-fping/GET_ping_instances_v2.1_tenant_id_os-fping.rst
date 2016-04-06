@@ -1,16 +1,11 @@
-=============================================================================
-Ping Instances -  OpenStack Compute API v2.1
-=============================================================================
 
 Ping Instances
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==============
 
 `Request <GET_ping_instances_v2.1_tenant_id_os-fping.rst#request>`__
 `Response <GET_ping_instances_v2.1_tenant_id_os-fping.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-fping
+.. rest_method:: GET /v2.1/{tenant_id}/os-fping
 
 Run the fping utility to ping instances and report which ones are alive.
 
@@ -22,28 +17,17 @@ GET /os-fping?all_tenants=1&include=uuid1,uuid2&exclude=uuid3,uuid4Policy defaul
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 This table shows the query parameters for the request:
@@ -75,7 +59,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

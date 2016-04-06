@@ -1,16 +1,11 @@
-=============================================================================
-Create Default Security Group Rule -  OpenStack Compute API v2.1
-=============================================================================
 
 Create Default Security Group Rule
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==================================
 
 `Request <POST_create_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules.rst#request>`__
 `Response <POST_create_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/os-security-group-default-rules
+.. rest_method:: POST /v2.1/{tenant_id}/os-security-group-default-rules
 
 Creates a default security group rule.
 
@@ -18,42 +13,17 @@ If you specify a source port ( ``from_port`` ) or destination port ( ``to_port``
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200,,503,400,401,403,405,404
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |Create default security  |                         |
-|                          |group rule: JSON response|                         |
-+--------------------------+-------------------------+-------------------------+
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -100,7 +70,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -118,7 +88,7 @@ This table shows the body parameters for the response:
 |                          |                         |value is ICMP, TCP, or   |
 |                          |                         |UDP.                     |
 +--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:string *(Required)*  |An IP range object.      |
+|ip_range                  |xsd:dict *(Required)*    |An IP range object.      |
 +--------------------------+-------------------------+-------------------------+
 |cidr                      |xsd:string *(Required)*  |The CIDR for address     |
 |                          |                         |range.                   |

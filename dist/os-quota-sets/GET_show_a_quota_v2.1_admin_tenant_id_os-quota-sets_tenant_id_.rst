@@ -1,16 +1,11 @@
-=============================================================================
-Show A Quota -  OpenStack Compute API v2.1
-=============================================================================
 
 Show A Quota
-~~~~~~~~~~~~~~~~~~~~~~~~~
+============
 
 `Request <GET_show_a_quota_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#request>`__
 `Response <GET_show_a_quota_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
+.. rest_method:: GET /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
 
 Show the quota for a project or a project and a user.
 
@@ -20,31 +15,18 @@ To show a quota for a project and a user, specify the ``user_id`` query paramete
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{admin_tenant_id}         |csapi:UUID               |The UUID of the          |
-|                          |                         |administrative tenant.   |
-+--------------------------+-------------------------+-------------------------+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
 
 
 
@@ -53,7 +35,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -61,7 +43,7 @@ This table shows the body parameters for the response:
 +----------------------------+------------------------+------------------------+
 |Name                        |Type                    |Description             |
 +============================+========================+========================+
-|quota_set                   |xsd:string *(Required)* |A ``quota_set`` object. |
+|quota_set                   |xsd:dict *(Required)*   |A ``quota_set`` object. |
 +----------------------------+------------------------+------------------------+
 |cores                       |xsd:int *(Required)*    |The number of allowed   |
 |                            |                        |instance cores for each |

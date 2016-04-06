@@ -1,16 +1,11 @@
-=============================================================================
-Associate Host -  OpenStack Compute API v2.1
-=============================================================================
 
 Associate Host
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==============
 
 `Request <POST_associate_host_v2.1_tenant_id_os-networks_network_id_action.rst#request>`__
 `Response <POST_associate_host_v2.1_tenant_id_os-networks_network_id_action.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/os-networks/{network_id}/action
+.. rest_method:: POST /v2.1/{tenant_id}/os-networks/{network_id}/action
 
 Associates a network with a host.
 
@@ -18,30 +13,18 @@ Policy defaults enable only users with the administrative role or the owner of t
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 202
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|202                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{network_id}              |csapi:UUID               |The UUID of the network. |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- network_id: network_id
 
 
 
@@ -61,7 +44,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

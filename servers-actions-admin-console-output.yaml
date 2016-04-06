@@ -1,6 +1,6 @@
-compute-api/src/v2.1/wadl/servers-action-admin-v2.1.wadl:
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-admin-v2.1.wadl:
     title: OpenStack Compute API v2.1
     output_directory: dist/servers-action-admin
-compute-api/src/v2.1/wadl/servers-action-console-output-v2.1.wadl:
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-console-output-v2.1.wadl:
     title: OpenStack Compute API v2.1
     output_directory: dist/servers-action-console-output

@@ -1,50 +1,29 @@
-=============================================================================
-Find Unique Dns Entry -  OpenStack Compute API v2.1
-=============================================================================
 
 Find Unique Dns Entry
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================
 
 `Request <GET_find_unique_dns_entry_v2.1_tenant_id_os-floating-ip-dns_domain_entries_name_.rst#request>`__
 `Response <GET_find_unique_dns_entry_v2.1_tenant_id_os-floating-ip-dns_domain_entries_name_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
+.. rest_method:: GET /v2.1/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 
 Finds a unique DNS entry for a domain and name.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{domain}                  |xsd:string *(Required)*  |The registered DNS       |
-|                          |                         |domain that the DNS      |
-|                          |                         |drivers publish.         |
-+--------------------------+-------------------------+-------------------------+
-|{name}                    |xsd:string               |The name of the DNS      |
-|                          |                         |entry.                   |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- domain: domain
+	- name: name
 
 
 
@@ -53,7 +32,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

@@ -1,43 +1,27 @@
-=============================================================================
-List Floating Ips -  OpenStack Compute API v2.1
-=============================================================================
 
 List Floating Ips
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=================
 
 `Request <GET_list_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#request>`__
 `Response <GET_list_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-floating-ips-bulk
+.. rest_method:: GET /v2.1/{tenant_id}/os-floating-ips-bulk
 
 Lists all floating IPs.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -46,7 +30,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

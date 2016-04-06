@@ -1,16 +1,11 @@
-=============================================================================
-Show Server Details -  OpenStack Compute API v2.1
-=============================================================================
 
 Show Server Details
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===================
 
 `Request <GET_show_server_details_v2.1_tenant_id_servers_server_id_.rst#request>`__
 `Response <GET_show_server_details_v2.1_tenant_id_servers_server_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/servers/{server_id}
+.. rest_method:: GET /v2.1/{tenant_id}/servers/{server_id}
 
 Shows details for a server.
 
@@ -30,43 +25,18 @@ The server must exist.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200,,503,400,401,403,405,404
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{server_id}               |csapi:UUID               |The UUID of the server.  |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- server_id: server_id
 
 
 
@@ -75,7 +45,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -83,7 +53,7 @@ This table shows the body parameters for the response:
 +-------------------------+-------------+---------------------------------------------+
 |Name                     |Type         |Description                                  |
 +=========================+=============+=============================================+
-|server                   |xsd:string   |A ``server`` object.                         |
+|server                   |xsd:dict     |A ``server`` object.                         |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |addresses                |xsd:dict     |The addresses for the server. Addresses      |
@@ -112,7 +82,7 @@ This table shows the body parameters for the response:
 |                         |*(Required)* |server instance. A flavor is a combination   |
 |                         |             |of memory, disk size, and CPUs.              |
 +-------------------------+-------------+---------------------------------------------+
-|hostId                   |xsd:string   |The ID of the host.                          |
+|hostId                   |csapi:UUID   |The ID of the host.                          |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |id                       |csapi:UUID   |The UUID of the server.                      |
@@ -126,10 +96,10 @@ This table shows the body parameters for the response:
 |key_name                 |xsd:string   |The name of associated key pair, if any.     |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
-|links                    |xsd:string   |Server links.                                |
+|links                    |xsd:list     |Server links.                                |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
-|metadata                 |xsd:string   |The associated metadata key and value pairs. |
+|metadata                 |xsd:dict     |The associated metadata key and value pairs. |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |name                     |csapi:string |The server name. The user sets the server    |
@@ -160,7 +130,7 @@ This table shows the body parameters for the response:
 |                         |             |template. Appears in the response for        |
 |                         |             |administrative users only.                   |
 +-------------------------+-------------+---------------------------------------------+
-|OS-EXT-STS:power_state   |xsd:string   |The power state of the instance.             |
+|OS-EXT-STS:power_state   |xsd:int      |The power state of the instance.             |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |OS-EXT-STS:task_state    |csapi:string |The task state of the instance.              |
@@ -169,7 +139,7 @@ This table shows the body parameters for the response:
 |OS-EXT-STS:vm_state      |csapi:string |The VM state.                                |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
-|os-extended-             |csapi:dict   |The attached volumes, if any.                |
+|os-extended-             |xsd:list     |The attached volumes, if any.                |
 |volumes:volumes_attached |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |OS-SRV-USG:launched_at   |xsd:dateTime |The date and time when the server was        |
@@ -197,13 +167,13 @@ This table shows the body parameters for the response:
 |progress                 |xsd:int      |A percentage value of the build progress.    |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
-|security_groups          |xsd:string   |Security groups object.                      |
+|security_groups          |xsd:list     |Security groups object.                      |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |description              |xsd:string   |The security group description.              |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
-|id                       |xsd:int      |The security group ID.                       |
+|id                       |csapi:UUID   |The security group ID.                       |
 |                         |*(Required)* |                                             |
 +-------------------------+-------------+---------------------------------------------+
 |name                     |xsd:string   |The security group name.                     |
@@ -228,7 +198,7 @@ This table shows the body parameters for the response:
 |tenant_id                |csapi:UUID   |The UUID of the tenant in a multi-tenancy    |
 |                         |*(Required)* |cloud.                                       |
 +-------------------------+-------------+---------------------------------------------+
-|updated                  |xsd:string   |The date and time when the resource was      |
+|updated                  |xsd:dateTime |The date and time when the resource was      |
 |                         |*(Required)* |updated. The date and time stamp format is   |
 |                         |             |`ISO 8601                                    |
 |                         |             |<https://en.wikipedia.org/wiki/ISO_8601>`__  |

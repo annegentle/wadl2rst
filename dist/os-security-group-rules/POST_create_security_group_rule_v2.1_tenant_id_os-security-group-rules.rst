@@ -1,44 +1,27 @@
-=============================================================================
-Create Security Group Rule -  OpenStack Compute API v2.1
-=============================================================================
 
 Create Security Group Rule
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 `Request <POST_create_security_group_rule_v2.1_tenant_id_os-security-group-rules.rst#request>`__
 `Response <POST_create_security_group_rule_v2.1_tenant_id_os-security-group-rules.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/os-security-group-rules
+.. rest_method:: POST /v2.1/{tenant_id}/os-security-group-rules
 
 Creates a rule for a security group.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |Create security group    |                         |
-|                          |rule: JSON response      |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -91,7 +74,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -99,7 +82,7 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|security_group_rule       |csapi:UUID *(Required)*  |A                        |
+|security_group_rule       |xsd:dict *(Required)*    |A                        |
 |                          |                         |``security_group_rule``  |
 |                          |                         |object.                  |
 +--------------------------+-------------------------+-------------------------+
@@ -110,21 +93,19 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |to_port                   |xsd:int *(Required)*     |The port at end of range.|
 +--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:string *(Required)*  |An ``ip_range`` object.  |
+|ip_range                  |xsd:dict *(Required)*    |An ``ip_range`` object.  |
 +--------------------------+-------------------------+-------------------------+
 |cidr                      |xsd:string *(Required)*  |The CIDR for address     |
 |                          |                         |range.                   |
 +--------------------------+-------------------------+-------------------------+
-|id                        |xsd:int *(Required)*     |The security group ID.   |
+|id                        |csapi:UUID *(Required)*  |The security group ID.   |
 +--------------------------+-------------------------+-------------------------+
-|group                     |xsd:string *(Required)*  |A ``group`` object.      |
+|group                     |xsd:dict *(Required)*    |A ``group`` object.      |
 |                          |                         |Includes the tenant ID   |
 |                          |                         |and the source security  |
 |                          |                         |group name.              |
 +--------------------------+-------------------------+-------------------------+
-|tenant_id                 |csapi:UUID *(Required)*  |The UUID of the tenant   |
-|                          |                         |who owns the source      |
-|                          |                         |security group.          |
+|parent_group_id           |csapi:UUID *(Required)*  |Security group ID.       |
 +--------------------------+-------------------------+-------------------------+
 |name                      |xsd:string *(Required)*  |The source security      |
 |                          |                         |group name.              |

@@ -1,16 +1,11 @@
-=============================================================================
-Log Disabled Service Information -  OpenStack Compute API v2.1
-=============================================================================
 
 Log Disabled Service Information
-~~~~~~~~~~~~~~~~~~~~~~~~~
+================================
 
 `Request <PUT_log_disabled_service_information_v2.1_tenant_id_os-services_disable-log-reason.rst#request>`__
 `Response <PUT_log_disabled_service_information_v2.1_tenant_id_os-services_disable-log-reason.rst#response>`__
 
-.. code-block:: javascript
-
-    PUT /v2.1/{tenant_id}/os-services/disable-log-reason
+.. rest_method:: PUT /v2.1/{tenant_id}/os-services/disable-log-reason
 
 Logs information to the service table about why a service was disabled.
 
@@ -18,28 +13,17 @@ Specify the service by its host name and binary name.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -70,7 +54,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:

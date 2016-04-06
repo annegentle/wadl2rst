@@ -1,16 +1,11 @@
-=============================================================================
-List Project Networks -  OpenStack Compute API v2.1
-=============================================================================
 
 List Project Networks
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================
 
 `Request <GET_list_project_networks_v2.1_tenant_id_os-tenant-networks.rst#request>`__
 `Response <GET_list_project_networks_v2.1_tenant_id_os-tenant-networks.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-tenant-networks
+.. rest_method:: GET /v2.1/{tenant_id}/os-tenant-networks
 
 Lists all project networks.
 
@@ -18,28 +13,17 @@ Policy defaults enable only users with the administrative role or the owner of t
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -48,7 +32,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

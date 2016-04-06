@@ -1,16 +1,11 @@
-=============================================================================
-List Server Groups -  OpenStack Compute API v2.1
-=============================================================================
 
 List Server Groups
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==================
 
 `Request <GET_list_server_groups_v2.1_tenant_id_os-server-groups.rst#request>`__
 `Response <GET_list_server_groups_v2.1_tenant_id_os-server-groups.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-server-groups
+.. rest_method:: GET /v2.1/{tenant_id}/os-server-groups
 
 Lists all server groups for the tenant.
 
@@ -18,28 +13,17 @@ Administrative users can use the ``all_projects`` query parameter to list all se
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 This table shows the query parameters for the request:
@@ -68,7 +52,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:
@@ -76,7 +60,7 @@ This table shows the body parameters for the response:
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|server_groups             |xsd:dict *(Required)*    |A ``server_groups``      |
+|server_groups             |xsd:list *(Required)*    |A ``server_groups``      |
 |                          |                         |object.                  |
 +--------------------------+-------------------------+-------------------------+
 |id                        |csapi:UUID *(Required)*  |The UUID of the server   |
@@ -85,19 +69,23 @@ This table shows the body parameters for the response:
 |name                      |xsd:string *(Required)*  |The name of the server   |
 |                          |                         |group.                   |
 +--------------------------+-------------------------+-------------------------+
-|policies                  |xsd:dict *(Required)*    |A list of policies for   |
+|policies                  |xsd:list *(Required)*    |A list of policies for   |
 |                          |                         |the server group.        |
 +--------------------------+-------------------------+-------------------------+
-|members                   |xsd:dict *(Required)*    |A list of members in the |
+|members                   |xsd:list *(Required)*    |A list of members in the |
 |                          |                         |server group.            |
 +--------------------------+-------------------------+-------------------------+
-|metadata                  |xsd:string *(Required)*  |A dictionary of metadata |
+|metadata                  |xsd:dict *(Required)*    |A dictionary of metadata |
 |                          |                         |key-and-value pairs,     |
 |                          |                         |which is maintained for  |
 |                          |                         |backward compatibility.  |
 |                          |                         |The API always returns   |
 |                          |                         |an empty metadata        |
 |                          |                         |dictionary.              |
++--------------------------+-------------------------+-------------------------+
+|project_id                |xsd:string *(Required)*  |The ID of the project.   |
++--------------------------+-------------------------+-------------------------+
+|user_id                   |xsd:string *(Required)*  |The ID of the user.      |
 +--------------------------+-------------------------+-------------------------+
 
 
@@ -118,7 +106,9 @@ This table shows the body parameters for the response:
                     "anti-affinity"
                 ],
                 "members": [],
-                "metadata": {}
+                "metadata": {},
+                "project_id": "test-project",
+                "user_id": "test-user"
             }
         ]
     }
