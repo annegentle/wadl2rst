@@ -15,6 +15,42 @@ def collapse_resources(tree):
     resource_visitor = functools.partial(get_resource_nodes, resource_nodes)
     tree.visit(resource_visitor)
 
+    # get resource types and add methods to resource nodes
+    resource_type_nodes = []
+    resource_type_visitor = functools.partial(get_resource_type_nodes, resource_type_nodes)
+    tree.visit(resource_type_visitor)
+
+    # get resource types and add methods to resource nodes
+    # append method nodes to the appropriate resource node
+    for rtnode in resource_type_nodes:
+        # extract method node
+        for child in rtnode.children:
+            if child.name == "method":
+                method_node = child
+
+                # look up resource node
+                #  this is really inefficient but I can't figure out how to get the node while keeping it in scope
+                for rnode in resource_nodes:
+                    type_name = '#' + rtnode.attributes['id']
+                    found_node = find_resource_nodes_with_type(type_name, rnode)
+                    if not found_node:
+                        for rn in rnode.children:
+                            found_node = find_resource_nodes_with_type(type_name, rn)
+                            if found_node:
+                                break
+
+                    if not found_node:
+                        continue
+
+                    # remove the resource_type node from the tree
+                    #  this prevents an id conflict down the line
+                    rtnode.parent.remove_child(rtnode)
+
+                    # change the parent of the method node to the resource node
+                    method_node.parent = found_node
+                    # add the method node to the resource node's children
+                    found_node.add_child(method_node)
+
     # setup the path for each node properly
     for node in resource_nodes:
         setup_node_path(node)
@@ -110,3 +146,14 @@ def get_resource_nodes(memory, node):
 
     if (node.name == "resource") and ("method" in child_names):
         memory.append(node)
+
+
+def get_resource_type_nodes(memory, node):
+    child_names = [child.name for child in node.children]
+
+    if (node.name == "resource_type") and ("method" in child_names):
+        memory.append(node)
+
+def find_resource_nodes_with_type(type_name, node):
+    if ("type" in node.attributes) and (node.attributes['type'] == type_name):
+        return node
