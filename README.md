@@ -41,7 +41,7 @@ example, you can clone the openstack/api-site repo and then place a
 
 File format example:
 
-    compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
+    ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
         title: OpenStack Compute API v2.1
         output_directory: dist
         

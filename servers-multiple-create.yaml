@@ -1,3 +1,3 @@
-compute-api/src/v2.1/wadl/servers-multiple-create-v2.1.wadl:
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-multiple-create-v2.1.wadl:
     title: OpenStack Compute API v2.1
     output_directory: dist/servers-multiple-create
