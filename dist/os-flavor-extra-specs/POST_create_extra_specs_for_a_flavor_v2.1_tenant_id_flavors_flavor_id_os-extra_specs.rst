@@ -1,45 +1,28 @@
-=============================================================================
-Create Extra Specs For A Flavor -  OpenStack Compute API v2.1
-=============================================================================
 
 Create Extra Specs For A Flavor
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===============================
 
 `Request <POST_create_extra_specs_for_a_flavor_v2.1_tenant_id_flavors_flavor_id_os-extra_specs.rst#request>`__
 `Response <POST_create_extra_specs_for_a_flavor_v2.1_tenant_id_flavors_flavor_id_os-extra_specs.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/flavors/{flavor_id}/os-extra_specs
+.. rest_method:: POST /v2.1/{tenant_id}/flavors/{flavor_id}/os-extra_specs
 
 Creates extra specs for a flavor, by ID.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{flavor_id}               |xsd:int                  |The ID of the flavor.    |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
 
 
 
@@ -62,7 +45,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

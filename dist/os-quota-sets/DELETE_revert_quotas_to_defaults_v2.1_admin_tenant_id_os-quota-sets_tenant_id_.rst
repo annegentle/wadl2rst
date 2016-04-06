@@ -1,16 +1,11 @@
-=============================================================================
-Revert Quotas To Defaults -  OpenStack Compute API v2.1
-=============================================================================
 
 Revert Quotas To Defaults
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=========================
 
 `Request <DELETE_revert_quotas_to_defaults_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#request>`__
 `Response <DELETE_revert_quotas_to_defaults_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    DELETE /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
+.. rest_method:: DELETE /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
 
 Reverts the quotas to default values for a project or a project and a user.
 
@@ -18,31 +13,18 @@ To revert quotas for a project and a user, specify the ``user_id`` query paramet
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 202
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|202                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{admin_tenant_id}         |csapi:UUID               |The UUID of the          |
-|                          |                         |administrative tenant.   |
-+--------------------------+-------------------------+-------------------------+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
 
 
 This table shows the query parameters for the request:
@@ -61,7 +43,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

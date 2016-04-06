@@ -1,45 +1,28 @@
-=============================================================================
-Delete Keypair -  OpenStack Compute API v2.1
-=============================================================================
 
 Delete Keypair
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==============
 
 `Request <DELETE_delete_keypair_v2.1_tenant_id_os-keypairs_keypair_name_.rst#request>`__
 `Response <DELETE_delete_keypair_v2.1_tenant_id_os-keypairs_keypair_name_.rst#response>`__
 
-.. code-block:: javascript
-
-    DELETE /v2.1/{tenant_id}/os-keypairs/{keypair_name}
+.. rest_method:: DELETE /v2.1/{tenant_id}/os-keypairs/{keypair_name}
 
 Deletes a keypair.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 204
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|204                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{keypair_name}            |xsd:string               |The keypair name.        |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- keypair_name: keypair_name
 
 
 
@@ -48,7 +31,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

@@ -1,16 +1,11 @@
-=============================================================================
-Enable Scheduling For A Service -  OpenStack Compute API v2.1
-=============================================================================
 
 Enable Scheduling For A Service
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===============================
 
 `Request <PUT_enable_scheduling_for_a_service_v2.1_tenant_id_os-services_enable.rst#request>`__
 `Response <PUT_enable_scheduling_for_a_service_v2.1_tenant_id_os-services_enable.rst#response>`__
 
-.. code-block:: javascript
-
-    PUT /v2.1/{tenant_id}/os-services/enable
+.. rest_method:: PUT /v2.1/{tenant_id}/os-services/enable
 
 Enables scheduling for a service.
 
@@ -18,28 +13,17 @@ Specify the service by its host name and binary name.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -67,7 +51,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:

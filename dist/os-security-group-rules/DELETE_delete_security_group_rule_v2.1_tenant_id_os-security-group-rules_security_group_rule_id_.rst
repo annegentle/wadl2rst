@@ -1,46 +1,28 @@
-=============================================================================
-Delete Security Group Rule -  OpenStack Compute API v2.1
-=============================================================================
 
 Delete Security Group Rule
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==========================
 
 `Request <DELETE_delete_security_group_rule_v2.1_tenant_id_os-security-group-rules_security_group_rule_id_.rst#request>`__
 `Response <DELETE_delete_security_group_rule_v2.1_tenant_id_os-security-group-rules_security_group_rule_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    DELETE /v2.1/{tenant_id}/os-security-group-rules/{security_group_rule_id}
+.. rest_method:: DELETE /v2.1/{tenant_id}/os-security-group-rules/{security_group_rule_id}
 
 Deletes a security group rule.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 202
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|202                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{security_group_rule_id}  |xsd:int                  |The ID of the security   |
-|                          |                         |group rule.              |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- security_group_rule_id: security_group_rule_id
 
 
 
@@ -49,7 +31,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

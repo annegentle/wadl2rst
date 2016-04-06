@@ -1,43 +1,27 @@
-=============================================================================
-List Usage Audits Before Specified Time -  OpenStack Compute API v2.1
-=============================================================================
 
 List Usage Audits Before Specified Time
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================================
 
 `Request <GET_list_usage_audits_before_specified_time_v2.1_tenant_id_os-instance_usage_audit_log_before_timestamp_.rst#request>`__
 `Response <GET_list_usage_audits_before_specified_time_v2.1_tenant_id_os-instance_usage_audit_log_before_timestamp_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-instance_usage_audit_log/{before_timestamp}
+.. rest_method:: GET /v2.1/{tenant_id}/os-instance_usage_audit_log/{before_timestamp}
 
 Lists usage audits that occurred before a specified time.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 This table shows the query parameters for the request:
@@ -63,7 +47,7 @@ This table shows the query parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

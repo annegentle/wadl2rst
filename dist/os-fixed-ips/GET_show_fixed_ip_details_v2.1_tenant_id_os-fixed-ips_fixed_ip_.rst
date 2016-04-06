@@ -1,59 +1,28 @@
-=============================================================================
-Show Fixed Ip Details -  OpenStack Compute API v2.1
-=============================================================================
 
 Show Fixed Ip Details
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=====================
 
 `Request <GET_show_fixed_ip_details_v2.1_tenant_id_os-fixed-ips_fixed_ip_.rst#request>`__
 `Response <GET_show_fixed_ip_details_v2.1_tenant_id_os-fixed-ips_fixed_ip_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-fixed-ips/{fixed_ip}
+.. rest_method:: GET /v2.1/{tenant_id}/os-fixed-ips/{fixed_ip}
 
 Shows details for a fixed IP address.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200,,503,400,401,403,405,404
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|404                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{fixed_ip}                |xsd:string *(Required)*  |The fixed IP of interest |
-|                          |                         |to you.                  |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- fixed_ip: fixed_ip
 
 
 
@@ -62,7 +31,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

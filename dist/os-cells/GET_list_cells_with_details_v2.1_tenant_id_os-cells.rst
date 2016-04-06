@@ -1,16 +1,11 @@
-=============================================================================
-List Cells With Details -  OpenStack Compute API v2.1
-=============================================================================
 
 List Cells With Details
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=======================
 
 `Request <GET_list_cells_with_details_v2.1_tenant_id_os-cells.rst#request>`__
 `Response <GET_list_cells_with_details_v2.1_tenant_id_os-cells.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-cells
+.. rest_method:: GET /v2.1/{tenant_id}/os-cells
 
 Lists cells with details.
 
@@ -18,30 +13,17 @@ When cells are not enabled, the call returns the ``Not Implemented (501)`` respo
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200,501
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|501                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -50,7 +32,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

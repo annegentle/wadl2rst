@@ -1,48 +1,29 @@
-=============================================================================
-Show Server Details -  OpenStack Compute API v2.1
-=============================================================================
 
 Show Server Details
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===================
 
 `Request <GET_show_server_details_v2_tenant_id_servers_server_id_.rst#request>`__
 `Response <GET_show_server_details_v2_tenant_id_servers_server_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2/{tenant_id}/servers/{server_id}
+.. rest_method:: GET /v2/{tenant_id}/servers/{server_id}
 
 Shows details for a server.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|os-disk-config:diskConfig |                         |Valid value is ``AUTO``  |
-|                          |                         |or ``MANUAL``.           |
-+--------------------------+-------------------------+-------------------------+
-|{server_id}               |csapi:UUID               |The UUID of the server.  |
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- os-disk-config:diskConfig: os-disk-config:diskConfig
+	- server_id: server_id
 
 
 
@@ -51,7 +32,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 This table shows the body parameters for the response:

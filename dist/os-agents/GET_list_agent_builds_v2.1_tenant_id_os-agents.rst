@@ -1,52 +1,57 @@
-=============================================================================
-List Agent Builds -  OpenStack Compute API v2.1
-=============================================================================
 
 List Agent Builds
-~~~~~~~~~~~~~~~~~~~~~~~~~
+=================
 
 `Request <GET_list_agent_builds_v2.1_tenant_id_os-agents.rst#request>`__
 `Response <GET_list_agent_builds_v2.1_tenant_id_os-agents.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-agents
+.. rest_method:: GET /v2.1/{tenant_id}/os-agents
 
 Lists agent builds.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+This table shows the body parameters for the request:
 
 +--------------------------+-------------------------+-------------------------+
 |Name                      |Type                     |Description              |
 +==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
+|agent_id                  |csapi:UUID *(Required)*  |The UUID of the agent.   |
 +--------------------------+-------------------------+-------------------------+
-
-
-
+|architecture              |xsd:string *(Required)*  |The architecture of      |
+|                          |                         |agent.                   |
++--------------------------+-------------------------+-------------------------+
+|hypervisor                |xsd:string *(Required)*  |The hypervisor of agent. |
++--------------------------+-------------------------+-------------------------+
+|url                       |xsd:string *(Required)*  |The URL associated with  |
+|                          |                         |the agent.               |
++--------------------------+-------------------------+-------------------------+
+|md5hash                   |xsd:string *(Required)*  |The MD5 hash.            |
++--------------------------+-------------------------+-------------------------+
+|version                   |xsd:string *(Required)*  |The version.             |
++--------------------------+-------------------------+-------------------------+
 
 
 
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

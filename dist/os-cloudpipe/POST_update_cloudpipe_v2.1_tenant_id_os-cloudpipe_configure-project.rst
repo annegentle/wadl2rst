@@ -1,58 +1,27 @@
-=============================================================================
-Update Cloudpipe -  OpenStack Compute API v2.1
-=============================================================================
 
 Update Cloudpipe
-~~~~~~~~~~~~~~~~~~~~~~~~~
+================
 
 `Request <POST_update_cloudpipe_v2.1_tenant_id_os-cloudpipe_configure-project.rst#request>`__
 `Response <POST_update_cloudpipe_v2.1_tenant_id_os-cloudpipe_configure-project.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/os-cloudpipe/configure-project
+.. rest_method:: POST /v2.1/{tenant_id}/os-cloudpipe/configure-project
 
 Updates the virtual private network (VPN) IP address and port for a cloudpipe instance.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 202,,503,400,401,403,405,415,400
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|202                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-+--------------------------+-------------------------+-------------------------+
-|503                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|401                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|403                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|405                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|415                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-|400                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -86,7 +55,7 @@ This table shows the body parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

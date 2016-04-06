@@ -1,43 +1,27 @@
-=============================================================================
-Create Agent Build -  OpenStack Compute API v2.1
-=============================================================================
 
 Create Agent Build
-~~~~~~~~~~~~~~~~~~~~~~~~~
+==================
 
 `Request <POST_create_agent_build_v2.1_tenant_id_os-agents.rst#request>`__
 `Response <POST_create_agent_build_v2.1_tenant_id_os-agents.rst#response>`__
 
-.. code-block:: javascript
-
-    POST /v2.1/{tenant_id}/os-agents
+.. rest_method:: POST /v2.1/{tenant_id}/os-agents
 
 Creates an agent build.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 201
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|201                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
 
 
 
@@ -64,7 +48,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 

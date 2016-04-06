@@ -1,16 +1,11 @@
-=============================================================================
-Ping An Instance -  OpenStack Compute API v2.1
-=============================================================================
 
 Ping An Instance
-~~~~~~~~~~~~~~~~~~~~~~~~~
+================
 
 `Request <GET_ping_an_instance_v2.1_tenant_id_os-fping_instance_id_.rst#request>`__
 `Response <GET_ping_an_instance_v2.1_tenant_id_os-fping_instance_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-fping/{instance_id}
+.. rest_method:: GET /v2.1/{tenant_id}/os-fping/{instance_id}
 
 Run the fping utility to ping an instance and report whether it is alive.
 
@@ -18,30 +13,18 @@ Policy defaults enable only users with the administrative role or the owner of t
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
+^^^^^^^
 
-This table shows the URI parameters for the request:
+.. rest_parameters:: parameters.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{instance_id}             |csapi:UUID               |The UUID of the instance.|
-+--------------------------+-------------------------+-------------------------+
-
+	- tenant_id: tenant_id
+	- instance_id: instance_id
 
 
 
@@ -50,7 +33,7 @@ This table shows the URI parameters for the request:
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 
