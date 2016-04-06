@@ -26,27 +26,6 @@ Request
 
 
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|agent_id                  |csapi:UUID *(Required)*  |The UUID of the agent.   |
-+--------------------------+-------------------------+-------------------------+
-|architecture              |xsd:string *(Required)*  |The architecture of      |
-|                          |                         |agent.                   |
-+--------------------------+-------------------------+-------------------------+
-|hypervisor                |xsd:string *(Required)*  |The hypervisor of agent. |
-+--------------------------+-------------------------+-------------------------+
-|url                       |xsd:string *(Required)*  |The URL associated with  |
-|                          |                         |the agent.               |
-+--------------------------+-------------------------+-------------------------+
-|md5hash                   |xsd:string *(Required)*  |The MD5 hash.            |
-+--------------------------+-------------------------+-------------------------+
-|version                   |xsd:string *(Required)*  |The version.             |
-+--------------------------+-------------------------+-------------------------+
-
-
 
 
 

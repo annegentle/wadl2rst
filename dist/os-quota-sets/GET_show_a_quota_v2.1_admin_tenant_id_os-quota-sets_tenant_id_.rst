@@ -43,7 +43,7 @@ This table shows the body parameters for the response:
 +----------------------------+------------------------+------------------------+
 |Name                        |Type                    |Description             |
 +============================+========================+========================+
-|quota_set                   |xsd:dict *(Required)*   |A ``quota_set`` object. |
+|quota_set                   |xsd:string *(Required)* |A ``quota_set`` object. |
 +----------------------------+------------------------+------------------------+
 |cores                       |xsd:int *(Required)*    |The number of allowed   |
 |                            |                        |instance cores for each |
