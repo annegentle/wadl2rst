@@ -92,7 +92,6 @@ class MethodNode(BaseNode):
         params_yaml[0] = params_yaml[0].lower()
         output['params_yaml'] = ''.join(params_yaml) + '.yaml'
 
-
         if short_desc_node is not None:
             output['short_desc'] = short_desc_node.to_rst()
 
@@ -108,8 +107,8 @@ class MethodNode(BaseNode):
             request_params = request_node.find_first("params")
 
             if request_params is not None:
-                output['query_table'] = request_params.to_table("query")
-                output['body_table'] = request_params.to_table("plain")
+                output['query_table'] = request_params.to_keypairs("query")
+                output['body_table'] = request_params.to_keypairs("plain")
 
             # stash any request examples
             representations = request_node.find("representation")
