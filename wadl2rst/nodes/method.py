@@ -123,7 +123,7 @@ class MethodNode(BaseNode):
 
             # stash the responses table
             if response_params is not None:
-                output['response_table'] = response_params.to_table("plain")
+                output['response_table'] = response_params.to_keypairs("plain")
 
             # handle responses nodes
             responses = [self.get_response_info(child) for child in responses_node.children]
