@@ -18,19 +18,15 @@ Error response codes: {{error_responses}}
 Request
 ^^^^^^^
 
-{% if uri_table -%}
-.. rest_parameters:: parameters.yaml
-
-{{uri_table}}
-{%- endif %}
-
 {% if query_table %}
-This table shows the query parameters for the request:
+.. rest_parameters:: {{params_yaml}}
+
 {{query_table}}
 {% endif %}
 
 {% if body_table %}
-This table shows the body parameters for the request:
+.. rest_parameters:: {{params_yaml}}
+
 {{body_table}}
 {% endif %}
 
@@ -50,6 +46,8 @@ Response
 ^^^^^^^^
 
 {% if response_table %}
+.. rest_parameters:: {{params_yaml}}
+
 This table shows the body parameters for the response:
 {{response_table}}
 {% endif %}
