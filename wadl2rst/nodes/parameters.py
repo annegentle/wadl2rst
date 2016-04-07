@@ -7,6 +7,10 @@ class ParametersNode(BaseNode):
 
     def to_keypairs(self, style=None):
         params = self.get_params(style)
+
+        if not params:
+            return None
+
         output = "\t- " + "\n\t- ".join(
             [param_node.attributes.get('name', '') + ": " + param_node.attributes.get('name', '')
              for param_node in params])
