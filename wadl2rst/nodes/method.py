@@ -9,6 +9,7 @@ from wadl2rst.templates import templates
 FILENAME_TITLE = re.compile(r" |/")
 FILENAME_PATH = re.compile(r"/|{|}")
 FILENAME_UNDERSCORES = re.compile(r"[_]+")
+PARAMS_YAML = re.compile(r"/s")
 
 
 class MethodNode(BaseNode):
@@ -71,6 +72,7 @@ class MethodNode(BaseNode):
             "docs_rst": "",
             "filename": "",
             "http_method": self.attributes.get("name", ''),
+            "params_yaml" : "",
             "query_table": None,
             "request_examples": [],
             "responses_table": None,
@@ -84,6 +86,12 @@ class MethodNode(BaseNode):
         if document_node is not None:
             output['docs_rst'] = document_node.to_rst()
             output['title'] = document_node.attributes.get("title", '').title()
+
+        # create the params yaml filename
+        params_yaml = PARAMS_YAML.sub("", output['title']).split()
+        params_yaml[0] = params_yaml[0].lower()
+        output['params_yaml'] = ''.join(params_yaml) + '.yaml'
+
 
         if short_desc_node is not None:
             output['short_desc'] = short_desc_node.to_rst()
