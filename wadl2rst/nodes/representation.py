@@ -21,15 +21,15 @@ class RepresentationNode(BaseNode):
 
         code_text = char_node.attributes['text']
 
-        output = ["    " + line for line in code_text.split("\n")]
-
         media_type = self.attributes.get('mediaType', None)
         media_type = mimetype_translation.get(media_type, "JSON")
+
+        # TODO(auggy): modify the last word to match the samples in the nova repo
 
         return {
             "title": title,
             "type": media_type,
-            "code": "\n".join(output)
+            "code": code_text
         }
 
 
