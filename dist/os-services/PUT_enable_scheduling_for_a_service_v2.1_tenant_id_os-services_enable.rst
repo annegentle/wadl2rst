@@ -21,23 +21,13 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: enableSchedulingForAService.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|host                      |xsd:string *(Required)*  |The host name.           |
-+--------------------------+-------------------------+-------------------------+
-|binary                    |xsd:string *(Required)*  |The service name.        |
-+--------------------------+-------------------------+-------------------------+
-
+	- host: host
+	- binary: binary
 
 
 
@@ -54,22 +44,12 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: enableSchedulingForAService.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|service                   |xsd:string *(Required)*  |A ``service`` object.    |
-+--------------------------+-------------------------+-------------------------+
-|binary                    |xsd:string *(Required)*  |The service name.        |
-+--------------------------+-------------------------+-------------------------+
-|host                      |xsd:string *(Required)*  |The host name.           |
-+--------------------------+-------------------------+-------------------------+
-|status                    |xsd:string *(Required)*  |The service status,      |
-|                          |                         |which is ``enabled`` or  |
-|                          |                         |``disabled``.            |
-+--------------------------+-------------------------+-------------------------+
-
+	- service: service
+	- binary: binary
+	- host: host
+	- status: status
 
 
 

@@ -19,78 +19,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- tenant_id: tenant_id
+.. rest_parameters:: listFlavors.yaml
 
-
-This table shows the query parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|minDisk                   |xsd:int *(Required)*     |Filters the response by  |
-|                          |                         |a minimum disk space, in |
-|                          |                         |GB.                      |
-+--------------------------+-------------------------+-------------------------+
-|minRam                    |xsd:int *(Required)*     |Filters the response by  |
-|                          |                         |a minimum RAM, in MB.    |
-+--------------------------+-------------------------+-------------------------+
-|sort_key                  |xsd:string *(Required)*  |Sorts by a server        |
-|                          |                         |attribute. Default       |
-|                          |                         |attribute is             |
-|                          |                         |``created``. You can     |
-|                          |                         |specify multiple pairs   |
-|                          |                         |of sort key and sort     |
-|                          |                         |direction query          |
-|                          |                         |parameters. If you omit  |
-|                          |                         |the sort direction in a  |
-|                          |                         |pair, the API uses the   |
-|                          |                         |natural sorting          |
-|                          |                         |direction of the server  |
-|                          |                         |``sort_key`` attribute.  |
-+--------------------------+-------------------------+-------------------------+
-|sort_dir                  |xsd:string *(Required)*  |Sort direction. A valid  |
-|                          |                         |value is ``asc``         |
-|                          |                         |(ascending) or ``desc``  |
-|                          |                         |(descending). Default is |
-|                          |                         |``desc``. You can        |
-|                          |                         |specify multiple pairs   |
-|                          |                         |of sort key and sort     |
-|                          |                         |direction query          |
-|                          |                         |parameters. If you omit  |
-|                          |                         |the sort direction in a  |
-|                          |                         |pair, the API uses the   |
-|                          |                         |natural sorting          |
-|                          |                         |direction of the         |
-|                          |                         |direction of the server  |
-|                          |                         |``sort_key`` attribute.  |
-+--------------------------+-------------------------+-------------------------+
-|limit                     |xsd:int *(Required)*     |Requests a page size of  |
-|                          |                         |items. Returns a number  |
-|                          |                         |of items up to a limit   |
-|                          |                         |value. Use the ``limit`` |
-|                          |                         |parameter to make an     |
-|                          |                         |initial limited request  |
-|                          |                         |and use the ID of the    |
-|                          |                         |last-seen item from the  |
-|                          |                         |response as the          |
-|                          |                         |``marker`` parameter     |
-|                          |                         |value in a subsequent    |
-|                          |                         |limited request.         |
-+--------------------------+-------------------------+-------------------------+
-|marker                    |xsd:string *(Required)*  |The ID of the last-seen  |
-|                          |                         |item. Use the ``limit``  |
-|                          |                         |parameter to make an     |
-|                          |                         |initial limited request  |
-|                          |                         |and use the ID of the    |
-|                          |                         |last-seen item from the  |
-|                          |                         |response as the          |
-|                          |                         |``marker`` parameter     |
-|                          |                         |value in a subsequent    |
-|                          |                         |limited request.         |
-+--------------------------+-------------------------+-------------------------+
-
+	- minDisk: minDisk
+	- minRam: minRam
+	- sort_key: sort_key
+	- sort_dir: sort_dir
+	- limit: limit
+	- marker: marker
 
 
 

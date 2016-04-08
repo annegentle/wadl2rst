@@ -19,11 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- image_id: image_id
-
 
 
 
@@ -34,15 +29,9 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: showImageDetails.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|os-disk-config:diskConfig |xsd:string               |Valid value is ``AUTO``  |
-|                          |                         |or ``MANUAL``.           |
-+--------------------------+-------------------------+-------------------------+
-
+	- os-disk-config:diskConfig: os-disk-config:diskConfig
 
 
 

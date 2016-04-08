@@ -21,10 +21,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-
 
 
 
@@ -34,6 +30,11 @@ Request
 Response
 ^^^^^^^^
 
+
+.. rest_parameters:: listFloatingIpPools.yaml
+
+	- floating_ip_pools: floating_ip_pools
+	- name: name
 
 
 

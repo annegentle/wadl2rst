@@ -15,7 +15,7 @@ Policy defaults enable only users with the administrative role or the owner of t
 
 
 
-Normal response codes: 202
+Normal response codes: 202,,503,400,401,403,405,404,415,400,503,409
 
 Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
 unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
@@ -23,22 +23,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
 
 
 
+.. rest_parameters:: add(Associate)FixedIp(AddfixedipAction).yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|addFixedIp                |xsd:string *(Required)*  |The action.              |
-+--------------------------+-------------------------+-------------------------+
-
+	- addFixedIp: addFixedIp
 
 
 

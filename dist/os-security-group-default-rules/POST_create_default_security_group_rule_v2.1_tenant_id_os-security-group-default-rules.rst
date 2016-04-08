@@ -21,34 +21,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|id                        |csapi:UUID *(Required)*  |The security group name  |
-|                          |                         |or UUID.                 |
-+--------------------------+-------------------------+-------------------------+
-|ip_protocol               |xsd:string *(Required)*  |The IP protocol. A valid |
-|                          |                         |value is ICMP, TCP, or   |
-|                          |                         |UDP.                     |
-+--------------------------+-------------------------+-------------------------+
-|from_port                 |xsd:int *(Required)*     |The port at start of     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|to_port                   |xsd:int *(Required)*     |The port at end of range.|
-+--------------------------+-------------------------+-------------------------+
-|cidr                      |xsd:string *(Required)*  |The CIDR for address     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-
+	- id: id
+	- ip_protocol: ip_protocol
+	- from_port: from_port
+	- to_port: to_port
+	- cidr: cidr
 
 
 
@@ -73,29 +55,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|from_port                 |xsd:int *(Required)*     |The port at start of     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID for the         |
-|                          |                         |security group.          |
-+--------------------------+-------------------------+-------------------------+
-|ip_protocol               |xsd:string *(Required)*  |The IP protocol. A valid |
-|                          |                         |value is ICMP, TCP, or   |
-|                          |                         |UDP.                     |
-+--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:string *(Required)*  |An IP range object.      |
-+--------------------------+-------------------------+-------------------------+
-|cidr                      |xsd:string *(Required)*  |The CIDR for address     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|to_port                   |xsd:int *(Required)*     |Port at end of range.    |
-+--------------------------+-------------------------+-------------------------+
-
+	- from_port: from_port
+	- id: id
+	- ip_protocol: ip_protocol
+	- ip_range: ip_range
+	- cidr: cidr
+	- to_port: to_port
 
 
 

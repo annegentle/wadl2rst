@@ -25,33 +25,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- tenant_id: tenant_id
+.. rest_parameters:: pingInstances.yaml
 
-
-This table shows the query parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|all_tenants               |xsd:int *(Required)*     |Specify the              |
-|                          |                         |``all_tenants=1`` query  |
-|                          |                         |parameter to ping        |
-|                          |                         |instances for all        |
-|                          |                         |tenants.                 |
-+--------------------------+-------------------------+-------------------------+
-|include                   |xsd:string *(Required)*  |Specify ``include=uuid[, |
-|                          |                         |uuid...]`` to include    |
-|                          |                         |the instances in the     |
-|                          |                         |results.                 |
-+--------------------------+-------------------------+-------------------------+
-|exclude                   |xsd:string *(Required)*  |Specify ``exclude=uuid[, |
-|                          |                         |uuid...]`` to exclude    |
-|                          |                         |the instances from the   |
-|                          |                         |results.                 |
-+--------------------------+-------------------------+-------------------------+
-
+	- all_tenants: all_tenants
+	- include: include
+	- exclude: exclude
 
 
 

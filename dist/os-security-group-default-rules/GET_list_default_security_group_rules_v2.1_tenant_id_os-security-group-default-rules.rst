@@ -19,10 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-
 
 
 
@@ -33,27 +29,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listDefaultSecurityGroupRules.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|from_port                 |xsd:int *(Required)*     |Port at start of range.  |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of the security |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|ip_protocol               |xsd:string *(Required)*  |The IP protocol: ICMP,   |
-|                          |                         |TCP, or UDP.             |
-+--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:string *(Required)*  |An IP range object.      |
-+--------------------------+-------------------------+-------------------------+
-|cidr                      |xsd:string *(Required)*  |The CIDR for address     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|to_port                   |xsd:int *(Required)*     |Port at end of range.    |
-+--------------------------+-------------------------+-------------------------+
-
+	- from_port: from_port
+	- id: id
+	- ip_protocol: ip_protocol
+	- ip_range: ip_range
+	- cidr: cidr
+	- to_port: to_port
 
 
 

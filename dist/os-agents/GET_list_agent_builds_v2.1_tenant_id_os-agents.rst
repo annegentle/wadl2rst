@@ -19,12 +19,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: listAgentBuilds.yaml
+
+	- agent_id: agent_id
+	- architecture: architecture
+	- hypervisor: hypervisor
+	- url: url
+	- md5hash: md5hash
+	- version: version
 
 
 

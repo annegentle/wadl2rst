@@ -19,27 +19,10 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- tenant_id: tenant_id
+.. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
 
-
-This table shows the query parameters for the request:
-
-+-----------------+--------------+---------------------------------------------+
-|Name             |Type          |Description                                  |
-+=================+==============+=============================================+
-|before_timestamp |xsd:dateTime  |Filters the response by the date and time    |
-|                 |*(Required)*  |before which to list usage audits. The date  |
-|                 |              |and time stamp format is `ISO 8601           |
-|                 |              |<https://en.wikipedia.org/wiki/ISO_8601>`__  |
-|                 |              |: CCYY-MM-DDThh:mm:ss±hh:mmThe ``±hh:mm``    |
-|                 |              |value, if included, returns the time zone as |
-|                 |              |an offset from UTC. For example, ``2015-08-  |
-|                 |              |27T09:49:58-05:00``. If you omit the time    |
-|                 |              |zone, the UTC time zone is assumed.          |
-+-----------------+--------------+---------------------------------------------+
-
+	- before_timestamp: before_timestamp
 
 
 

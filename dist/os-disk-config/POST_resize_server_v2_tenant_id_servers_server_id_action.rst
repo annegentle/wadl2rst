@@ -19,12 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- os-disk-config:diskConfig: os-disk-config:diskConfig
-	- server_id: server_id
-
 
 
 

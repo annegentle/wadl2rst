@@ -19,61 +19,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
 
 
 
+.. rest_parameters:: createInterface.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|interfaceAttachment       |xsd:string *(Required)*  |Specify the              |
-|                          |                         |``interfaceAttachment``  |
-|                          |                         |action in the request    |
-|                          |                         |body.                    |
-+--------------------------+-------------------------+-------------------------+
-|port_id                   |csapi:UUID *(Required)*  |The ID of the port for   |
-|                          |                         |which you want to create |
-|                          |                         |an interface. The        |
-|                          |                         |``net_id`` and           |
-|                          |                         |``port_id`` parameters   |
-|                          |                         |are mutually exclusive.  |
-|                          |                         |If you do not specify    |
-|                          |                         |the ``port_id``          |
-|                          |                         |parameter, the OpenStack |
-|                          |                         |Networking API v2.0      |
-|                          |                         |allocates a port and     |
-|                          |                         |creates an interface for |
-|                          |                         |it on the network.       |
-+--------------------------+-------------------------+-------------------------+
-|net_id                    |csapi:UUID *(Required)*  |The ID of the network    |
-|                          |                         |for which you want to    |
-|                          |                         |create a port interface. |
-|                          |                         |The ``net_id`` and       |
-|                          |                         |``port_id`` parameters   |
-|                          |                         |are mutually exclusive.  |
-|                          |                         |If you do not specify    |
-|                          |                         |the ``net_id``           |
-|                          |                         |parameter, the OpenStack |
-|                          |                         |Networking API v2.0 uses |
-|                          |                         |the network information  |
-|                          |                         |cache that is associated |
-|                          |                         |with the instance.       |
-+--------------------------+-------------------------+-------------------------+
-|fixed_ips                 |xsd:list *(Required)*    |Fixed IP addresses with  |
-|                          |                         |subnet IDs. If you       |
-|                          |                         |request a specific fixed |
-|                          |                         |IP address without a     |
-|                          |                         |``net_id``, the request  |
-|                          |                         |returns a ``Bad Request  |
-|                          |                         |(400)`` response code.   |
-+--------------------------+-------------------------+-------------------------+
-
+	- interfaceAttachment: interfaceAttachment
+	- port_id: port_id
+	- net_id: net_id
+	- fixed_ips: fixed_ips
 
 
 
@@ -95,23 +49,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: createInterface.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|fixed_ips                 |xsd:list *(Required)*    |Fixed IP addresses with  |
-|                          |                         |subnet IDs.              |
-+--------------------------+-------------------------+-------------------------+
-|mac_addr                  |xsd:string *(Required)*  |The MAC address.         |
-+--------------------------+-------------------------+-------------------------+
-|net_id                    |csapi:UUID *(Required)*  |The network ID.          |
-+--------------------------+-------------------------+-------------------------+
-|port_id                   |csapi:UUID *(Required)*  |The port ID.             |
-+--------------------------+-------------------------+-------------------------+
-|port_state                |xsd:string *(Required)*  |The port state.          |
-+--------------------------+-------------------------+-------------------------+
-
+	- interfaceAttachment: interfaceAttachment
+	- fixed_ips: fixed_ips
+	- mac_addr: mac_addr
+	- net_id: net_id
+	- port_id: port_id
+	- port_state: port_state
 
 
 

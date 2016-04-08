@@ -23,42 +23,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: create(Allocate)FloatingIpAddress.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|pool                      |xsd:string               |Pool from which to       |
-|                          |                         |allocate the IP address. |
-|                          |                         |If you omit this         |
-|                          |                         |parameter, the call      |
-|                          |                         |allocates the floating   |
-|                          |                         |IP address from the      |
-|                          |                         |public pool. If no       |
-|                          |                         |floating IP addresses    |
-|                          |                         |are available, the call  |
-|                          |                         |returns the ``400``      |
-|                          |                         |response code with an    |
-|                          |                         |informational message.   |
-|                          |                         |Policy defaults enable   |
-|                          |                         |only users with the      |
-|                          |                         |administrative role or   |
-|                          |                         |the owner of the server  |
-|                          |                         |to perform this          |
-|                          |                         |operation. Cloud         |
-|                          |                         |providers can change     |
-|                          |                         |these permissions        |
-|                          |                         |through the              |
-|                          |                         |``policy.json`` file.    |
-+--------------------------+-------------------------+-------------------------+
-
+	- pool: pool
 
 
 

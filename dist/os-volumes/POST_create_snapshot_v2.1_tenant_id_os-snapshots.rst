@@ -19,24 +19,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createSnapshot.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|snapshot                  |xsd:string *(Required)*  |A partial representation |
-|                          |                         |of a snapshot that is    |
-|                          |                         |used to create a         |
-|                          |                         |snapshot.                |
-+--------------------------+-------------------------+-------------------------+
-
+	- snapshot: snapshot
 
 
 

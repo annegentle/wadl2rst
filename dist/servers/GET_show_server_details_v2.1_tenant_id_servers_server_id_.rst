@@ -33,11 +33,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
-
 
 
 
@@ -48,170 +43,41 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: showServerDetails.yaml
 
-+-------------------------+-------------+---------------------------------------------+
-|Name                     |Type         |Description                                  |
-+=========================+=============+=============================================+
-|server                   |xsd:dict     |A ``server`` object.                         |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|addresses                |xsd:dict     |The addresses for the server. Addresses      |
-|                         |*(Required)* |information is hidden for any server in a    |
-|                         |             |state set in the                             |
-|                         |             |``osapi_hide_server_address_states``         |
-|                         |             |configuration option. By default, servers in |
-|                         |             |``building`` state hide their addresses      |
-|                         |             |information. See `nova.conf -configuration   |
-|                         |             |options                                      |
-|                         |             |<http://docs.openstack.org/liberty/config-   |
-|                         |             |reference/content/list-of-compute-config-    |
-|                         |             |options.html>`__.                            |
-+-------------------------+-------------+---------------------------------------------+
-|created                  |xsd:dateTime |The date and time when the resource was      |
-|                         |*(Required)* |created. The date and time stamp format is   |
-|                         |             |`ISO 8601                                    |
-|                         |             |<https://en.wikipedia.org/wiki/ISO_8601>`__  |
-|                         |             |: CCYY-MM-DDThh:mm:ss±hh:mmFor example,      |
-|                         |             |``2015-08-27T09:49:58-05:00``. The           |
-|                         |             |``±hh:mm`` value, if included, is the time   |
-|                         |             |zone as an offset from UTC. In the previous  |
-|                         |             |example, the offset value is ``-05:00``.     |
-+-------------------------+-------------+---------------------------------------------+
-|flavor                   |xsd:dict     |The ID and links for the flavor for your     |
-|                         |*(Required)* |server instance. A flavor is a combination   |
-|                         |             |of memory, disk size, and CPUs.              |
-+-------------------------+-------------+---------------------------------------------+
-|hostId                   |csapi:UUID   |The ID of the host.                          |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|id                       |csapi:UUID   |The UUID of the server.                      |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|image                    |xsd:dict     |The UUID and links for the image for your    |
-|                         |*(Required)* |server instance. The ``image`` object might  |
-|                         |             |be an empty string when you boot the server  |
-|                         |             |from a volume.                               |
-+-------------------------+-------------+---------------------------------------------+
-|key_name                 |xsd:string   |The name of associated key pair, if any.     |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|links                    |xsd:list     |Server links.                                |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|metadata                 |xsd:dict     |The associated metadata key and value pairs. |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|name                     |csapi:string |The server name. The user sets the server    |
-|                         |*(Required)* |name.                                        |
-+-------------------------+-------------+---------------------------------------------+
-|OS-DCF:diskConfig        |xsd:string   |Disk configuration. The value is either:     |
-|                         |*(Required)* |``AUTO``. The API builds the server with a   |
-|                         |             |single partition the size of the target      |
-|                         |             |flavor disk. The API automatically adjusts   |
-|                         |             |the file system to fit the entire partition. |
-|                         |             |``MANUAL``. The API builds the server by     |
-|                         |             |using the partition scheme and file system   |
-|                         |             |that is in the source image. If the target   |
-|                         |             |flavor disk is larger, The API does not      |
-|                         |             |partition the remaining disk space.          |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-                  |csapi:string |The availability zone.                       |
-|AZ:availability_zone     |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-SRV-ATTR:host     |csapi:string |The host name. Appears in the response for   |
-|                         |*(Required)* |administrative users only.                   |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-SRV-              |csapi:string |The hypervisor host name. Appears in the     |
-|ATTR:hypervisor_hostname |*(Required)* |response for administrative users only.      |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-SRV-              |csapi:string |The instance name. The Compute API generates |
-|ATTR:instance_name       |*(Required)* |the instance name from the instance name     |
-|                         |             |template. Appears in the response for        |
-|                         |             |administrative users only.                   |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-STS:power_state   |xsd:int      |The power state of the instance.             |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-STS:task_state    |csapi:string |The task state of the instance.              |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|OS-EXT-STS:vm_state      |csapi:string |The VM state.                                |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|os-extended-             |xsd:list     |The attached volumes, if any.                |
-|volumes:volumes_attached |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|OS-SRV-USG:launched_at   |xsd:dateTime |The date and time when the server was        |
-|                         |*(Required)* |launched. The date and time stamp format is  |
-|                         |             |`ISO 8601                                    |
-|                         |             |<https://en.wikipedia.org/wiki/ISO_8601>`__  |
-|                         |             |: CCYY-MM-DDThh:mm:ss±hh:mmFor example,      |
-|                         |             |``2015-08-27T09:49:58-05:00``. The           |
-|                         |             |``±hh:mm`` value, if included, is the time   |
-|                         |             |zone as an offset from UTC. If the           |
-|                         |             |``deleted_at`` date and time stamp is not    |
-|                         |             |set, its value is ``null``.                  |
-+-------------------------+-------------+---------------------------------------------+
-|OS-SRV-USG:terminated_at |xsd:dateTime |The date and time when the server was        |
-|                         |*(Required)* |deleted. The date and time stamp format is   |
-|                         |             |`ISO 8601                                    |
-|                         |             |<https://en.wikipedia.org/wiki/ISO_8601>`__  |
-|                         |             |: CCYY-MM-DDThh:mm:ss±hh:mmFor example,      |
-|                         |             |``2015-08-27T09:49:58-05:00``. The           |
-|                         |             |``±hh:mm`` value, if included, is the time   |
-|                         |             |zone as an offset from UTC. If the           |
-|                         |             |``deleted_at`` date and time stamp is not    |
-|                         |             |set, its value is ``null``.                  |
-+-------------------------+-------------+---------------------------------------------+
-|progress                 |xsd:int      |A percentage value of the build progress.    |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|security_groups          |xsd:list     |Security groups object.                      |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|description              |xsd:string   |The security group description.              |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|id                       |csapi:UUID   |The security group ID.                       |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|name                     |xsd:string   |The security group name.                     |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|rules                    |xsd:string   |A rules object.                              |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|status                   |xsd:string   |The server status.                           |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-|host_status              |xsd:string   |The host status. Values where next value in  |
-|                         |*(Required)* |list can override the previous: ``UP`` if    |
-|                         |             |nova-compute up. ``UNKNOWN`` if nova-compute |
-|                         |             |not reported by servicegroup driver.         |
-|                         |             |``DOWN`` if nova-compute forced down.        |
-|                         |             |``MAINTENANCE`` if nova-compute is disabled. |
-|                         |             |Empty string indicates there is no host for  |
-|                         |             |server. This attribute appears in the        |
-|                         |             |response only if the policy permits.         |
-+-------------------------+-------------+---------------------------------------------+
-|tenant_id                |csapi:UUID   |The UUID of the tenant in a multi-tenancy    |
-|                         |*(Required)* |cloud.                                       |
-+-------------------------+-------------+---------------------------------------------+
-|updated                  |xsd:dateTime |The date and time when the resource was      |
-|                         |*(Required)* |updated. The date and time stamp format is   |
-|                         |             |`ISO 8601                                    |
-|                         |             |<https://en.wikipedia.org/wiki/ISO_8601>`__  |
-|                         |             |: CCYY-MM-DDThh:mm:ss±hh:mmThe ``±hh:mm``    |
-|                         |             |value, if included, is the time zone as an   |
-|                         |             |offset from UTC. For example, ``2015-08-     |
-|                         |             |27T09:49:58-05:00``. The UTC time zone is    |
-|                         |             |assumed.                                     |
-+-------------------------+-------------+---------------------------------------------+
-|user_id                  |xsd:string   |The user ID of the user who owns the server. |
-|                         |*(Required)* |                                             |
-+-------------------------+-------------+---------------------------------------------+
-
+	- server: server
+	- addresses: addresses
+	- created: created
+	- flavor: flavor
+	- hostId: hostId
+	- id: id
+	- image: image
+	- key_name: key_name
+	- links: links
+	- metadata: metadata
+	- name: name
+	- OS-DCF:diskConfig: OS-DCF:diskConfig
+	- OS-EXT-AZ:availability_zone: OS-EXT-AZ:availability_zone
+	- OS-EXT-SRV-ATTR:host: OS-EXT-SRV-ATTR:host
+	- OS-EXT-SRV-ATTR:hypervisor_hostname: OS-EXT-SRV-ATTR:hypervisor_hostname
+	- OS-EXT-SRV-ATTR:instance_name: OS-EXT-SRV-ATTR:instance_name
+	- OS-EXT-STS:power_state: OS-EXT-STS:power_state
+	- OS-EXT-STS:task_state: OS-EXT-STS:task_state
+	- OS-EXT-STS:vm_state: OS-EXT-STS:vm_state
+	- os-extended-volumes:volumes_attached: os-extended-volumes:volumes_attached
+	- OS-SRV-USG:launched_at: OS-SRV-USG:launched_at
+	- OS-SRV-USG:terminated_at: OS-SRV-USG:terminated_at
+	- progress: progress
+	- security_groups: security_groups
+	- description: description
+	- id: id
+	- name: name
+	- rules: rules
+	- status: status
+	- host_status: host_status
+	- tenant_id: tenant_id
+	- updated: updated
+	- user_id: user_id
 
 
 

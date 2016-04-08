@@ -19,41 +19,19 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createVolume.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|volume                    |xsd:dict *(Required)*    |The ``volume`` object.   |
-+--------------------------+-------------------------+-------------------------+
-|display_name              |xsd:string *(Required)*  |The volume name.         |
-+--------------------------+-------------------------+-------------------------+
-|display_description       |xsd:string *(Required)*  |The volume description.  |
-+--------------------------+-------------------------+-------------------------+
-|size                      |xsd:int *(Required)*     |The size of the volume,  |
-|                          |                         |in gigabytes (GB).       |
-+--------------------------+-------------------------+-------------------------+
-|volume_type               |csapi:UUID *(Required)*  |The unique identifier    |
-|                          |                         |for a volume type.       |
-+--------------------------+-------------------------+-------------------------+
-|metadata                  |xsd:dict *(Required)*    |One or more metadata key |
-|                          |                         |and value pairs to       |
-|                          |                         |associate with the       |
-|                          |                         |volume.                  |
-+--------------------------+-------------------------+-------------------------+
-|availability_zone         |xsd:string *(Required)*  |The availability zone.   |
-+--------------------------+-------------------------+-------------------------+
-|snapshot_id               |xsd:string *(Required)*  |The unique identifier    |
-|                          |                         |for a snapshot.          |
-+--------------------------+-------------------------+-------------------------+
-
+	- volume: volume
+	- display_name: display_name
+	- display_description: display_description
+	- size: size
+	- volume_type: volume_type
+	- metadata: metadata
+	- availability_zone: availability_zone
+	- snapshot_id: snapshot_id
 
 
 

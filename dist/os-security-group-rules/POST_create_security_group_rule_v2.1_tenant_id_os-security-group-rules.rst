@@ -19,39 +19,18 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createSecurityGroupRule.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|security_group_rule       |xsd:dict *(Required)*    |A                        |
-|                          |                         |``security_group_rule``  |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|parent_group_id           |csapi:UUID *(Required)*  |Security group ID.       |
-+--------------------------+-------------------------+-------------------------+
-|ip_protocol               |xsd:string *(Required)*  |The IP protocol: ICMP,   |
-|                          |                         |TCP, or UDP.             |
-+--------------------------+-------------------------+-------------------------+
-|from_port                 |xsd:int *(Required)*     |The port at start of     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|to_port                   |xsd:int *(Required)*     |The port at end of range.|
-+--------------------------+-------------------------+-------------------------+
-|cidr                      |xsd:string *(Required)*  |The CIDR for address     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|group_id                  |csapi:UUID *(Required)*  |The source security      |
-|                          |                         |group ID.                |
-+--------------------------+-------------------------+-------------------------+
-
+	- security_group_rule: security_group_rule
+	- parent_group_id: parent_group_id
+	- ip_protocol: ip_protocol
+	- from_port: from_port
+	- to_port: to_port
+	- cidr: cidr
+	- group_id: group_id
 
 
 
@@ -77,42 +56,18 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: createSecurityGroupRule.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|security_group_rule       |csapi:UUID *(Required)*  |A                        |
-|                          |                         |``security_group_rule``  |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|ip_protocol               |xsd:string *(Required)*  |The IP protocol: ICMP,   |
-|                          |                         |TCP, or UDP.             |
-+--------------------------+-------------------------+-------------------------+
-|from_port                 |xsd:int *(Required)*     |Port at start of range.  |
-+--------------------------+-------------------------+-------------------------+
-|to_port                   |xsd:int *(Required)*     |The port at end of range.|
-+--------------------------+-------------------------+-------------------------+
-|ip_range                  |xsd:string *(Required)*  |An ``ip_range`` object.  |
-+--------------------------+-------------------------+-------------------------+
-|cidr                      |xsd:string *(Required)*  |The CIDR for address     |
-|                          |                         |range.                   |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The security group ID.   |
-+--------------------------+-------------------------+-------------------------+
-|group                     |xsd:string *(Required)*  |A ``group`` object.      |
-|                          |                         |Includes the tenant ID   |
-|                          |                         |and the source security  |
-|                          |                         |group name.              |
-+--------------------------+-------------------------+-------------------------+
-|tenant_id                 |csapi:UUID *(Required)*  |The UUID of the tenant   |
-|                          |                         |who owns the source      |
-|                          |                         |security group.          |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The source security      |
-|                          |                         |group name.              |
-+--------------------------+-------------------------+-------------------------+
-
+	- security_group_rule: security_group_rule
+	- ip_protocol: ip_protocol
+	- from_port: from_port
+	- to_port: to_port
+	- ip_range: ip_range
+	- cidr: cidr
+	- id: id
+	- group: group
+	- parent_group_id: parent_group_id
+	- name: name
 
 
 

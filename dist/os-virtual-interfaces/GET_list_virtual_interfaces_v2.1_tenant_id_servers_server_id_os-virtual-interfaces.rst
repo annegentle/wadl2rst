@@ -27,11 +27,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
-
 
 
 
@@ -42,20 +37,11 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listVirtualInterfaces.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|virtual_interfaces        |xsd:list *(Required)*    |A ``virtual_interfaces`` |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of the virtual  |
-|                          |                         |interface.               |
-+--------------------------+-------------------------+-------------------------+
-|mac_address               |xsd:string *(Required)*  |The MAC address.         |
-+--------------------------+-------------------------+-------------------------+
-
+	- virtual_interfaces: virtual_interfaces
+	- id: id
+	- mac_address: mac_address
 
 
 
