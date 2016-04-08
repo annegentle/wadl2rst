@@ -20,7 +20,8 @@ def resolve_external_code(base_path, tree, samples_path):
     for node in code_nodes:
         if 'href' in node.attributes:
             href = node.attributes['href']
-            text = os.path.normpath(os.path.join(samples_path, href))
+            href_split = href.split('/')
+            text = os.path.normpath(os.path.join(samples_path, href_split[-2], href_split[-1]))
         else:
             # don't try to return any samples data
             text = None
