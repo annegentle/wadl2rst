@@ -21,42 +21,14 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
 
 
 
+.. rest_parameters:: evacuateServer(EvacuateAction).yaml
 
-This table shows the body parameters for the request:
-
-+-----------------------+-----------------------+------------------------------+
-|Name                   |Type                   |Description                   |
-+=======================+=======================+==============================+
-|evacuate               |xsd:string *(Required)*|Specify the ``evacuate``      |
-|                       |                       |action in the request body.   |
-+-----------------------+-----------------------+------------------------------+
-|host                   |xsd:string *(Required)*|The name or ID of the host to |
-|                       |                       |which the server is evacuated.|
-+-----------------------+-----------------------+------------------------------+
-|adminPass              |xsd:string *(Required)*|An administrative password to |
-|                       |                       |access the evacuated          |
-|                       |                       |instance. To set the          |
-|                       |                       |administrative password, set  |
-|                       |                       |the                           |
-|                       |                       |``enable_instance_password``  |
-|                       |                       |configuration option to       |
-|                       |                       |``True``. If you set this     |
-|                       |                       |option to ``False`` and you   |
-|                       |                       |try to set the administrative |
-|                       |                       |password, the API does not    |
-|                       |                       |set the password and the      |
-|                       |                       |response shows a ``null``     |
-|                       |                       |value for the ``adminPass``   |
-|                       |                       |parameter.                    |
-+-----------------------+-----------------------+------------------------------+
-
+	- evacuate: evacuate
+	- host: host
+	- adminPass: adminPass
 
 
 

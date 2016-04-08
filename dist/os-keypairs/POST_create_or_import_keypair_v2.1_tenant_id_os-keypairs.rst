@@ -19,27 +19,13 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createOrImportKeypair.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|name                      |xsd:string *(Required)*  |The name to associate    |
-|                          |                         |with the keypair.        |
-+--------------------------+-------------------------+-------------------------+
-|public_key                |xsd:string *(Required)*  |The public ssh key to    |
-|                          |                         |import. If you omit this |
-|                          |                         |value, a key is          |
-|                          |                         |generated.               |
-+--------------------------+-------------------------+-------------------------+
-
+	- name: name
+	- public_key: public_key
 
 
 

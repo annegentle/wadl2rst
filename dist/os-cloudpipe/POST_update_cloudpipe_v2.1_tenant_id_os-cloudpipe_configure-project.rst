@@ -19,23 +19,13 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: updateCloudpipe.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|vpn_ip                    |xsd:string *(Required)*  |The VPN IP address.      |
-+--------------------------+-------------------------+-------------------------+
-|vpn_port                  |xsd:string *(Required)*  |The VPN port.            |
-+--------------------------+-------------------------+-------------------------+
-
+	- vpn_ip: vpn_ip
+	- vpn_port: vpn_port
 
 
 

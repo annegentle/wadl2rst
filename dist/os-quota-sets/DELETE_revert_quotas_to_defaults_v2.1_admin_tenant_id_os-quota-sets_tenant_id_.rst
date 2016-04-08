@@ -21,21 +21,10 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+.. rest_parameters:: revertQuotasToDefaults.yaml
 
-
-This table shows the query parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|user_id                   |xsd:string *(Required)*  |Filters the response by  |
-|                          |                         |a user, by ID.           |
-+--------------------------+-------------------------+-------------------------+
-
+	- user_id: user_id
 
 
 

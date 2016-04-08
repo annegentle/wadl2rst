@@ -19,10 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-
 
 
 
@@ -33,26 +29,12 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listVolumeTypes.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|volume_types              |xsd:list *(Required)*    |The ``volume_types``     |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of volume.      |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The name of volume.      |
-+--------------------------+-------------------------+-------------------------+
-|extra_specs               |xsd:dict *(Required)*    |The definition of a      |
-|                          |                         |volume type. This is a   |
-|                          |                         |group of policies e.g.   |
-|                          |                         |provision type. QoS that |
-|                          |                         |will be used to define a |
-|                          |                         |volume at creation time. |
-+--------------------------+-------------------------+-------------------------+
-
+	- volume_types: volume_types
+	- id: id
+	- name: name
+	- extra_specs: extra_specs
 
 
 

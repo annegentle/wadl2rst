@@ -19,27 +19,14 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- agent_build_id: agent_build_id
 
 
 
+.. rest_parameters:: updateAgentBuild.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|url                       |xsd:string *(Required)*  |The URL associated with  |
-|                          |                         |the agent.               |
-+--------------------------+-------------------------+-------------------------+
-|md5hash                   |xsd:string *(Required)*  |The MD5 hash.            |
-+--------------------------+-------------------------+-------------------------+
-|version                   |xsd:string *(Required)*  |The version.             |
-+--------------------------+-------------------------+-------------------------+
-
+	- url: url
+	- md5hash: md5hash
+	- version: version
 
 
 
@@ -63,21 +50,12 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: updateAgentBuild.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|agent_id                  |xsd:int *(Required)*     |The agent ID.            |
-+--------------------------+-------------------------+-------------------------+
-|url                       |xsd:string *(Required)*  |The URL associated with  |
-|                          |                         |the agent.               |
-+--------------------------+-------------------------+-------------------------+
-|md5hash                   |xsd:string *(Required)*  |The MD5 hash.            |
-+--------------------------+-------------------------+-------------------------+
-|version                   |xsd:string *(Required)*  |The version.             |
-+--------------------------+-------------------------+-------------------------+
-
+	- agent_id: agent_id
+	- url: url
+	- md5hash: md5hash
+	- version: version
 
 
 

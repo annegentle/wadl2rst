@@ -57,89 +57,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- tenant_id: tenant_id
+.. rest_parameters:: listServers.yaml
 
-
-This table shows the query parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|changes-since             |xsd:dateTime *(Required)*|Filters the response by  |
-|                          |                         |a date and time stamp    |
-|                          |                         |when the server last     |
-|                          |                         |changed status.          |
-+--------------------------+-------------------------+-------------------------+
-|image                     |csapi:UUID *(Required)*  |Filters the response by  |
-|                          |                         |an image, as a UUID.     |
-+--------------------------+-------------------------+-------------------------+
-|flavor                    |csapi:UUID *(Required)*  |Filters the response by  |
-|                          |                         |a flavor, as a UUID. A   |
-|                          |                         |flavor is a combination  |
-|                          |                         |of memory, disk size,    |
-|                          |                         |and CPUs.                |
-+--------------------------+-------------------------+-------------------------+
-|name                      |regexp *(Required)*      |Filters the response by  |
-|                          |                         |a server name, as a      |
-|                          |                         |string. You can use      |
-|                          |                         |regular expressions in   |
-|                          |                         |the query. For example,  |
-|                          |                         |the ``?name=bob``        |
-|                          |                         |regular expression       |
-|                          |                         |returns both bob and     |
-|                          |                         |bobb. If you must match  |
-|                          |                         |on only bob, you can use |
-|                          |                         |a regular expression     |
-|                          |                         |that matches the syntax  |
-|                          |                         |of the underlying        |
-|                          |                         |database server that is  |
-|                          |                         |implemented for Compute, |
-|                          |                         |such as MySQL or         |
-|                          |                         |PostgreSQL.              |
-+--------------------------+-------------------------+-------------------------+
-|status                    |csapi:ServerStatus       |Filters the response by  |
-|                          |*(Required)*             |a server status, as a    |
-|                          |                         |string. For example,     |
-|                          |                         |``ACTIVE``.              |
-+--------------------------+-------------------------+-------------------------+
-|host                      |xsd:string *(Required)*  |Filters the response by  |
-|                          |                         |a host name, as a        |
-|                          |                         |string. This query       |
-|                          |                         |parameter is typically   |
-|                          |                         |available to only        |
-|                          |                         |administrative users. If |
-|                          |                         |you are a non-           |
-|                          |                         |administrative user, the |
-|                          |                         |API ignores this         |
-|                          |                         |parameter.               |
-+--------------------------+-------------------------+-------------------------+
-|limit                     |xsd:int *(Required)*     |Requests a page size of  |
-|                          |                         |items. Returns a number  |
-|                          |                         |of items up to a limit   |
-|                          |                         |value. Use the ``limit`` |
-|                          |                         |parameter to make an     |
-|                          |                         |initial limited request  |
-|                          |                         |and use the ID of the    |
-|                          |                         |last-seen item from the  |
-|                          |                         |response as the          |
-|                          |                         |``marker`` parameter     |
-|                          |                         |value in a subsequent    |
-|                          |                         |limited request.         |
-+--------------------------+-------------------------+-------------------------+
-|marker                    |xsd:string *(Required)*  |The ID of the last-seen  |
-|                          |                         |item. Use the ``limit``  |
-|                          |                         |parameter to make an     |
-|                          |                         |initial limited request  |
-|                          |                         |and use the ID of the    |
-|                          |                         |last-seen item from the  |
-|                          |                         |response as the          |
-|                          |                         |``marker`` parameter     |
-|                          |                         |value in a subsequent    |
-|                          |                         |limited request.         |
-+--------------------------+-------------------------+-------------------------+
-
+	- changes-since: changes-since
+	- image: image
+	- flavor: flavor
+	- name: name
+	- status: status
+	- host: host
+	- limit: limit
+	- marker: marker
 
 
 
@@ -150,23 +78,12 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listServers.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|servers                   |xsd:list *(Required)*    |List of ``server``       |
-|                          |                         |objects.                 |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of the server.  |
-+--------------------------+-------------------------+-------------------------+
-|links                     |xsd:list *(Required)*    |Server links.            |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The server name. The     |
-|                          |                         |user sets the server     |
-|                          |                         |name.                    |
-+--------------------------+-------------------------+-------------------------+
-
+	- servers: servers
+	- id: id
+	- links: links
+	- name: name
 
 
 

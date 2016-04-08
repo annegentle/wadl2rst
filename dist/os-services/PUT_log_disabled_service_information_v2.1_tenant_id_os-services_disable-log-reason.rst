@@ -21,26 +21,14 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: logDisabledServiceInformation.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|host                      |xsd:string *(Required)*  |The host name.           |
-+--------------------------+-------------------------+-------------------------+
-|binary                    |xsd:string *(Required)*  |The service name.        |
-+--------------------------+-------------------------+-------------------------+
-|disabled_reason           |xsd:string *(Required)*  |The reason the service   |
-|                          |                         |was disabled.            |
-+--------------------------+-------------------------+-------------------------+
-
+	- host: host
+	- binary: binary
+	- disabled_reason: disabled_reason
 
 
 
@@ -57,25 +45,13 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: logDisabledServiceInformation.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|service                   |xsd:string *(Required)*  |A ``service`` object.    |
-+--------------------------+-------------------------+-------------------------+
-|binary                    |xsd:string *(Required)*  |The service name.        |
-+--------------------------+-------------------------+-------------------------+
-|disabled_reason           |xsd:string *(Required)*  |The reason the service   |
-|                          |                         |was disabled.            |
-+--------------------------+-------------------------+-------------------------+
-|host                      |xsd:string *(Required)*  |The host name.           |
-+--------------------------+-------------------------+-------------------------+
-|status                    |xsd:string *(Required)*  |The service status,      |
-|                          |                         |which is ``enabled`` or  |
-|                          |                         |``disabled``.            |
-+--------------------------+-------------------------+-------------------------+
-
+	- service: service
+	- binary: binary
+	- disabled_reason: disabled_reason
+	- host: host
+	- status: status
 
 
 

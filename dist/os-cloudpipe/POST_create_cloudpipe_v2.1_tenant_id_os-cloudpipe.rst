@@ -19,25 +19,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createCloudpipe.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|project_id                |xsd:string *(Required)*  |Creates the cloudpipe    |
-|                          |                         |for a project. If        |
-|                          |                         |omitted, the project ID  |
-|                          |                         |defaults to the calling  |
-|                          |                         |tenant.                  |
-+--------------------------+-------------------------+-------------------------+
-
+	- project_id: project_id
 
 
 

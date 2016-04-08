@@ -19,11 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
-
 
 
 
@@ -34,23 +29,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listPortInterfaces.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|port_state                |xsd:string *(Required)*  |The port state.          |
-+--------------------------+-------------------------+-------------------------+
-|fixed_ips                 |xsd:list *(Required)*    |Fixed IP addresses with  |
-|                          |                         |subnet IDs.              |
-+--------------------------+-------------------------+-------------------------+
-|mac_addr                  |xsd:string *(Required)*  |The MAC address.         |
-+--------------------------+-------------------------+-------------------------+
-|net_id                    |csapi:UUID *(Required)*  |The network ID.          |
-+--------------------------+-------------------------+-------------------------+
-|port_id                   |csapi:UUID *(Required)*  |The port ID.             |
-+--------------------------+-------------------------+-------------------------+
-
+	- interfaceAttachment: interfaceAttachment
+	- port_state: port_state
+	- fixed_ips: fixed_ips
+	- mac_addr: mac_addr
+	- net_id: net_id
+	- port_id: port_id
 
 
 

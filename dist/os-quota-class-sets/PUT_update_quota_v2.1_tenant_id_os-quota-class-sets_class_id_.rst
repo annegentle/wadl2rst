@@ -19,11 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- class_id: class_id
-
 
 
 
@@ -56,6 +51,25 @@ Request
 Response
 ^^^^^^^^
 
+
+.. rest_parameters:: updateQuota.yaml
+
+	- quota_set: quota_set
+	- cores: cores
+	- fixed_ips: fixed_ips
+	- floating_ips: floating_ips
+	- id: id
+	- injected_file_content_bytes: injected_file_content_bytes
+	- injected_file_path_bytes: injected_file_path_bytes
+	- injected_files: injected_files
+	- instances: instances
+	- key_pairs: key_pairs
+	- metadata_items: metadata_items
+	- ram: ram
+	- security_group_rules: security_group_rules
+	- security_groups: security_groups
+	- server_groups: server_groups
+	- server_group_members: server_group_members
 
 
 

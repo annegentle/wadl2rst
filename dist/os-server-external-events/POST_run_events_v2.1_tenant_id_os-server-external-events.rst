@@ -21,47 +21,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: runEvents.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|events                    |xsd:list *(Required)*    |The action.              |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The event name. A valid  |
-|                          |                         |value is ``network-      |
-|                          |                         |changed``, ``network-vif-|
-|                          |                         |plugged``, ``network-vif-|
-|                          |                         |unplugged``, or          |
-|                          |                         |``network-vif-deleted``. |
-+--------------------------+-------------------------+-------------------------+
-|tag                       |xsd:string *(Required)*  |A string value that      |
-|                          |                         |identifies the event.    |
-+--------------------------+-------------------------+-------------------------+
-|server_uuid               |csapi:UUID *(Required)*  |The UUID of the server   |
-|                          |                         |instance to which the    |
-|                          |                         |API dispatches the       |
-|                          |                         |event. You must assign   |
-|                          |                         |this instance to a host. |
-|                          |                         |Otherwise, this call     |
-|                          |                         |does not dispatch the    |
-|                          |                         |event to the instance.   |
-+--------------------------+-------------------------+-------------------------+
-|status                    |xsd:string *(Required)*  |The event status. A      |
-|                          |                         |valid value is           |
-|                          |                         |``failed``,              |
-|                          |                         |``completed``, or ``in-  |
-|                          |                         |progress``. Default is   |
-|                          |                         |``completed``.           |
-+--------------------------+-------------------------+-------------------------+
-
+	- events: events
+	- name: name
+	- tag: tag
+	- server_uuid: server_uuid
+	- status: status
 
 
 
@@ -88,43 +57,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: runEvents.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|events                    |xsd:list *(Required)*    |The action.              |
-+--------------------------+-------------------------+-------------------------+
-|code                      |xsd:string *(Required)*  |The HTTP response code   |
-|                          |                         |for the event.           |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The event name. A valid  |
-|                          |                         |value is ``network-      |
-|                          |                         |changed``, ``network-vif-|
-|                          |                         |plugged``, ``network-vif-|
-|                          |                         |unplugged``, or          |
-|                          |                         |``network-vif-deleted``. |
-+--------------------------+-------------------------+-------------------------+
-|server_uuid               |csapi:UUID *(Required)*  |The UUID of the server   |
-|                          |                         |instance to which the    |
-|                          |                         |API dispatches the       |
-|                          |                         |event. You must assign   |
-|                          |                         |this instance to a host. |
-|                          |                         |Otherwise, this call     |
-|                          |                         |does not dispatch the    |
-|                          |                         |event to the instance.   |
-+--------------------------+-------------------------+-------------------------+
-|status                    |xsd:string *(Required)*  |The event status. A      |
-|                          |                         |valid value is           |
-|                          |                         |``failed``,              |
-|                          |                         |``completed``, or ``in-  |
-|                          |                         |progress``. Default is   |
-|                          |                         |``completed``.           |
-+--------------------------+-------------------------+-------------------------+
-|tag                       |xsd:string *(Required)*  |A string value that      |
-|                          |                         |identifies the event.    |
-+--------------------------+-------------------------+-------------------------+
-
+	- events: events
+	- code: code
+	- name: name
+	- server_uuid: server_uuid
+	- status: status
+	- tag: tag
 
 
 

@@ -19,23 +19,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: bulk-deleteFloatingIps.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|ip_range                  |xsd:string *(Required)*  |The range of IP          |
-|                          |                         |addresses from which to  |
-|                          |                         |bulk-delete floating IPs.|
-+--------------------------+-------------------------+-------------------------+
-
+	- ip_range: ip_range
 
 
 

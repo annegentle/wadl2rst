@@ -19,11 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- security_group_id: security_group_id
-
 
 
 
@@ -34,27 +29,14 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: showSecurityGroupDetails.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|security_group            |xsd:string *(Required)*  |Security group object.   |
-+--------------------------+-------------------------+-------------------------+
-|description               |xsd:string *(Required)*  |The security group       |
-|                          |                         |description.             |
-+--------------------------+-------------------------+-------------------------+
-|id                        |xsd:int *(Required)*     |The ID of the security   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The security group name. |
-+--------------------------+-------------------------+-------------------------+
-|rules                     |xsd:list *(Required)*    |A security group rules   |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|tenant_id                 |xsd:string *(Required)*  |The tenant ID.           |
-+--------------------------+-------------------------+-------------------------+
-
+	- security_group: security_group
+	- description: description
+	- id: id
+	- name: name
+	- rules: rules
+	- tenant_id: tenant_id
 
 
 

@@ -11,7 +11,7 @@ Update the quotas for a project or a project and a user.
 
 You can force the update even if the quota has already been used and the reserved quota exceeds the new quota.
 
-To force the update, specify the ``"force": "True"`` attribute in the request body. Default is ``False``. The following example request shows the optional ``force`` attribute.
+To force the update, specify the ``"force": "True"`` attribute in the request body. Default is ``false``. The following example request shows the optional ``force`` attribute.
 
 To update a quota for a project and a user, specify the ``user_id`` query parameter.
 
@@ -25,102 +25,32 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+.. rest_parameters:: updateQuotas.yaml
 
-
-This table shows the query parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|user_id                   |xsd:string *(Required)*  |Filters the response by  |
-|                          |                         |a user, by ID.           |
-+--------------------------+-------------------------+-------------------------+
+	- user_id: user_id
 
 
 
+.. rest_parameters:: updateQuotas.yaml
 
-This table shows the body parameters for the request:
-
-+----------------------------+------------------------+------------------------+
-|Name                        |Type                    |Description             |
-+============================+========================+========================+
-|quota_set                   |xsd:string *(Required)* |A ``quota_set`` object. |
-+----------------------------+------------------------+------------------------+
-|force                       |xsd:boolean *(Required)*|You can force the       |
-|                            |                        |update even if the      |
-|                            |                        |quota has already been  |
-|                            |                        |used and the reserved   |
-|                            |                        |quota exceeds the new   |
-|                            |                        |quota. To force the     |
-|                            |                        |update, specify the     |
-|                            |                        |``"force": "True"``.    |
-|                            |                        |Default is ``False``.   |
-+----------------------------+------------------------+------------------------+
-|cores                       |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |instance cores for each |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|fixed_ips                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |fixed IP addresses for  |
-|                            |                        |each tenant. Must be    |
-|                            |                        |equal to or greater     |
-|                            |                        |than the number of      |
-|                            |                        |allowed instances.      |
-+----------------------------+------------------------+------------------------+
-|floating_ips                |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |floating IP addresses   |
-|                            |                        |for each tenant.        |
-+----------------------------+------------------------+------------------------+
-|id                          |csapi:UUID *(Required)* |The ID of the quota set.|
-+----------------------------+------------------------+------------------------+
-|injected_file_content_bytes |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |bytes of content for    |
-|                            |                        |each injected file.     |
-+----------------------------+------------------------+------------------------+
-|injected_file_path_bytes    |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |bytes for each injected |
-|                            |                        |file path.              |
-+----------------------------+------------------------+------------------------+
-|injected_files              |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |injected files for each |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|instances                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |instances for each      |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|key_pairs                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |key pairs for each user.|
-+----------------------------+------------------------+------------------------+
-|metadata_items              |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |metadata items for each |
-|                            |                        |instance.               |
-+----------------------------+------------------------+------------------------+
-|ram                         |xsd:int *(Required)*    |The amount of allowed   |
-|                            |                        |instance RAM, in MB,    |
-|                            |                        |for each tenant.        |
-+----------------------------+------------------------+------------------------+
-|security_group_rules        |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |rules for each security |
-|                            |                        |group.                  |
-+----------------------------+------------------------+------------------------+
-|security_groups             |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |security groups for     |
-|                            |                        |each tenant.            |
-+----------------------------+------------------------+------------------------+
-|server_groups               |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |server groups for each  |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|server_group_members        |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |members for each server |
-|                            |                        |group.                  |
-+----------------------------+------------------------+------------------------+
-
+	- quota_set: quota_set
+	- force: force
+	- cores: cores
+	- fixed_ips: fixed_ips
+	- floating_ips: floating_ips
+	- id: id
+	- injected_file_content_bytes: injected_file_content_bytes
+	- injected_file_path_bytes: injected_file_path_bytes
+	- injected_files: injected_files
+	- instances: instances
+	- key_pairs: key_pairs
+	- metadata_items: metadata_items
+	- ram: ram
+	- security_group_rules: security_group_rules
+	- security_groups: security_groups
+	- server_groups: server_groups
+	- server_group_members: server_group_members
 
 
 
@@ -143,74 +73,24 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: updateQuotas.yaml
 
-+----------------------------+------------------------+------------------------+
-|Name                        |Type                    |Description             |
-+============================+========================+========================+
-|quota_set                   |xsd:string *(Required)* |A ``quota_set`` object. |
-+----------------------------+------------------------+------------------------+
-|cores                       |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |instance cores for each |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|fixed_ips                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |fixed IP addresses for  |
-|                            |                        |each tenant. Must be    |
-|                            |                        |equal to or greater     |
-|                            |                        |than the number of      |
-|                            |                        |allowed instances.      |
-+----------------------------+------------------------+------------------------+
-|floating_ips                |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |floating IP addresses   |
-|                            |                        |for each tenant.        |
-+----------------------------+------------------------+------------------------+
-|id                          |csapi:UUID *(Required)* |The ID of the quota set.|
-+----------------------------+------------------------+------------------------+
-|injected_file_content_bytes |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |bytes of content for    |
-|                            |                        |each injected file.     |
-+----------------------------+------------------------+------------------------+
-|injected_file_path_bytes    |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |bytes for each injected |
-|                            |                        |file path.              |
-+----------------------------+------------------------+------------------------+
-|injected_files              |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |injected files for each |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|instances                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |instances for each      |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|key_pairs                   |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |key pairs for each user.|
-+----------------------------+------------------------+------------------------+
-|metadata_items              |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |metadata items for each |
-|                            |                        |instance.               |
-+----------------------------+------------------------+------------------------+
-|ram                         |xsd:int *(Required)*    |The amount of allowed   |
-|                            |                        |instance RAM, in MB,    |
-|                            |                        |for each tenant.        |
-+----------------------------+------------------------+------------------------+
-|security_group_rules        |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |rules for each security |
-|                            |                        |group.                  |
-+----------------------------+------------------------+------------------------+
-|security_groups             |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |security groups for     |
-|                            |                        |each tenant.            |
-+----------------------------+------------------------+------------------------+
-|server_groups               |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |server groups for each  |
-|                            |                        |tenant.                 |
-+----------------------------+------------------------+------------------------+
-|server_group_members        |xsd:int *(Required)*    |The number of allowed   |
-|                            |                        |members for each server |
-|                            |                        |group.                  |
-+----------------------------+------------------------+------------------------+
-
+	- quota_set: quota_set
+	- cores: cores
+	- fixed_ips: fixed_ips
+	- floating_ips: floating_ips
+	- id: id
+	- injected_file_content_bytes: injected_file_content_bytes
+	- injected_file_path_bytes: injected_file_path_bytes
+	- injected_files: injected_files
+	- instances: instances
+	- key_pairs: key_pairs
+	- metadata_items: metadata_items
+	- ram: ram
+	- security_group_rules: security_group_rules
+	- security_groups: security_groups
+	- server_groups: server_groups
+	- server_group_members: server_group_members
 
 
 

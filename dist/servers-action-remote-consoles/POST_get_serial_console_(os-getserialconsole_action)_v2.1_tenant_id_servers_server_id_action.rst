@@ -21,22 +21,12 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_id: server_id
 
 
 
+.. rest_parameters:: getSerialConsole(Os-GetserialconsoleAction).yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|os-getSerialConsole       |xsd:string *(Required)*  |The action.              |
-+--------------------------+-------------------------+-------------------------+
-
+	- os-getSerialConsole: os-getSerialConsole
 
 
 

@@ -25,8 +25,6 @@ Request
 
 
 
-
-
 Response
 ^^^^^^^^
 

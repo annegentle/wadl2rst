@@ -19,41 +19,13 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
 
 
 
+.. rest_parameters:: createServerGroup.yaml
 
-This table shows the body parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|name                      |xsd:string *(Required)*  |The server group name. A |
-|                          |                         |non-empty string with no |
-|                          |                         |leading or trailing      |
-|                          |                         |spaces. Maximum length   |
-|                          |                         |is 255 characters.       |
-+--------------------------+-------------------------+-------------------------+
-|policies                  |xsd:list *(Required)*    |A list of one or more    |
-|                          |                         |policy names to          |
-|                          |                         |associate with the       |
-|                          |                         |server group. The list   |
-|                          |                         |must contain at least    |
-|                          |                         |one policy name. The     |
-|                          |                         |current valid policy     |
-|                          |                         |names are ``anti-        |
-|                          |                         |affinity`` and           |
-|                          |                         |``affinity``. Each       |
-|                          |                         |policy name must be a    |
-|                          |                         |non-empty string with no |
-|                          |                         |leading or trailing      |
-|                          |                         |spaces. Maximum length   |
-|                          |                         |is 255 characters.       |
-+--------------------------+-------------------------+-------------------------+
-
+	- name: name
+	- policies: policies
 
 
 
@@ -78,14 +50,16 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: createServerGroup.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|security_group            |xsd:string *(Required)*  |Security group object.   |
-+--------------------------+-------------------------+-------------------------+
-
+	- server_groups: server_groups
+	- id: id
+	- name: name
+	- policies: policies
+	- members: members
+	- metadata: metadata
+	- project_id: project_id
+	- user_id: user_id
 
 
 
@@ -103,7 +77,9 @@ This table shows the body parameters for the response:
                 "anti-affinity"
             ],
             "members": [],
-            "metadata": {}
+            "metadata": {},
+            "project_id": "test-project",
+            "user_id": "test-user"
         }
     }
     

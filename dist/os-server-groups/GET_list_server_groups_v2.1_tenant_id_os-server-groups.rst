@@ -21,30 +21,10 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
 
-	- tenant_id: tenant_id
+.. rest_parameters:: listServerGroups.yaml
 
-
-This table shows the query parameters for the request:
-
-+-----------------------+-----------------------+------------------------------+
-|Name                   |Type                   |Description                   |
-+=======================+=======================+==============================+
-|all_projects           |xsd:boolean            |Administrator only. Lists     |
-|                       |*(Required)*           |server groups for all         |
-|                       |                       |projects. For example: GET    |
-|                       |                       |/v2.1/​{admin_tenant_id}​/os- |
-|                       |                       |server-                       |
-|                       |                       |groups?all_projects=TrueIf    |
-|                       |                       |you specify a tenant ID for a |
-|                       |                       |non-administrative user with  |
-|                       |                       |this query parameter, the     |
-|                       |                       |call lists all server groups  |
-|                       |                       |for the tenant, or project,   |
-|                       |                       |rather than for all projects. |
-+-----------------------+-----------------------+------------------------------+
-
+	- all_projects: all_projects
 
 
 
@@ -55,35 +35,16 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: listServerGroups.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|server_groups             |xsd:list *(Required)*    |A ``server_groups``      |
-|                          |                         |object.                  |
-+--------------------------+-------------------------+-------------------------+
-|id                        |csapi:UUID *(Required)*  |The UUID of the server   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|name                      |xsd:string *(Required)*  |The name of the server   |
-|                          |                         |group.                   |
-+--------------------------+-------------------------+-------------------------+
-|policies                  |xsd:list *(Required)*    |A list of policies for   |
-|                          |                         |the server group.        |
-+--------------------------+-------------------------+-------------------------+
-|members                   |xsd:list *(Required)*    |A list of members in the |
-|                          |                         |server group.            |
-+--------------------------+-------------------------+-------------------------+
-|metadata                  |xsd:dict *(Required)*    |A dictionary of metadata |
-|                          |                         |key-and-value pairs,     |
-|                          |                         |which is maintained for  |
-|                          |                         |backward compatibility.  |
-|                          |                         |The API always returns   |
-|                          |                         |an empty metadata        |
-|                          |                         |dictionary.              |
-+--------------------------+-------------------------+-------------------------+
-
+	- server_groups: server_groups
+	- id: id
+	- name: name
+	- policies: policies
+	- members: members
+	- metadata: metadata
+	- project_id: project_id
+	- user_id: user_id
 
 
 
@@ -102,7 +63,9 @@ This table shows the body parameters for the response:
                     "anti-affinity"
                 ],
                 "members": [],
-                "metadata": {}
+                "metadata": {},
+                "project_id": "test-project",
+                "user_id": "test-user"
             }
         ]
     }

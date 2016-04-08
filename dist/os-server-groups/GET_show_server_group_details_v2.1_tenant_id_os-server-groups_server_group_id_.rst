@@ -19,11 +19,6 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
-.. rest_parameters:: parameters.yaml
-
-	- tenant_id: tenant_id
-	- server_group_id: server_group_id
-
 
 
 
@@ -34,14 +29,16 @@ Response
 ^^^^^^^^
 
 
-This table shows the body parameters for the response:
+.. rest_parameters:: showServerGroupDetails.yaml
 
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|security_group            |xsd:string *(Required)*  |Security group object.   |
-+--------------------------+-------------------------+-------------------------+
-
+	- server_groups: server_groups
+	- id: id
+	- name: name
+	- policies: policies
+	- members: members
+	- metadata: metadata
+	- project_id: project_id
+	- user_id: user_id
 
 
 
@@ -59,7 +56,9 @@ This table shows the body parameters for the response:
                 "anti-affinity"
             ],
             "members": [],
-            "metadata": {}
+            "metadata": {},
+            "project_id": "test-project",
+            "user_id": "test-user"
         }
     }
     
