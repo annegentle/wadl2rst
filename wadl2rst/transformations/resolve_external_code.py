@@ -22,8 +22,8 @@ def resolve_external_code(base_path, tree, samples_path):
             href = node.attributes['href']
             text = os.path.normpath(os.path.join(samples_path, href))
         else:
-            # TODO figure out what this does
-            text = get_inline_code(node)
+            # don't try to return any samples data
+            text = None
 
         # create a node with the contents and put it into the file
         output_node = CharNode(node.parent, text)
