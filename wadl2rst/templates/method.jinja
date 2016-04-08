@@ -19,13 +19,13 @@ Request
 ^^^^^^^
 
 {% if query_table %}
-.. rest_parameters:: {{params_yaml}}
+.. rest_parameters:: ../{{params_yaml}}
 
 {{query_table}}
 {% endif %}
 
 {% if body_table %}
-.. rest_parameters:: {{params_yaml}}
+.. rest_parameters:: ../{{params_yaml}}
 
 {{body_table}}
 {% endif %}
@@ -37,7 +37,7 @@ Request
 **Example {{item['title']}}**
 {% endif %}
 
-.. literalinclude:: {{item['code']}}
+.. literalinclude:: ../{{item['code']}}
    :language: javascript
 
 {% endfor %}
@@ -46,7 +46,7 @@ Response
 ^^^^^^^^
 
 {% if response_table %}
-.. rest_parameters:: {{params_yaml}}
+.. rest_parameters:: ../{{params_yaml}}
 
 {{response_table}}
 {% endif %}
@@ -58,7 +58,7 @@ Response
 **Example {{item['title']}}**
 {% endif %}
 
-.. literalinclude:: {{item['code']}}
+.. literalinclude:: ../{{item['code']}}
    :language: javascript
 
 {% endfor %}
