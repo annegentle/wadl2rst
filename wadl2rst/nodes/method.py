@@ -143,6 +143,7 @@ class MethodNode(BaseNode):
 
         return output
 
+
     def get_filename(self, data=None, extention="rst"):
         http_method = data['http_method']
 

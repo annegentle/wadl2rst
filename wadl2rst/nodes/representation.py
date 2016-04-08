@@ -1,6 +1,6 @@
 
 from wadl2rst.nodes.base import BaseNode
-
+import re
 
 class RepresentationNode(BaseNode):
 
@@ -21,15 +21,16 @@ class RepresentationNode(BaseNode):
 
         code_text = char_node.attributes['text']
 
-        output = ["    " + line for line in code_text.split("\n")]
-
         media_type = self.attributes.get('mediaType', None)
         media_type = mimetype_translation.get(media_type, "JSON")
+
+        # modify the last word to match the samples in the nova repo
+        chopped_text = re.sub(pattern=r'\w{4}(?=(.json)$)',repl='', string=code_text)
 
         return {
             "title": title,
             "type": media_type,
-            "code": "\n".join(output)
+            "code": chopped_text
         }
 
 

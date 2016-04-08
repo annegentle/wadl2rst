@@ -8,7 +8,7 @@ import sys
 from wadl2rst.nodes.char import CharNode
 
 
-def resolve_external_code(base_path, tree):
+def resolve_external_code(base_path, tree, samples_path):
     """ Resolve the code that <xsdxt:code> nodes refer to. """
 
     # find all the code nodes
@@ -16,20 +16,14 @@ def resolve_external_code(base_path, tree):
     code_visitor = functools.partial(find_code_nodes, code_nodes)
     tree.visit(code_visitor)
 
+    # build the api-samples path
     for node in code_nodes:
-        text = None
-
         if 'href' in node.attributes:
             href = node.attributes['href']
-            path = os.path.normpath(os.path.join(base_path, href))
-            text = unicode(get_file_contents(path), "utf-8")
-            mimetype = get_media_type(node)
+            text = os.path.normpath(os.path.join(samples_path, href))
         else:
-            text = get_inline_code(node)
-            mimetype = "text/plain"
-
-        if mimetype in mimetype_translation:
-            mimetype = mimetype_translation.get(mimetype, mimetype)
+            # don't try to return any samples data
+            text = None
 
         # create a node with the contents and put it into the file
         output_node = CharNode(node.parent, text)

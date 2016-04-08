@@ -48,10 +48,16 @@ def main():
             print err
             sys.exit(1)
 
+        # location of the api samples json files in the target code repo
+        # defaulting this to nova for now
+        if 'samples_path' not in options:
+            options['samples_path'] = '../../doc/api_samples'
+
         # parse the xml file
         xml_data = unicode(xml_data, "utf-8")
         ir = tree.xml_string_to_tree(xml_data)
-        execute_translations(ir, filename)
+        execute_translations(ir, filename, options['samples_path'])
+
         convert_ir_to_rst(ir, options['output_directory'], options['title'])
 
 
@@ -102,7 +108,7 @@ def find_config_file():
     return config_path
 
 
-def execute_translations(ir, filename):
+def execute_translations(ir, filename, samples_path):
     """Execute the translations against the IR"""
 
     # collapse nested resources into just the leaf node
@@ -116,7 +122,7 @@ def execute_translations(ir, filename):
 
     # resolve the external code references
     path = os.path.abspath(os.path.dirname(filename))
-    resolve_external_code(path, ir)
+    resolve_external_code(path, ir, samples_path)
 
     # make the resources children of the methods
     invert_method(ir)
@@ -158,6 +164,6 @@ def convert_ir_to_rst(ir, output_dir, book_title):
         with open(full_path, 'w') as f:
             f.write(rst.encode("utf-8", "ignore"))
 
-# TODO remove this; for pycharm only
+# Allow for local debugging
 if __name__ == '__main__':
     main()
