@@ -23,8 +23,14 @@ def collapse_resources(tree):
     # get resource types and add methods to resource nodes
     # append method nodes to the appropriate resource node
     for rtnode in resource_type_nodes:
+
+        # remove the resource_type node from the tree
+        #  this prevents an id conflict down the line
+        rtnode.parent.remove_child(rtnode)
+
         # extract method node
         for child in rtnode.children:
+
             if child.name == "method":
                 method_node = child
 
@@ -41,10 +47,6 @@ def collapse_resources(tree):
 
                     if not found_node:
                         continue
-
-                    # remove the resource_type node from the tree
-                    #  this prevents an id conflict down the line
-                    rtnode.parent.remove_child(rtnode)
 
                     # change the parent of the method node to the resource node
                     method_node.parent = found_node
