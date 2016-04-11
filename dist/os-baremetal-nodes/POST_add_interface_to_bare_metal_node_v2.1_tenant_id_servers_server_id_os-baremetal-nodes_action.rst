@@ -28,14 +28,9 @@ Request
 **Example Add Interface To Bare Metal Node: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-req.json
+   :language: javascript
 
-    {
-        "add_interface": {
-            "address": "aa:aa:aa:aa:aa:aa"
-        }
-    }
-    
 
 
 Response
@@ -48,15 +43,6 @@ Response
 **Example Add Interface To Bare Metal Node: JSON request**
 
 
-.. code::
-
-    {
-        "interface": {
-            "address": "aa:aa:aa:aa:aa:aa",
-            "datapath_id": null,
-            "id": 1,
-            "port_no": null
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-resp.json
+   :language: javascript
 

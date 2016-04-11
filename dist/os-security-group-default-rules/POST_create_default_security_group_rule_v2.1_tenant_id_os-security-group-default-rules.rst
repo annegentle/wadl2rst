@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: createDefaultSecurityGroupRule.yaml
+.. rest_parameters:: ../createDefaultSecurityGroupRule.yaml
 
 	- id: id
 	- ip_protocol: ip_protocol
@@ -38,24 +38,16 @@ Request
 **Example Create default security group rule: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-req.json
+   :language: javascript
 
-    {
-        "security_group_default_rule": {
-            "ip_protocol": "TCP",
-            "from_port": "80",
-            "to_port": "80",
-            "cidr": "10.10.10.0/24"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createDefaultSecurityGroupRule.yaml
+.. rest_parameters:: ../createDefaultSecurityGroupRule.yaml
 
 	- from_port: from_port
 	- id: id
@@ -70,18 +62,6 @@ Response
 **Example Create default security group rule: JSON response**
 
 
-.. code::
-
-    {
-        "security_group_default_rule": {
-            "from_port": 80,
-            "id": 1,
-            "ip_protocol": "TCP",
-            "ip_range": {
-                "cidr": "10.10.10.0/24"
-            },
-            "to_port": 80
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-resp.json
+   :language: javascript
 

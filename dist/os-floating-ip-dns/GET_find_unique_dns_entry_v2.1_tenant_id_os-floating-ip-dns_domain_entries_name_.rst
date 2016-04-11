@@ -35,16 +35,6 @@ Response
 **Example Find Unique Dns Entry: JSON request**
 
 
-.. code::
-
-    {
-        "dns_entry": {
-            "domain": "domain1.example.org",
-            "id": null,
-            "ip": "192.168.1.1",
-            "name": "instance1",
-            "type": null
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-show-resp.json
+   :language: javascript
 

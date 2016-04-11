@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: updateSecurityGroup.yaml
+.. rest_parameters:: ../updateSecurityGroup.yaml
 
 	- name: name
 	- description: description
@@ -33,22 +33,16 @@ Request
 **Example Update security group: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-update-req.json
+   :language: javascript
 
-    {
-        "security_group": {
-            "name": "mysecgroup",
-            "description": "my security group"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateSecurityGroup.yaml
+.. rest_parameters:: ../updateSecurityGroup.yaml
 
 	- security_group: security_group
 	- description: description
@@ -63,16 +57,6 @@ Response
 **Example Update security group: JSON response**
 
 
-.. code::
-
-    {
-        "security_group": {
-            "description": "my security group",
-            "id": 1,
-            "name": "mysecgroup",
-            "rules": [],
-            "tenant_id": "a52cdb9cc7854a39a23d3af73a40899e"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-update-resp.json
+   :language: javascript
 

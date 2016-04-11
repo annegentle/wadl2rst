@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createOrImportKeypair.yaml
+.. rest_parameters:: ../createOrImportKeypair.yaml
 
 	- name: name
 	- public_key: public_key
@@ -33,15 +33,9 @@ Request
 **Example Create Or Import Keypair: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-import-req.json
+   :language: javascript
 
-    {
-        "keypair": {
-            "name": "keypair-d20a3d59-9433-4b79-8726-20b431d89c78",
-            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDx8nkQv/zgGgB4rMYmIf+6A4l6Rr+o/6lHBQdW5aYd44bd8JttDCE/F/pNRr0lRE+PiqSPO8nDPHw0010JeMH9gYgnnFlyY3/OcJ02RhIPyyxYpv9FhY+2YiUkpwFOcLImyrxEsYXpD/0d3ac30bNH6Sw9JD9UZHYcpSxsIbECHw== Generated-by-Nova"
-        }
-    }
-    
 
 
 Response
@@ -54,15 +48,6 @@ Response
 **Example Create Or Import Keypair: JSON request**
 
 
-.. code::
-
-    {
-        "keypair": {
-            "fingerprint": "1e:2c:9b:56:79:4b:45:77:f9:ca:7a:98:2c:b0:d5:3c",
-            "name": "keypair-803a1926-af78-4b05-902a-1d6f7a8d9d3e",
-            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAAAgQDx8nkQv/zgGgB4rMYmIf+6A4l6Rr+o/6lHBQdW5aYd44bd8JttDCE/F/pNRr0lRE+PiqSPO8nDPHw0010JeMH9gYgnnFlyY3/OcJ02RhIPyyxYpv9FhY+2YiUkpwFOcLImyrxEsYXpD/0d3ac30bNH6Sw9JD9UZHYcpSxsIbECHw== Generated-by-Nova",
-            "user_id": "fake"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-import-resp.json
+   :language: javascript
 

@@ -39,32 +39,6 @@ Response
 **Example Show Bare Metal Node Details: JSON request**
 
 
-.. code::
-
-    {
-        "node": {
-            "cpus": 8,
-            "id": 1,
-            "instance_uuid": null,
-            "interfaces": [
-                {
-                    "address": "aa:aa:aa:aa:aa:aa",
-                    "datapath_id": null,
-                    "id": 1,
-                    "port_no": null
-                }
-            ],
-            "local_gb": 128,
-            "memory_mb": 8192,
-            "pm_address": "10.1.2.3",
-            "pm_user": "pm_user",
-            "pxe_config_path": null,
-            "service_host": "host",
-            "task_state": null,
-            "terminal_port": 8000,
-            "updated_at": null,
-            "uuid": "c862b836-c7c1-4f7f-8081-6766fa9cf38b"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-show-resp.json
+   :language: javascript
 

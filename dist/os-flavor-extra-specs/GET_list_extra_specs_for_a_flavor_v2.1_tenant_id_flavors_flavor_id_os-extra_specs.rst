@@ -28,15 +28,9 @@ Request
 **Example List Extra Specs For A Flavor: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-req.json
+   :language: javascript
 
-    {
-        "extra_specs": {
-            "key1": "value1",
-            "key2": "value2"
-        }
-    }
-    
 
 
 Response
@@ -49,13 +43,6 @@ Response
 **Example List Extra Specs For A Flavor: JSON request**
 
 
-.. code::
-
-    {
-        "extra_specs": {
-            "key1": "value1",
-            "key2": "value2"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-specs-list-resp.json
+   :language: javascript
 

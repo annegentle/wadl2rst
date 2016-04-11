@@ -26,13 +26,13 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: ../updateQuotas.yaml
 
 	- user_id: user_id
 
 
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: ../updateQuotas.yaml
 
 	- quota_set: quota_set
 	- force: force
@@ -58,22 +58,16 @@ Request
 **Example Update Quotas: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-quota-sets/quota-update-req.json
+   :language: javascript
 
-    {
-        "quota_set": {
-            "force": true,
-            "key_pairs": 120
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: ../updateQuotas.yaml
 
 	- quota_set: quota_set
 	- cores: cores
@@ -98,25 +92,6 @@ Response
 **Example Update Quotas: JSON request**
 
 
-.. code::
-
-    {
-        "quota_set": {
-            "injected_file_content_bytes": 10240,
-            "metadata_items": 128,
-            "server_group_members": 10,
-            "server_groups": 10,
-            "ram": 51200,
-            "floating_ips": 10,
-            "key_pairs": 120,
-            "instances": 10,
-            "security_group_rules": 20,
-            "injected_files": 5,
-            "cores": 20,
-            "fixed_ips": -1,
-            "injected_file_path_bytes": 255,
-            "security_groups": 10
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-quota-sets/quota-update-resp.json
+   :language: javascript
 

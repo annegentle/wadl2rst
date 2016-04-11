@@ -30,17 +30,13 @@ Request
 **Example Reserve Or Release A Fixed Ip: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-fixed-ips/fixedip-create-req.json
+   :language: javascript
 
-    {
-        "reserve": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

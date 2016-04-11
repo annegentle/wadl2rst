@@ -28,18 +28,9 @@ Request
 **Example Create Flavor: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/flavors/flavor-create-req.json
+   :language: javascript
 
-    {
-        "flavor": {
-            "name": "test_flavor",
-            "ram": 1024,
-            "vcpus": 2,
-            "disk": 10,
-            "id": "10"
-        }
-    }
-    
 
 
 Response
@@ -52,30 +43,6 @@ Response
 **Example Create Flavor: JSON request**
 
 
-.. code::
-
-    {
-        "flavor": {
-            "OS-FLV-DISABLED:disabled": false,
-            "disk": 10,
-            "OS-FLV-EXT-DATA:ephemeral": 0,
-            "os-flavor-access:is_public": true,
-            "id": "10",
-            "links": [
-                {
-                    "href": "http://openstack.example.com/v2.1/flavors/10",
-                    "rel": "self"
-                },
-                {
-                    "href": "http://openstack.example.com/flavors/10",
-                    "rel": "bookmark"
-                }
-            ],
-            "name": "test_flavor",
-            "ram": 1024,
-            "swap": "",
-            "vcpus": 2
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/flavors/flavor-create-resp.json
+   :language: javascript
 

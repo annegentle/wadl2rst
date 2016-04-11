@@ -28,15 +28,9 @@ Request
 **Example Create Or Update Dns Domain: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-req.json
+   :language: javascript
 
-    {
-        "domain_entry": {
-            "scope": "public",
-            "project": "project1"
-        }
-    }
-    
 
 
 Response
@@ -49,15 +43,6 @@ Response
 **Example Create Or Update Dns Domain: JSON request**
 
 
-.. code::
-
-    {
-        "domain_entry": {
-            "availability_zone": null,
-            "domain": "domain1.example.org",
-            "project": "project1",
-            "scope": "public"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-resp.json
+   :language: javascript
 

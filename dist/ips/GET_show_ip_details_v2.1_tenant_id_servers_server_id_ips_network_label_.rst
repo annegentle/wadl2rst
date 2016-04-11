@@ -37,15 +37,6 @@ Response
 **Example Show Ip Details: JSON request**
 
 
-.. code::
-
-    {
-        "private": [
-            {
-                "addr": "192.168.0.3",
-                "version": 4
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/ips/ips-network-resp.json
+   :language: javascript
 

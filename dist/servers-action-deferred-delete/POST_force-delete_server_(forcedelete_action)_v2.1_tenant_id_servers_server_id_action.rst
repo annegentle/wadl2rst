@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: force-deleteServer(ForcedeleteAction).yaml
+.. rest_parameters:: ../force-deleteServer(ForcedeleteAction).yaml
 
 	- forceDelete: forceDelete
 
@@ -36,17 +36,13 @@ Request
 **Example Force-Delete Server (Forcedelete Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/force-delete-create-req.json
+   :language: javascript
 
-    {
-        "forceDelete": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

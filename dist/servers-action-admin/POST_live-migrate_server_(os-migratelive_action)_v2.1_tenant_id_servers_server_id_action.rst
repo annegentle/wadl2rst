@@ -28,7 +28,7 @@ Request
 
 
 
-.. rest_parameters:: live-migrateServer(Os-MigrateliveAction).yaml
+.. rest_parameters:: ../live-migrateServer(Os-MigrateliveAction).yaml
 
 	- host: host
 	- block_migration: block_migration
@@ -40,21 +40,13 @@ Request
 **Example Live-Migrate Server (Os-Migratelive Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/os-migrateLive-req.json
+   :language: javascript
 
-    {
-        "os-migrateLive": {
-            "host": "01c0cadef72d47e28a672a76060d492c",
-            "block_migration": false,
-            "disk_over_commit": false
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

@@ -28,19 +28,13 @@ Request
 **Example Delete Interface From Bare Metal Node: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-remove-interface-req.json
+   :language: javascript
 
-    {
-        "remove_interface": {
-            "address": "aa:aa:aa:aa:aa:aa"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

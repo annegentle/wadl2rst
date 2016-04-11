@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createSecurityGroupRule.yaml
+.. rest_parameters:: ../createSecurityGroupRule.yaml
 
 	- security_group_rule: security_group_rule
 	- parent_group_id: parent_group_id
@@ -38,25 +38,16 @@ Request
 **Example Create security group rule: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-security-group-rules/security-group-rule-create-req.json
+   :language: javascript
 
-    {
-        "security_group_rule": {
-            "from_port": "443",
-            "ip_protocol": "tcp",
-            "to_port": "443",
-            "cidr": "0.0.0.0/0",
-            "parent_group_id": "48700ff3-30b8-4e63-845f-a79c9633e9fb"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroupRule.yaml
+.. rest_parameters:: ../createSecurityGroupRule.yaml
 
 	- security_group_rule: security_group_rule
 	- ip_protocol: ip_protocol
@@ -75,20 +66,6 @@ Response
 **Example Create security group rule: JSON response**
 
 
-.. code::
-
-    {
-        "security_group_rule": {
-            "id": "1",
-            "ip_range": {
-                "cidr": "0.0.0.0/0"
-            },
-            "parent_group_id": "48700ff3-30b8-4e63-845f-a79c9633e9fb",
-            "to_port": 443,
-            "ip_protocol": "tcp",
-            "group": {},
-            "from_port": 443
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-group-rules/security-group-rule-create-resp.json
+   :language: javascript
 

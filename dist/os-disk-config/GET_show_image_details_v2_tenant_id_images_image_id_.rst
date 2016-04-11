@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showImageDetails.yaml
+.. rest_parameters:: ../showImageDetails.yaml
 
 	- os-disk-config:diskConfig: os-disk-config:diskConfig
 
@@ -39,7 +39,6 @@ Response
 **Example Show Image Details: JSON request**
 
 
-.. code::
-
-    
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/image-get-resp.json
+   :language: javascript
 

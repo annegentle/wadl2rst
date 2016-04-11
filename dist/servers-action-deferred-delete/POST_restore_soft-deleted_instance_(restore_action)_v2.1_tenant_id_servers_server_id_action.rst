@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: restoreSoft-DeletedInstance(RestoreAction).yaml
+.. rest_parameters:: ../restoreSoft-DeletedInstance(RestoreAction).yaml
 
 	- restore: restore
 
@@ -36,17 +36,13 @@ Request
 **Example Restore Soft-Deleted Instance (Restore Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/restore-create-req.json
+   :language: javascript
 
-    {
-        "restore": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

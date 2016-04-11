@@ -30,17 +30,13 @@ Request
 **Example Add Network: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-add-req.json
+   :language: javascript
 
-    {
-        "id": "1"
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

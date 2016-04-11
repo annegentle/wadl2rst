@@ -22,7 +22,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: revertQuotasToDefaults.yaml
+.. rest_parameters:: ../revertQuotasToDefaults.yaml
 
 	- user_id: user_id
 
@@ -33,7 +33,6 @@ Request
 
 Response
 ^^^^^^^^
-
 
 
 

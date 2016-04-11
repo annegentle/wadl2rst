@@ -32,14 +32,9 @@ Request
 **Example Update Metadata Items: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-create-req.json
+   :language: javascript
 
-    {
-        "metadata": {
-            "foo": "Foo Value"
-        }
-    }
-    
 
 
 Response
@@ -52,12 +47,6 @@ Response
 **Example Update Metadata Items: JSON request**
 
 
-.. code::
-
-    {
-        "metadata": {
-            "foo": "Foo Value"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
+   :language: javascript
 

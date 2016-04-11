@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listVolumeTypes.yaml
+.. rest_parameters:: ../listVolumeTypes.yaml
 
 	- volume_types: volume_types
 	- id: id
@@ -42,23 +42,6 @@ Response
 **Example List Volume Types: JSON request**
 
 
-.. code::
-
-    {
-        "volume_types": [
-            {
-                "id": "289da7f8-6440-407c-9fb4-7db01ec49164",
-                "name": "vol-type-001",
-                "extra_specs": {
-                    "capabilities": "gpu"
-                }
-            },
-            {
-                "id": "96c3bda7-c82a-4f50-be73-ca7621794835",
-                "name": "vol-type-002",
-                "extra_specs": {}
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-types-list-resp.json
+   :language: javascript
 

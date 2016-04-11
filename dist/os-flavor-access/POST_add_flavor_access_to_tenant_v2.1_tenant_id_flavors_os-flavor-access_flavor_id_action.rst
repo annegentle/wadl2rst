@@ -30,14 +30,9 @@ Request
 **Example Add Flavor Access To Tenant: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-add-req.json
+   :language: javascript
 
-    {
-        "addTenantAccess": {
-            "tenant": "fake_tenant"
-        }
-    }
-    
 
 
 Response
@@ -50,15 +45,6 @@ Response
 **Example Add Flavor Access To Tenant: JSON request**
 
 
-.. code::
-
-    {
-        "flavor_access": [
-            {
-                "flavor_id": "10",
-                "tenant_id": "fake_tenant"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-add-resp.json
+   :language: javascript
 

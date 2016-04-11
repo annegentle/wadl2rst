@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showServerGroupDetails.yaml
+.. rest_parameters:: ../showServerGroupDetails.yaml
 
 	- server_groups: server_groups
 	- id: id
@@ -46,20 +46,6 @@ Response
 **Example Show Server Group Details: JSON request**
 
 
-.. code::
-
-    {
-        "server_group": {
-            "id": "5bbcc3c4-1da2-4437-a48a-66f15b1b13f9",
-            "name": "test",
-            "policies": [
-                "anti-affinity"
-            ],
-            "members": [],
-            "metadata": {},
-            "project_id": "test-project",
-            "user_id": "test-user"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-show-resp.json
+   :language: javascript
 

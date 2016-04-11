@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showSecurityGroupDetails.yaml
+.. rest_parameters:: ../showSecurityGroupDetails.yaml
 
 	- security_group: security_group
 	- description: description
@@ -44,16 +44,6 @@ Response
 **Example Show security group: JSON response**
 
 
-.. code::
-
-    {
-        "security_group": {
-            "description": "default",
-            "id": 1,
-            "name": "default",
-            "rules": [],
-            "tenant_id": "openstack"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-show-resp.json
+   :language: javascript
 

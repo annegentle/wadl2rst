@@ -30,17 +30,13 @@ Request
 **Example Associate Host: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-associate-host-req.json
+   :language: javascript
 
-    {
-        "associate_host": "testHost"
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

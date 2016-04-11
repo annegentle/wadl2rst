@@ -37,12 +37,6 @@ Response
 **Example List All Metadata: JSON request**
 
 
-.. code::
-
-    {
-        "metadata": {
-            "foo": "Foo Value"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
+   :language: javascript
 

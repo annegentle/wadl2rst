@@ -35,20 +35,6 @@ Response
 **Example List Tenant Usage For All Tenants: JSON request**
 
 
-.. code::
-
-    {
-        "tenant_usages": [
-            {
-                "start": "2012-10-08T21:10:44.587336",
-                "stop": "2012-10-08T22:10:44.587336",
-                "tenant_id": "openstack",
-                "total_hours": 1.0,
-                "total_local_gb_usage": 1.0,
-                "total_memory_mb_usage": 512.0,
-                "total_vcpus_usage": 1.0
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-general-resp.json
+   :language: javascript
 

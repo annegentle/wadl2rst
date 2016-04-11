@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: bulk-deleteFloatingIps.yaml
+.. rest_parameters:: ../bulk-deleteFloatingIps.yaml
 
 	- ip_range: ip_range
 
@@ -32,12 +32,9 @@ Request
 **Example Bulk-Delete Floating Ips: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-req.json
+   :language: javascript
 
-    {
-        "ip_range": "192.168.1.0/24"
-    }
-    
 
 
 Response
@@ -50,10 +47,6 @@ Response
 **Example Bulk-Delete Floating Ips: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ips_bulk_delete": "192.168.1.0/24"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-resp.json
+   :language: javascript
 

@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: createServerBackUp(CreatebackupAction).yaml
+.. rest_parameters:: ../createServerBackUp(CreatebackupAction).yaml
 
 	- createBackup: createBackup
 
@@ -36,21 +36,13 @@ Request
 **Example Create Server Back Up (Createbackup Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/createBackup-req.json
+   :language: javascript
 
-    {
-        "createBackup": {
-            "name": "Backup 1",
-            "backup_type": "daily",
-            "rotation": 1
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

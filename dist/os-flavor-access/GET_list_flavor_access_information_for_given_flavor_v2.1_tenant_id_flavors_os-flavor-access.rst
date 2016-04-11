@@ -35,15 +35,6 @@ Response
 **Example List Flavor Access Information For Given Flavor: JSON request**
 
 
-.. code::
-
-    {
-        "flavor_access": [
-            {
-                "flavor_id": "10",
-                "tenant_id": "fake_tenant"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-list-resp.json
+   :language: javascript
 

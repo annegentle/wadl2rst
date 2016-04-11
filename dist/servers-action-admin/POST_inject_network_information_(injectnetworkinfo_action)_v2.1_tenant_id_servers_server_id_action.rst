@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: injectNetworkInformation(InjectnetworkinfoAction).yaml
+.. rest_parameters:: ../injectNetworkInformation(InjectnetworkinfoAction).yaml
 
 	- injectNetworkInfo: injectNetworkInfo
 
@@ -36,17 +36,13 @@ Request
 **Example Inject Network Information (Injectnetworkinfo Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/injectNetworkInfo-req.json
+   :language: javascript
 
-    {
-        "injectNetworkInfo": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

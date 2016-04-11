@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createFloatingIps.yaml
+.. rest_parameters:: ../createFloatingIps.yaml
 
 	- ip_range: ip_range
 
@@ -32,16 +32,9 @@ Request
 **Example Create Floating Ips: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-req.json
+   :language: javascript
 
-    {
-        "floating_ips_bulk_create": {
-            "ip_range": "192.168.1.0/24",
-            "pool": "nova",
-            "interface": "eth0"
-        }
-    }
-    
 
 
 Response
@@ -54,14 +47,6 @@ Response
 **Example Create Floating Ips: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ips_bulk_create": {
-            "interface": "eth0",
-            "ip_range": "192.168.1.0/24",
-            "pool": "nova"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-resp.json
+   :language: javascript
 

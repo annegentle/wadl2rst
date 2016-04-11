@@ -44,7 +44,7 @@ Request
 
 
 
-.. rest_parameters:: shelveServer(ShelveAction).yaml
+.. rest_parameters:: ../shelveServer(ShelveAction).yaml
 
 	- shelve: shelve
 
@@ -54,17 +54,13 @@ Request
 **Example Shelve server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/shelve-req.json
+   :language: javascript
 
-    {
-        "shelve": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

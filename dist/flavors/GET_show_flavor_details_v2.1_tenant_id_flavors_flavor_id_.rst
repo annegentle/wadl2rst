@@ -35,30 +35,6 @@ Response
 **Example Show Flavor Details: JSON request**
 
 
-.. code::
-
-    {
-        "flavor": {
-            "OS-FLV-DISABLED:disabled": false,
-            "disk": 1,
-            "OS-FLV-EXT-DATA:ephemeral": 0,
-            "os-flavor-access:is_public": true,
-            "id": "1",
-            "links": [
-                {
-                    "href": "http://openstack.example.com/v2.1/openstack/flavors/1",
-                    "rel": "self"
-                },
-                {
-                    "href": "http://openstack.example.com/openstack/flavors/1",
-                    "rel": "bookmark"
-                }
-            ],
-            "name": "m1.tiny",
-            "ram": 512,
-            "swap": "",
-            "vcpus": 1
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/flavors/flavor-show-resp.json
+   :language: javascript
 

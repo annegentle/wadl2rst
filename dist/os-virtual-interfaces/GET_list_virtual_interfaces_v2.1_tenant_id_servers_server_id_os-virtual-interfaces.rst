@@ -37,7 +37,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listVirtualInterfaces.yaml
+.. rest_parameters:: ../listVirtualInterfaces.yaml
 
 	- virtual_interfaces: virtual_interfaces
 	- id: id
@@ -49,15 +49,6 @@ Response
 **Example List Virtual Interfaces: JSON request**
 
 
-.. code::
-
-    {
-        "virtual_interfaces": [
-            {
-                "id": "cec8b9bb-5d22-4104-b3c8-4c35db3210a6",
-                "mac_address": "fa:16:3e:3c:ce:6f"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-virtual-interfaces/vifs-list-resp.json
+   :language: javascript
 

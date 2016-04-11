@@ -37,10 +37,6 @@ Response
 **Example List Cells With Details: JSON request**
 
 
-.. code::
-
-    {
-        "cells": []
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-cells/cells-list-empty-resp.json
+   :language: javascript
 

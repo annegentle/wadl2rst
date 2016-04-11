@@ -35,17 +35,6 @@ Response
 **Example List Dns Domains: JSON request**
 
 
-.. code::
-
-    {
-        "domain_entries": [
-            {
-                "availability_zone": null,
-                "domain": "domain1.example.org",
-                "project": "project1",
-                "scope": "public"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-domains-list-resp.json
+   :language: javascript
 

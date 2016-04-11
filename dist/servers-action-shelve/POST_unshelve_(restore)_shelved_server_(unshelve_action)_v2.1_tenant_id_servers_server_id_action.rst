@@ -42,7 +42,7 @@ Request
 
 
 
-.. rest_parameters:: unshelve(Restore)ShelvedServer(UnshelveAction).yaml
+.. rest_parameters:: ../unshelve(Restore)ShelvedServer(UnshelveAction).yaml
 
 	- unshelve: unshelve
 
@@ -52,17 +52,13 @@ Request
 **Example Unshelve server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/unshelve-req.json
+   :language: javascript
 
-    {
-        "unshelve": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

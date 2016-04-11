@@ -35,11 +35,6 @@ Response
 **Example Delete Volume: JSON request**
 
 
-.. code::
-
-    HTTP/1.1 202 Accepted
-    Content-Type: text/html; charset=UTF-8
-    Content-Length: 0
-    Date: Fri, 05 Dec 2014 00:39:32 GMT
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-delete-json-http.txt
+   :language: javascript
 

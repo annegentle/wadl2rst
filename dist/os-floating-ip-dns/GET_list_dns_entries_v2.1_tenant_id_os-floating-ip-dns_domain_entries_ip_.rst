@@ -35,18 +35,6 @@ Response
 **Example List Dns Entries: JSON request**
 
 
-.. code::
-
-    {
-        "dns_entries": [
-            {
-                "domain": "domain1.example.org",
-                "id": null,
-                "ip": "192.168.1.1",
-                "name": "instance1",
-                "type": null
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-by-ip-show-resp.json
+   :language: javascript
 

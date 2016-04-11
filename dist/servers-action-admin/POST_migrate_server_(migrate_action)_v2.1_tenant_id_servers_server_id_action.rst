@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: migrateServer(MigrateAction).yaml
+.. rest_parameters:: ../migrateServer(MigrateAction).yaml
 
 	- migrate: migrate
 
@@ -36,17 +36,13 @@ Request
 **Example Migrate Server (Migrate Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/migrate-req.json
+   :language: javascript
 
-    {
-        "migrate": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listSecurityGroupsByServer.yaml
+.. rest_parameters:: ../listSecurityGroupsByServer.yaml
 
 	- security_groups: security_groups
 	- description: description
@@ -44,18 +44,6 @@ Response
 **Example List security groups by server: JSON response**
 
 
-.. code::
-
-    {
-        "security_groups": [
-            {
-                "description": "default",
-                "id": 1,
-                "name": "default",
-                "rules": [],
-                "tenant_id": "openstack"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-groups-list-resp.json
+   :language: javascript
 

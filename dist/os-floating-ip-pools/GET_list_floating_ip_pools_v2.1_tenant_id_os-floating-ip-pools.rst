@@ -31,7 +31,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listFloatingIpPools.yaml
+.. rest_parameters:: ../listFloatingIpPools.yaml
 
 	- floating_ip_pools: floating_ip_pools
 	- name: name
@@ -42,17 +42,6 @@ Response
 **Example List Floating Ip Pools: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ip_pools": [
-            {
-                "name": "pool1"
-            },
-            {
-                "name": "pool2"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-pools/floatingippools-list-resp.json
+   :language: javascript
 

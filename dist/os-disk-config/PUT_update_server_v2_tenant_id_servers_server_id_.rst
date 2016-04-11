@@ -28,9 +28,9 @@ Request
 **Example Update Server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-update-put-req.json
+   :language: javascript
 
-    
 
 
 Response
@@ -43,7 +43,6 @@ Response
 **Example Update Server: JSON request**
 
 
-.. code::
-
-    
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-update-update-resp.json
+   :language: javascript
 

@@ -35,35 +35,6 @@ Response
 **Example List Floating Ips: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ip_info": [
-            {
-                "address": "10.10.10.1",
-                "instance_uuid": null,
-                "fixed_ip": null,
-                "interface": "eth0",
-                "pool": "nova",
-                "project_id": null
-            },
-            {
-                "address": "10.10.10.2",
-                "instance_uuid": null,
-                "fixed_ip": null,
-                "interface": "eth0",
-                "pool": "nova",
-                "project_id": null
-            },
-            {
-                "address": "10.10.10.3",
-                "instance_uuid": null,
-                "fixed_ip": null,
-                "interface": "eth0",
-                "pool": "nova",
-                "project_id": null
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-resp.json
+   :language: javascript
 

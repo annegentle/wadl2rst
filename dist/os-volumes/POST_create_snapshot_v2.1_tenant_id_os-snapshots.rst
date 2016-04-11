@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createSnapshot.yaml
+.. rest_parameters:: ../createSnapshot.yaml
 
 	- snapshot: snapshot
 
@@ -32,17 +32,9 @@ Request
 **Example Create Snapshot: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-create-req.json
+   :language: javascript
 
-    {
-        "snapshot": {
-            "display_name": "snap-001",
-            "display_description": "Daily backup",
-            "volume_id": "521752a6-acf6-4b2d-bc7a-119f9148cd8c",
-            "force": false
-        }
-    }
-    
 
 
 Response
@@ -55,18 +47,6 @@ Response
 **Example Create Snapshot: JSON request**
 
 
-.. code::
-
-    {
-        "snapshot": {
-            "createdAt": "2013-02-25T16:27:54.724209",
-            "displayDescription": "Default description",
-            "displayName": "Default name",
-            "id": "100",
-            "size": 100,
-            "status": "available",
-            "volumeId": 12
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
+   :language: javascript
 

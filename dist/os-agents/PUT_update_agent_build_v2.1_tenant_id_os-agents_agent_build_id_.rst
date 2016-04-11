@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: updateAgentBuild.yaml
+.. rest_parameters:: ../updateAgentBuild.yaml
 
 	- url: url
 	- md5hash: md5hash
@@ -34,23 +34,16 @@ Request
 **Example Update Agent Build: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-agents/agent-update-req.json
+   :language: javascript
 
-    {
-        "para": {
-            "url": "http://example.com/path/to/resource",
-            "md5hash": "add6bb58e139be103324d04d82d8f545",
-            "version": "7.0"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateAgentBuild.yaml
+.. rest_parameters:: ../updateAgentBuild.yaml
 
 	- agent_id: agent_id
 	- url: url
@@ -63,15 +56,6 @@ Response
 **Example Update Agent Build: JSON request**
 
 
-.. code::
-
-    {
-        "agent": {
-            "agent_id": "1",
-            "md5hash": "add6bb58e139be103324d04d82d8f545",
-            "url": "http://example.com/path/to/resource",
-            "version": "7.0"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-agents/agent-update-resp.json
+   :language: javascript
 

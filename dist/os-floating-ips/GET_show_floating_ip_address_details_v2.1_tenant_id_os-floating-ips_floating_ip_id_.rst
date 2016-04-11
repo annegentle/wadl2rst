@@ -37,16 +37,6 @@ Response
 **Example Show Floating Ip Address Details: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ip": {
-            "instance_id": null,
-            "ip": "172.24.4.3",
-            "fixed_ip": null,
-            "id": "b310fff3-c467-4950-9b00-038afebd151c",
-            "pool": "public"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-show-resp.json
+   :language: javascript
 

@@ -35,11 +35,6 @@ Response
 **Example Shut Down Host: JSON request**
 
 
-.. code::
-
-    {
-        "host": "77cfa0002e4d45fe97f185968111b27b",
-        "power_action": "shutdown"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-shutdown-resp.json
+   :language: javascript
 

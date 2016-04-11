@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createSecurityGroup.yaml
+.. rest_parameters:: ../createSecurityGroup.yaml
 
 	- security_group: security_group
 	- name: name
@@ -34,22 +34,16 @@ Request
 **Example Create security group: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-create-req.json
+   :language: javascript
 
-    {
-        "security_group": {
-            "name": "test",
-            "description": "description"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroup.yaml
+.. rest_parameters:: ../createSecurityGroup.yaml
 
 	- security_group: security_group
 	- description: description
@@ -64,16 +58,6 @@ Response
 **Example Create security group: JSON response**
 
 
-.. code::
-
-    {
-        "security_group": {
-            "description": "default",
-            "id": 1,
-            "name": "default",
-            "rules": [],
-            "tenant_id": "openstack"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-create-resp.json
+   :language: javascript
 

@@ -35,15 +35,6 @@ Response
 **Example Show Fixed Ip Details: JSON request**
 
 
-.. code::
-
-    {
-        "fixed_ip": {
-            "address": "192.168.1.1",
-            "cidr": "192.168.1.0/24",
-            "host": "host",
-            "hostname": "openstack"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-fixed-ips/fixedip-show-resp.json
+   :language: javascript
 

@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: updateCloudpipe.yaml
+.. rest_parameters:: ../updateCloudpipe.yaml
 
 	- vpn_ip: vpn_ip
 	- vpn_port: vpn_port
@@ -33,20 +33,13 @@ Request
 **Example Update Cloudpipe: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-update-req.json
+   :language: javascript
 
-    {
-        "configure_project": {
-            "vpn_ip": "192.168.1.1",
-            "vpn_port": "2000"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

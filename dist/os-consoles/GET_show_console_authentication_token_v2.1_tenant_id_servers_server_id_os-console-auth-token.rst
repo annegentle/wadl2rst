@@ -37,15 +37,6 @@ Response
 **Example List consoles: JSON response**
 
 
-.. code::
-
-    {
-        "console": {
-            "instance_uuid": "b48316c5-71e8-45e4-9884-6c78055b9b13",
-            "host": "localhost",
-            "port": 5900,
-            "internal_access_path": "51af38c3-555e-4884-a314-6c8cdde37444"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-consoles/console-auth-show-resp.json
+   :language: javascript
 

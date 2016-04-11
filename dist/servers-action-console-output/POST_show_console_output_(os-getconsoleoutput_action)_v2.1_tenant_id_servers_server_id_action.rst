@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: showConsoleOutput(Os-GetconsoleoutputAction).yaml
+.. rest_parameters:: ../showConsoleOutput(Os-GetconsoleoutputAction).yaml
 
 	- os-getConsoleOutput: os-getConsoleOutput
 	- length: length
@@ -35,14 +35,9 @@ Request
 **Example Get console output: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/os-getConsoleOutput-create-req.json
+   :language: javascript
 
-    {
-        "os-getConsoleOutput": {
-            "length": 50
-        }
-    }
-    
 
 
 Response
@@ -55,10 +50,6 @@ Response
 **Example Get console output: JSON response**
 
 
-.. code::
-
-    {
-        "output": "FAKE CONSOLE OUTPUT\nANOTHER\nLAST LINE"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/os-getConsoleOutput-create-resp.json
+   :language: javascript
 

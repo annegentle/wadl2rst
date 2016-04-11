@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: create(Allocate)FloatingIpAddress.yaml
+.. rest_parameters:: ../create(Allocate)FloatingIpAddress.yaml
 
 	- pool: pool
 
@@ -36,12 +36,9 @@ Request
 **Example Create (Allocate) Floating Ip Address: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-create-req.json
+   :language: javascript
 
-    {
-        "pool": "public"
-    }
-    
 
 
 Response
@@ -54,16 +51,6 @@ Response
 **Example Create (Allocate) Floating Ip Address: JSON request**
 
 
-.. code::
-
-    {
-        "floating_ip": {
-            "instance_id": null,
-            "ip": "172.24.4.4",
-            "fixed_ip": null,
-            "id": "c9c04158-3ed4-449c-953a-aa21fb47cde7",
-            "pool": "public"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-create-resp.json
+   :language: javascript
 

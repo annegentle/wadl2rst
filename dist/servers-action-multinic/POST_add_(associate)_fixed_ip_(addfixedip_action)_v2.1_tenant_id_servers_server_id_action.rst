@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: add(Associate)FixedIp(AddfixedipAction).yaml
+.. rest_parameters:: ../add(Associate)FixedIp(AddfixedipAction).yaml
 
 	- addFixedIp: addFixedIp
 
@@ -36,14 +36,13 @@ Request
 **Example Add (Associate) Fixed Ip (Addfixedip Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-multinic/multinic-add-fixed-ip-req.json
+   :language: javascript
 
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

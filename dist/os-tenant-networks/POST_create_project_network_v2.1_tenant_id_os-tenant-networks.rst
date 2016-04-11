@@ -30,18 +30,9 @@ Request
 **Example Create Project Network: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-create-req.json
+   :language: javascript
 
-    {
-        "network": {
-            "label": "public",
-            "cidr": "172.0.0.0/24",
-            "vlan_start": 1,
-            "num_networks": 1,
-            "network_size": 255
-        }
-    }
-    
 
 
 Response
@@ -54,14 +45,6 @@ Response
 **Example Create Project Network: JSON request**
 
 
-.. code::
-
-    {
-        "network": {
-            "cidr": "172.0.0.0/24",
-            "id": "5bbcc3c4-1da2-4437-a48a-66f15b1b13f9",
-            "label": "public"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-create-resp.json
+   :language: javascript
 

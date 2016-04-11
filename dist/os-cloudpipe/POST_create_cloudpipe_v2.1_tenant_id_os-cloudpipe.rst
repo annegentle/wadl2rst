@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createCloudpipe.yaml
+.. rest_parameters:: ../createCloudpipe.yaml
 
 	- project_id: project_id
 
@@ -32,14 +32,9 @@ Request
 **Example Create Cloudpipe: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-create-req.json
+   :language: javascript
 
-    {
-        "cloudpipe": {
-            "project_id": "059f21e3-c20e-4efc-9e7a-eba2ab3c6f9a"
-        }
-    }
-    
 
 
 Response
@@ -52,10 +47,6 @@ Response
 **Example Create Cloudpipe: JSON request**
 
 
-.. code::
-
-    {
-        "instance_id": "1e9b8425-34af-488e-b969-4d46f4a6382e"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-create-resp.json
+   :language: javascript
 

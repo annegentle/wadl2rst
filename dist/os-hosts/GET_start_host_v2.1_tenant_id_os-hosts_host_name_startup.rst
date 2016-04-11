@@ -35,11 +35,6 @@ Response
 **Example Start Host: JSON request**
 
 
-.. code::
-
-    {
-        "host": "4b392b27930343bbaa27fd5d8328a564",
-        "power_action": "startup"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-start-resp.json
+   :language: javascript
 

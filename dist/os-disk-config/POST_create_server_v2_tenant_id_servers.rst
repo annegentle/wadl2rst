@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createServer.yaml
+.. rest_parameters:: ../createServer.yaml
 
 	- security_groups: security_groups
 	- user_data: user_data
@@ -55,16 +55,16 @@ Request
 **Example Create Server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-create-req.json
+   :language: javascript
 
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createServer.yaml
+.. rest_parameters:: ../createServer.yaml
 
 	- security_groups: security_groups
 	- user_data: user_data
@@ -96,7 +96,6 @@ Response
 **Example Create Server: JSON request**
 
 
-.. code::
-
-    
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-create-resp.json
+   :language: javascript
 

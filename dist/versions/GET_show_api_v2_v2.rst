@@ -35,33 +35,6 @@ Response
 **Example Show Api V2: JSON request**
 
 
-.. code::
-
-    {
-        "version": {
-            "id": "v2.0",
-            "links": [
-                {
-                    "href": "http://openstack.example.com/v2/",
-                    "rel": "self"
-                },
-                {
-                    "href": "http://docs.openstack.org/",
-                    "rel": "describedby",
-                    "type": "text/html"
-                }
-            ],
-            "media-types": [
-                {
-                    "base": "application/json",
-                    "type": "application/vnd.openstack.compute+json;version=2"
-                }
-            ],
-            "status": "SUPPORTED",
-            "version": "",
-            "min_version": "",
-            "updated": "2011-01-21T11:33:21Z"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/versions/versions-v2-show-resp.json
+   :language: javascript
 

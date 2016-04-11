@@ -37,14 +37,6 @@ Response
 **Example Ping An Instance: JSON request**
 
 
-.. code::
-
-    {
-        "server": {
-            "alive": false,
-            "id": "f5e6fd6d-c0a3-4f9e-aabf-d69196b6d11a",
-            "project_id": "openstack"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-fping/fping-instance-show-resp.json
+   :language: javascript
 

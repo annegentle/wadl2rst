@@ -28,15 +28,9 @@ Request
 **Example Create Or Update Dns Entry: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-req.json
+   :language: javascript
 
-    {
-        "dns_entry": {
-            "ip": "192.168.53.11",
-            "dns_type": "A"
-        }
-    }
-    
 
 
 Response
@@ -49,16 +43,6 @@ Response
 **Example Create Or Update Dns Entry: JSON request**
 
 
-.. code::
-
-    {
-        "dns_entry": {
-            "domain": "domain1.example.org",
-            "id": null,
-            "ip": "192.168.1.1",
-            "name": "instance1",
-            "type": "A"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-resp.json
+   :language: javascript
 

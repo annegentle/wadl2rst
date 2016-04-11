@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: remove(Disassociate)FixedIp(RemovefixedipAction).yaml
+.. rest_parameters:: ../remove(Disassociate)FixedIp(RemovefixedipAction).yaml
 
 	- removeFixedIp: removeFixedIp
 
@@ -36,14 +36,13 @@ Request
 **Example Remove (Disassociate) Fixed Ip (Removefixedip Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-multinic/multinic-remove-fixed-ip-req.json
+   :language: javascript
 
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

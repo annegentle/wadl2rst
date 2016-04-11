@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: createMultipleServersWithReservationId.yaml
+.. rest_parameters:: ../createMultipleServersWithReservationId.yaml
 
 	- security_groups: security_groups
 	- user_data: user_data
@@ -58,29 +58,16 @@ Request
 **Example Create multiple servers with reservation ID**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-req.json
+   :language: javascript
 
-    {
-        "server": {
-            "name": "new-server-test",
-            "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b",
-            "flavorRef": "http://openstack.example.com/openstack/flavors/1",
-            "metadata": {
-                "My Server Name": "Apache1"
-            },
-            "return_reservation_id": true,
-            "min_count": "2",
-            "max_count": "3"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createMultipleServersWithReservationId.yaml
+.. rest_parameters:: ../createMultipleServersWithReservationId.yaml
 
 	- reservation_id: reservation_id
 
@@ -90,10 +77,6 @@ Response
 **Example Create multiple servers with reservation ID**
 
 
-.. code::
-
-    {
-        "reservation_id": "r-3fhpjulh"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-resp.json
+   :language: javascript
 

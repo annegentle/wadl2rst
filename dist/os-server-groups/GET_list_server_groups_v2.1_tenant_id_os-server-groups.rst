@@ -22,7 +22,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listServerGroups.yaml
+.. rest_parameters:: ../listServerGroups.yaml
 
 	- all_projects: all_projects
 
@@ -35,7 +35,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listServerGroups.yaml
+.. rest_parameters:: ../listServerGroups.yaml
 
 	- server_groups: server_groups
 	- id: id
@@ -52,22 +52,6 @@ Response
 **Example List Server Groups: JSON request**
 
 
-.. code::
-
-    {
-        "server_groups": [
-            {
-                "id": "616fb98f-46ca-475e-917e-2563e5a8cd19",
-                "name": "test",
-                "policies": [
-                    "anti-affinity"
-                ],
-                "members": [],
-                "metadata": {},
-                "project_id": "test-project",
-                "user_id": "test-user"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-groups-list-resp.json
+   :language: javascript
 

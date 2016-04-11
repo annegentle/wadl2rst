@@ -35,11 +35,6 @@ Response
 **Example Reboot Host: JSON request**
 
 
-.. code::
-
-    {
-        "host": "9557750dbc464741a89c907921c1cb31",
-        "power_action": "reboot"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-reboot-resp.json
+   :language: javascript
 

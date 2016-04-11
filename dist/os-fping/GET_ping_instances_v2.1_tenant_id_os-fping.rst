@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: pingInstances.yaml
+.. rest_parameters:: ../pingInstances.yaml
 
 	- all_tenants: all_tenants
 	- include: include
@@ -47,16 +47,6 @@ Response
 **Example Ping Instances: JSON request**
 
 
-.. code::
-
-    {
-        "servers": [
-            {
-                "alive": false,
-                "id": "1d1aea35-472b-40cf-9337-8eb68480aaa1",
-                "project_id": "openstack"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-fping/fping-instances-list-resp.json
+   :language: javascript
 

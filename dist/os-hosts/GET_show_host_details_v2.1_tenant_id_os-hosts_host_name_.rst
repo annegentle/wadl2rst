@@ -35,38 +35,6 @@ Response
 **Example Show Host Details: JSON request**
 
 
-.. code::
-
-    {
-        "host": [
-            {
-                "resource": {
-                    "cpu": 1,
-                    "disk_gb": 1028,
-                    "host": "c1a7de0ac9d94e4baceae031d05caae3",
-                    "memory_mb": 8192,
-                    "project": "(total)"
-                }
-            },
-            {
-                "resource": {
-                    "cpu": 0,
-                    "disk_gb": 0,
-                    "host": "c1a7de0ac9d94e4baceae031d05caae3",
-                    "memory_mb": 512,
-                    "project": "(used_now)"
-                }
-            },
-            {
-                "resource": {
-                    "cpu": 0,
-                    "disk_gb": 0,
-                    "host": "c1a7de0ac9d94e4baceae031d05caae3",
-                    "memory_mb": 0,
-                    "project": "(used_max)"
-                }
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-show-resp.json
+   :language: javascript
 

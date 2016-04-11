@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: getSpiceConsole(Os-GetspiceconsoleAction).yaml
+.. rest_parameters:: ../getSpiceConsole(Os-GetspiceconsoleAction).yaml
 
 	- os-getSPICEConsole: os-getSPICEConsole
 
@@ -34,14 +34,9 @@ Request
 **Example Get Spice Console (Os-Getspiceconsole Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/getSPICEConsole-create-req.json
+   :language: javascript
 
-    {
-        "os-getSPICEConsole": {
-            "type": "spice-html5"
-        }
-    }
-    
 
 
 Response
@@ -54,13 +49,6 @@ Response
 **Example Get Spice Console (Os-Getspiceconsole Action): JSON request**
 
 
-.. code::
-
-    {
-        "console": {
-            "type": "spice-html5",
-            "url": "http://127.0.0.1:6082/spice_auto.html?token=a30e5d08-6a20-4043-958f-0852440c6af4"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/getSPICEConsole-create-resp.json
+   :language: javascript
 

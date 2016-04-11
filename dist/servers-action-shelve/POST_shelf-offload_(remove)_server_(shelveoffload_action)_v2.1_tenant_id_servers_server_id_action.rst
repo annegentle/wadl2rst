@@ -42,7 +42,7 @@ Request
 
 
 
-.. rest_parameters:: shelf-offload(Remove)Server(ShelveoffloadAction).yaml
+.. rest_parameters:: ../shelf-offload(Remove)Server(ShelveoffloadAction).yaml
 
 	- shelveOffload: shelveOffload
 
@@ -52,17 +52,13 @@ Request
 **Example Shelve server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/shelveOffload-req.json
+   :language: javascript
 
-    {
-        "shelveOffload": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

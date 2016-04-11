@@ -30,21 +30,9 @@ Request
 **Example Create Network: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-create-req.json
+   :language: javascript
 
-    {
-        "network": {
-            "label": "new net 111",
-            "cidr": "10.20.105.0/24",
-            "mtu": 9000,
-            "dhcp_server": "10.20.105.2",
-            "enable_dhcp": false,
-            "share_address": true,
-            "allowed_start": "10.20.105.10",
-            "allowed_end": "10.20.105.200"
-        }
-    }
-    
 
 
 Response
@@ -57,43 +45,6 @@ Response
 **Example Create Network: JSON request**
 
 
-.. code::
-
-    {
-        "network": {
-            "bridge": null,
-            "bridge_interface": null,
-            "broadcast": "10.20.105.255",
-            "cidr": "10.20.105.0/24",
-            "cidr_v6": null,
-            "created_at": null,
-            "deleted": null,
-            "deleted_at": null,
-            "dhcp_server": "10.20.105.2",
-            "dhcp_start": "10.20.105.2",
-            "dns1": null,
-            "dns2": null,
-            "enable_dhcp": false,
-            "gateway": "10.20.105.1",
-            "gateway_v6": null,
-            "host": null,
-            "id": "d7a17c0c-457e-4ab4-a99c-4fa1762f5359",
-            "injected": null,
-            "label": "new net 111",
-            "mtu": 9000,
-            "multi_host": null,
-            "netmask": "255.255.255.0",
-            "netmask_v6": null,
-            "priority": null,
-            "project_id": null,
-            "rxtx_base": null,
-            "share_address": true,
-            "updated_at": null,
-            "vlan": null,
-            "vpn_private_address": null,
-            "vpn_public_address": null,
-            "vpn_public_port": null
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-create-resp.json
+   :language: javascript
 

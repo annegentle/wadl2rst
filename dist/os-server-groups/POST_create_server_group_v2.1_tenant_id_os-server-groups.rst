@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createServerGroup.yaml
+.. rest_parameters:: ../createServerGroup.yaml
 
 	- name: name
 	- policies: policies
@@ -33,24 +33,16 @@ Request
 **Example Create Server Group: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-create-req.json
+   :language: javascript
 
-    {
-        "server_group": {
-            "name": "test",
-            "policies": [
-                "anti-affinity"
-            ]
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createServerGroup.yaml
+.. rest_parameters:: ../createServerGroup.yaml
 
 	- server_groups: server_groups
 	- id: id
@@ -67,20 +59,6 @@ Response
 **Example Create Server Group: JSON request**
 
 
-.. code::
-
-    {
-        "server_group": {
-            "id": "5bbcc3c4-1da2-4437-a48a-66f15b1b13f9",
-            "name": "test",
-            "policies": [
-                "anti-affinity"
-            ],
-            "members": [],
-            "metadata": {},
-            "project_id": "test-project",
-            "user_id": "test-user"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-create-resp.json
+   :language: javascript
 

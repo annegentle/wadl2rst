@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showServerDetails.yaml
+.. rest_parameters:: ../showServerDetails.yaml
 
 	- os-disk-config:diskConfig: os-disk-config:diskConfig
 
@@ -39,7 +39,6 @@ Response
 **Example Show Server Details: JSON request**
 
 
-.. code::
-
-    
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-get-resp.json
+   :language: javascript
 

@@ -28,9 +28,9 @@ Request
 **Example Rebuild Server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-action-rebuild-req.json
+   :language: javascript
 
-    
 
 
 Response
@@ -43,7 +43,6 @@ Response
 **Example Rebuild Server: JSON request**
 
 
-.. code::
-
-    
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-action-rebuild-resp.json
+   :language: javascript
 

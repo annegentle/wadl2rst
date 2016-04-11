@@ -35,16 +35,6 @@ Response
 **Example Show Hypervisor Uptime: JSON request**
 
 
-.. code::
-
-    {
-        "hypervisor": {
-            "status": "enabled",
-            "state": "up",
-            "id": 1,
-            "hypervisor_hostname": "fake-mini",
-            "uptime": " 16:09:43 up 8 days, 19:58,  1 user,  load average: 0.86, 0.63, 0.55\n"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hypervisors/hypervisor-uptime-show-resp.json
+   :language: javascript
 

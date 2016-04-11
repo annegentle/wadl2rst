@@ -28,12 +28,9 @@ Request
 **Example Update An Extra Spec For A Flavor: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-req.json
+   :language: javascript
 
-    {
-        "key1": "new_value1"
-    }
-    
 
 
 Response
@@ -46,10 +43,6 @@ Response
 **Example Update An Extra Spec For A Flavor: JSON request**
 
 
-.. code::
-
-    {
-        "key1": "new_value1"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-resp.json
+   :language: javascript
 

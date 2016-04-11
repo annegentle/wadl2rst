@@ -37,16 +37,6 @@ Response
 **Example Show Cell Data: JSON request**
 
 
-.. code::
-
-    {
-        "cell": {
-            "name": "cell3",
-            "rpc_host": null,
-            "rpc_port": null,
-            "type": "child",
-            "username": "username3"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-cells/cell-show-resp.json
+   :language: javascript
 

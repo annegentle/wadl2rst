@@ -28,14 +28,13 @@ Request
 **Example Resize Server: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-disk-config/server-resize-create-req.json
+   :language: javascript
 
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

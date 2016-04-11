@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: listAgentBuilds.yaml
+.. rest_parameters:: ../listAgentBuilds.yaml
 
 	- agent_id: agent_id
 	- architecture: architecture
@@ -44,20 +44,6 @@ Response
 **Example List Agent Builds: JSON request**
 
 
-.. code::
-
-    {
-        "agents": [
-            {
-                "agent_id": 1,
-                "architecture": "x86",
-                "hypervisor": "hypervisor",
-                "md5hash": "add6bb58e139be103324d04d82d8f545",
-                "os": "os",
-                "url": "http://example.com/path/to/resource",
-                "version": "8.0"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-agents/agents-list-resp.json
+   :language: javascript
 

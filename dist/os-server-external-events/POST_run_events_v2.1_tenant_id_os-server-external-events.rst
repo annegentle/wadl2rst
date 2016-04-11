@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: runEvents.yaml
+.. rest_parameters:: ../runEvents.yaml
 
 	- events: events
 	- name: name
@@ -38,26 +38,16 @@ Request
 **Example Run Events: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-server-external-events/event-create-req.json
+   :language: javascript
 
-    {
-        "events": [
-            {
-                "name": "test-event",
-                "tag": "foo",
-                "status": "completed",
-                "server_uuid": "3df201cf-2451-44f2-8d25-a4ca826fc1f3"
-            }
-        ]
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: runEvents.yaml
+.. rest_parameters:: ../runEvents.yaml
 
 	- events: events
 	- code: code
@@ -72,18 +62,6 @@ Response
 **Example Run Events: JSON request**
 
 
-.. code::
-
-    {
-        "events": [
-            {
-                "code": 200,
-                "name": "network-changed",
-                "server_uuid": "ff1df7b2-6772-45fd-9326-c0a3b05591c2",
-                "status": "completed",
-                "tag": "foo"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-server-external-events/event-create-resp.json
+   :language: javascript
 

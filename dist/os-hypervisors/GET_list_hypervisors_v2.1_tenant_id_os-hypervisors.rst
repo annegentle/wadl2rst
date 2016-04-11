@@ -35,17 +35,6 @@ Response
 **Example List Hypervisors: JSON request**
 
 
-.. code::
-
-    {
-        "hypervisors": [
-            {
-                "status": "enabled",
-                "state": "up",
-                "id": 1,
-                "hypervisor_hostname": "fake-mini"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hypervisors/hypervisors-list-resp.json
+   :language: javascript
 

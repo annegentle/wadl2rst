@@ -35,10 +35,6 @@ Response
 **Example Show An Extra Spec For A Flavor: JSON request**
 
 
-.. code::
-
-    {
-        "key1": "value1"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-show-resp.json
+   :language: javascript
 

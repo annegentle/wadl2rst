@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: getSerialConsole(Os-GetserialconsoleAction).yaml
+.. rest_parameters:: ../getSerialConsole(Os-GetserialconsoleAction).yaml
 
 	- os-getSerialConsole: os-getSerialConsole
 
@@ -34,14 +34,9 @@ Request
 **Example Get Serial Console (Os-Getserialconsole Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/getSerialConsole-create-req.json
+   :language: javascript
 
-    {
-        "os-getSerialConsole": {
-            "type": "serial"
-        }
-    }
-    
 
 
 Response
@@ -54,13 +49,6 @@ Response
 **Example Get Serial Console (Os-Getserialconsole Action): JSON request**
 
 
-.. code::
-
-    {
-        "console": {
-            "type": "serial",
-            "url": "ws://127.0.0.1:6083/?token=f9906a48-b71e-4f18-baca-c987da3ebdb3"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/getSerialConsole-create-resp.json
+   :language: javascript
 

@@ -29,7 +29,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listDefaultSecurityGroupRules.yaml
+.. rest_parameters:: ../listDefaultSecurityGroupRules.yaml
 
 	- from_port: from_port
 	- id: id
@@ -44,20 +44,6 @@ Response
 **Example List default security group rules: JSON response**
 
 
-.. code::
-
-    {
-        "security_group_default_rules": [
-            {
-                "from_port": 80,
-                "id": 1,
-                "ip_protocol": "TCP",
-                "ip_range": {
-                    "cidr": "10.10.10.0/24"
-                },
-                "to_port": 80
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rules-list-resp.json
+   :language: javascript
 

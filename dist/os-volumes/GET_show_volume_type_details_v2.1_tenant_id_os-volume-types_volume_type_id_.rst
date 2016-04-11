@@ -35,16 +35,6 @@ Response
 **Example Show Volume Type Details: JSON request**
 
 
-.. code::
-
-    {
-        "volume_type": {
-            "id": "289da7f8-6440-407c-9fb4-7db01ec49164",
-            "name": "vol-type-001",
-            "extra_specs": {
-                "capabilities": "gpu"
-            }
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-type-show-resp.json
+   :language: javascript
 

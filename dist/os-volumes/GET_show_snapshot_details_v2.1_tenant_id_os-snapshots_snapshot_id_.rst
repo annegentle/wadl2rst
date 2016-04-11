@@ -35,18 +35,6 @@ Response
 **Example Show Snapshot Details: JSON request**
 
 
-.. code::
-
-    {
-        "snapshot": {
-            "createdAt": "2013-02-25T16:27:54.724209",
-            "displayDescription": "Default description",
-            "displayName": "Default name",
-            "id": "100",
-            "size": 100,
-            "status": "available",
-            "volumeId": 12
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
+   :language: javascript
 

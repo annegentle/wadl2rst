@@ -37,17 +37,6 @@ Response
 **Example List Ips: JSON request**
 
 
-.. code::
-
-    {
-        "addresses": {
-            "private": [
-                {
-                    "addr": "192.168.0.3",
-                    "version": 4
-                }
-            ]
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/ips/ips-resp.json
+   :language: javascript
 

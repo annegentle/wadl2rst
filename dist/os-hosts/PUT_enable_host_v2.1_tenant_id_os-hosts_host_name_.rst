@@ -28,13 +28,9 @@ Request
 **Example Enable Host: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-update-maintenance-req.json
+   :language: javascript
 
-    {
-        "status": "enable",
-        "maintenance_mode": "disable"
-    }
-    
 
 
 Response
@@ -47,12 +43,6 @@ Response
 **Example Enable Host: JSON request**
 
 
-.. code::
-
-    {
-        "host": "65c5d5b7e3bd44308e67fc50f362aee6",
-        "maintenance_mode": "off_maintenance",
-        "status": "enabled"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hosts/host-update-maintenance-resp.json
+   :language: javascript
 

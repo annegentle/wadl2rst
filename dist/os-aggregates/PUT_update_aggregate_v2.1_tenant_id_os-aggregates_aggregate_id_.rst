@@ -1,45 +1,23 @@
-=============================================================================
-Update Aggregate -  OpenStack Compute API v2.1
-=============================================================================
 
 Update Aggregate
-~~~~~~~~~~~~~~~~~~~~~~~~~
+================
 
 `Request <PUT_update_aggregate_v2.1_tenant_id_os-aggregates_aggregate_id_.rst#request>`__
 `Response <PUT_update_aggregate_v2.1_tenant_id_os-aggregates_aggregate_id_.rst#response>`__
 
-.. code-block:: javascript
-
-    PUT /v2.1/{tenant_id}/os-aggregates/{aggregate_id}
+.. rest_method:: PUT /v2.1/{tenant_id}/os-aggregates/{aggregate_id}
 
 Updates either or both the name and availability zone for an aggregate.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
-
-This table shows the URI parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-|{aggregate_id}            |xsd:int                  |The aggregate ID.        |
-+--------------------------+-------------------------+-------------------------+
-
+^^^^^^^
 
 
 
@@ -50,19 +28,13 @@ This table shows the URI parameters for the request:
 **Example Update Aggregate: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-update-req.json
+   :language: javascript
 
-    {
-        "aggregate": {
-            "name": "newname",
-            "availability_zone": "nova2"
-        }
-    }
-    
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 
@@ -71,22 +43,6 @@ Response
 **Example Update Aggregate: JSON request**
 
 
-.. code::
-
-    {
-        "aggregate": {
-            "availability_zone": "nova2",
-            "created_at": "2013-08-18T12:17:56.259751",
-            "deleted": false,
-            "deleted_at": null,
-            "hosts": [],
-            "id": 1,
-            "metadata": {
-                "availability_zone": "nova2"
-            },
-            "name": "newname",
-            "updated_at": "2013-08-18T12:17:56.286720"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-update-resp.json
+   :language: javascript
 

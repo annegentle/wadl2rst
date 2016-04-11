@@ -34,42 +34,17 @@ Request
 **Example Add Bare Metal Node: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-req.json
+   :language: javascript
 
-    {
-        "node": {
-            "service_host": "host",
-            "cpus": 8,
-            "memory_mb": 8192,
-            "local_gb": 128,
-            "pm_address": "10.1.2.3",
-            "pm_user": "pm_user",
-            "pm_password": "pm_pass",
-            "terminal_port": 8000
-        }
-    }
-    
 
 
 **Example Add Bare Metal Node: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-req.json
+   :language: javascript
 
-    {
-        "node": {
-            "service_host": "host",
-            "cpus": 8,
-            "memory_mb": 8192,
-            "local_gb": 128,
-            "pm_address": "10.1.2.3",
-            "pm_user": "pm_user",
-            "pm_password": "pm_pass",
-            "prov_mac_address": "12:34:56:78:90:ab",
-            "terminal_port": 8000
-        }
-    }
-    
 
 
 Response
@@ -82,58 +57,14 @@ Response
 **Example Add Bare Metal Node: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-resp.json
+   :language: javascript
 
-    {
-        "node": {
-            "cpus": 8,
-            "id": 1,
-            "instance_uuid": null,
-            "interfaces": [],
-            "local_gb": 128,
-            "memory_mb": 8192,
-            "pm_address": "10.1.2.3",
-            "pm_user": "pm_user",
-            "pxe_config_path": null,
-            "service_host": "host",
-            "task_state": null,
-            "terminal_port": 8000,
-            "updated_at": null,
-            "uuid": "73d35253-b6fb-4c83-b8eb-0229336e79b6"
-        }
-    }
-    
 
 
 **Example Add Bare Metal Node: JSON request**
 
 
-.. code::
-
-    {
-        "node": {
-            "cpus": 8,
-            "id": 1,
-            "instance_uuid": null,
-            "interfaces": [
-                {
-                    "address": "12:34:56:78:90:ab",
-                    "datapath_id": null,
-                    "id": 1,
-                    "port_no": null
-                }
-            ],
-            "local_gb": 128,
-            "memory_mb": 8192,
-            "pm_address": "10.1.2.3",
-            "pm_user": "pm_user",
-            "pxe_config_path": null,
-            "service_host": "host",
-            "task_state": null,
-            "terminal_port": 8000,
-            "updated_at": null,
-            "uuid": "0a130464-bccc-4e36-b9d3-9a8c98e636ae"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-resp.json
+   :language: javascript
 

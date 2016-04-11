@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: resetServerState(Os-ResetstateAction).yaml
+.. rest_parameters:: ../resetServerState(Os-ResetstateAction).yaml
 
 	- os-resetState: os-resetState
 
@@ -36,19 +36,13 @@ Request
 **Example Reset Server State (Os-Resetstate Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/os-resetState-req.json
+   :language: javascript
 
-    {
-        "os-resetState": {
-            "state": "active"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

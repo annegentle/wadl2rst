@@ -28,19 +28,9 @@ Request
 **Example Create Agent Build: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-agents/agent-create-req.json
+   :language: javascript
 
-    {
-        "agent": {
-            "hypervisor": "hypervisor",
-            "os": "os",
-            "architecture": "x86",
-            "version": "8.0",
-            "md5hash": "add6bb58e139be103324d04d82d8f545",
-            "url": "http://example.com/path/to/resource"
-        }
-    }
-    
 
 
 Response
@@ -53,18 +43,6 @@ Response
 **Example Create Agent Build: JSON request**
 
 
-.. code::
-
-    {
-        "agent": {
-            "agent_id": 1,
-            "architecture": "x86",
-            "hypervisor": "hypervisor",
-            "md5hash": "add6bb58e139be103324d04d82d8f545",
-            "os": "os",
-            "url": "http://example.com/path/to/resource",
-            "version": "8.0"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-agents/agent-create-resp.json
+   :language: javascript
 

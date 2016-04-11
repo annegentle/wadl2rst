@@ -28,31 +28,16 @@ Request
 **Example Update Quota: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-quota-class-sets/quota-class-update-req.json
+   :language: javascript
 
-    {
-        "quota_class_set": {
-            "instances": 50,
-            "cores": 50,
-            "ram": 51200,
-            "floating_ips": 10,
-            "metadata_items": 128,
-            "injected_files": 5,
-            "injected_file_content_bytes": 10240,
-            "injected_file_path_bytes": 255,
-            "security_groups": 10,
-            "security_group_rules": 20,
-            "key_pairs": 100
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateQuota.yaml
+.. rest_parameters:: ../updateQuota.yaml
 
 	- quota_set: quota_set
 	- cores: cores
@@ -77,23 +62,6 @@ Response
 **Example Update Quota: JSON request**
 
 
-.. code::
-
-    {
-        "quota_class_set": {
-            "cores": 50,
-            "fixed_ips": -1,
-            "floating_ips": 10,
-            "injected_file_content_bytes": 10240,
-            "injected_file_path_bytes": 255,
-            "injected_files": 5,
-            "instances": 50,
-            "key_pairs": 100,
-            "metadata_items": 128,
-            "ram": 51200,
-            "security_group_rules": 20,
-            "security_groups": 10
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-quota-class-sets/quota-class-update-resp.json
+   :language: javascript
 

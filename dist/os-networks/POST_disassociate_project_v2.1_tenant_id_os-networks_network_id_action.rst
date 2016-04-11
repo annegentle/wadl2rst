@@ -30,17 +30,13 @@ Request
 **Example Disassociate Project: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-disassociate-project-req.json
+   :language: javascript
 
-    {
-        "disassociate_project": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

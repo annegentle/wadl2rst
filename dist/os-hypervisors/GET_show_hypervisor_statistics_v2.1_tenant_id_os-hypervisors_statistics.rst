@@ -35,23 +35,6 @@ Response
 **Example Show Hypervisor Statistics: JSON request**
 
 
-.. code::
-
-    {
-        "hypervisor_statistics": {
-            "count": 1,
-            "vcpus_used": 0,
-            "local_gb_used": 0,
-            "memory_mb": 7980,
-            "current_workload": 0,
-            "vcpus": 8,
-            "running_vms": 0,
-            "free_disk_gb": 157,
-            "disk_available_least": 140,
-            "local_gb": 157,
-            "free_ram_mb": 7468,
-            "memory_mb_used": 512
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-hypervisors/hypervisor-statistics-show-resp.json
+   :language: javascript
 

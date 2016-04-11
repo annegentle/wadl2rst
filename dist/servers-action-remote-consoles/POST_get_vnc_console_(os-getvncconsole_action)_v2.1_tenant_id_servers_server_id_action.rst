@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: getVncConsole(Os-GetvncconsoleAction).yaml
+.. rest_parameters:: ../getVncConsole(Os-GetvncconsoleAction).yaml
 
 	- os-getVNCConsole: os-getVNCConsole
 
@@ -34,14 +34,9 @@ Request
 **Example Get Vnc Console (Os-Getvncconsole Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/getVNCConsole-create-req.json
+   :language: javascript
 
-    {
-        "os-getVNCConsole": {
-            "type": "novnc"
-        }
-    }
-    
 
 
 Response
@@ -54,13 +49,6 @@ Response
 **Example Get Vnc Console (Os-Getvncconsole Action): JSON request**
 
 
-.. code::
-
-    {
-        "console": {
-            "type": "novnc",
-            "url": "http://127.0.0.1:6080/vnc_auto.html?token=191996c3-7b0f-42f3-95a7-f1839f2da6ed"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/getVNCConsole-create-resp.json
+   :language: javascript
 

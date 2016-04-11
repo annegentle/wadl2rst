@@ -30,17 +30,13 @@ Request
 **Example Disassociate Host: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-networks/network-disassociate-host-req.json
+   :language: javascript
 
-    {
-        "disassociate_host": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

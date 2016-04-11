@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: getRdpConsole(Os-GetrdpconsoleAction).yaml
+.. rest_parameters:: ../getRdpConsole(Os-GetrdpconsoleAction).yaml
 
 	- os-getRDPConsole: os-getRDPConsole
 
@@ -34,14 +34,9 @@ Request
 **Example Get Rdp Console (Os-Getrdpconsole Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/getRDPConsole-create-req.json
+   :language: javascript
 
-    {
-        "os-getRDPConsole": {
-            "type": "rdp-html5"
-        }
-    }
-    
 
 
 Response
@@ -54,13 +49,6 @@ Response
 **Example Get Rdp Console (Os-Getrdpconsole Action): JSON request**
 
 
-.. code::
-
-    {
-        "console": {
-            "type": "rdp-html5",
-            "url": "http://127.0.0.1:6083/?token=191996c3-7b0f-42f3-95a7-f1839f2da6ed"
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/getRDPConsole-create-resp.json
+   :language: javascript
 

@@ -37,46 +37,6 @@ Response
 **Example List Cells: JSON request**
 
 
-.. code::
-
-    {
-        "cells": [
-            {
-                "name": "cell1",
-                "rpc_host": null,
-                "rpc_port": null,
-                "type": "child",
-                "username": "username1"
-            },
-            {
-                "name": "cell3",
-                "rpc_host": null,
-                "rpc_port": null,
-                "type": "child",
-                "username": "username3"
-            },
-            {
-                "name": "cell5",
-                "rpc_host": null,
-                "rpc_port": null,
-                "type": "child",
-                "username": "username5"
-            },
-            {
-                "name": "cell2",
-                "rpc_host": null,
-                "rpc_port": null,
-                "type": "parent",
-                "username": "username2"
-            },
-            {
-                "name": "cell4",
-                "rpc_host": null,
-                "rpc_port": null,
-                "type": "parent",
-                "username": "username4"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-cells/cells-list-resp.json
+   :language: javascript
 

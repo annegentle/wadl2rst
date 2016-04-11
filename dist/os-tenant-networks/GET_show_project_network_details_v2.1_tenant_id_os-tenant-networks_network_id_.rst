@@ -37,21 +37,6 @@ Response
 **Example Show Project Network Details: JSON request**
 
 
-.. code::
-
-    {
-        "networks": [
-            {
-                "cidr": "10.0.0.0/29",
-                "id": "616fb98f-46ca-475e-917e-2563e5a8cd19",
-                "label": "test_0"
-            },
-            {
-                "cidr": "10.0.0.8/29",
-                "id": "616fb98f-46ca-475e-917e-2563e5a8cd20",
-                "label": "test_1"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-show-resp.json
+   :language: javascript
 

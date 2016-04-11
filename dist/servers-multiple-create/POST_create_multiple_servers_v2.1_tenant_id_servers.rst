@@ -22,7 +22,7 @@ Request
 
 
 
-.. rest_parameters:: createMultipleServers.yaml
+.. rest_parameters:: ../createMultipleServers.yaml
 
 	- security_groups: security_groups
 	- user_data: user_data
@@ -56,28 +56,16 @@ Request
 **Example Create multiple servers without reservation ID**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-no-resv-req.json
+   :language: javascript
 
-    {
-        "server": {
-            "name": "new-server-test",
-            "imageRef": "http://openstack.example.com/openstack/images/70a599e0-31e7-49b7-b260-868f441e862b",
-            "flavorRef": "http://openstack.example.com/openstack/flavors/1",
-            "metadata": {
-                "My Server Name": "Apache1"
-            },
-            "min_count": "2",
-            "max_count": "3"
-        }
-    }
-    
 
 
 Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createMultipleServers.yaml
+.. rest_parameters:: ../createMultipleServers.yaml
 
 	- server: server
 	- adminPass: adminPass
@@ -92,29 +80,6 @@ Response
 **Example Create multiple servers without reservation ID**
 
 
-.. code::
-
-    {
-        "server": {
-            "OS-DCF:diskConfig": "AUTO",
-            "adminPass": "zPnp2GseTqG4",
-            "id": "8195065c-fea4-4d57-b93f-5c5c63fe90e8",
-            "links": [
-                {
-                    "href": "http://openstack.example.com/v2/openstack/servers/8195065c-fea4-4d57-b93f-5c5c63fe90e8",
-                    "rel": "self"
-                },
-                {
-                    "href": "http://openstack.example.com/openstack/servers/8195065c-fea4-4d57-b93f-5c5c63fe90e8",
-                    "rel": "bookmark"
-                }
-            ],
-            "security_groups": [
-                {
-                    "name": "default"
-                }
-            ]
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers/server-create-resp.json
+   :language: javascript
 

@@ -37,33 +37,6 @@ Response
 **Example Show Cell Capacities: JSON request**
 
 
-.. code::
-
-    {
-        "cell": {
-            "capacities": {
-                "disk_free": {
-                    "total_mb": 1052672,
-                    "units_by_mb": {
-                        "0": 0,
-                        "163840": 5,
-                        "20480": 46,
-                        "40960": 23,
-                        "81920": 11
-                    }
-                },
-                "ram_free": {
-                    "total_mb": 7680,
-                    "units_by_mb": {
-                        "16384": 0,
-                        "2048": 3,
-                        "4096": 1,
-                        "512": 13,
-                        "8192": 0
-                    }
-                }
-            }
-        }
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-cells/cells-capacities-show-resp.json
+   :language: javascript
 

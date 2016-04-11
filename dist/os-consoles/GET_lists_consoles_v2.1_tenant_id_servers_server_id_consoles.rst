@@ -35,17 +35,6 @@ Response
 **Example List consoles: JSON response**
 
 
-.. code::
-
-    {
-        "consoles": [
-            {
-                "console": {
-                    "console_type": "fake",
-                    "id": 1
-                }
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-consoles/consoles-list-resp.json
+   :language: javascript
 

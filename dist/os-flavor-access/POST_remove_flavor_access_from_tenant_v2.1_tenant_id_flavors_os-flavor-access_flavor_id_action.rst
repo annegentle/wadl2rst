@@ -30,14 +30,9 @@ Request
 **Example Remove Flavor Access From Tenant: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-remove-req.json
+   :language: javascript
 
-    {
-        "removeTenantAccess": {
-            "tenant": "fake_tenant"
-        }
-    }
-    
 
 
 Response
@@ -50,10 +45,6 @@ Response
 **Example Remove Flavor Access From Tenant: JSON request**
 
 
-.. code::
-
-    {
-        "flavor_access": []
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-remove-resp.json
+   :language: javascript
 

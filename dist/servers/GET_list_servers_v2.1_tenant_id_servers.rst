@@ -58,7 +58,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listServers.yaml
+.. rest_parameters:: ../listServers.yaml
 
 	- changes-since: changes-since
 	- image: image
@@ -78,7 +78,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listServers.yaml
+.. rest_parameters:: ../listServers.yaml
 
 	- servers: servers
 	- id: id
@@ -91,25 +91,6 @@ Response
 **Example List Servers: JSON request**
 
 
-.. code::
-
-    {
-        "servers": [
-            {
-                "id": "a291599e-6de2-41a6-88df-c443ddcef70d",
-                "links": [
-                    {
-                        "href": "http://openstack.example.com/v2/openstack/servers/a291599e-6de2-41a6-88df-c443ddcef70d",
-                        "rel": "self"
-                    },
-                    {
-                        "href": "http://openstack.example.com/openstack/servers/a291599e-6de2-41a6-88df-c443ddcef70d",
-                        "rel": "bookmark"
-                    }
-                ],
-                "name": "new-server-test"
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers/servers-list-resp.json
+   :language: javascript
 

@@ -26,7 +26,7 @@ Request
 
 
 
-.. rest_parameters:: resetNetworkingOnAServer(ResetnetworkAction).yaml
+.. rest_parameters:: ../resetNetworkingOnAServer(ResetnetworkAction).yaml
 
 	- resetNetwork: resetNetwork
 
@@ -36,17 +36,13 @@ Request
 **Example Reset Networking On A Server (Resetnetwork Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action-admin/resetNetwork-req.json
+   :language: javascript
 
-    {
-        "resetNetwork": null
-    }
-    
 
 
 Response
 ^^^^^^^^
-
 
 
 

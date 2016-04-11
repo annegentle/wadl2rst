@@ -24,7 +24,7 @@ Request
 
 
 
-.. rest_parameters:: evacuateServer(EvacuateAction).yaml
+.. rest_parameters:: ../evacuateServer(EvacuateAction).yaml
 
 	- evacuate: evacuate
 	- host: host
@@ -36,15 +36,9 @@ Request
 **Example Evacuate Server (Evacuate Action): JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/servers-action/evacuate-req.json
+   :language: javascript
 
-    {
-        "evacuate": {
-            "host": "b419863b7d814906a68fb31703c0dbd6",
-            "adminPass": "MySecretPass"
-        }
-    }
-    
 
 
 Response
@@ -57,10 +51,6 @@ Response
 **Example Evacuate Server (Evacuate Action): JSON request**
 
 
-.. code::
-
-    {
-        "adminPass": "MySecretPass"
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/servers-action/evacuate-resp.json
+   :language: javascript
 

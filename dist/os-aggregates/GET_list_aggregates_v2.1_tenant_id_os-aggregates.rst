@@ -1,43 +1,23 @@
-=============================================================================
-List Aggregates -  OpenStack Compute API v2.1
-=============================================================================
 
 List Aggregates
-~~~~~~~~~~~~~~~~~~~~~~~~~
+===============
 
 `Request <GET_list_aggregates_v2.1_tenant_id_os-aggregates.rst#request>`__
 `Response <GET_list_aggregates_v2.1_tenant_id_os-aggregates.rst#response>`__
 
-.. code-block:: javascript
-
-    GET /v2.1/{tenant_id}/os-aggregates
+.. rest_method:: GET /v2.1/{tenant_id}/os-aggregates
 
 Lists all aggregates. Includes the ID, name, and availability zone for each aggregate.
 
 
 
-This table shows the possible response codes for this operation:
+Normal response codes: 200
 
-
-+--------------------------+-------------------------+-------------------------+
-|Response Code             |Name                     |Description              |
-+==========================+=========================+=========================+
-|200                       |                         |                         |
-+--------------------------+-------------------------+-------------------------+
-
+Error response codes: computeFault(400, 500), serviceUnavailable(503), badRequest(400),
+unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^^^^^^^^^^^
-
-This table shows the URI parameters for the request:
-
-+--------------------------+-------------------------+-------------------------+
-|Name                      |Type                     |Description              |
-+==========================+=========================+=========================+
-|{tenant_id}               |csapi:UUID               |The UUID of the tenant   |
-|                          |                         |in a multi-tenancy cloud.|
-+--------------------------+-------------------------+-------------------------+
-
+^^^^^^^
 
 
 
@@ -48,19 +28,13 @@ This table shows the URI parameters for the request:
 **Example List Aggregates: JSON request**
 
 
-.. code::
+.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-create-req.json
+   :language: javascript
 
-    {
-        "aggregate": {
-            "name": "name",
-            "availability_zone": "nova"
-        }
-    }
-    
 
 
 Response
-^^^^^^^^^^^^^^^^^^
+^^^^^^^^
 
 
 
@@ -69,24 +43,6 @@ Response
 **Example List Aggregates: JSON request**
 
 
-.. code::
-
-    {
-        "aggregates": [
-            {
-                "availability_zone": "nova",
-                "created_at": "2013-08-18T12:17:56.856455",
-                "deleted": false,
-                "deleted_at": null,
-                "hosts": [],
-                "id": 1,
-                "metadata": {
-                    "availability_zone": "nova"
-                },
-                "name": "name",
-                "updated_at": null
-            }
-        ]
-    }
-    
+.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregates-list-resp.json
+   :language: javascript
 

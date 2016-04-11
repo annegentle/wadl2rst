@@ -37,11 +37,6 @@ Response
 **Example Delete Snapshot: JSON request**
 
 
-.. code::
-
-    HTTP/1.1 202 Accepted
-    Content-Type: text/html; charset=UTF-8
-    Content-Length: 0
-    Date: Mon, 01 Dec 2014 16:23:10 GMT
-    
+.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-delete-json-http.txt
+   :language: javascript
 
