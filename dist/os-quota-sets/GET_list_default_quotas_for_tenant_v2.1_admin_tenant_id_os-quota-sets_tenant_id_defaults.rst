@@ -2,9 +2,6 @@
 List Default Quotas For Tenant
 ==============================
 
-`Request <GET_list_default_quotas_for_tenant_v2.1_admin_tenant_id_os-quota-sets_tenant_id_defaults.rst#request>`__
-`Response <GET_list_default_quotas_for_tenant_v2.1_admin_tenant_id_os-quota-sets_tenant_id_defaults.rst#response>`__
-
 .. rest_method:: GET /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}/defaults
 
 Lists the default quotas for a project.
@@ -20,6 +17,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listDefaultQuotasForTenant.yaml
+
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
+
 
 
 
@@ -58,4 +65,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-quota-sets/quotas-default-list-resp.json
    :language: javascript
+
 

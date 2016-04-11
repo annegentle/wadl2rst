@@ -2,9 +2,6 @@
 List Default Security Group Rules
 =================================
 
-`Request <GET_list_default_security_group_rules_v2.1_tenant_id_os-security-group-default-rules.rst#request>`__
-`Response <GET_list_default_security_group_rules_v2.1_tenant_id_os-security-group-default-rules.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-security-group-default-rules
 
 Lists default security group rules.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listDefaultSecurityGroupRules.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -46,4 +52,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rules-list-resp.json
    :language: javascript
+
 

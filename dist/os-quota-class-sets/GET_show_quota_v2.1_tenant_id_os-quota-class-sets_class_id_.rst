@@ -2,9 +2,6 @@
 Show Quota
 ==========
 
-`Request <GET_show_quota_v2.1_tenant_id_os-quota-class-sets_class_id_.rst#request>`__
-`Response <GET_show_quota_v2.1_tenant_id_os-quota-class-sets_class_id_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-quota-class-sets/{class_id}
 
 Shows the quota for a class.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showQuota.yaml
+
+	- tenant_id: tenant_id
+	- class_id: class_id
+
 
 
 
@@ -56,4 +63,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-quota-class-sets/quota-class-show-resp.json
    :language: javascript
+
 

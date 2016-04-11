@@ -2,9 +2,6 @@
 List Servers
 ============
 
-`Request <GET_list_servers_v2_tenant_id_servers_detail.rst#request>`__
-`Response <GET_list_servers_v2_tenant_id_servers_detail.rst#response>`__
-
 .. rest_method:: GET /v2/{tenant_id}/servers/detail
 
 Lists servers with detailed config drive information.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listServers.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -41,4 +47,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-disk-config/list-servers-detail-get.json
    :language: javascript
+
 

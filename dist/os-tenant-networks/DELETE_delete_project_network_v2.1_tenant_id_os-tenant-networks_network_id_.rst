@@ -2,9 +2,6 @@
 Delete Project Network
 ======================
 
-`Request <DELETE_delete_project_network_v2.1_tenant_id_os-tenant-networks_network_id_.rst#request>`__
-`Response <DELETE_delete_project_network_v2.1_tenant_id_os-tenant-networks_network_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-tenant-networks/{network_id}
 
 Deletes a project network.
@@ -22,6 +19,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteProjectNetwork.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -29,6 +36,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 Bulk-Delete Floating Ips
 ========================
 
-`Request <POST_bulk-delete_floating_ips_v2.1_tenant_id_os-floating-ips-bulk_delete.rst#request>`__
-`Response <POST_bulk-delete_floating_ips_v2.1_tenant_id_os-floating-ips-bulk_delete.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-floating-ips-bulk/delete
 
 Bulk-deletes floating IPs.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../bulk-deleteFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../bulk-deleteFloatingIps.yaml
 
@@ -49,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-resp.json
    :language: javascript
+
 

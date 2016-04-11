@@ -2,9 +2,6 @@
 List Virtual Interfaces
 =======================
 
-`Request <GET_list_virtual_interfaces_v2.1_tenant_id_servers_server_id_os-virtual-interfaces.rst#request>`__
-`Response <GET_list_virtual_interfaces_v2.1_tenant_id_servers_server_id_os-virtual-interfaces.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/servers/{server_id}/os-virtual-interfaces
 
 Lists the virtual interfaces for an instance.
@@ -26,6 +23,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listVirtualInterfaces.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -51,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-virtual-interfaces/vifs-list-resp.json
    :language: javascript
+
 

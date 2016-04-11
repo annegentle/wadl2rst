@@ -2,9 +2,6 @@
 Create Floating Ips
 ===================
 
-`Request <POST_create_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#request>`__
-`Response <POST_create_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-floating-ips-bulk
 
 Bulk-creates floating IPs.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createFloatingIps.yaml
 
@@ -49,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-resp.json
    :language: javascript
+
 

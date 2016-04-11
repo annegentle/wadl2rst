@@ -2,9 +2,6 @@
 Remove (Disassociate) Fixed Ip (Removefixedip Action)
 =====================================================
 
-`Request <POST_remove_(disassociate)_fixed_ip_(removefixedip_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_remove_(disassociate)_fixed_ip_(removefixedip_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Removes, or disassociates, a fixed IP address from a server.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../remove(Disassociate)FixedIp(RemovefixedipAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../remove(Disassociate)FixedIp(RemovefixedipAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

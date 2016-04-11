@@ -2,9 +2,6 @@
 List Security Groups By Server
 ==============================
 
-`Request <GET_list_security_groups_by_server_v2.1_tenant_id_servers_server_id_os-security-groups.rst#request>`__
-`Response <GET_list_security_groups_by_server_v2.1_tenant_id_servers_server_id_os-security-groups.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/servers/{server_id}/os-security-groups
 
 Lists security groups for a server.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listSecurityGroupsByServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -46,4 +53,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-groups/security-groups-list-resp.json
    :language: javascript
+
 

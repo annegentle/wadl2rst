@@ -2,9 +2,6 @@
 Reset Server State (Os-Resetstate Action)
 =========================================
 
-`Request <POST_reset_server_state_(os-resetstate_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_reset_server_state_(os-resetstate_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Resets the state of a server.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../resetServerState(Os-ResetstateAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../resetServerState(Os-ResetstateAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

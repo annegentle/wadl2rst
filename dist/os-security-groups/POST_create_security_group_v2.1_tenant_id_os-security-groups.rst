@@ -2,9 +2,6 @@
 Create Security Group
 =====================
 
-`Request <POST_create_security_group_v2.1_tenant_id_os-security-groups.rst#request>`__
-`Response <POST_create_security_group_v2.1_tenant_id_os-security-groups.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-security-groups
 
 Creates a security group.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createSecurityGroup.yaml
 
@@ -60,4 +69,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-create-resp.json
    :language: javascript
+
 

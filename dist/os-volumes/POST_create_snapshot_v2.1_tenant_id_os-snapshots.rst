@@ -2,9 +2,6 @@
 Create Snapshot
 ===============
 
-`Request <POST_create_snapshot_v2.1_tenant_id_os-snapshots.rst#request>`__
-`Response <POST_create_snapshot_v2.1_tenant_id_os-snapshots.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-snapshots
 
 Creates a snapshot.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createSnapshot.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createSnapshot.yaml
 
@@ -49,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 List Usage Audits Before Specified Time
 =======================================
 
-`Request <GET_list_usage_audits_before_specified_time_v2.1_tenant_id_os-instance_usage_audit_log_before_timestamp_.rst#request>`__
-`Response <GET_list_usage_audits_before_specified_time_v2.1_tenant_id_os-instance_usage_audit_log_before_timestamp_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-instance_usage_audit_log/{before_timestamp}
 
 Lists usage audits that occurred before a specified time.
@@ -19,6 +16,18 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listUsageAuditsBeforeSpecifiedTime.yaml
+
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../listUsageAuditsBeforeSpecifiedTime.yaml
 
@@ -41,4 +50,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-instance-usage-audit-log/usage-audits-log-list-resp.json
    :language: javascript
+
 

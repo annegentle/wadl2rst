@@ -2,9 +2,6 @@
 Delete Network
 ==============
 
-`Request <DELETE_delete_network_v2.1_tenant_id_os-networks_network_id_.rst#request>`__
-`Response <DELETE_delete_network_v2.1_tenant_id_os-networks_network_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-networks/{network_id}
 
 Deletes a network.
@@ -22,6 +19,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteNetwork.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -29,6 +36,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

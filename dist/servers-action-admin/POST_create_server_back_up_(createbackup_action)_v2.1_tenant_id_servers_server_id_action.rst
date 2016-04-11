@@ -2,9 +2,6 @@
 Create Server Back Up (Createbackup Action)
 ===========================================
 
-`Request <POST_create_server_back_up_(createbackup_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_create_server_back_up_(createbackup_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Creates a back up of a server.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createServerBackUp(CreatebackupAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createServerBackUp(CreatebackupAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

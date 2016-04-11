@@ -2,9 +2,6 @@
 Get Serial Console (Os-Getserialconsole Action)
 ===============================================
 
-`Request <POST_get_serial_console_(os-getserialconsole_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_get_serial_console_(os-getserialconsole_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Gets a serial console for a server.
@@ -22,7 +19,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../getSerialConsole(Os-GetserialconsoleAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../getSerialConsole(Os-GetserialconsoleAction).yaml
 
@@ -51,4 +61,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers-action/getSerialConsole-create-resp.json
    :language: javascript
+
 

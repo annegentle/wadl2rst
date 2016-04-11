@@ -2,9 +2,6 @@
 List Floating Ip Pools
 ======================
 
-`Request <GET_list_floating_ip_pools_v2.1_tenant_id_os-floating-ip-pools.rst#request>`__
-`Response <GET_list_floating_ip_pools_v2.1_tenant_id_os-floating-ip-pools.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-floating-ip-pools
 
 Lists floating IP pools.
@@ -20,6 +17,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listFloatingIpPools.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -44,4 +50,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ip-pools/floatingippools-list-resp.json
    :language: javascript
+
 

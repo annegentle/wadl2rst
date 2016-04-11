@@ -2,9 +2,6 @@
 Create Or Import Keypair
 ========================
 
-`Request <POST_create_or_import_keypair_v2.1_tenant_id_os-keypairs.rst#request>`__
-`Response <POST_create_or_import_keypair_v2.1_tenant_id_os-keypairs.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-keypairs
 
 Generates or imports a keypair.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createOrImportKeypair.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createOrImportKeypair.yaml
 
@@ -50,4 +59,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-import-resp.json
    :language: javascript
+
 

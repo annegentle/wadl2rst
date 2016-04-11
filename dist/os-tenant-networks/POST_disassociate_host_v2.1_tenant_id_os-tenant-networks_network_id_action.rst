@@ -2,9 +2,6 @@
 Disassociate Host
 =================
 
-`Request <POST_disassociate_host_v2.1_tenant_id_os-tenant-networks_network_id_action.rst#request>`__
-`Response <POST_disassociate_host_v2.1_tenant_id_os-tenant-networks_network_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-tenant-networks/{network_id}/action
 
 Disassociates a host from a network.
@@ -22,6 +19,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../disassociateHost.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -37,6 +44,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

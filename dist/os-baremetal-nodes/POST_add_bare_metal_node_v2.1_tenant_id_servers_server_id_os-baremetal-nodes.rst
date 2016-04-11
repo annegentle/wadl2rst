@@ -2,9 +2,6 @@
 Add Bare Metal Node
 ===================
 
-`Request <POST_add_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes.rst#request>`__
-`Response <POST_add_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/os-baremetal-nodes
 
 Adds a bare metal node to a server.
@@ -24,6 +21,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../addBareMetalNode.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -67,4 +74,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-resp.json
    :language: javascript
+
 

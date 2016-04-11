@@ -2,9 +2,6 @@
 Delete Server
 =============
 
-`Request <DELETE_delete_server_v2.1_tenant_id_servers_server_id_.rst#request>`__
-`Response <DELETE_delete_server_v2.1_tenant_id_servers_server_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/servers/{server_id}
 
 Deletes a server.
@@ -46,6 +43,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -53,6 +60,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

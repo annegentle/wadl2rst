@@ -2,9 +2,6 @@
 Delete Interface From Bare Metal Node
 =====================================
 
-`Request <POST_delete_interface_from_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_action.rst#request>`__
-`Response <POST_delete_interface_from_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/os-baremetal-nodes/action
 
 Deletes an interface from a bare metal node that is associated with a server.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteInterfaceFromBareMetalNode.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -35,6 +42,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

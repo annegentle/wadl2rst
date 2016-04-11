@@ -2,9 +2,6 @@
 Add Flavor Access To Tenant
 ===========================
 
-`Request <POST_add_flavor_access_to_tenant_v2.1_tenant_id_flavors_os-flavor-access_flavor_id_action.rst#request>`__
-`Response <POST_add_flavor_access_to_tenant_v2.1_tenant_id_flavors_os-flavor-access_flavor_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/flavors/os-flavor-access/{flavor_id}/action
 
 Adds flavor access to a tenant and flavor.
@@ -20,6 +17,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../addFlavorAccessToTenant.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
 
 
 
@@ -47,4 +54,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-add-resp.json
    :language: javascript
+
 

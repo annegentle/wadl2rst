@@ -2,9 +2,6 @@
 List Floating Ip Addresses
 ==========================
 
-`Request <GET_list_floating_ip_addresses_v2.1_tenant_id_os-floating-ips.rst#request>`__
-`Response <GET_list_floating_ip_addresses_v2.1_tenant_id_os-floating-ips.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-floating-ips
 
 Lists floating IP addresses associated with the tenant or account.
@@ -20,6 +17,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listFloatingIpAddresses.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -39,4 +45,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ips-list-resp.json
    :language: javascript
+
 

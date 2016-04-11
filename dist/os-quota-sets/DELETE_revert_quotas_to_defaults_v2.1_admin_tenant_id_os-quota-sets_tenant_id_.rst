@@ -2,9 +2,6 @@
 Revert Quotas To Defaults
 =========================
 
-`Request <DELETE_revert_quotas_to_defaults_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#request>`__
-`Response <DELETE_revert_quotas_to_defaults_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
 
 Reverts the quotas to default values for a project or a project and a user.
@@ -22,6 +19,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../revertQuotasToDefaults.yaml
+
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: ../revertQuotasToDefaults.yaml
 
 	- user_id: user_id
@@ -33,6 +43,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 Create Network
 ==============
 
-`Request <POST_create_network_v2.1_tenant_id_os-networks.rst#request>`__
-`Response <POST_create_network_v2.1_tenant_id_os-networks.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-networks
 
 Creates a network.
@@ -20,6 +17,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../createNetwork.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -47,4 +53,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-networks/network-create-resp.json
    :language: javascript
+
 

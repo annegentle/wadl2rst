@@ -2,9 +2,6 @@
 Start Host
 ==========
 
-`Request <GET_start_host_v2.1_tenant_id_os-hosts_host_name_startup.rst#request>`__
-`Response <GET_start_host_v2.1_tenant_id_os-hosts_host_name_startup.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-hosts/{host_name}/startup
 
 Starts a host.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../startHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 
@@ -37,4 +44,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-hosts/host-start-resp.json
    :language: javascript
+
 

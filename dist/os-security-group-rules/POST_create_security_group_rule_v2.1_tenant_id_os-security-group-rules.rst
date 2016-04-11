@@ -2,9 +2,6 @@
 Create Security Group Rule
 ==========================
 
-`Request <POST_create_security_group_rule_v2.1_tenant_id_os-security-group-rules.rst#request>`__
-`Response <POST_create_security_group_rule_v2.1_tenant_id_os-security-group-rules.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-security-group-rules
 
 Creates a rule for a security group.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createSecurityGroupRule.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createSecurityGroupRule.yaml
 
@@ -68,4 +77,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-group-rules/security-group-rule-create-resp.json
    :language: javascript
+
 

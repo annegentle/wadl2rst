@@ -2,9 +2,6 @@
 Detach Interface
 ================
 
-`Request <DELETE_detach_interface_v2.1_tenant_id_servers_server_id_os-interface_port_id_.rst#request>`__
-`Response <DELETE_detach_interface_v2.1_tenant_id_servers_server_id_os-interface_port_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/servers/{server_id}/os-interface/{port_id}
 
 Detaches a port interface.
@@ -20,6 +17,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../detachInterface.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- port_id: port_id
+
+
+
 
 
 
@@ -27,6 +35,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

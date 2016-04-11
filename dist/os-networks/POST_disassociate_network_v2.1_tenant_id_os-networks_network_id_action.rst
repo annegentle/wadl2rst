@@ -2,9 +2,6 @@
 Disassociate Network
 ====================
 
-`Request <POST_disassociate_network_v2.1_tenant_id_os-networks_network_id_action.rst#request>`__
-`Response <POST_disassociate_network_v2.1_tenant_id_os-networks_network_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-networks/{network_id}/action
 
 Disassociates a network from a project. You can then reuse the network.
@@ -22,6 +19,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../disassociateNetwork.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -37,6 +44,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

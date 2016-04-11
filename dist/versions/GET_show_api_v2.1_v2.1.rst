@@ -2,9 +2,6 @@
 Show Api V2.1
 =============
 
-`Request <GET_show_api_v2.1_v2.1.rst#request>`__
-`Response <GET_show_api_v2.1_v2.1.rst#response>`__
-
 .. rest_method:: GET /v2.1
 
 Show information about Compute API v2.1.
@@ -25,6 +22,8 @@ Request
 
 
 
+
+
 Response
 ^^^^^^^^
 
@@ -37,4 +36,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/versions/versions-v21-show-resp.json
    :language: javascript
+
 

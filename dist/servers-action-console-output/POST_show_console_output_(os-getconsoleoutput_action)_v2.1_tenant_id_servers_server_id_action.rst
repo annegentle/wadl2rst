@@ -2,9 +2,6 @@
 Show Console Output (Os-Getconsoleoutput Action)
 ================================================
 
-`Request <POST_show_console_output_(os-getconsoleoutput_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_show_console_output_(os-getconsoleoutput_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Shows console output for a server instance.
@@ -22,7 +19,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../showConsoleOutput(Os-GetconsoleoutputAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../showConsoleOutput(Os-GetconsoleoutputAction).yaml
 
@@ -52,4 +62,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers-action/os-getConsoleOutput-create-resp.json
    :language: javascript
+
 

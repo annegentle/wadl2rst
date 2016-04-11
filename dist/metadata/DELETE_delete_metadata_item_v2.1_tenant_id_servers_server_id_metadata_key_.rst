@@ -2,9 +2,6 @@
 Delete Metadata Item
 ====================
 
-`Request <DELETE_delete_metadata_item_v2.1_tenant_id_servers_server_id_metadata_key_.rst#request>`__
-`Response <DELETE_delete_metadata_item_v2.1_tenant_id_servers_server_id_metadata_key_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/servers/{server_id}/metadata/{key}
 
 Deletes a metadata item, by key, from a server.
@@ -22,6 +19,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteMetadataItem.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- key: key
+
+
+
 
 
 
@@ -29,6 +37,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

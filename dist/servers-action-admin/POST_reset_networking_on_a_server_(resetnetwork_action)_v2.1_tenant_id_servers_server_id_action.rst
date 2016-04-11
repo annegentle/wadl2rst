@@ -2,9 +2,6 @@
 Reset Networking On A Server (Resetnetwork Action)
 ==================================================
 
-`Request <POST_reset_networking_on_a_server_(resetnetwork_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_reset_networking_on_a_server_(resetnetwork_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Resets networking on a server.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../resetNetworkingOnAServer(ResetnetworkAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../resetNetworkingOnAServer(ResetnetworkAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

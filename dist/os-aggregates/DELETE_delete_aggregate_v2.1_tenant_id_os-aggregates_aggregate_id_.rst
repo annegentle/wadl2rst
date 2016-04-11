@@ -2,9 +2,6 @@
 Delete Aggregate
 ================
 
-`Request <DELETE_delete_aggregate_v2.1_tenant_id_os-aggregates_aggregate_id_.rst#request>`__
-`Response <DELETE_delete_aggregate_v2.1_tenant_id_os-aggregates_aggregate_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-aggregates/{aggregate_id}
 
 Deletes an aggregate.
@@ -20,6 +17,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteAggregate.yaml
+
+	- tenant_id: tenant_id
+	- aggregate_id: aggregate_id
+
+
+
 
 
 
@@ -27,6 +34,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

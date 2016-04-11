@@ -2,9 +2,6 @@
 Create Server Group
 ===================
 
-`Request <POST_create_server_group_v2.1_tenant_id_os-server-groups.rst#request>`__
-`Response <POST_create_server_group_v2.1_tenant_id_os-server-groups.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-server-groups
 
 Creates a server group.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createServerGroup.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createServerGroup.yaml
 
@@ -61,4 +70,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-create-resp.json
    :language: javascript
+
 

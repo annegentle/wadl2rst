@@ -2,9 +2,6 @@
 List Server Groups
 ==================
 
-`Request <GET_list_server_groups_v2.1_tenant_id_os-server-groups.rst#request>`__
-`Response <GET_list_server_groups_v2.1_tenant_id_os-server-groups.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-server-groups
 
 Lists all server groups for the tenant.
@@ -21,6 +18,18 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listServerGroups.yaml
+
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../listServerGroups.yaml
 
@@ -54,4 +63,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-server-groups/server-groups-list-resp.json
    :language: javascript
+
 

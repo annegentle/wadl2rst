@@ -2,9 +2,6 @@
 Delete Security Group
 =====================
 
-`Request <DELETE_delete_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#request>`__
-`Response <DELETE_delete_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-security-groups/{security_group_id}
 
 Deletes a security group.
@@ -20,6 +17,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
+
+
+
 
 
 
@@ -27,6 +34,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

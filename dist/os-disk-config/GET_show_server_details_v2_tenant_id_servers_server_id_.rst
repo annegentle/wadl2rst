@@ -2,9 +2,6 @@
 Show Server Details
 ===================
 
-`Request <GET_show_server_details_v2_tenant_id_servers_server_id_.rst#request>`__
-`Response <GET_show_server_details_v2_tenant_id_servers_server_id_.rst#response>`__
-
 .. rest_method:: GET /v2/{tenant_id}/servers/{server_id}
 
 Shows details for a server.
@@ -18,6 +15,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showServerDetails.yaml
+
+	- tenant_id: tenant_id
+	- os-disk-config:diskConfig: os-disk-config:diskConfig
+	- server_id: server_id
+
 
 
 
@@ -41,4 +49,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-disk-config/server-get-resp.json
    :language: javascript
+
 

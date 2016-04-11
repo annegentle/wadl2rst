@@ -2,9 +2,6 @@
 Update Cloudpipe
 ================
 
-`Request <POST_update_cloudpipe_v2.1_tenant_id_os-cloudpipe_configure-project.rst#request>`__
-`Response <POST_update_cloudpipe_v2.1_tenant_id_os-cloudpipe_configure-project.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-cloudpipe/configure-project
 
 Updates the virtual private network (VPN) IP address and port for a cloudpipe instance.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../updateCloudpipe.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../updateCloudpipe.yaml
 
@@ -40,6 +49,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

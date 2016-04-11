@@ -2,9 +2,6 @@
 Show Extension Details
 ======================
 
-`Request <GET_show_extension_details_v2.1_tenant_id_extensions_alias_.rst#request>`__
-`Response <GET_show_extension_details_v2.1_tenant_id_extensions_alias_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/extensions/{alias}
 
 Shows details for an extension, by alias.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showExtensionDetails.yaml
+
+	- tenant_id: tenant_id
+	- alias: alias
+
 
 
 
@@ -47,4 +54,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/extensions/extension-show-resp.json
    :language: javascript
+
 

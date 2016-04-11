@@ -2,9 +2,6 @@
 Create Default Security Group Rule
 ==================================
 
-`Request <POST_create_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules.rst#request>`__
-`Response <POST_create_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-security-group-default-rules
 
 Creates a default security group rule.
@@ -22,7 +19,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createDefaultSecurityGroupRule.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createDefaultSecurityGroupRule.yaml
 
@@ -64,4 +73,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-resp.json
    :language: javascript
+
 

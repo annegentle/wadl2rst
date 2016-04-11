@@ -2,9 +2,6 @@
 Shelf-Offload (Remove) Server (Shelveoffload Action)
 ====================================================
 
-`Request <POST_shelf-offload_(remove)_server_(shelveoffload_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_shelf-offload_(remove)_server_(shelveoffload_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Shelf-offloads, or removes, a shelved server.
@@ -40,7 +37,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../shelf-offload(Remove)Server(ShelveoffloadAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../shelf-offload(Remove)Server(ShelveoffloadAction).yaml
 
@@ -59,6 +69,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

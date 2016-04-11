@@ -2,9 +2,6 @@
 Add (Associate) Fixed Ip (Addfixedip Action)
 ============================================
 
-`Request <POST_add_(associate)_fixed_ip_(addfixedip_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_add_(associate)_fixed_ip_(addfixedip_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Adds a fixed IP address to a server instance, which associates that address with the server. The fixed IP address is retrieved from the network that you specify in the request.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../add(Associate)FixedIp(AddfixedipAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../add(Associate)FixedIp(AddfixedipAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

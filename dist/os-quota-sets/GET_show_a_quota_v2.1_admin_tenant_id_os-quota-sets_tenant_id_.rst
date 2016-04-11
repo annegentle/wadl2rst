@@ -2,9 +2,6 @@
 Show A Quota
 ============
 
-`Request <GET_show_a_quota_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#request>`__
-`Response <GET_show_a_quota_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
 
 Show the quota for a project or a project and a user.
@@ -22,6 +19,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showAQuota.yaml
+
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
+
 
 
 
@@ -60,4 +67,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-quota-sets/user-quotas-show-get-.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 Create Interface
 ================
 
-`Request <POST_create_interface_v2.1_tenant_id_servers_server_id_os-interface.rst#request>`__
-`Response <POST_create_interface_v2.1_tenant_id_servers_server_id_os-interface.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/os-interface
 
 Creates a port interface and uses it to attach a port to a server instance.
@@ -20,7 +17,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createInterface.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createInterface.yaml
 
@@ -61,4 +71,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-interface/port-interface-create-resp.json
    :language: javascript
+
 

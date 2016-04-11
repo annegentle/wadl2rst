@@ -2,9 +2,6 @@
 List Flavors
 ============
 
-`Request <GET_list_flavors_v2.1_tenant_id_flavors.rst#request>`__
-`Response <GET_list_flavors_v2.1_tenant_id_flavors.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/flavors
 
 Lists flavors.
@@ -19,6 +16,18 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listFlavors.yaml
+
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../listFlavors.yaml
 
@@ -46,4 +55,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/flavors/flavors-list-resp.json
    :language: javascript
+
 

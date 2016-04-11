@@ -2,9 +2,6 @@
 List Flavor Access Information For Given Flavor
 ===============================================
 
-`Request <GET_list_flavor_access_information_for_given_flavor_v2.1_tenant_id_flavors_os-flavor-access.rst#request>`__
-`Response <GET_list_flavor_access_information_for_given_flavor_v2.1_tenant_id_flavors_os-flavor-access.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/flavors/os-flavor-access
 
 Lists flavor access information.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listFlavorAccessInformationForGivenFlavor.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -37,4 +43,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-list-resp.json
    :language: javascript
+
 

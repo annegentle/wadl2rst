@@ -2,9 +2,6 @@
 Create Assisted Volume Snapshots
 ================================
 
-`Request <POST_create_assisted_volume_snapshots_v2.1_tenant_id_os-assisted-volume-snapshots.rst#request>`__
-`Response <POST_create_assisted_volume_snapshots_v2.1_tenant_id_os-assisted-volume-snapshots.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-assisted-volume-snapshots
 
 Creates an assisted volume snapshot.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createAssistedVolumeSnapshots.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createAssistedVolumeSnapshots.yaml
 
@@ -59,4 +68,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-assisted-volume-snapshots/snapshot-create-assisted-resp.json
    :language: javascript
+
 

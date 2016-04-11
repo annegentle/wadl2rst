@@ -2,9 +2,6 @@
 Clear Admin Password
 ====================
 
-`Request <DELETE_clear_admin_password_v2.1_tenant_id_servers_server_id_os-server-password.rst#request>`__
-`Response <DELETE_clear_admin_password_v2.1_tenant_id_servers_server_id_os-server-password.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/servers/{server_id}/os-server-password
 
 Clears the encrypted administrative password for a server, which removes it from the metadata server.
@@ -24,6 +21,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../clearAdminPassword.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -31,6 +38,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 Show Server Password
 ====================
 
-`Request <GET_show_server_password_v2.1_tenant_id_servers_server_id_os-server-password.rst#request>`__
-`Response <GET_show_server_password_v2.1_tenant_id_servers_server_id_os-server-password.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/servers/{server_id}/os-server-password
 
 Shows the administrative password for a server.
@@ -24,6 +21,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showServerPassword.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -41,4 +48,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-server-password/password-show-resp.json
    :language: javascript
+
 

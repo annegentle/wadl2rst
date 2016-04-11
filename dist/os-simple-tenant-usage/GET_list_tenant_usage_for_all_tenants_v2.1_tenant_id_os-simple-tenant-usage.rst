@@ -2,9 +2,6 @@
 List Tenant Usage For All Tenants
 =================================
 
-`Request <GET_list_tenant_usage_for_all_tenants_v2.1_tenant_id_os-simple-tenant-usage.rst#request>`__
-`Response <GET_list_tenant_usage_for_all_tenants_v2.1_tenant_id_os-simple-tenant-usage.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-simple-tenant-usage
 
 Lists usage information for all tenants.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listTenantUsageForAllTenants.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -37,4 +43,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-general-resp.json
    :language: javascript
+
 

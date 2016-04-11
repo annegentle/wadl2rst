@@ -2,9 +2,6 @@
 Get Availability Zone Information
 =================================
 
-`Request <GET_get_availability_zone_information_v2.1_tenant_id_os-availability-zone.rst#request>`__
-`Response <GET_get_availability_zone_information_v2.1_tenant_id_os-availability-zone.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-availability-zone
 
 Gets availability zone information.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../getAvailabilityZoneInformation.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -37,4 +43,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-availability-zone/availability-zone-show-resp.json
    :language: javascript
+
 

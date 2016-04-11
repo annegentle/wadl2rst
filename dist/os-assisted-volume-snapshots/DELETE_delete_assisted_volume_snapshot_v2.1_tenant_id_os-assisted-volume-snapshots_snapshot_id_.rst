@@ -2,9 +2,6 @@
 Delete Assisted Volume Snapshot
 ===============================
 
-`Request <DELETE_delete_assisted_volume_snapshot_v2.1_tenant_id_os-assisted-volume-snapshots_snapshot_id_.rst#request>`__
-`Response <DELETE_delete_assisted_volume_snapshot_v2.1_tenant_id_os-assisted-volume-snapshots_snapshot_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-assisted-volume-snapshots/{snapshot_id}
 
 Deletes an assisted volume snapshot.
@@ -22,6 +19,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteAssistedVolumeSnapshot.yaml
+
+	- tenant_id: tenant_id
+	- snapshot_id: snapshot_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: ../deleteAssistedVolumeSnapshot.yaml
 
 	- delete_info: delete_info
@@ -33,6 +43,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

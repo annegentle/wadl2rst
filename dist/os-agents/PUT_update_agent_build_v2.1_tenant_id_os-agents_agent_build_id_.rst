@@ -2,9 +2,6 @@
 Update Agent Build
 ==================
 
-`Request <PUT_update_agent_build_v2.1_tenant_id_os-agents_agent_build_id_.rst#request>`__
-`Response <PUT_update_agent_build_v2.1_tenant_id_os-agents_agent_build_id_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/os-agents/{agent_build_id}
 
 Updates an agent build.
@@ -20,7 +17,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../updateAgentBuild.yaml
+
+	- tenant_id: tenant_id
+	- agent_build_id: agent_build_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../updateAgentBuild.yaml
 
@@ -58,4 +68,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-agents/agent-update-resp.json
    :language: javascript
+
 

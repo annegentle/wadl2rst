@@ -2,9 +2,6 @@
 List Agent Builds
 =================
 
-`Request <GET_list_agent_builds_v2.1_tenant_id_os-agents.rst#request>`__
-`Response <GET_list_agent_builds_v2.1_tenant_id_os-agents.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-agents
 
 Lists agent builds.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../listAgentBuilds.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../listAgentBuilds.yaml
 
@@ -46,4 +55,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-agents/agents-list-resp.json
    :language: javascript
+
 

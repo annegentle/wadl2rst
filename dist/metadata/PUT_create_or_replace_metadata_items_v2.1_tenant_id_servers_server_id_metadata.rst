@@ -2,9 +2,6 @@
 Create Or Replace Metadata Items
 ================================
 
-`Request <PUT_create_or_replace_metadata_items_v2.1_tenant_id_servers_server_id_metadata.rst#request>`__
-`Response <PUT_create_or_replace_metadata_items_v2.1_tenant_id_servers_server_id_metadata.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/servers/{server_id}/metadata
 
 Creates or replaces one or more metadata items for a server.
@@ -22,6 +19,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../createOrReplaceMetadataItems.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -49,4 +56,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 Run Events
 ==========
 
-`Request <POST_run_events_v2.1_tenant_id_os-server-external-events.rst#request>`__
-`Response <POST_run_events_v2.1_tenant_id_os-server-external-events.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-server-external-events
 
 Creates one or more external events, which the API dispatches to the instance.
@@ -22,7 +19,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../runEvents.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../runEvents.yaml
 
@@ -64,4 +73,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-server-external-events/event-create-resp.json
    :language: javascript
+
 

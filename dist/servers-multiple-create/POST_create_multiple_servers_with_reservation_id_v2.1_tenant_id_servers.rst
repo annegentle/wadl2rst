@@ -2,9 +2,6 @@
 Create Multiple Servers With Reservation Id
 ===========================================
 
-`Request <POST_create_multiple_servers_with_reservation_id_v2.1_tenant_id_servers.rst#request>`__
-`Response <POST_create_multiple_servers_with_reservation_id_v2.1_tenant_id_servers.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers
 
 Creates one or more servers with a reservation ID.
@@ -22,7 +19,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createMultipleServersWithReservationId.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createMultipleServersWithReservationId.yaml
 
@@ -79,4 +88,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-resp.json
    :language: javascript
+
 

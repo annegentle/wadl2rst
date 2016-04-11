@@ -2,9 +2,6 @@
 Update Server
 =============
 
-`Request <PUT_update_server_v2.1_tenant_id_servers_server_id_.rst#request>`__
-`Response <PUT_update_server_v2.1_tenant_id_servers_server_id_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/servers/{server_id}
 
 Updates the editable attributes of a server.
@@ -26,7 +23,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../updateServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../updateServer.yaml
 
@@ -130,4 +140,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers/server-update-resp.json
    :language: javascript
+
 

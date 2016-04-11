@@ -2,9 +2,6 @@
 Create Volume
 =============
 
-`Request <POST_create_volume_v2.1_tenant_id_os-volumes.rst#request>`__
-`Response <POST_create_volume_v2.1_tenant_id_os-volumes.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-volumes
 
 Creates a volume.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createVolume.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createVolume.yaml
 
@@ -56,4 +65,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-volumes/volume-show-resp.json
    :language: javascript
+
 

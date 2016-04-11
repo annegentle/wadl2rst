@@ -2,9 +2,6 @@
 Create Cloudpipe
 ================
 
-`Request <POST_create_cloudpipe_v2.1_tenant_id_os-cloudpipe.rst#request>`__
-`Response <POST_create_cloudpipe_v2.1_tenant_id_os-cloudpipe.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-cloudpipe
 
 Creates a cloudpipe.
@@ -20,7 +17,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createCloudpipe.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createCloudpipe.yaml
 
@@ -49,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-create-resp.json
    :language: javascript
+
 

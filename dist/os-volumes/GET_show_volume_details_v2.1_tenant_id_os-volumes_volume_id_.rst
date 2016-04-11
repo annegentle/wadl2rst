@@ -2,9 +2,6 @@
 Show Volume Details
 ===================
 
-`Request <GET_show_volume_details_v2.1_tenant_id_os-volumes_volume_id_.rst#request>`__
-`Response <GET_show_volume_details_v2.1_tenant_id_os-volumes_volume_id_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-volumes/{volume_id}
 
 Shows details for a volume.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showVolumeDetails.yaml
+
+	- tenant_id: tenant_id
+	- volume_id: volume_id
+
 
 
 
@@ -37,4 +44,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-volumes/volume-show-resp.json
    :language: javascript
+
 

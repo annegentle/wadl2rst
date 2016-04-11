@@ -2,9 +2,6 @@
 Add Interface To Bare Metal Node
 ================================
 
-`Request <POST_add_interface_to_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_action.rst#request>`__
-`Response <POST_add_interface_to_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/os-baremetal-nodes/action
 
 Adds an interface to a bare metal node that is associated with a server.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../addInterfaceToBareMetalNode.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -45,4 +52,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-resp.json
    :language: javascript
+
 

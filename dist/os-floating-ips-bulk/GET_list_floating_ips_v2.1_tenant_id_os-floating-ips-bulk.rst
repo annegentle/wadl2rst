@@ -2,9 +2,6 @@
 List Floating Ips
 =================
 
-`Request <GET_list_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#request>`__
-`Response <GET_list_floating_ips_v2.1_tenant_id_os-floating-ips-bulk.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-floating-ips-bulk
 
 Lists all floating IPs.
@@ -18,6 +15,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -37,4 +43,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-resp.json
    :language: javascript
+
 

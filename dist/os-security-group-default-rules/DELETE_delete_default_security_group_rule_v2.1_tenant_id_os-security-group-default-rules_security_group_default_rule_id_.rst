@@ -2,9 +2,6 @@
 Delete Default Security Group Rule
 ==================================
 
-`Request <DELETE_delete_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules_security_group_default_rule_id_.rst#request>`__
-`Response <DELETE_delete_default_security_group_rule_v2.1_tenant_id_os-security-group-default-rules_security_group_default_rule_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-security-group-default-rules/{security_group_default_rule_id}
 
 Deletes a security group rule.
@@ -20,6 +17,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteDefaultSecurityGroupRule.yaml
+
+	- tenant_id: tenant_id
+	- security_group_default_rule_id: security_group_default_rule_id
+
+
+
 
 
 
@@ -27,6 +34,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

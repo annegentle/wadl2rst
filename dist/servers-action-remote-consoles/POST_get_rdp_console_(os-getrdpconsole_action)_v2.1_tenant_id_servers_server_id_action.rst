@@ -2,9 +2,6 @@
 Get Rdp Console (Os-Getrdpconsole Action)
 =========================================
 
-`Request <POST_get_rdp_console_(os-getrdpconsole_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_get_rdp_console_(os-getrdpconsole_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Gets an `RDP <https://technet.microsoft.com/en-us/windowsserver/ee236407>`__ console for a server.
@@ -22,7 +19,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../getRdpConsole(Os-GetrdpconsoleAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../getRdpConsole(Os-GetrdpconsoleAction).yaml
 
@@ -51,4 +61,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers-action/getRDPConsole-create-resp.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 List Servers
 ============
 
-`Request <GET_list_servers_v2.1_tenant_id_servers.rst#request>`__
-`Response <GET_list_servers_v2.1_tenant_id_servers.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/servers
 
 Lists IDs, names, and links for all servers.
@@ -58,6 +55,18 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../listServers.yaml
+
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: ../listServers.yaml
 
 	- changes-since: changes-since
@@ -93,4 +102,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers/servers-list-resp.json
    :language: javascript
+
 

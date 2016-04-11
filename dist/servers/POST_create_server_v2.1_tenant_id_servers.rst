@@ -2,9 +2,6 @@
 Create Server
 =============
 
-`Request <POST_create_server_v2.1_tenant_id_servers.rst#request>`__
-`Response <POST_create_server_v2.1_tenant_id_servers.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers
 
 Creates a server.
@@ -54,7 +51,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../createServer.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../createServer.yaml
 
@@ -115,4 +124,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/servers/server-create-resp.json
    :language: javascript
+
 

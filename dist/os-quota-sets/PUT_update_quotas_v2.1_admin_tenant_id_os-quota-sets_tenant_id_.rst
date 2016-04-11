@@ -2,9 +2,6 @@
 Update Quotas
 =============
 
-`Request <PUT_update_quotas_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#request>`__
-`Response <PUT_update_quotas_v2.1_admin_tenant_id_os-quota-sets_tenant_id_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{admin_tenant_id}/os-quota-sets/{tenant_id}
 
 Update the quotas for a project or a project and a user.
@@ -26,11 +23,27 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../updateQuotas.yaml
+
+	- admin_tenant_id: admin_tenant_id
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: ../updateQuotas.yaml
 
 	- user_id: user_id
 
 
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../updateQuotas.yaml
 
@@ -94,4 +107,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-quota-sets/quota-update-resp.json
    :language: javascript
+
 

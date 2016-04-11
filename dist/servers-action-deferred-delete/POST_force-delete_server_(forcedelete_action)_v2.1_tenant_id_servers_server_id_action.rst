@@ -2,9 +2,6 @@
 Force-Delete Server (Forcedelete Action)
 ========================================
 
-`Request <POST_force-delete_server_(forcedelete_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_force-delete_server_(forcedelete_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Force-deletes a server before deferred cleanup.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../force-deleteServer(ForcedeleteAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../force-deleteServer(ForcedeleteAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

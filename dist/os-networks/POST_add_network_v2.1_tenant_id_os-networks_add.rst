@@ -2,9 +2,6 @@
 Add Network
 ===========
 
-`Request <POST_add_network_v2.1_tenant_id_os-networks_add.rst#request>`__
-`Response <POST_add_network_v2.1_tenant_id_os-networks_add.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-networks/add
 
 Adds a network to a project.
@@ -22,6 +19,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../addNetwork.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -37,6 +43,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

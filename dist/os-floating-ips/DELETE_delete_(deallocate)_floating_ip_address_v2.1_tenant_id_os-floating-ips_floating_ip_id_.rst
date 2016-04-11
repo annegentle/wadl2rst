@@ -2,9 +2,6 @@
 Delete (Deallocate) Floating Ip Address
 =======================================
 
-`Request <DELETE_delete_(deallocate)_floating_ip_address_v2.1_tenant_id_os-floating-ips_floating_ip_id_.rst#request>`__
-`Response <DELETE_delete_(deallocate)_floating_ip_address_v2.1_tenant_id_os-floating-ips_floating_ip_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-floating-ips/{floating_ip_id}
 
 Deletes, or deallocates, a floating IP address from the current project and returns it to the pool from which it was allocated.
@@ -24,6 +21,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../delete(Deallocate)FloatingIpAddress.yaml
+
+	- tenant_id: tenant_id
+	- floating_ip_id: floating_ip_id
+
+
+
 
 
 
@@ -31,6 +38,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

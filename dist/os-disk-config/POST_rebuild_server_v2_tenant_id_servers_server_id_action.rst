@@ -2,9 +2,6 @@
 Rebuild Server
 ==============
 
-`Request <POST_rebuild_server_v2_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_rebuild_server_v2_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2/{tenant_id}/servers/{server_id}/action
 
 Rebuilds a server.
@@ -18,6 +15,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../rebuildServer.yaml
+
+	- tenant_id: tenant_id
+	- os-disk-config:diskConfig: os-disk-config:diskConfig
+	- server_id: server_id
+
 
 
 
@@ -45,4 +53,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-disk-config/server-action-rebuild-resp.json
    :language: javascript
+
 

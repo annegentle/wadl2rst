@@ -2,9 +2,6 @@
 Enable Host
 ===========
 
-`Request <PUT_enable_host_v2.1_tenant_id_os-hosts_host_name_.rst#request>`__
-`Response <PUT_enable_host_v2.1_tenant_id_os-hosts_host_name_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/os-hosts/{host_name}
 
 Enables or puts a host in maintenance mode.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../enableHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 
@@ -45,4 +52,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-hosts/host-update-maintenance-resp.json
    :language: javascript
+
 

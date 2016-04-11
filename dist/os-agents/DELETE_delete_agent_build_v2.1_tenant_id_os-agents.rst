@@ -2,9 +2,6 @@
 Delete Agent Build
 ==================
 
-`Request <DELETE_delete_agent_build_v2.1_tenant_id_os-agents.rst#request>`__
-`Response <DELETE_delete_agent_build_v2.1_tenant_id_os-agents.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/os-agents
 
 Deletes an existing agent build.
@@ -20,6 +17,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteAgentBuild.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -27,6 +33,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

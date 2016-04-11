@@ -2,9 +2,6 @@
 Create (Allocate) Floating Ip Address
 =====================================
 
-`Request <POST_create_(allocate)_floating_ip_address_v2.1_tenant_id_os-floating-ips.rst#request>`__
-`Response <POST_create_(allocate)_floating_ip_address_v2.1_tenant_id_os-floating-ips.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-floating-ips
 
 Creates, or allocates, a floating IP address for the current project. By default, the floating IP address is allocated from the public pool.
@@ -24,7 +21,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../create(Allocate)FloatingIpAddress.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../create(Allocate)FloatingIpAddress.yaml
 
@@ -53,4 +62,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-create-resp.json
    :language: javascript
+
 

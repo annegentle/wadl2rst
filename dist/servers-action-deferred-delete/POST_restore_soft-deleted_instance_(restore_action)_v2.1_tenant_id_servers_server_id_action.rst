@@ -2,9 +2,6 @@
 Restore Soft-Deleted Instance (Restore Action)
 ==============================================
 
-`Request <POST_restore_soft-deleted_instance_(restore_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_restore_soft-deleted_instance_(restore_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Restores a previously soft-deleted server instance. You cannot use this method to restore deleted instances.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../restoreSoft-DeletedInstance(RestoreAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../restoreSoft-DeletedInstance(RestoreAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

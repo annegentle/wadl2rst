@@ -2,9 +2,6 @@
 Create Or Update Dns Entry
 ==========================
 
-`Request <PUT_create_or_update_dns_entry_v2.1_tenant_id_os-floating-ip-dns_domain_entries_name_.rst#request>`__
-`Response <PUT_create_or_update_dns_entry_v2.1_tenant_id_os-floating-ip-dns_domain_entries_name_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/os-floating-ip-dns/{domain}/entries/{name}
 
 Creates or updates a DNS entry.
@@ -18,6 +15,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../createOrUpdateDnsEntry.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+	- name: name
+
 
 
 
@@ -45,4 +53,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-resp.json
    :language: javascript
+
 

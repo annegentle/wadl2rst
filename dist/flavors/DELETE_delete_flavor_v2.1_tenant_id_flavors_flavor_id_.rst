@@ -2,9 +2,6 @@
 Delete Flavor
 =============
 
-`Request <DELETE_delete_flavor_v2.1_tenant_id_flavors_flavor_id_.rst#request>`__
-`Response <DELETE_delete_flavor_v2.1_tenant_id_flavors_flavor_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/flavors/{flavor_id}
 
 Deletes a flavor.
@@ -20,6 +17,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
+
+
 
 
 
@@ -27,6 +34,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 Reserve Or Release A Fixed Ip
 =============================
 
-`Request <POST_reserve_or_release_a_fixed_ip_v2.1_tenant_id_os-fixed-ips_fixed_ip_action.rst#request>`__
-`Response <POST_reserve_or_release_a_fixed_ip_v2.1_tenant_id_os-fixed-ips_fixed_ip_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/os-fixed-ips/{fixed_ip}/action
 
 Reserves or releases a fixed IP.
@@ -22,6 +19,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../reserveOrReleaseAFixedIp.yaml
+
+	- tenant_id: tenant_id
+	- fixed_ip: fixed_ip
+
+
+
 
 
 
@@ -37,6 +44,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 List Api Versions
 =================
 
-`Request <GET_list_api_versions_.rst#request>`__
-`Response <GET_list_api_versions_.rst#response>`__
-
 .. rest_method:: GET /
 
 Lists information about all Compute API versions.
@@ -25,6 +22,8 @@ Request
 
 
 
+
+
 Response
 ^^^^^^^^
 
@@ -37,4 +36,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/versions/versions-list-resp.json
    :language: javascript
+
 

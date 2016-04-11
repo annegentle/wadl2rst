@@ -2,9 +2,6 @@
 Update Security Group
 =====================
 
-`Request <PUT_update_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#request>`__
-`Response <PUT_update_security_group_v2.1_tenant_id_os-security-groups_security_group_id_.rst#response>`__
-
 .. rest_method:: PUT /v2.1/{tenant_id}/os-security-groups/{security_group_id}
 
 Updates a security group.
@@ -20,7 +17,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../updateSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../updateSecurityGroup.yaml
 
@@ -59,4 +69,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-update-resp.json
    :language: javascript
+
 

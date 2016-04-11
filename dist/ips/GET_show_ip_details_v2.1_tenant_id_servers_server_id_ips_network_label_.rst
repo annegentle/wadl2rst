@@ -2,9 +2,6 @@
 Show Ip Details
 ===============
 
-`Request <GET_show_ip_details_v2.1_tenant_id_servers_server_id_ips_network_label_.rst#request>`__
-`Response <GET_show_ip_details_v2.1_tenant_id_servers_server_id_ips_network_label_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/servers/{server_id}/ips/{network_label}
 
 Shows IP addresses details for a network label of a server instance.
@@ -20,6 +17,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showIpDetails.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- network_label: network_label
+
 
 
 
@@ -39,4 +47,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/ips/ips-network-resp.json
    :language: javascript
+
 

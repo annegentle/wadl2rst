@@ -2,9 +2,6 @@
 Ping Instances
 ==============
 
-`Request <GET_ping_instances_v2.1_tenant_id_os-fping.rst#request>`__
-`Response <GET_ping_instances_v2.1_tenant_id_os-fping.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-fping
 
 Run the fping utility to ping instances and report which ones are alive.
@@ -25,6 +22,18 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../pingInstances.yaml
+
+	- tenant_id: tenant_id
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../pingInstances.yaml
 
@@ -49,4 +58,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-fping/fping-instances-list-resp.json
    :language: javascript
+
 

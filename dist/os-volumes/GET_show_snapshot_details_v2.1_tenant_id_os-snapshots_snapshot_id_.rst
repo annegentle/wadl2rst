@@ -2,9 +2,6 @@
 Show Snapshot Details
 =====================
 
-`Request <GET_show_snapshot_details_v2.1_tenant_id_os-snapshots_snapshot_id_.rst#request>`__
-`Response <GET_show_snapshot_details_v2.1_tenant_id_os-snapshots_snapshot_id_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-snapshots/{snapshot_id}
 
 Shows details for a snapshot.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showSnapshotDetails.yaml
+
+	- tenant_id: tenant_id
+	- snapshot_id: snapshot_id
+
 
 
 
@@ -37,4 +44,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
    :language: javascript
+
 

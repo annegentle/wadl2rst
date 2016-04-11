@@ -2,9 +2,6 @@
 Update Server
 =============
 
-`Request <PUT_update_server_v2_tenant_id_servers_server_id_.rst#request>`__
-`Response <PUT_update_server_v2_tenant_id_servers_server_id_.rst#response>`__
-
 .. rest_method:: PUT /v2/{tenant_id}/servers/{server_id}
 
 Updates a server.
@@ -18,6 +15,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../updateServer.yaml
+
+	- tenant_id: tenant_id
+	- os-disk-config:diskConfig: os-disk-config:diskConfig
+	- server_id: server_id
+
 
 
 
@@ -45,4 +53,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-disk-config/server-update-update-resp.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 Create Console
 ==============
 
-`Request <POST_create_console_v2.1_tenant_id_servers_server_id_consoles.rst#request>`__
-`Response <POST_create_console_v2.1_tenant_id_servers_server_id_consoles.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/consoles
 
 Creates a console for a server instance.
@@ -20,6 +17,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../createConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -27,6 +34,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

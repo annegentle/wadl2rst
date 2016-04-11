@@ -2,9 +2,6 @@
 Show Volume Type Details
 ========================
 
-`Request <GET_show_volume_type_details_v2.1_tenant_id_os-volume-types_volume_type_id_.rst#request>`__
-`Response <GET_show_volume_type_details_v2.1_tenant_id_os-volume-types_volume_type_id_.rst#response>`__
-
 .. rest_method:: GET /v2.1/{tenant_id}/os-volume-types/{volume_type_id}
 
 Shows details for a volume type.
@@ -18,6 +15,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../showVolumeTypeDetails.yaml
+
+	- tenant_id: tenant_id
+	- volume_type_id: volume_type_id
+
 
 
 
@@ -37,4 +44,5 @@ Response
 
 .. literalinclude:: ../../../doc/api_samples/os-volumes/volume-type-show-resp.json
    :language: javascript
+
 

@@ -2,9 +2,6 @@
 Delete Bare Metal Node
 ======================
 
-`Request <DELETE_delete_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_node_id_.rst#request>`__
-`Response <DELETE_delete_bare_metal_node_v2.1_tenant_id_servers_server_id_os-baremetal-nodes_node_id_.rst#response>`__
-
 .. rest_method:: DELETE /v2.1/{tenant_id}/servers/{server_id}/os-baremetal-nodes/{node_id}
 
 Deletes a bare metal node from a server.
@@ -20,6 +17,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: ../deleteBareMetalNode.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- node_id: node_id
+
+
+
 
 
 
@@ -27,6 +35,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

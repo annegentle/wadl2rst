@@ -2,9 +2,6 @@
 Inject Network Information (Injectnetworkinfo Action)
 =====================================================
 
-`Request <POST_inject_network_information_(injectnetworkinfo_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_inject_network_information_(injectnetworkinfo_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Injects network information into a server.
@@ -24,7 +21,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../injectNetworkInformation(InjectnetworkinfoAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../injectNetworkInformation(InjectnetworkinfoAction).yaml
 
@@ -43,6 +53,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 

@@ -2,9 +2,6 @@
 Live-Migrate Server (Os-Migratelive Action)
 ===========================================
 
-`Request <POST_live-migrate_server_(os-migratelive_action)_v2.1_tenant_id_servers_server_id_action.rst#request>`__
-`Response <POST_live-migrate_server_(os-migratelive_action)_v2.1_tenant_id_servers_server_id_action.rst#response>`__
-
 .. rest_method:: POST /v2.1/{tenant_id}/servers/{server_id}/action
 
 Live-migrates a server to a new host without rebooting.
@@ -26,7 +23,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: ../live-migrateServer(Os-MigrateliveAction).yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: ../live-migrateServer(Os-MigrateliveAction).yaml
 
@@ -47,6 +57,7 @@ Request
 
 Response
 ^^^^^^^^
+
 
 
 
