@@ -10,6 +10,7 @@ FILENAME_TITLE = re.compile(r" |/")
 FILENAME_PATH = re.compile(r"/|{|}")
 FILENAME_UNDERSCORES = re.compile(r"[_]+")
 PARAMS_YAML = re.compile(r"/s")
+PARAMS_CLEANUP = re.compile(r"\(.*?\)")
 
 
 class MethodNode(BaseNode):
@@ -88,7 +89,8 @@ class MethodNode(BaseNode):
             output['title'] = document_node.attributes.get("title", '').title()
 
         # create the params yaml filename
-        params_yaml = PARAMS_YAML.sub("", output['title']).split()
+        params_yaml = PARAMS_CLEANUP.sub("", output['title'])
+        params_yaml = PARAMS_YAML.sub("", params_yaml).split()
         params_yaml[0] = params_yaml[0].lower()
         output['params_yaml'] = ''.join(params_yaml) + '.yaml'
 
