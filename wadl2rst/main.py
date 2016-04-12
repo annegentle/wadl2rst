@@ -177,7 +177,9 @@ def convert_ir_to_rst(ir,
 
     print "Generating file: {}".format(output_file)
     with open(output_file, 'w') as f:
+        f.write(".. -*- rst -*-\n")
         f.write(preamble.encode("utf-8", "ignore"))
+        f.write("\n")
         f.write(all_rst.encode("utf-8", "ignore"))
 
 

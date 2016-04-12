@@ -1,6 +1,6 @@
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/versions-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/versions.rst
+    output_file: dist/versions.inc
     preamble: |
       ============
       API Versions
@@ -10,7 +10,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers.rst
+    output_file: dist/servers.inc
     preamble: |
       ===================
        Servers (servers)
@@ -105,7 +105,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-multiple-create-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-multiple-create.rst
+    output_file: dist/servers-multiple-create.inc
     preamble: |
       ===================================
        Servers multiple create (servers)
@@ -123,7 +123,7 @@
 #
 # ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-v2.1.wadl:
 #     title: OpenStack Compute API v2.1
-#     output_file: dist/servers-actions.rst
+#     output_file: dist/servers-actions.inc
 #     preamble: |
 #       ===========================================
 #        Servers - run an action (servers, action)
@@ -149,29 +149,29 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-fixed-ip-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-fixed-ip.rst
+    output_file: dist/servers-action-fixed-ip.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-evacuate-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-evacuate.rst
+    output_file: dist/servers-action-evacuate.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-deferred-delete-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-deferred-delete.rst
+    output_file: dist/servers-action-deferred-delete.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-console-output-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-console-output.rst
+    output_file: dist/servers-action-console-output.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-remote-consoles-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-remote-consoles.rst
+    output_file: dist/servers-action-remote-consoles.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-shelve-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-shelve.rst
+    output_file: dist/servers-action-shelve.inc
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-trigger-crash-dump-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-action-crash-dump.rst
+    output_file: dist/servers-action-crash-dump.inc
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-admin-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/servers-admin-action.rst
+    output_file: dist/servers-admin-action.inc
     preamble: |
       ==========================================================
        Servers - run an administrative action (servers, action)
@@ -188,7 +188,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/diagnostics-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/diagnostics.rst
+    output_file: dist/diagnostics.inc
     preamble: |
       ============================================
        Servers diagnostics (servers, diagnostics)
@@ -198,7 +198,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/ips-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/ips.rst
+    output_file: dist/ips.inc
     preamble: |
       ============================
        Servers IPs (servers, ips)
@@ -209,7 +209,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/metadata-v2.1.wadl:
      title: OpenStack Compute API v2.1
-     output_file: dist/metadata.rst
+     output_file: dist/metadata.inc
      preamble: |
       =====================================
        Server metadata (servers, metadata)
@@ -223,7 +223,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-instance-actions-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-instance-actions.rst
+    output_file: dist/os-instance-actions.inc
     preamble: |
       =======================================================
        Servers - list actions (servers, os-instance-actions)
@@ -236,7 +236,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-interface-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-interface.rst
+    output_file: dist/os-interface.inc
     preamble: |
       =========================================
        Port interfaces (servers, os-interface)
@@ -248,7 +248,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-password-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-server-password.rst
+    output_file: dist/os-server-password.inc
     preamble: |
       ================================================
        Servers password (servers, os-server-password)
@@ -260,7 +260,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-virtual-interfaces-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-virtual-interfaces.rst
+    output_file: dist/os-virtual-interfaces.inc
     preamble: |
       =============================================================
        Servers virtual interfaces (servers, os-virtual-interfaces)
@@ -270,7 +270,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-volume-attachments-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-volume-attachments.rst
+    output_file: dist/os-volume-attachments.inc
     preamble: |
       ===================================================================
        Servers with volume attachments (servers, os-volume\_attachments)
@@ -282,7 +282,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/flavors-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/flavors.rst
+    output_file: dist/flavors.inc
     preamble: |
       ============================================
        Flavors with extended attributes (flavors)
@@ -291,7 +291,7 @@
       Shows information about flavors.
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-flavor-access-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-flavor-access.rst
+    output_file: dist/os-flavor-access.inc
     preamble: |
       ====================================================
        Flavors access (flavors, os-flavor-access, action)
@@ -305,7 +305,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-flavor-extra-specs-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-flavor-extra-specs.rst
+    output_file: dist/os-flavor-extra-specs.inc
     preamble: |
       ======================================================
        Flavors extra-specs (flavors, os-flavor-extra-specs)
@@ -316,7 +316,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-keypairs-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-keypairs.rst
+    output_file: dist/os-keypairs.inc
     preamble: |
       =====================
        Keypairs (keypairs)
@@ -326,7 +326,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/limits-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/limits.rst
+    output_file: dist/limits.inc
     preamble: |
       =================
        Limits (limits)
@@ -336,7 +336,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/extensions-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/extensions.rst
+    output_file: dist/extensions.inc
     preamble: |
       =========================
        Extensions (extensions)
@@ -351,7 +351,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/images-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/images.rst
+    output_file: dist/images.inc
     preamble: |
       ========
        Images
@@ -370,7 +370,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-agents-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-agents.rst
+    output_file: dist/os-agents.inc
     preamble: |
       ==========================
        Guest agents (os-agents)
@@ -385,7 +385,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-aggregates-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-aggregates.rst
+    output_file: dist/os-aggregates.inc
     preamble: |
 
       =========================================
@@ -398,7 +398,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-assisted-volume-snapshots-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-assisted-volume-snapshots.rst
+    output_file: dist/os-assisted-volume-snapshots.inc
     preamble: |
       ==========================================================
        Assisted volume snapshots (os-assisted-volume-snapshots)
@@ -412,7 +412,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-availability-zone.rst
+    output_file: dist/os-availability-zone.inc
     preamble: |
       ===========================================
        Availability zones (os-availability-zone)
@@ -422,7 +422,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-baremetal-nodes-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-baremetal-nodes.rst
+    output_file: dist/os-baremetal-nodes.inc
     preamble: |
       =======================================
        Bare metal nodes (os-baremetal-nodes)
@@ -432,7 +432,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-cells-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-cells.rst
+    output_file: dist/os-cells.inc
     preamble: |
       ==============================
        Cells (os-cells, capacities)
@@ -443,7 +443,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-certificates-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-certificates.rst
+    output_file: dist/os-certificates.inc
     preamble: |
       =====================================
        Root certificates (os-certificates)
@@ -453,7 +453,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-cloudpipe-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-cloudpipe.rst
+    output_file: dist/os-cloudpipe.inc
     preamble: |
       ==========================
        Cloudpipe (os-cloudpipe)
@@ -464,7 +464,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-consoles-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-consoles.rst
+    output_file: dist/os-consoles.inc
     preamble: |
       ===============================================================
        Server consoles (servers, os-consoles, os-console-auth-token)
@@ -474,7 +474,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-fixed-ips-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-fixed-ips.rst
+    output_file: dist/os-fixed-ips.inc
     preamble: |
       ==========================
        Fixed IPs (os-fixed-ips)
@@ -485,7 +485,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ip-dns-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-floating-ip-dns.rst
+    output_file: dist/os-floating-ip-dns.inc
     preamble: |
       ==============================================
        Floating IP DNS records (os-floating-ip-dns)
@@ -496,7 +496,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ip-pools-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-floating-ip-pools.rst
+    output_file: dist/os-floating-ip-pools.inc
     preamble: |
       ==========================================
        Floating IP pools (os-floating-ip-pools)
@@ -506,7 +506,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ips-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-floating-ips.rst
+    output_file: dist/os-floating-ips.inc
     preamble: |
       ================================
        Floating IPs (os-floating-ips)
@@ -537,7 +537,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ips-bulk-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-floating-ips-bulk.rst
+    output_file: dist/os-floating-ips-bulk.inc
     preamble: |
       ==========================================
        Floating IPs bulk (os-floating-ips-bulk)
@@ -550,7 +550,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-fping-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-fping.rst
+    output_file: dist/os-fping.inc
     preamble: |
       ===========================
        Ping instances (os-fping)
@@ -560,7 +560,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-hosts-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-hosts.rst
+    output_file: dist/os-hosts.inc
     preamble: |
       ==================
        Hosts (os-hosts)
@@ -572,7 +572,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-hypervisors-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-hypervisors.rst
+    output_file: dist/os-hypervisors.inc
     preamble: |
       ==============================
        Hypervisors (os-hypervisors)
@@ -584,7 +584,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-instance-usage-audit-log-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-instance-usage-audit-log.rst
+    output_file: dist/os-instance-usage-audit-log.inc
     preamble: |
       ========================================================
        Instance usage audit log (os-instance-usage-audit-log)
@@ -594,7 +594,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-migrations-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-migrations.rst
+    output_file: dist/os-migrations.inc
     preamble: |
       ============================
        Migrations (os-migrations)
@@ -604,7 +604,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-networks-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-networks.rst
+    output_file: dist/os-networks.inc
     preamble: |
       ========================
        Networks (os-networks)
@@ -619,7 +619,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-sets-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-quota-sets.rst
+    output_file: dist/os-quota-sets.inc
     preamble: |
       ============================
        Quota sets (os-quota-sets)
@@ -631,7 +631,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-groups-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-security-groups.rst
+    output_file: dist/os-security-groups.inc
     preamble: |
       ======================================
        Security groups (os-security-groups)
@@ -641,7 +641,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-group-default-rules-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-security-group-default-rules.rst
+    output_file: dist/os-security-group-default-rules.inc
     preamble: |
       ====================================================================
        Rules for default security group (os-security-group-default-rules)
@@ -651,7 +651,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-group-rules-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-security-group-rules.rst
+    output_file: dist/os-security-group-rules.inc
     preamble: |
       ====================================================
        Rules for security group (os-security-group-rules)
@@ -661,7 +661,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-external-events-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-server-external-events.rst
+    output_file: dist/os-server-external-events.inc
     preamble: |
       ====================================================
        Create external events (os-server-external-events)
@@ -671,7 +671,7 @@
       server instance.
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-groups-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-server-groups.rst
+    output_file: dist/os-server-groups.inc
     preamble: |
       ==================================
        Server groups (os-server-groups)
@@ -682,7 +682,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-services-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-services.rst
+    output_file: dist/os-services.inc
     preamble: |
       ================================
        Compute services (os-services)
@@ -697,7 +697,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-simple-tenant-usage-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-simple-tenant-usage.rst
+    output_file: dist/os-simple-tenant-usage.inc
     preamble: |
       ========================================
        Usage reports (os-simple-tenant-usage)
@@ -707,7 +707,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-tenant-networks-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-tenant-network.rst
+    output_file: dist/os-tenant-network.inc
     preamble: |
       =======================================
        Project networks (os-tenant-networks)
@@ -717,7 +717,7 @@
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-volumes-v2.1.wadl:
     title: OpenStack Compute API v2.1
-    output_file: dist/os-volumes.rst
+    output_file: dist/os-volumes.inc
     preamble: |
       =============================================
        Volume extension (os-volumes, os-snapshots)
