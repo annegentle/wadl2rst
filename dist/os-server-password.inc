@@ -29,15 +29,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showServerPassword.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 
@@ -81,15 +76,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: clearAdminPassword.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 

@@ -28,24 +28,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createMultipleServers.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createMultipleServers.yaml
-
   - security_groups: security_groups
   - user_data: user_data
   - os-availability-zone:availability_zone: os-availability-zone:availability_zone
@@ -71,6 +56,8 @@ Body Parameters
   - os:scheduler_hints: os:scheduler_hints
   - OS-DCF:diskConfig: OS-DCF:diskConfig
   - return_reservation_id: return_reservation_id
+
+
 
 
 
@@ -128,24 +115,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createMultipleServersWithReservationId.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createMultipleServersWithReservationId.yaml
-
   - security_groups: security_groups
   - user_data: user_data
   - os-availability-zone:availability_zone: os-availability-zone:availability_zone
@@ -171,6 +143,8 @@ Body Parameters
   - os:scheduler_hints: os:scheduler_hints
   - OS-DCF:diskConfig: OS-DCF:diskConfig
   - return_reservation_id: return_reservation_id
+
+
 
 
 

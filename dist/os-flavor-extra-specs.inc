@@ -24,15 +24,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createExtraSpecsForAFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 
@@ -80,15 +75,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listExtraSpecsForAFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 
@@ -136,16 +126,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showAnExtraSpecForAFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
   - flavor_extra_spec_key: flavor_extra_spec_key
-
-
 
 
 
@@ -185,16 +170,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: updateAnExtraSpecForAFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
   - flavor_extra_spec_key: flavor_extra_spec_key
-
-
 
 
 
@@ -242,16 +222,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteAnExtraSpecForAFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
   - flavor_extra_spec_key: flavor_extra_spec_key
-
-
 
 
 

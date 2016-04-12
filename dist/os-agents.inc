@@ -28,14 +28,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createAgentBuild.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -83,30 +78,17 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listAgentBuilds.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: listAgentBuilds.yaml
-
   - agent_id: agent_id
   - architecture: architecture
   - hypervisor: hypervisor
   - url: url
   - md5hash: md5hash
   - version: version
+
+
 
 
 
@@ -144,14 +126,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteAgentBuild.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -183,28 +160,15 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: updateAgentBuild.yaml
 
   - tenant_id: tenant_id
   - agent_build_id: agent_build_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: updateAgentBuild.yaml
-
   - url: url
   - md5hash: md5hash
   - version: version
+
+
 
 
 

@@ -30,14 +30,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listComputeServices.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -93,26 +88,13 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: enableSchedulingForAComputeService.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: enableSchedulingForAComputeService.yaml
-
   - host: host
   - binary: binary
+
+
 
 
 
@@ -168,26 +150,13 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: disableSchedulingForAComputeService.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: disableSchedulingForAComputeService.yaml
-
   - host: host
   - binary: binary
+
+
 
 
 
@@ -243,27 +212,14 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: logDisabledComputeServiceInformation.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: logDisabledComputeServiceInformation.yaml
-
   - host: host
   - binary: binary
   - disabled_reason: disabled_reason
+
+
 
 
 
@@ -320,27 +276,14 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteComputeService.yaml
 
   - tenant_id: tenant_id
   - service_id: service_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: deleteComputeService.yaml
-
   - host: host
   - binary: binary
+
+
 
 
 

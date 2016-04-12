@@ -29,9 +29,6 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: pingInstances.yaml
 
   - tenant_id: tenant_id
@@ -48,8 +45,6 @@ Query Parameters
   - all_tenants: all_tenants
   - include: include
   - exclude: exclude
-
-
 
 
 
@@ -89,15 +84,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: pingAnInstance.yaml
 
   - tenant_id: tenant_id
   - instance_id: instance_id
-
-
 
 
 

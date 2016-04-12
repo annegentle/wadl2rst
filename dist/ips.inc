@@ -26,15 +26,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listIps.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 
@@ -76,16 +71,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showIpDetails.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
   - network_label: network_label
-
-
 
 
 

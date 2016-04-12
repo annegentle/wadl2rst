@@ -23,14 +23,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createCertificate.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -70,15 +65,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showCertificateDetails.yaml
 
   - tenant_id: tenant_id
   - certificate_id: certificate_id
-
-
 
 
 

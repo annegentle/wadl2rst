@@ -23,14 +23,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listKeypairs.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -70,26 +65,13 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createOrImportKeypair.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createOrImportKeypair.yaml
-
   - name: name
   - public_key: public_key
+
+
 
 
 
@@ -135,15 +117,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteKeypair.yaml
 
   - tenant_id: tenant_id
   - keypair_name: keypair_name
-
-
 
 
 
@@ -175,15 +152,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showKeypairDetails.yaml
 
   - tenant_id: tenant_id
   - keypair_name: keypair_name
-
-
 
 
 

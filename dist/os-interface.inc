@@ -25,29 +25,16 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createInterface.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createInterface.yaml
-
   - interfaceAttachment: interfaceAttachment
   - port_id: port_id
   - net_id: net_id
   - fixed_ips: fixed_ips
+
+
 
 
 
@@ -103,15 +90,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listPortInterfaces.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 
@@ -161,16 +143,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showPortInterfaceDetails.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
   - port_id: port_id
-
-
 
 
 
@@ -210,16 +187,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: detachInterface.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
   - port_id: port_id
-
-
 
 
 

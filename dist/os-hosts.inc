@@ -25,14 +25,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listHosts.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -72,15 +67,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: enableHost.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
-
-
 
 
 
@@ -128,15 +118,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showHostDetails.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
-
-
 
 
 
@@ -176,15 +161,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: rebootHost.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
-
-
 
 
 
@@ -224,15 +204,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: shutDownHost.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
-
-
 
 
 
@@ -272,15 +247,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: startHost.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
-
-
 
 
 

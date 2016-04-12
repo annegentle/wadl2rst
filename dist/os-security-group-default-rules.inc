@@ -23,14 +23,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listDefaultSecurityGroupRules.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -82,29 +77,16 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createDefaultSecurityGroupRule.yaml
-
   - id: id
   - ip_protocol: ip_protocol
   - from_port: from_port
   - to_port: to_port
   - cidr: cidr
+
+
 
 
 
@@ -160,15 +142,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
 
   - tenant_id: tenant_id
   - security_group_default_rule_id: security_group_default_rule_id
-
-
 
 
 
@@ -218,15 +195,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteDefaultSecurityGroupRule.yaml
 
   - tenant_id: tenant_id
   - security_group_default_rule_id: security_group_default_rule_id
-
-
 
 
 

@@ -26,14 +26,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listCells.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -75,14 +70,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listCellsWithDetails.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -124,15 +114,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showCellData.yaml
 
   - tenant_id: tenant_id
   - cell_id: cell_id
-
-
 
 
 
@@ -174,15 +159,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showCellCapacities.yaml
 
   - tenant_id: tenant_id
   - cell_id: cell_id
-
-
 
 
 

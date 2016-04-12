@@ -24,15 +24,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showFixedIpDetails.yaml
 
   - tenant_id: tenant_id
   - fixed_ip: fixed_ip
-
-
 
 
 
@@ -74,15 +69,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: reserveOrReleaseAFixedIp.yaml
 
   - tenant_id: tenant_id
   - fixed_ip: fixed_ip
-
-
 
 
 

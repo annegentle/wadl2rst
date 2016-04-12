@@ -27,14 +27,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listFlavorAccessInformationForGivenFlavor.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -76,15 +71,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: addFlavorAccessToTenant.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 
@@ -134,15 +124,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: removeFlavorAccessFromTenant.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 

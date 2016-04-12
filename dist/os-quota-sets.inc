@@ -31,34 +31,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: updateQuotas.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
-
-
-
-
-
-Query Parameters
-~~~~~~~~~~~~~~~~
-
-.. rest_parameters:: updateQuotas.yaml
-
-  - user_id: user_id
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: updateQuotas.yaml
-
   - quota_set: quota_set
   - force: force
   - cores: cores
@@ -76,6 +52,17 @@ Body Parameters
   - security_groups: security_groups
   - server_groups: server_groups
   - server_group_members: server_group_members
+
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
+.. rest_parameters:: updateQuotas.yaml
+
+  - user_id: user_id
 
 
 
@@ -143,9 +130,6 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: revertQuotasToDefaults.yaml
 
   - admin_tenant_id: admin_tenant_id
@@ -161,8 +145,6 @@ Query Parameters
 .. rest_parameters:: revertQuotasToDefaults.yaml
 
   - user_id: user_id
-
-
 
 
 
@@ -196,15 +178,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showAQuota.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
-
-
 
 
 
@@ -266,15 +243,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listDefaultQuotasForTenant.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
-
-
 
 
 

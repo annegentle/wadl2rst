@@ -23,9 +23,6 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listFlavors.yaml
 
   - tenant_id: tenant_id
@@ -45,8 +42,6 @@ Query Parameters
   - sort_dir: sort_dir
   - limit: limit
   - marker: marker
-
-
 
 
 
@@ -84,14 +79,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createFlavor.yaml
 
   - tenant_id: tenant_id
-
-
 
 
 
@@ -139,15 +129,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showFlavorDetails.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 
@@ -187,15 +172,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteFlavor.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
-
-
 
 
 
@@ -227,9 +207,6 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listFlavorsWithDetails.yaml
 
   - tenant_id: tenant_id
@@ -249,8 +226,6 @@ Query Parameters
   - sort_dir: sort_dir
   - limit: limit
   - marker: marker
-
-
 
 
 

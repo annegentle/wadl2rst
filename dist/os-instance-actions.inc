@@ -26,15 +26,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listActionsForServer.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 
@@ -74,16 +69,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showServerActionDetails.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
   - request_id: request_id
-
-
 
 
 

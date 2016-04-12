@@ -31,15 +31,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showImageDetails.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
-
-
 
 
 
@@ -79,15 +74,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteImage.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
-
-
 
 
 
@@ -119,16 +109,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showImageMetadataItemDetails.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
   - key: key
-
-
 
 
 
@@ -168,16 +153,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createOrUpdateImageMetadataItem.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
   - key: key
-
-
 
 
 
@@ -225,16 +205,11 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteImageMetadataItem.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
   - key: key
-
-
 
 
 

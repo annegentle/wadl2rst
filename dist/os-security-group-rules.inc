@@ -23,24 +23,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createSecurityGroupRule.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createSecurityGroupRule.yaml
-
   - security_group_rule: security_group_rule
   - parent_group_id: parent_group_id
   - ip_protocol: ip_protocol
@@ -48,6 +33,8 @@ Body Parameters
   - to_port: to_port
   - cidr: cidr
   - group_id: group_id
+
+
 
 
 
@@ -107,15 +94,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteSecurityGroupRule.yaml
 
   - tenant_id: tenant_id
   - security_group_rule_id: security_group_rule_id
-
-
 
 
 

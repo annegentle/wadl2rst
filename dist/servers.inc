@@ -142,24 +142,9 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: createServer.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: createServer.yaml
-
   - security_groups: security_groups
   - user_data: user_data
   - os-availability-zone:availability_zone: os-availability-zone:availability_zone
@@ -184,6 +169,8 @@ Body Parameters
   - key_name: key_name
   - os:scheduler_hints: os:scheduler_hints
   - OS-DCF:diskConfig: OS-DCF:diskConfig
+
+
 
 
 
@@ -277,9 +264,6 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: listServers.yaml
 
   - tenant_id: tenant_id
@@ -301,8 +285,6 @@ Query Parameters
   - host: host
   - limit: limit
   - marker: marker
-
-
 
 
 
@@ -362,15 +344,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: showServerDetails.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 
@@ -453,25 +430,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: updateServer.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: updateServer.yaml
-
   - security_groups: security_groups
   - user_data: user_data
   - os-availability-zone:availability_zone: os-availability-zone:availability_zone
@@ -496,6 +458,8 @@ Body Parameters
   - key_name: key_name
   - os:scheduler_hints: os:scheduler_hints
   - OS-DCF:diskConfig: OS-DCF:diskConfig
+
+
 
 
 
@@ -620,15 +584,10 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: deleteServer.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
-
-
 
 
 

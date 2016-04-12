@@ -26,29 +26,16 @@ Request
 ^^^^^^^
 
 
-URI Parameters
-~~~~~~~~~~~~~~
-
 .. rest_parameters:: runEvents.yaml
 
   - tenant_id: tenant_id
-
-
-
-
-
-
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: runEvents.yaml
-
   - events: events
   - name: name
   - tag: tag
   - server_uuid: server_uuid
   - status: status
+
+
 
 
 
