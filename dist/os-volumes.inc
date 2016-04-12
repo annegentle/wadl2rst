@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listVolumes.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -60,7 +69,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createVolume.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createVolume.yaml
 
@@ -116,6 +138,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listVolumesWithDetails.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -151,6 +182,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showVolumeDetails.yaml
+
+	- tenant_id: tenant_id
+	- volume_id: volume_id
+
 
 
 
@@ -190,6 +231,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteVolume.yaml
+
+	- tenant_id: tenant_id
+	- volume_id: volume_id
+
+
+
 
 
 
@@ -225,6 +276,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listVolumeTypes.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -271,6 +331,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showVolumeTypeDetails.yaml
+
+	- tenant_id: tenant_id
+	- volume_type_id: volume_type_id
+
+
+
 
 
 
@@ -308,7 +378,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createSnapshot.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createSnapshot.yaml
 
@@ -357,6 +440,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listSnapshots.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -392,6 +484,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listSnapshotsWithDetails.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -431,6 +532,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showSnapshotDetails.yaml
+
+	- tenant_id: tenant_id
+	- snapshot_id: snapshot_id
+
+
+
 
 
 
@@ -468,6 +579,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteSnapshot.yaml
+
+	- tenant_id: tenant_id
+	- snapshot_id: snapshot_id
+
 
 
 

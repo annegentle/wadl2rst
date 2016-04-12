@@ -29,6 +29,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: pingInstances.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: pingInstances.yaml
 
 	- all_tenants: all_tenants
@@ -72,6 +85,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: pingAnInstance.yaml
+
+	- tenant_id: tenant_id
+	- instance_id: instance_id
+
 
 
 

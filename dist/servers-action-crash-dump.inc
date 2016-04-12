@@ -24,7 +24,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: triggerCrashDumpInServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: triggerCrashDumpInServer.yaml
 

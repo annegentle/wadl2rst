@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createCertificate.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -58,6 +67,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showCertificateDetails.yaml
+
+	- tenant_id: tenant_id
+	- certificate_id: certificate_id
+
 
 
 

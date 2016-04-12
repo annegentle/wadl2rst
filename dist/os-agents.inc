@@ -28,6 +28,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createAgentBuild.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -73,7 +82,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: listAgentBuilds.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: listAgentBuilds.yaml
 
@@ -119,6 +141,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteAgentBuild.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -148,7 +179,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: updateAgentBuild.yaml
+
+	- tenant_id: tenant_id
+	- agent_build_id: agent_build_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: updateAgentBuild.yaml
 

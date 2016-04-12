@@ -29,6 +29,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listAllMetadata.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -68,6 +78,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createOrReplaceMetadataItems.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -119,6 +139,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: updateMetadataItems.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -166,6 +196,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showMetadataItemDetails.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- key: key
+
+
+
 
 
 
@@ -205,6 +246,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createOrUpdateMetadataItem.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- key: key
+
 
 
 
@@ -252,6 +304,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteMetadataItem.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- key: key
+
 
 
 

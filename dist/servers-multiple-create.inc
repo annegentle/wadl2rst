@@ -28,7 +28,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createMultipleServers.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createMultipleServers.yaml
 
@@ -112,7 +125,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createMultipleServersWithReservationId.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createMultipleServersWithReservationId.yaml
 

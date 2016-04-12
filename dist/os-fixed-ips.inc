@@ -24,6 +24,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showFixedIpDetails.yaml
+
+	- tenant_id: tenant_id
+	- fixed_ip: fixed_ip
+
+
+
 
 
 
@@ -61,6 +71,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: reserveOrReleaseAFixedIp.yaml
+
+	- tenant_id: tenant_id
+	- fixed_ip: fixed_ip
+
 
 
 

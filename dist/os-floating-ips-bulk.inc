@@ -26,6 +26,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -63,7 +72,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createFloatingIps.yaml
 
@@ -112,7 +134,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: bulk-deleteFloatingIps.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: bulk-deleteFloatingIps.yaml
 
@@ -159,6 +194,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listFloatingIpsByHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 

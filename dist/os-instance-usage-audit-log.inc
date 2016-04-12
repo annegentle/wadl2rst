@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listUsageAuditsForAnInstance.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -59,6 +68,19 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
 

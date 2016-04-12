@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listSecurityGroups.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -69,7 +78,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createSecurityGroup.yaml
 
@@ -129,6 +151,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showSecurityGroupDetails.yaml
+
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
+
+
+
 
 
 
@@ -175,7 +207,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: updateSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: updateSecurityGroup.yaml
 
@@ -234,6 +280,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteSecurityGroup.yaml
+
+	- tenant_id: tenant_id
+	- security_group_id: security_group_id
+
+
+
 
 
 
@@ -261,6 +317,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listSecurityGroupsByServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 

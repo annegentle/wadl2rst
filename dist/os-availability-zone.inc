@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: getAvailabilityZoneInformation.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -58,6 +67,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: getDetailedAvailabilityZoneInformation.yaml
+
+	- tenant_id: tenant_id
+
 
 
 

@@ -23,6 +23,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listFlavors.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: listFlavors.yaml
 
 	- minDisk: minDisk
@@ -67,6 +80,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createFlavor.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -114,6 +136,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showFlavorDetails.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
+
+
 
 
 
@@ -151,6 +183,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
+
+
 
 
 
@@ -179,6 +221,19 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listFlavorsWithDetails.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: listFlavorsWithDetails.yaml
 

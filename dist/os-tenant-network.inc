@@ -25,6 +25,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createProjectNetwork.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -72,6 +81,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listProjectNetworks.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -109,6 +127,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showProjectNetworkDetails.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
 
 
 
@@ -150,6 +178,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteProjectNetwork.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -179,6 +217,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: associateHost.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
 
 
 
@@ -220,6 +268,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: disassociateHost.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -259,6 +317,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: disassociateNetwork.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
+
+
 
 
 
@@ -296,6 +364,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: disassociateProject.yaml
+
+	- tenant_id: tenant_id
+	- network_id: network_id
+
 
 
 

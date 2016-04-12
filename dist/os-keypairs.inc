@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listKeypairs.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -60,7 +69,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createOrImportKeypair.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createOrImportKeypair.yaml
 
@@ -110,6 +132,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteKeypair.yaml
+
+	- tenant_id: tenant_id
+	- keypair_name: keypair_name
+
+
+
 
 
 
@@ -137,6 +169,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showKeypairDetails.yaml
+
+	- tenant_id: tenant_id
+	- keypair_name: keypair_name
+
 
 
 

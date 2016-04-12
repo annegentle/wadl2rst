@@ -34,7 +34,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createServerBackUp.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createServerBackUp.yaml
 
@@ -79,7 +93,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: injectNetworkInformation.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: injectNetworkInformation.yaml
 
@@ -124,7 +152,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: migrateServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: migrateServer.yaml
 
@@ -171,7 +213,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: live-migrateServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: live-migrateServer.yaml
 
@@ -218,7 +274,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: resetNetworkingOnAServer.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: resetNetworkingOnAServer.yaml
 
@@ -263,7 +333,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: resetServerState.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: resetServerState.yaml
 

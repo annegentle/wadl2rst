@@ -25,7 +25,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createInterface.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createInterface.yaml
 
@@ -86,6 +100,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listPortInterfaces.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -132,6 +156,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showPortInterfaceDetails.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- port_id: port_id
+
+
+
 
 
 
@@ -167,6 +202,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: detachInterface.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- port_id: port_id
+
 
 
 

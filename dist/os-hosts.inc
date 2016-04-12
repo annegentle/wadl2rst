@@ -25,6 +25,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listHosts.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -60,6 +69,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: enableHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 
@@ -107,6 +126,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showHostDetails.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
+
+
 
 
 
@@ -142,6 +171,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: rebootHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 
@@ -181,6 +220,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: shutDownHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
+
+
 
 
 
@@ -216,6 +265,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: startHost.yaml
+
+	- tenant_id: tenant_id
+	- host_name: host_name
+
 
 
 

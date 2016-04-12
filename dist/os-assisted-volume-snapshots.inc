@@ -27,7 +27,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createAssistedVolumeSnapshots.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createAssistedVolumeSnapshots.yaml
 
@@ -87,6 +100,20 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 Request
 ^^^^^^^
 
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
+
+	- tenant_id: tenant_id
+	- snapshot_id: snapshot_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
 
 .. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
 

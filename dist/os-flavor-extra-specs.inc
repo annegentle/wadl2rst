@@ -24,6 +24,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createExtraSpecsForAFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
+
+
 
 
 
@@ -67,6 +77,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listExtraSpecsForAFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+
 
 
 
@@ -114,6 +134,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showAnExtraSpecForAFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+	- flavor_extra_spec_key: flavor_extra_spec_key
+
+
+
 
 
 
@@ -149,6 +180,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: updateAnExtraSpecForAFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+	- flavor_extra_spec_key: flavor_extra_spec_key
+
 
 
 
@@ -194,6 +236,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteAnExtraSpecForAFlavor.yaml
+
+	- tenant_id: tenant_id
+	- flavor_id: flavor_id
+	- flavor_extra_spec_key: flavor_extra_spec_key
+
 
 
 

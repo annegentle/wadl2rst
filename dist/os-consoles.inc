@@ -23,6 +23,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
 
 
 
@@ -50,6 +60,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listsConsoles.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 
@@ -89,6 +109,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showConsoleDetails.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- console_id: console_id
+
+
+
 
 
 
@@ -126,6 +157,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+	- console_id: console_id
+
+
+
 
 
 
@@ -155,6 +197,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showConsoleAuthenticationToken.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
 
 
 

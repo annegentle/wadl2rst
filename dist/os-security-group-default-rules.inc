@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listDefaultSecurityGroupRules.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -71,7 +80,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createDefaultSecurityGroupRule.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
@@ -133,6 +155,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
+
+	- tenant_id: tenant_id
+	- security_group_default_rule_id: security_group_default_rule_id
+
+
+
 
 
 
@@ -177,6 +209,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteDefaultSecurityGroupRule.yaml
+
+	- tenant_id: tenant_id
+	- security_group_default_rule_id: security_group_default_rule_id
+
 
 
 

@@ -20,7 +20,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: getRdpConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: getRdpConsole.yaml
 
@@ -71,7 +85,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: getSerialConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: getSerialConsole.yaml
 
@@ -122,7 +150,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: getSpiceConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: getSpiceConsole.yaml
 
@@ -173,7 +215,21 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: getVncConsole.yaml
+
+	- tenant_id: tenant_id
+	- server_id: server_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: getVncConsole.yaml
 

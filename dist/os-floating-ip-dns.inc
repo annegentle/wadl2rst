@@ -24,6 +24,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listDnsDomains.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -59,6 +68,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createOrUpdateDnsDomain.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+
 
 
 
@@ -106,6 +125,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteDnsDomain.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+
+
+
 
 
 
@@ -133,6 +162,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: createOrUpdateDnsEntry.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+	- name: name
+
 
 
 
@@ -180,6 +220,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: findUniqueDnsEntry.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+	- name: name
+
+
+
 
 
 
@@ -217,6 +268,17 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteDnsEntry.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+	- name: name
+
+
+
 
 
 
@@ -244,6 +306,17 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listDnsEntries.yaml
+
+	- tenant_id: tenant_id
+	- domain: domain
+	- ip: ip
+
 
 
 

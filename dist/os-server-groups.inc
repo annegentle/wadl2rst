@@ -25,6 +25,19 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listServerGroups.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+Query Parameters
+~~~~~~~~~~~~~~~~
+
 .. rest_parameters:: listServerGroups.yaml
 
 	- all_projects: all_projects
@@ -77,7 +90,20 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
 
+.. rest_parameters:: createServerGroup.yaml
+
+	- tenant_id: tenant_id
+
+
+
+
+
+
+Body Parameters
+~~~~~~~~~~~~~~~
 
 .. rest_parameters:: createServerGroup.yaml
 
@@ -138,6 +164,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showServerGroupDetails.yaml
+
+	- tenant_id: tenant_id
+	- server_group_id: server_group_id
+
+
+
 
 
 
@@ -184,6 +220,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: deleteServerGroup.yaml
+
+	- tenant_id: tenant_id
+	- server_group_id: server_group_id
+
 
 
 

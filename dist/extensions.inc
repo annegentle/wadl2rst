@@ -28,6 +28,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showExtensionDetails.yaml
+
+	- tenant_id: tenant_id
+	- alias: alias
+
+
+
 
 
 

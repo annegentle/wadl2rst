@@ -25,6 +25,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: listHypervisors.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
@@ -60,6 +69,15 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showHypervisorStatistics.yaml
+
+	- tenant_id: tenant_id
+
 
 
 
@@ -99,6 +117,16 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showHypervisorDetails.yaml
+
+	- tenant_id: tenant_id
+	- hypervisor_id: hypervisor_id
+
+
+
 
 
 
@@ -134,6 +162,16 @@ unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
 ^^^^^^^
+
+
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showHypervisorUptime.yaml
+
+	- tenant_id: tenant_id
+	- hypervisor_id: hypervisor_id
+
 
 
 

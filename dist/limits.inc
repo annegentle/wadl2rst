@@ -23,6 +23,15 @@ Request
 ^^^^^^^
 
 
+URI Parameters
+~~~~~~~~~~~~~~
+
+.. rest_parameters:: showRateAndAbsoluteLimits.yaml
+
+	- tenant_id: tenant_id
+
+
+
 
 
 
