@@ -64,6 +64,17 @@ def main():
                           options.get('preamble', ''),
                           options['title'])
 
+    # Write out index
+    with open('dist/index.rst', 'w') as f:
+        f.write(""":tocdepth: 2
+
+=============
+ Compute API
+=============
+""")
+        for filename, options in config.items():
+            f.write(".. include:: %s\n" % os.path.basename(options['output_file']))
+
 
 def parse_arguments():
     """Parses the command line options."""
