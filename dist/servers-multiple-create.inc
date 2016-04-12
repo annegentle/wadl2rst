@@ -33,7 +33,8 @@ URI Parameters
 
 .. rest_parameters:: createMultipleServers.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -45,31 +46,32 @@ Body Parameters
 
 .. rest_parameters:: createMultipleServers.yaml
 
-	- security_groups: security_groups
-	- user_data: user_data
-	- os-availability-zone:availability_zone: os-availability-zone:availability_zone
-	- server: server
-	- imageRef: imageRef
-	- flavorRef: flavorRef
-	- networks: networks
-	- uuid: uuid
-	- port: port
-	- fixed_ip: fixed_ip
-	- name: name
-	- metadata: metadata
-	- personality: personality
-	- block_device_mapping_v2: block_device_mapping_v2
-	- device_name: device_name
-	- source_type: source_type
-	- destination_type: destination_type
-	- delete_on_termination: delete_on_termination
-	- guest_format: guest_format
-	- boot_index: boot_index
-	- config_drive: config_drive
-	- key_name: key_name
-	- os:scheduler_hints: os:scheduler_hints
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- return_reservation_id: return_reservation_id
+  - security_groups: security_groups
+  - user_data: user_data
+  - os-availability-zone:availability_zone: os-availability-zone:availability_zone
+  - server: server
+  - imageRef: imageRef
+  - flavorRef: flavorRef
+  - networks: networks
+  - uuid: uuid
+  - port: port
+  - fixed_ip: fixed_ip
+  - name: name
+  - metadata: metadata
+  - personality: personality
+  - block_device_mapping_v2: block_device_mapping_v2
+  - device_name: device_name
+  - source_type: source_type
+  - destination_type: destination_type
+  - delete_on_termination: delete_on_termination
+  - guest_format: guest_format
+  - boot_index: boot_index
+  - config_drive: config_drive
+  - key_name: key_name
+  - os:scheduler_hints: os:scheduler_hints
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - return_reservation_id: return_reservation_id
+
 
 
 
@@ -88,12 +90,13 @@ Response
 
 .. rest_parameters:: createMultipleServers.yaml
 
-	- server: server
-	- adminPass: adminPass
-	- id: id
-	- links: links
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- security_groups: security_groups
+  - server: server
+  - adminPass: adminPass
+  - id: id
+  - links: links
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - security_groups: security_groups
+
 
 
 
@@ -130,7 +133,8 @@ URI Parameters
 
 .. rest_parameters:: createMultipleServersWithReservationId.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -142,31 +146,32 @@ Body Parameters
 
 .. rest_parameters:: createMultipleServersWithReservationId.yaml
 
-	- security_groups: security_groups
-	- user_data: user_data
-	- os-availability-zone:availability_zone: os-availability-zone:availability_zone
-	- server: server
-	- imageRef: imageRef
-	- flavorRef: flavorRef
-	- networks: networks
-	- uuid: uuid
-	- port: port
-	- fixed_ip: fixed_ip
-	- name: name
-	- metadata: metadata
-	- personality: personality
-	- block_device_mapping_v2: block_device_mapping_v2
-	- device_name: device_name
-	- source_type: source_type
-	- destination_type: destination_type
-	- delete_on_termination: delete_on_termination
-	- guest_format: guest_format
-	- boot_index: boot_index
-	- config_drive: config_drive
-	- key_name: key_name
-	- os:scheduler_hints: os:scheduler_hints
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- return_reservation_id: return_reservation_id
+  - security_groups: security_groups
+  - user_data: user_data
+  - os-availability-zone:availability_zone: os-availability-zone:availability_zone
+  - server: server
+  - imageRef: imageRef
+  - flavorRef: flavorRef
+  - networks: networks
+  - uuid: uuid
+  - port: port
+  - fixed_ip: fixed_ip
+  - name: name
+  - metadata: metadata
+  - personality: personality
+  - block_device_mapping_v2: block_device_mapping_v2
+  - device_name: device_name
+  - source_type: source_type
+  - destination_type: destination_type
+  - delete_on_termination: delete_on_termination
+  - guest_format: guest_format
+  - boot_index: boot_index
+  - config_drive: config_drive
+  - key_name: key_name
+  - os:scheduler_hints: os:scheduler_hints
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - return_reservation_id: return_reservation_id
+
 
 
 
@@ -185,7 +190,8 @@ Response
 
 .. rest_parameters:: createMultipleServersWithReservationId.yaml
 
-	- reservation_id: reservation_id
+  - reservation_id: reservation_id
+
 
 
 

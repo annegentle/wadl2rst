@@ -30,7 +30,8 @@ URI Parameters
 
 .. rest_parameters:: listServerGroups.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -40,7 +41,8 @@ Query Parameters
 
 .. rest_parameters:: listServerGroups.yaml
 
-	- all_projects: all_projects
+  - all_projects: all_projects
+
 
 
 
@@ -53,14 +55,15 @@ Response
 
 .. rest_parameters:: listServerGroups.yaml
 
-	- server_groups: server_groups
-	- id: id
-	- name: name
-	- policies: policies
-	- members: members
-	- metadata: metadata
-	- project_id: project_id
-	- user_id: user_id
+  - server_groups: server_groups
+  - id: id
+  - name: name
+  - policies: policies
+  - members: members
+  - metadata: metadata
+  - project_id: project_id
+  - user_id: user_id
+
 
 
 
@@ -95,7 +98,8 @@ URI Parameters
 
 .. rest_parameters:: createServerGroup.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -107,8 +111,9 @@ Body Parameters
 
 .. rest_parameters:: createServerGroup.yaml
 
-	- name: name
-	- policies: policies
+  - name: name
+  - policies: policies
+
 
 
 
@@ -127,14 +132,15 @@ Response
 
 .. rest_parameters:: createServerGroup.yaml
 
-	- server_groups: server_groups
-	- id: id
-	- name: name
-	- policies: policies
-	- members: members
-	- metadata: metadata
-	- project_id: project_id
-	- user_id: user_id
+  - server_groups: server_groups
+  - id: id
+  - name: name
+  - policies: policies
+  - members: members
+  - metadata: metadata
+  - project_id: project_id
+  - user_id: user_id
+
 
 
 
@@ -169,8 +175,9 @@ URI Parameters
 
 .. rest_parameters:: showServerGroupDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_group_id: server_group_id
+  - tenant_id: tenant_id
+  - server_group_id: server_group_id
+
 
 
 
@@ -185,14 +192,15 @@ Response
 
 .. rest_parameters:: showServerGroupDetails.yaml
 
-	- server_groups: server_groups
-	- id: id
-	- name: name
-	- policies: policies
-	- members: members
-	- metadata: metadata
-	- project_id: project_id
-	- user_id: user_id
+  - server_groups: server_groups
+  - id: id
+  - name: name
+  - policies: policies
+  - members: members
+  - metadata: metadata
+  - project_id: project_id
+  - user_id: user_id
+
 
 
 
@@ -227,8 +235,9 @@ URI Parameters
 
 .. rest_parameters:: deleteServerGroup.yaml
 
-	- tenant_id: tenant_id
-	- server_group_id: server_group_id
+  - tenant_id: tenant_id
+  - server_group_id: server_group_id
+
 
 
 

@@ -27,8 +27,9 @@ URI Parameters
 
 .. rest_parameters:: addFixedIp.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -40,7 +41,8 @@ Body Parameters
 
 .. rest_parameters:: addFixedIp.yaml
 
-	- addFixedIp: addFixedIp
+  - addFixedIp: addFixedIp
+
 
 
 
@@ -86,8 +88,9 @@ URI Parameters
 
 .. rest_parameters:: removeFixedIp.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -99,7 +102,8 @@ Body Parameters
 
 .. rest_parameters:: removeFixedIp.yaml
 
-	- removeFixedIp: removeFixedIp
+  - removeFixedIp: removeFixedIp
+
 
 
 

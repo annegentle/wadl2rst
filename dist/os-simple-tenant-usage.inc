@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listTenantUsageForAllTenants.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,8 +75,9 @@ URI Parameters
 
 .. rest_parameters:: showUsageDetailsForTenant.yaml
 
-	- tenant_id: tenant_id
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 

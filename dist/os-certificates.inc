@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: createCertificate.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,8 +75,9 @@ URI Parameters
 
 .. rest_parameters:: showCertificateDetails.yaml
 
-	- tenant_id: tenant_id
-	- certificate_id: certificate_id
+  - tenant_id: tenant_id
+  - certificate_id: certificate_id
+
 
 
 

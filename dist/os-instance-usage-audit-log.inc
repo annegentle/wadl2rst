@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listUsageAuditsForAnInstance.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,7 +75,8 @@ URI Parameters
 
 .. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -84,7 +86,8 @@ Query Parameters
 
 .. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
 
-	- before_timestamp: before_timestamp
+  - before_timestamp: before_timestamp
+
 
 
 

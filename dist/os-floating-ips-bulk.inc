@@ -31,7 +31,8 @@ URI Parameters
 
 .. rest_parameters:: listFloatingIps.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -77,7 +78,8 @@ URI Parameters
 
 .. rest_parameters:: createFloatingIps.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -89,7 +91,8 @@ Body Parameters
 
 .. rest_parameters:: createFloatingIps.yaml
 
-	- ip_range: ip_range
+  - ip_range: ip_range
+
 
 
 
@@ -139,7 +142,8 @@ URI Parameters
 
 .. rest_parameters:: bulk-deleteFloatingIps.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -151,7 +155,8 @@ Body Parameters
 
 .. rest_parameters:: bulk-deleteFloatingIps.yaml
 
-	- ip_range: ip_range
+  - ip_range: ip_range
+
 
 
 
@@ -201,8 +206,9 @@ URI Parameters
 
 .. rest_parameters:: listFloatingIpsByHost.yaml
 
-	- tenant_id: tenant_id
-	- host_name: host_name
+  - tenant_id: tenant_id
+  - host_name: host_name
+
 
 
 

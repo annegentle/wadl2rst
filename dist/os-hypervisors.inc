@@ -30,7 +30,8 @@ URI Parameters
 
 .. rest_parameters:: listHypervisors.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -76,7 +77,8 @@ URI Parameters
 
 .. rest_parameters:: showHypervisorStatistics.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -122,8 +124,9 @@ URI Parameters
 
 .. rest_parameters:: showHypervisorDetails.yaml
 
-	- tenant_id: tenant_id
-	- hypervisor_id: hypervisor_id
+  - tenant_id: tenant_id
+  - hypervisor_id: hypervisor_id
+
 
 
 
@@ -169,8 +172,9 @@ URI Parameters
 
 .. rest_parameters:: showHypervisorUptime.yaml
 
-	- tenant_id: tenant_id
-	- hypervisor_id: hypervisor_id
+  - tenant_id: tenant_id
+  - hypervisor_id: hypervisor_id
+
 
 
 

@@ -27,8 +27,9 @@ URI Parameters
 
 .. rest_parameters:: force-deleteServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -40,7 +41,8 @@ Body Parameters
 
 .. rest_parameters:: force-deleteServer.yaml
 
-	- forceDelete: forceDelete
+  - forceDelete: forceDelete
+
 
 
 
@@ -86,8 +88,9 @@ URI Parameters
 
 .. rest_parameters:: restoreSoft-DeletedInstance.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -99,7 +102,8 @@ Body Parameters
 
 .. rest_parameters:: restoreSoft-DeletedInstance.yaml
 
-	- restore: restore
+  - restore: restore
+
 
 
 

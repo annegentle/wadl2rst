@@ -36,8 +36,9 @@ URI Parameters
 
 .. rest_parameters:: listVirtualInterfaces.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -52,9 +53,10 @@ Response
 
 .. rest_parameters:: listVirtualInterfaces.yaml
 
-	- virtual_interfaces: virtual_interfaces
-	- id: id
-	- mac_address: mac_address
+  - virtual_interfaces: virtual_interfaces
+  - id: id
+  - mac_address: mac_address
+
 
 
 

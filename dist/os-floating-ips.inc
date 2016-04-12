@@ -51,7 +51,8 @@ URI Parameters
 
 .. rest_parameters:: listFloatingIpAddresses.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -101,7 +102,8 @@ URI Parameters
 
 .. rest_parameters:: createFloatingIpAddress.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -113,7 +115,8 @@ Body Parameters
 
 .. rest_parameters:: createFloatingIpAddress.yaml
 
-	- pool: pool
+  - pool: pool
+
 
 
 
@@ -165,8 +168,9 @@ URI Parameters
 
 .. rest_parameters:: showFloatingIpAddressDetails.yaml
 
-	- tenant_id: tenant_id
-	- floating_ip_id: floating_ip_id
+  - tenant_id: tenant_id
+  - floating_ip_id: floating_ip_id
+
 
 
 
@@ -216,8 +220,9 @@ URI Parameters
 
 .. rest_parameters:: deleteFloatingIpAddress.yaml
 
-	- tenant_id: tenant_id
-	- floating_ip_id: floating_ip_id
+  - tenant_id: tenant_id
+  - floating_ip_id: floating_ip_id
+
 
 
 

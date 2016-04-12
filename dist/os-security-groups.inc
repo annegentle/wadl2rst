@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listSecurityGroups.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -43,12 +44,13 @@ Response
 
 .. rest_parameters:: listSecurityGroups.yaml
 
-	- security_groups: security_groups
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- tenant_id: tenant_id
+  - security_groups: security_groups
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - tenant_id: tenant_id
+
 
 
 
@@ -83,7 +85,8 @@ URI Parameters
 
 .. rest_parameters:: createSecurityGroup.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -95,9 +98,10 @@ Body Parameters
 
 .. rest_parameters:: createSecurityGroup.yaml
 
-	- security_group: security_group
-	- name: name
-	- description: description
+  - security_group: security_group
+  - name: name
+  - description: description
+
 
 
 
@@ -116,12 +120,13 @@ Response
 
 .. rest_parameters:: createSecurityGroup.yaml
 
-	- security_group: security_group
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- tenant_id: tenant_id
+  - security_group: security_group
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - tenant_id: tenant_id
+
 
 
 
@@ -156,8 +161,9 @@ URI Parameters
 
 .. rest_parameters:: showSecurityGroupDetails.yaml
 
-	- tenant_id: tenant_id
-	- security_group_id: security_group_id
+  - tenant_id: tenant_id
+  - security_group_id: security_group_id
+
 
 
 
@@ -172,12 +178,13 @@ Response
 
 .. rest_parameters:: showSecurityGroupDetails.yaml
 
-	- security_group: security_group
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- tenant_id: tenant_id
+  - security_group: security_group
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - tenant_id: tenant_id
+
 
 
 
@@ -212,8 +219,9 @@ URI Parameters
 
 .. rest_parameters:: updateSecurityGroup.yaml
 
-	- tenant_id: tenant_id
-	- security_group_id: security_group_id
+  - tenant_id: tenant_id
+  - security_group_id: security_group_id
+
 
 
 
@@ -225,8 +233,9 @@ Body Parameters
 
 .. rest_parameters:: updateSecurityGroup.yaml
 
-	- name: name
-	- description: description
+  - name: name
+  - description: description
+
 
 
 
@@ -245,12 +254,13 @@ Response
 
 .. rest_parameters:: updateSecurityGroup.yaml
 
-	- security_group: security_group
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- tenant_id: tenant_id
+  - security_group: security_group
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - tenant_id: tenant_id
+
 
 
 
@@ -285,8 +295,9 @@ URI Parameters
 
 .. rest_parameters:: deleteSecurityGroup.yaml
 
-	- tenant_id: tenant_id
-	- security_group_id: security_group_id
+  - tenant_id: tenant_id
+  - security_group_id: security_group_id
+
 
 
 
@@ -324,8 +335,9 @@ URI Parameters
 
 .. rest_parameters:: listSecurityGroupsByServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -340,12 +352,13 @@ Response
 
 .. rest_parameters:: listSecurityGroupsByServer.yaml
 
-	- security_groups: security_groups
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- tenant_id: tenant_id
+  - security_groups: security_groups
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - tenant_id: tenant_id
+
 
 
 

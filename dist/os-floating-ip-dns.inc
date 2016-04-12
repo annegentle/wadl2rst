@@ -29,7 +29,8 @@ URI Parameters
 
 .. rest_parameters:: listDnsDomains.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -75,8 +76,9 @@ URI Parameters
 
 .. rest_parameters:: createOrUpdateDnsDomain.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
+  - tenant_id: tenant_id
+  - domain: domain
+
 
 
 
@@ -130,8 +132,9 @@ URI Parameters
 
 .. rest_parameters:: deleteDnsDomain.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
+  - tenant_id: tenant_id
+  - domain: domain
+
 
 
 
@@ -169,9 +172,10 @@ URI Parameters
 
 .. rest_parameters:: createOrUpdateDnsEntry.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
-	- name: name
+  - tenant_id: tenant_id
+  - domain: domain
+  - name: name
+
 
 
 
@@ -225,9 +229,10 @@ URI Parameters
 
 .. rest_parameters:: findUniqueDnsEntry.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
-	- name: name
+  - tenant_id: tenant_id
+  - domain: domain
+  - name: name
+
 
 
 
@@ -273,9 +278,10 @@ URI Parameters
 
 .. rest_parameters:: deleteDnsEntry.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
-	- name: name
+  - tenant_id: tenant_id
+  - domain: domain
+  - name: name
+
 
 
 
@@ -313,9 +319,10 @@ URI Parameters
 
 .. rest_parameters:: listDnsEntries.yaml
 
-	- tenant_id: tenant_id
-	- domain: domain
-	- ip: ip
+  - tenant_id: tenant_id
+  - domain: domain
+  - ip: ip
+
 
 
 

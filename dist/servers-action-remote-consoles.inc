@@ -25,8 +25,9 @@ URI Parameters
 
 .. rest_parameters:: getRdpConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -38,7 +39,8 @@ Body Parameters
 
 .. rest_parameters:: getRdpConsole.yaml
 
-	- os-getRDPConsole: os-getRDPConsole
+  - os-getRDPConsole: os-getRDPConsole
+
 
 
 
@@ -90,8 +92,9 @@ URI Parameters
 
 .. rest_parameters:: getSerialConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -103,7 +106,8 @@ Body Parameters
 
 .. rest_parameters:: getSerialConsole.yaml
 
-	- os-getSerialConsole: os-getSerialConsole
+  - os-getSerialConsole: os-getSerialConsole
+
 
 
 
@@ -155,8 +159,9 @@ URI Parameters
 
 .. rest_parameters:: getSpiceConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -168,7 +173,8 @@ Body Parameters
 
 .. rest_parameters:: getSpiceConsole.yaml
 
-	- os-getSPICEConsole: os-getSPICEConsole
+  - os-getSPICEConsole: os-getSPICEConsole
+
 
 
 
@@ -220,8 +226,9 @@ URI Parameters
 
 .. rest_parameters:: getVncConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -233,7 +240,8 @@ Body Parameters
 
 .. rest_parameters:: getVncConsole.yaml
 
-	- os-getVNCConsole: os-getVNCConsole
+  - os-getVNCConsole: os-getVNCConsole
+
 
 
 

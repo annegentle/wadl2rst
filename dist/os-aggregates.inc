@@ -31,7 +31,8 @@ URI Parameters
 
 .. rest_parameters:: createAggregate.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -85,7 +86,8 @@ URI Parameters
 
 .. rest_parameters:: listAggregates.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -139,8 +141,9 @@ URI Parameters
 
 .. rest_parameters:: showAggregateDetails.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 
@@ -194,8 +197,9 @@ URI Parameters
 
 .. rest_parameters:: deleteAggregate.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 
@@ -233,8 +237,9 @@ URI Parameters
 
 .. rest_parameters:: updateAggregate.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 
@@ -290,8 +295,9 @@ URI Parameters
 
 .. rest_parameters:: addHost.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 
@@ -347,8 +353,9 @@ URI Parameters
 
 .. rest_parameters:: createOrUpdateAggregateMetadata.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 
@@ -404,8 +411,9 @@ URI Parameters
 
 .. rest_parameters:: removeHost.yaml
 
-	- tenant_id: tenant_id
-	- aggregate_id: aggregate_id
+  - tenant_id: tenant_id
+  - aggregate_id: aggregate_id
+
 
 
 

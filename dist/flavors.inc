@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listFlavors.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -38,12 +39,13 @@ Query Parameters
 
 .. rest_parameters:: listFlavors.yaml
 
-	- minDisk: minDisk
-	- minRam: minRam
-	- sort_key: sort_key
-	- sort_dir: sort_dir
-	- limit: limit
-	- marker: marker
+  - minDisk: minDisk
+  - minRam: minRam
+  - sort_key: sort_key
+  - sort_dir: sort_dir
+  - limit: limit
+  - marker: marker
+
 
 
 
@@ -87,7 +89,8 @@ URI Parameters
 
 .. rest_parameters:: createFlavor.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -141,8 +144,9 @@ URI Parameters
 
 .. rest_parameters:: showFlavorDetails.yaml
 
-	- tenant_id: tenant_id
-	- flavor_id: flavor_id
+  - tenant_id: tenant_id
+  - flavor_id: flavor_id
+
 
 
 
@@ -188,8 +192,9 @@ URI Parameters
 
 .. rest_parameters:: deleteFlavor.yaml
 
-	- tenant_id: tenant_id
-	- flavor_id: flavor_id
+  - tenant_id: tenant_id
+  - flavor_id: flavor_id
+
 
 
 
@@ -227,7 +232,8 @@ URI Parameters
 
 .. rest_parameters:: listFlavorsWithDetails.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -237,12 +243,13 @@ Query Parameters
 
 .. rest_parameters:: listFlavorsWithDetails.yaml
 
-	- minDisk: minDisk
-	- minRam: minRam
-	- sort_key: sort_key
-	- sort_dir: sort_dir
-	- limit: limit
-	- marker: marker
+  - minDisk: minDisk
+  - minRam: minRam
+  - sort_key: sort_key
+  - sort_dir: sort_dir
+  - limit: limit
+  - marker: marker
+
 
 
 

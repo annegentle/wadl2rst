@@ -30,7 +30,8 @@ URI Parameters
 
 .. rest_parameters:: listFloatingIpPools.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -45,8 +46,9 @@ Response
 
 .. rest_parameters:: listFloatingIpPools.yaml
 
-	- floating_ip_pools: floating_ip_pools
-	- name: name
+  - floating_ip_pools: floating_ip_pools
+  - name: name
+
 
 
 

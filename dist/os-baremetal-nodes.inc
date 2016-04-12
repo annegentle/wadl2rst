@@ -34,8 +34,9 @@ URI Parameters
 
 .. rest_parameters:: addBareMetalNode.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -105,8 +106,9 @@ URI Parameters
 
 .. rest_parameters:: listBareMetalNodes.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -152,8 +154,9 @@ URI Parameters
 
 .. rest_parameters:: addInterfaceToBareMetalNode.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -207,8 +210,9 @@ URI Parameters
 
 .. rest_parameters:: deleteInterfaceFromBareMetalNode.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -258,9 +262,10 @@ URI Parameters
 
 .. rest_parameters:: showBareMetalNodeDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- node_id: node_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - node_id: node_id
+
 
 
 
@@ -306,9 +311,10 @@ URI Parameters
 
 .. rest_parameters:: deleteBareMetalNode.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- node_id: node_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - node_id: node_id
+
 
 
 

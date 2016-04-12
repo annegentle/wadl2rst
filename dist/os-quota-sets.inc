@@ -36,8 +36,9 @@ URI Parameters
 
 .. rest_parameters:: updateQuotas.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+  - admin_tenant_id: admin_tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -47,7 +48,8 @@ Query Parameters
 
 .. rest_parameters:: updateQuotas.yaml
 
-	- user_id: user_id
+  - user_id: user_id
+
 
 
 
@@ -57,23 +59,24 @@ Body Parameters
 
 .. rest_parameters:: updateQuotas.yaml
 
-	- quota_set: quota_set
-	- force: force
-	- cores: cores
-	- fixed_ips: fixed_ips
-	- floating_ips: floating_ips
-	- id: id
-	- injected_file_content_bytes: injected_file_content_bytes
-	- injected_file_path_bytes: injected_file_path_bytes
-	- injected_files: injected_files
-	- instances: instances
-	- key_pairs: key_pairs
-	- metadata_items: metadata_items
-	- ram: ram
-	- security_group_rules: security_group_rules
-	- security_groups: security_groups
-	- server_groups: server_groups
-	- server_group_members: server_group_members
+  - quota_set: quota_set
+  - force: force
+  - cores: cores
+  - fixed_ips: fixed_ips
+  - floating_ips: floating_ips
+  - id: id
+  - injected_file_content_bytes: injected_file_content_bytes
+  - injected_file_path_bytes: injected_file_path_bytes
+  - injected_files: injected_files
+  - instances: instances
+  - key_pairs: key_pairs
+  - metadata_items: metadata_items
+  - ram: ram
+  - security_group_rules: security_group_rules
+  - security_groups: security_groups
+  - server_groups: server_groups
+  - server_group_members: server_group_members
+
 
 
 
@@ -92,22 +95,23 @@ Response
 
 .. rest_parameters:: updateQuotas.yaml
 
-	- quota_set: quota_set
-	- cores: cores
-	- fixed_ips: fixed_ips
-	- floating_ips: floating_ips
-	- id: id
-	- injected_file_content_bytes: injected_file_content_bytes
-	- injected_file_path_bytes: injected_file_path_bytes
-	- injected_files: injected_files
-	- instances: instances
-	- key_pairs: key_pairs
-	- metadata_items: metadata_items
-	- ram: ram
-	- security_group_rules: security_group_rules
-	- security_groups: security_groups
-	- server_groups: server_groups
-	- server_group_members: server_group_members
+  - quota_set: quota_set
+  - cores: cores
+  - fixed_ips: fixed_ips
+  - floating_ips: floating_ips
+  - id: id
+  - injected_file_content_bytes: injected_file_content_bytes
+  - injected_file_path_bytes: injected_file_path_bytes
+  - injected_files: injected_files
+  - instances: instances
+  - key_pairs: key_pairs
+  - metadata_items: metadata_items
+  - ram: ram
+  - security_group_rules: security_group_rules
+  - security_groups: security_groups
+  - server_groups: server_groups
+  - server_group_members: server_group_members
+
 
 
 
@@ -144,8 +148,9 @@ URI Parameters
 
 .. rest_parameters:: revertQuotasToDefaults.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+  - admin_tenant_id: admin_tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -155,7 +160,8 @@ Query Parameters
 
 .. rest_parameters:: revertQuotasToDefaults.yaml
 
-	- user_id: user_id
+  - user_id: user_id
+
 
 
 
@@ -195,8 +201,9 @@ URI Parameters
 
 .. rest_parameters:: showAQuota.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+  - admin_tenant_id: admin_tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -211,22 +218,23 @@ Response
 
 .. rest_parameters:: showAQuota.yaml
 
-	- quota_set: quota_set
-	- cores: cores
-	- fixed_ips: fixed_ips
-	- floating_ips: floating_ips
-	- id: id
-	- injected_file_content_bytes: injected_file_content_bytes
-	- injected_file_path_bytes: injected_file_path_bytes
-	- injected_files: injected_files
-	- instances: instances
-	- key_pairs: key_pairs
-	- metadata_items: metadata_items
-	- ram: ram
-	- security_group_rules: security_group_rules
-	- security_groups: security_groups
-	- server_groups: server_groups
-	- server_group_members: server_group_members
+  - quota_set: quota_set
+  - cores: cores
+  - fixed_ips: fixed_ips
+  - floating_ips: floating_ips
+  - id: id
+  - injected_file_content_bytes: injected_file_content_bytes
+  - injected_file_path_bytes: injected_file_path_bytes
+  - injected_files: injected_files
+  - instances: instances
+  - key_pairs: key_pairs
+  - metadata_items: metadata_items
+  - ram: ram
+  - security_group_rules: security_group_rules
+  - security_groups: security_groups
+  - server_groups: server_groups
+  - server_group_members: server_group_members
+
 
 
 
@@ -263,8 +271,9 @@ URI Parameters
 
 .. rest_parameters:: listDefaultQuotasForTenant.yaml
 
-	- admin_tenant_id: admin_tenant_id
-	- tenant_id: tenant_id
+  - admin_tenant_id: admin_tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -279,22 +288,23 @@ Response
 
 .. rest_parameters:: listDefaultQuotasForTenant.yaml
 
-	- quota_set: quota_set
-	- cores: cores
-	- fixed_ips: fixed_ips
-	- floating_ips: floating_ips
-	- id: id
-	- injected_file_content_bytes: injected_file_content_bytes
-	- injected_file_path_bytes: injected_file_path_bytes
-	- injected_files: injected_files
-	- instances: instances
-	- key_pairs: key_pairs
-	- metadata_items: metadata_items
-	- ram: ram
-	- security_group_rules: security_group_rules
-	- security_groups: security_groups
-	- server_groups: server_groups
-	- server_group_members: server_group_members
+  - quota_set: quota_set
+  - cores: cores
+  - fixed_ips: fixed_ips
+  - floating_ips: floating_ips
+  - id: id
+  - injected_file_content_bytes: injected_file_content_bytes
+  - injected_file_path_bytes: injected_file_path_bytes
+  - injected_files: injected_files
+  - instances: instances
+  - key_pairs: key_pairs
+  - metadata_items: metadata_items
+  - ram: ram
+  - security_group_rules: security_group_rules
+  - security_groups: security_groups
+  - server_groups: server_groups
+  - server_group_members: server_group_members
+
 
 
 

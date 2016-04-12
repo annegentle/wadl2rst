@@ -35,7 +35,8 @@ URI Parameters
 
 .. rest_parameters:: listComputeServices.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -50,16 +51,17 @@ Response
 
 .. rest_parameters:: listComputeServices.yaml
 
-	- services: services
-	- id: id
-	- binary: binary
-	- disabled_reason: disabled_reason
-	- host: host
-	- state: state
-	- status: status
-	- updated_at: updated_at
-	- forced_down: forced_down
-	- zone: zone
+  - services: services
+  - id: id
+  - binary: binary
+  - disabled_reason: disabled_reason
+  - host: host
+  - state: state
+  - status: status
+  - updated_at: updated_at
+  - forced_down: forced_down
+  - zone: zone
+
 
 
 
@@ -96,7 +98,8 @@ URI Parameters
 
 .. rest_parameters:: enableSchedulingForAComputeService.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -108,8 +111,9 @@ Body Parameters
 
 .. rest_parameters:: enableSchedulingForAComputeService.yaml
 
-	- host: host
-	- binary: binary
+  - host: host
+  - binary: binary
+
 
 
 
@@ -128,10 +132,11 @@ Response
 
 .. rest_parameters:: enableSchedulingForAComputeService.yaml
 
-	- service: service
-	- binary: binary
-	- host: host
-	- status: status
+  - service: service
+  - binary: binary
+  - host: host
+  - status: status
+
 
 
 
@@ -168,7 +173,8 @@ URI Parameters
 
 .. rest_parameters:: disableSchedulingForAComputeService.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -180,8 +186,9 @@ Body Parameters
 
 .. rest_parameters:: disableSchedulingForAComputeService.yaml
 
-	- host: host
-	- binary: binary
+  - host: host
+  - binary: binary
+
 
 
 
@@ -200,10 +207,11 @@ Response
 
 .. rest_parameters:: disableSchedulingForAComputeService.yaml
 
-	- service: service
-	- binary: binary
-	- host: host
-	- status: status
+  - service: service
+  - binary: binary
+  - host: host
+  - status: status
+
 
 
 
@@ -240,7 +248,8 @@ URI Parameters
 
 .. rest_parameters:: logDisabledComputeServiceInformation.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -252,9 +261,10 @@ Body Parameters
 
 .. rest_parameters:: logDisabledComputeServiceInformation.yaml
 
-	- host: host
-	- binary: binary
-	- disabled_reason: disabled_reason
+  - host: host
+  - binary: binary
+  - disabled_reason: disabled_reason
+
 
 
 
@@ -273,11 +283,12 @@ Response
 
 .. rest_parameters:: logDisabledComputeServiceInformation.yaml
 
-	- service: service
-	- binary: binary
-	- disabled_reason: disabled_reason
-	- host: host
-	- status: status
+  - service: service
+  - binary: binary
+  - disabled_reason: disabled_reason
+  - host: host
+  - status: status
+
 
 
 
@@ -314,8 +325,9 @@ URI Parameters
 
 .. rest_parameters:: deleteComputeService.yaml
 
-	- tenant_id: tenant_id
-	- service_id: service_id
+  - tenant_id: tenant_id
+  - service_id: service_id
+
 
 
 
@@ -327,8 +339,9 @@ Body Parameters
 
 .. rest_parameters:: deleteComputeService.yaml
 
-	- host: host
-	- binary: binary
+  - host: host
+  - binary: binary
+
 
 
 

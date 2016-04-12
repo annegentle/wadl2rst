@@ -147,7 +147,8 @@ URI Parameters
 
 .. rest_parameters:: createServer.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -159,30 +160,31 @@ Body Parameters
 
 .. rest_parameters:: createServer.yaml
 
-	- security_groups: security_groups
-	- user_data: user_data
-	- os-availability-zone:availability_zone: os-availability-zone:availability_zone
-	- server: server
-	- imageRef: imageRef
-	- flavorRef: flavorRef
-	- networks: networks
-	- uuid: uuid
-	- port: port
-	- fixed_ip: fixed_ip
-	- name: name
-	- metadata: metadata
-	- personality: personality
-	- block_device_mapping_v2: block_device_mapping_v2
-	- device_name: device_name
-	- source_type: source_type
-	- destination_type: destination_type
-	- delete_on_termination: delete_on_termination
-	- guest_format: guest_format
-	- boot_index: boot_index
-	- config_drive: config_drive
-	- key_name: key_name
-	- os:scheduler_hints: os:scheduler_hints
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
+  - security_groups: security_groups
+  - user_data: user_data
+  - os-availability-zone:availability_zone: os-availability-zone:availability_zone
+  - server: server
+  - imageRef: imageRef
+  - flavorRef: flavorRef
+  - networks: networks
+  - uuid: uuid
+  - port: port
+  - fixed_ip: fixed_ip
+  - name: name
+  - metadata: metadata
+  - personality: personality
+  - block_device_mapping_v2: block_device_mapping_v2
+  - device_name: device_name
+  - source_type: source_type
+  - destination_type: destination_type
+  - delete_on_termination: delete_on_termination
+  - guest_format: guest_format
+  - boot_index: boot_index
+  - config_drive: config_drive
+  - key_name: key_name
+  - os:scheduler_hints: os:scheduler_hints
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+
 
 
 
@@ -201,12 +203,13 @@ Response
 
 .. rest_parameters:: createServer.yaml
 
-	- server: server
-	- adminPass: adminPass
-	- id: id
-	- links: links
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- security_groups: security_groups
+  - server: server
+  - adminPass: adminPass
+  - id: id
+  - links: links
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - security_groups: security_groups
+
 
 
 
@@ -279,7 +282,8 @@ URI Parameters
 
 .. rest_parameters:: listServers.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -289,14 +293,15 @@ Query Parameters
 
 .. rest_parameters:: listServers.yaml
 
-	- changes-since: changes-since
-	- image: image
-	- flavor: flavor
-	- name: name
-	- status: status
-	- host: host
-	- limit: limit
-	- marker: marker
+  - changes-since: changes-since
+  - image: image
+  - flavor: flavor
+  - name: name
+  - status: status
+  - host: host
+  - limit: limit
+  - marker: marker
+
 
 
 
@@ -309,10 +314,11 @@ Response
 
 .. rest_parameters:: listServers.yaml
 
-	- servers: servers
-	- id: id
-	- links: links
-	- name: name
+  - servers: servers
+  - id: id
+  - links: links
+  - name: name
+
 
 
 
@@ -361,8 +367,9 @@ URI Parameters
 
 .. rest_parameters:: showServerDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -377,39 +384,40 @@ Response
 
 .. rest_parameters:: showServerDetails.yaml
 
-	- server: server
-	- addresses: addresses
-	- created: created
-	- flavor: flavor
-	- hostId: hostId
-	- id: id
-	- image: image
-	- key_name: key_name
-	- links: links
-	- metadata: metadata
-	- name: name
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- OS-EXT-AZ:availability_zone: OS-EXT-AZ:availability_zone
-	- OS-EXT-SRV-ATTR:host: OS-EXT-SRV-ATTR:host
-	- OS-EXT-SRV-ATTR:hypervisor_hostname: OS-EXT-SRV-ATTR:hypervisor_hostname
-	- OS-EXT-SRV-ATTR:instance_name: OS-EXT-SRV-ATTR:instance_name
-	- OS-EXT-STS:power_state: OS-EXT-STS:power_state
-	- OS-EXT-STS:task_state: OS-EXT-STS:task_state
-	- OS-EXT-STS:vm_state: OS-EXT-STS:vm_state
-	- os-extended-volumes:volumes_attached: os-extended-volumes:volumes_attached
-	- OS-SRV-USG:launched_at: OS-SRV-USG:launched_at
-	- OS-SRV-USG:terminated_at: OS-SRV-USG:terminated_at
-	- progress: progress
-	- security_groups: security_groups
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- status: status
-	- host_status: host_status
-	- tenant_id: tenant_id
-	- updated: updated
-	- user_id: user_id
+  - server: server
+  - addresses: addresses
+  - created: created
+  - flavor: flavor
+  - hostId: hostId
+  - id: id
+  - image: image
+  - key_name: key_name
+  - links: links
+  - metadata: metadata
+  - name: name
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - OS-EXT-AZ:availability_zone: OS-EXT-AZ:availability_zone
+  - OS-EXT-SRV-ATTR:host: OS-EXT-SRV-ATTR:host
+  - OS-EXT-SRV-ATTR:hypervisor_hostname: OS-EXT-SRV-ATTR:hypervisor_hostname
+  - OS-EXT-SRV-ATTR:instance_name: OS-EXT-SRV-ATTR:instance_name
+  - OS-EXT-STS:power_state: OS-EXT-STS:power_state
+  - OS-EXT-STS:task_state: OS-EXT-STS:task_state
+  - OS-EXT-STS:vm_state: OS-EXT-STS:vm_state
+  - os-extended-volumes:volumes_attached: os-extended-volumes:volumes_attached
+  - OS-SRV-USG:launched_at: OS-SRV-USG:launched_at
+  - OS-SRV-USG:terminated_at: OS-SRV-USG:terminated_at
+  - progress: progress
+  - security_groups: security_groups
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - status: status
+  - host_status: host_status
+  - tenant_id: tenant_id
+  - updated: updated
+  - user_id: user_id
+
 
 
 
@@ -450,8 +458,9 @@ URI Parameters
 
 .. rest_parameters:: updateServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -463,30 +472,31 @@ Body Parameters
 
 .. rest_parameters:: updateServer.yaml
 
-	- security_groups: security_groups
-	- user_data: user_data
-	- os-availability-zone:availability_zone: os-availability-zone:availability_zone
-	- server: server
-	- imageRef: imageRef
-	- flavorRef: flavorRef
-	- networks: networks
-	- uuid: uuid
-	- port: port
-	- fixed_ip: fixed_ip
-	- name: name
-	- metadata: metadata
-	- personality: personality
-	- block_device_mapping_v2: block_device_mapping_v2
-	- device_name: device_name
-	- source_type: source_type
-	- destination_type: destination_type
-	- delete_on_termination: delete_on_termination
-	- guest_format: guest_format
-	- boot_index: boot_index
-	- config_drive: config_drive
-	- key_name: key_name
-	- os:scheduler_hints: os:scheduler_hints
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
+  - security_groups: security_groups
+  - user_data: user_data
+  - os-availability-zone:availability_zone: os-availability-zone:availability_zone
+  - server: server
+  - imageRef: imageRef
+  - flavorRef: flavorRef
+  - networks: networks
+  - uuid: uuid
+  - port: port
+  - fixed_ip: fixed_ip
+  - name: name
+  - metadata: metadata
+  - personality: personality
+  - block_device_mapping_v2: block_device_mapping_v2
+  - device_name: device_name
+  - source_type: source_type
+  - destination_type: destination_type
+  - delete_on_termination: delete_on_termination
+  - guest_format: guest_format
+  - boot_index: boot_index
+  - config_drive: config_drive
+  - key_name: key_name
+  - os:scheduler_hints: os:scheduler_hints
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+
 
 
 
@@ -521,39 +531,40 @@ Response
 
 .. rest_parameters:: updateServer.yaml
 
-	- server: server
-	- addresses: addresses
-	- created: created
-	- flavor: flavor
-	- hostId: hostId
-	- id: id
-	- image: image
-	- key_name: key_name
-	- links: links
-	- metadata: metadata
-	- name: name
-	- OS-DCF:diskConfig: OS-DCF:diskConfig
-	- OS-EXT-AZ:availability_zone: OS-EXT-AZ:availability_zone
-	- OS-EXT-SRV-ATTR:host: OS-EXT-SRV-ATTR:host
-	- OS-EXT-SRV-ATTR:hypervisor_hostname: OS-EXT-SRV-ATTR:hypervisor_hostname
-	- OS-EXT-SRV-ATTR:instance_name: OS-EXT-SRV-ATTR:instance_name
-	- OS-EXT-STS:power_state: OS-EXT-STS:power_state
-	- OS-EXT-STS:task_state: OS-EXT-STS:task_state
-	- OS-EXT-STS:vm_state: OS-EXT-STS:vm_state
-	- os-extended-volumes:volumes_attached: os-extended-volumes:volumes_attached
-	- OS-SRV-USG:launched_at: OS-SRV-USG:launched_at
-	- OS-SRV-USG:terminated_at: OS-SRV-USG:terminated_at
-	- progress: progress
-	- security_groups: security_groups
-	- description: description
-	- id: id
-	- name: name
-	- rules: rules
-	- status: status
-	- host_status: host_status
-	- tenant_id: tenant_id
-	- updated: updated
-	- user_id: user_id
+  - server: server
+  - addresses: addresses
+  - created: created
+  - flavor: flavor
+  - hostId: hostId
+  - id: id
+  - image: image
+  - key_name: key_name
+  - links: links
+  - metadata: metadata
+  - name: name
+  - OS-DCF:diskConfig: OS-DCF:diskConfig
+  - OS-EXT-AZ:availability_zone: OS-EXT-AZ:availability_zone
+  - OS-EXT-SRV-ATTR:host: OS-EXT-SRV-ATTR:host
+  - OS-EXT-SRV-ATTR:hypervisor_hostname: OS-EXT-SRV-ATTR:hypervisor_hostname
+  - OS-EXT-SRV-ATTR:instance_name: OS-EXT-SRV-ATTR:instance_name
+  - OS-EXT-STS:power_state: OS-EXT-STS:power_state
+  - OS-EXT-STS:task_state: OS-EXT-STS:task_state
+  - OS-EXT-STS:vm_state: OS-EXT-STS:vm_state
+  - os-extended-volumes:volumes_attached: os-extended-volumes:volumes_attached
+  - OS-SRV-USG:launched_at: OS-SRV-USG:launched_at
+  - OS-SRV-USG:terminated_at: OS-SRV-USG:terminated_at
+  - progress: progress
+  - security_groups: security_groups
+  - description: description
+  - id: id
+  - name: name
+  - rules: rules
+  - status: status
+  - host_status: host_status
+  - tenant_id: tenant_id
+  - updated: updated
+  - user_id: user_id
+
 
 
 
@@ -614,8 +625,9 @@ URI Parameters
 
 .. rest_parameters:: deleteServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 

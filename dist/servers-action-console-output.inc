@@ -25,8 +25,9 @@ URI Parameters
 
 .. rest_parameters:: showConsoleOutput.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -38,8 +39,9 @@ Body Parameters
 
 .. rest_parameters:: showConsoleOutput.yaml
 
-	- os-getConsoleOutput: os-getConsoleOutput
-	- length: length
+  - os-getConsoleOutput: os-getConsoleOutput
+  - length: length
+
 
 
 

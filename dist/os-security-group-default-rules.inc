@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listDefaultSecurityGroupRules.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -43,12 +44,13 @@ Response
 
 .. rest_parameters:: listDefaultSecurityGroupRules.yaml
 
-	- from_port: from_port
-	- id: id
-	- ip_protocol: ip_protocol
-	- ip_range: ip_range
-	- cidr: cidr
-	- to_port: to_port
+  - from_port: from_port
+  - id: id
+  - ip_protocol: ip_protocol
+  - ip_range: ip_range
+  - cidr: cidr
+  - to_port: to_port
+
 
 
 
@@ -85,7 +87,8 @@ URI Parameters
 
 .. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -97,11 +100,12 @@ Body Parameters
 
 .. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
-	- id: id
-	- ip_protocol: ip_protocol
-	- from_port: from_port
-	- to_port: to_port
-	- cidr: cidr
+  - id: id
+  - ip_protocol: ip_protocol
+  - from_port: from_port
+  - to_port: to_port
+  - cidr: cidr
+
 
 
 
@@ -120,12 +124,13 @@ Response
 
 .. rest_parameters:: createDefaultSecurityGroupRule.yaml
 
-	- from_port: from_port
-	- id: id
-	- ip_protocol: ip_protocol
-	- ip_range: ip_range
-	- cidr: cidr
-	- to_port: to_port
+  - from_port: from_port
+  - id: id
+  - ip_protocol: ip_protocol
+  - ip_range: ip_range
+  - cidr: cidr
+  - to_port: to_port
+
 
 
 
@@ -160,8 +165,9 @@ URI Parameters
 
 .. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
 
-	- tenant_id: tenant_id
-	- security_group_default_rule_id: security_group_default_rule_id
+  - tenant_id: tenant_id
+  - security_group_default_rule_id: security_group_default_rule_id
+
 
 
 
@@ -176,12 +182,13 @@ Response
 
 .. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
 
-	- from_port: from_port
-	- id: id
-	- ip_protocol: ip_protocol
-	- ip_range: ip_range
-	- cidr: cidr
-	- to_port: to_port
+  - from_port: from_port
+  - id: id
+  - ip_protocol: ip_protocol
+  - ip_range: ip_range
+  - cidr: cidr
+  - to_port: to_port
+
 
 
 
@@ -216,8 +223,9 @@ URI Parameters
 
 .. rest_parameters:: deleteDefaultSecurityGroupRule.yaml
 
-	- tenant_id: tenant_id
-	- security_group_default_rule_id: security_group_default_rule_id
+  - tenant_id: tenant_id
+  - security_group_default_rule_id: security_group_default_rule_id
+
 
 
 

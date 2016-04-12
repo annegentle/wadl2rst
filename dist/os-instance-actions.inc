@@ -31,8 +31,9 @@ URI Parameters
 
 .. rest_parameters:: listActionsForServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -78,9 +79,10 @@ URI Parameters
 
 .. rest_parameters:: showServerActionDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- request_id: request_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - request_id: request_id
+
 
 
 

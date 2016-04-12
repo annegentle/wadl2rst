@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: getAvailabilityZoneInformation.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,7 +75,8 @@ URI Parameters
 
 .. rest_parameters:: getDetailedAvailabilityZoneInformation.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 

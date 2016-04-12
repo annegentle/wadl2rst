@@ -30,8 +30,9 @@ URI Parameters
 
 .. rest_parameters:: createInterface.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -43,10 +44,11 @@ Body Parameters
 
 .. rest_parameters:: createInterface.yaml
 
-	- interfaceAttachment: interfaceAttachment
-	- port_id: port_id
-	- net_id: net_id
-	- fixed_ips: fixed_ips
+  - interfaceAttachment: interfaceAttachment
+  - port_id: port_id
+  - net_id: net_id
+  - fixed_ips: fixed_ips
+
 
 
 
@@ -65,12 +67,13 @@ Response
 
 .. rest_parameters:: createInterface.yaml
 
-	- interfaceAttachment: interfaceAttachment
-	- fixed_ips: fixed_ips
-	- mac_addr: mac_addr
-	- net_id: net_id
-	- port_id: port_id
-	- port_state: port_state
+  - interfaceAttachment: interfaceAttachment
+  - fixed_ips: fixed_ips
+  - mac_addr: mac_addr
+  - net_id: net_id
+  - port_id: port_id
+  - port_state: port_state
+
 
 
 
@@ -105,8 +108,9 @@ URI Parameters
 
 .. rest_parameters:: listPortInterfaces.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -121,12 +125,13 @@ Response
 
 .. rest_parameters:: listPortInterfaces.yaml
 
-	- interfaceAttachment: interfaceAttachment
-	- port_state: port_state
-	- fixed_ips: fixed_ips
-	- mac_addr: mac_addr
-	- net_id: net_id
-	- port_id: port_id
+  - interfaceAttachment: interfaceAttachment
+  - port_state: port_state
+  - fixed_ips: fixed_ips
+  - mac_addr: mac_addr
+  - net_id: net_id
+  - port_id: port_id
+
 
 
 
@@ -161,9 +166,10 @@ URI Parameters
 
 .. rest_parameters:: showPortInterfaceDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- port_id: port_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - port_id: port_id
+
 
 
 
@@ -209,9 +215,10 @@ URI Parameters
 
 .. rest_parameters:: detachInterface.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- port_id: port_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - port_id: port_id
+
 
 
 

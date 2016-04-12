@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listVolumes.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,7 +75,8 @@ URI Parameters
 
 .. rest_parameters:: createVolume.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -86,14 +88,15 @@ Body Parameters
 
 .. rest_parameters:: createVolume.yaml
 
-	- volume: volume
-	- display_name: display_name
-	- display_description: display_description
-	- size: size
-	- volume_type: volume_type
-	- metadata: metadata
-	- availability_zone: availability_zone
-	- snapshot_id: snapshot_id
+  - volume: volume
+  - display_name: display_name
+  - display_description: display_description
+  - size: size
+  - volume_type: volume_type
+  - metadata: metadata
+  - availability_zone: availability_zone
+  - snapshot_id: snapshot_id
+
 
 
 
@@ -143,7 +146,8 @@ URI Parameters
 
 .. rest_parameters:: listVolumesWithDetails.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -189,8 +193,9 @@ URI Parameters
 
 .. rest_parameters:: showVolumeDetails.yaml
 
-	- tenant_id: tenant_id
-	- volume_id: volume_id
+  - tenant_id: tenant_id
+  - volume_id: volume_id
+
 
 
 
@@ -236,8 +241,9 @@ URI Parameters
 
 .. rest_parameters:: deleteVolume.yaml
 
-	- tenant_id: tenant_id
-	- volume_id: volume_id
+  - tenant_id: tenant_id
+  - volume_id: volume_id
+
 
 
 
@@ -283,7 +289,8 @@ URI Parameters
 
 .. rest_parameters:: listVolumeTypes.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -298,10 +305,11 @@ Response
 
 .. rest_parameters:: listVolumeTypes.yaml
 
-	- volume_types: volume_types
-	- id: id
-	- name: name
-	- extra_specs: extra_specs
+  - volume_types: volume_types
+  - id: id
+  - name: name
+  - extra_specs: extra_specs
+
 
 
 
@@ -336,8 +344,9 @@ URI Parameters
 
 .. rest_parameters:: showVolumeTypeDetails.yaml
 
-	- tenant_id: tenant_id
-	- volume_type_id: volume_type_id
+  - tenant_id: tenant_id
+  - volume_type_id: volume_type_id
+
 
 
 
@@ -383,7 +392,8 @@ URI Parameters
 
 .. rest_parameters:: createSnapshot.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -395,7 +405,8 @@ Body Parameters
 
 .. rest_parameters:: createSnapshot.yaml
 
-	- snapshot: snapshot
+  - snapshot: snapshot
+
 
 
 
@@ -445,7 +456,8 @@ URI Parameters
 
 .. rest_parameters:: listSnapshots.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -491,7 +503,8 @@ URI Parameters
 
 .. rest_parameters:: listSnapshotsWithDetails.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -537,8 +550,9 @@ URI Parameters
 
 .. rest_parameters:: showSnapshotDetails.yaml
 
-	- tenant_id: tenant_id
-	- snapshot_id: snapshot_id
+  - tenant_id: tenant_id
+  - snapshot_id: snapshot_id
+
 
 
 
@@ -586,8 +600,9 @@ URI Parameters
 
 .. rest_parameters:: deleteSnapshot.yaml
 
-	- tenant_id: tenant_id
-	- snapshot_id: snapshot_id
+  - tenant_id: tenant_id
+  - snapshot_id: snapshot_id
+
 
 
 

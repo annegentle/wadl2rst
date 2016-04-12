@@ -39,8 +39,9 @@ URI Parameters
 
 .. rest_parameters:: createServerBackUp.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -52,7 +53,8 @@ Body Parameters
 
 .. rest_parameters:: createServerBackUp.yaml
 
-	- createBackup: createBackup
+  - createBackup: createBackup
+
 
 
 
@@ -98,8 +100,9 @@ URI Parameters
 
 .. rest_parameters:: injectNetworkInformation.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -111,7 +114,8 @@ Body Parameters
 
 .. rest_parameters:: injectNetworkInformation.yaml
 
-	- injectNetworkInfo: injectNetworkInfo
+  - injectNetworkInfo: injectNetworkInfo
+
 
 
 
@@ -157,8 +161,9 @@ URI Parameters
 
 .. rest_parameters:: migrateServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -170,7 +175,8 @@ Body Parameters
 
 .. rest_parameters:: migrateServer.yaml
 
-	- migrate: migrate
+  - migrate: migrate
+
 
 
 
@@ -218,8 +224,9 @@ URI Parameters
 
 .. rest_parameters:: live-migrateServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -231,9 +238,10 @@ Body Parameters
 
 .. rest_parameters:: live-migrateServer.yaml
 
-	- host: host
-	- block_migration: block_migration
-	- disk_over_commit: disk_over_commit
+  - host: host
+  - block_migration: block_migration
+  - disk_over_commit: disk_over_commit
+
 
 
 
@@ -279,8 +287,9 @@ URI Parameters
 
 .. rest_parameters:: resetNetworkingOnAServer.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -292,7 +301,8 @@ Body Parameters
 
 .. rest_parameters:: resetNetworkingOnAServer.yaml
 
-	- resetNetwork: resetNetwork
+  - resetNetwork: resetNetwork
+
 
 
 
@@ -338,8 +348,9 @@ URI Parameters
 
 .. rest_parameters:: resetServerState.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -351,7 +362,8 @@ Body Parameters
 
 .. rest_parameters:: resetServerState.yaml
 
-	- os-resetState: os-resetState
+  - os-resetState: os-resetState
+
 
 
 

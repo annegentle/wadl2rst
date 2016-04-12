@@ -28,7 +28,8 @@ URI Parameters
 
 .. rest_parameters:: listCloudpipes.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -74,7 +75,8 @@ URI Parameters
 
 .. rest_parameters:: createCloudpipe.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -86,7 +88,8 @@ Body Parameters
 
 .. rest_parameters:: createCloudpipe.yaml
 
-	- project_id: project_id
+  - project_id: project_id
+
 
 
 
@@ -136,7 +139,8 @@ URI Parameters
 
 .. rest_parameters:: updateCloudpipe.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -148,8 +152,9 @@ Body Parameters
 
 .. rest_parameters:: updateCloudpipe.yaml
 
-	- vpn_ip: vpn_ip
-	- vpn_port: vpn_port
+  - vpn_ip: vpn_ip
+  - vpn_port: vpn_port
+
 
 
 

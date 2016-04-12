@@ -35,7 +35,8 @@ URI Parameters
 
 .. rest_parameters:: createNetwork.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -91,7 +92,8 @@ URI Parameters
 
 .. rest_parameters:: listNetworks.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -139,7 +141,8 @@ URI Parameters
 
 .. rest_parameters:: addNetwork.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -187,8 +190,9 @@ URI Parameters
 
 .. rest_parameters:: showNetworkDetails.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 
@@ -236,8 +240,9 @@ URI Parameters
 
 .. rest_parameters:: deleteNetwork.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 
@@ -277,8 +282,9 @@ URI Parameters
 
 .. rest_parameters:: associateHost.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 
@@ -326,8 +332,9 @@ URI Parameters
 
 .. rest_parameters:: disassociateHost.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 
@@ -375,8 +382,9 @@ URI Parameters
 
 .. rest_parameters:: disassociateNetwork.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 
@@ -424,8 +432,9 @@ URI Parameters
 
 .. rest_parameters:: disassociateProject.yaml
 
-	- tenant_id: tenant_id
-	- network_id: network_id
+  - tenant_id: tenant_id
+  - network_id: network_id
+
 
 
 

@@ -33,8 +33,9 @@ URI Parameters
 
 .. rest_parameters:: showExtensionDetails.yaml
 
-	- tenant_id: tenant_id
-	- alias: alias
+  - tenant_id: tenant_id
+  - alias: alias
+
 
 
 
@@ -49,13 +50,14 @@ Response
 
 .. rest_parameters:: showExtensionDetails.yaml
 
-	- extension: extension
-	- name: name
-	- alias: alias
-	- links: links
-	- namespace: namespace
-	- description: description
-	- updated: updated
+  - extension: extension
+  - name: name
+  - alias: alias
+  - links: links
+  - namespace: namespace
+  - description: description
+  - updated: updated
+
 
 
 

@@ -31,7 +31,8 @@ URI Parameters
 
 .. rest_parameters:: runEvents.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -43,11 +44,12 @@ Body Parameters
 
 .. rest_parameters:: runEvents.yaml
 
-	- events: events
-	- name: name
-	- tag: tag
-	- server_uuid: server_uuid
-	- status: status
+  - events: events
+  - name: name
+  - tag: tag
+  - server_uuid: server_uuid
+  - status: status
+
 
 
 
@@ -66,12 +68,13 @@ Response
 
 .. rest_parameters:: runEvents.yaml
 
-	- events: events
-	- code: code
-	- name: name
-	- server_uuid: server_uuid
-	- status: status
-	- tag: tag
+  - events: events
+  - code: code
+  - name: name
+  - server_uuid: server_uuid
+  - status: status
+  - tag: tag
+
 
 
 

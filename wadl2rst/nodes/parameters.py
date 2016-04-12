@@ -11,9 +11,11 @@ class ParametersNode(BaseNode):
         if not params:
             return None
 
-        output = "\t- " + "\n\t- ".join(
-            [param_node.attributes.get('name', '') + ": " + param_node.attributes.get('name', '')
-             for param_node in params])
+        output = ""
+        for param in params:
+            output += "  - %s: %s\n" % (
+                param.attributes.get('name', ''),
+                param.attributes.get('name', ''))
 
         return output
 

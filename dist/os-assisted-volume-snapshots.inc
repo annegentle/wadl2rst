@@ -32,7 +32,8 @@ URI Parameters
 
 .. rest_parameters:: createAssistedVolumeSnapshots.yaml
 
-	- tenant_id: tenant_id
+  - tenant_id: tenant_id
+
 
 
 
@@ -44,12 +45,13 @@ Body Parameters
 
 .. rest_parameters:: createAssistedVolumeSnapshots.yaml
 
-	- snapshot: snapshot
-	- volume_id: volume_id
-	- create_info: create_info
-	- snapshot_id: snapshot_id
-	- type: type
-	- new_file: new_file
+  - snapshot: snapshot
+  - volume_id: volume_id
+  - create_info: create_info
+  - snapshot_id: snapshot_id
+  - type: type
+  - new_file: new_file
+
 
 
 
@@ -68,8 +70,9 @@ Response
 
 .. rest_parameters:: createAssistedVolumeSnapshots.yaml
 
-	- id: id
-	- volume_id: volume_id
+  - id: id
+  - volume_id: volume_id
+
 
 
 
@@ -106,8 +109,9 @@ URI Parameters
 
 .. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
 
-	- tenant_id: tenant_id
-	- snapshot_id: snapshot_id
+  - tenant_id: tenant_id
+  - snapshot_id: snapshot_id
+
 
 
 
@@ -117,7 +121,8 @@ Query Parameters
 
 .. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
 
-	- delete_info: delete_info
+  - delete_info: delete_info
+
 
 
 

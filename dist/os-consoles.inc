@@ -28,8 +28,9 @@ URI Parameters
 
 .. rest_parameters:: createConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -67,8 +68,9 @@ URI Parameters
 
 .. rest_parameters:: listsConsoles.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
@@ -114,9 +116,10 @@ URI Parameters
 
 .. rest_parameters:: showConsoleDetails.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- console_id: console_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - console_id: console_id
+
 
 
 
@@ -162,9 +165,10 @@ URI Parameters
 
 .. rest_parameters:: deleteConsole.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
-	- console_id: console_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+  - console_id: console_id
+
 
 
 
@@ -204,8 +208,9 @@ URI Parameters
 
 .. rest_parameters:: showConsoleAuthenticationToken.yaml
 
-	- tenant_id: tenant_id
-	- server_id: server_id
+  - tenant_id: tenant_id
+  - server_id: server_id
+
 
 
 
