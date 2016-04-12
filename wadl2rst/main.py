@@ -10,6 +10,7 @@ import sys
 import tempfile
 
 import yaml
+import yamlordereddictloader
 
 from wadl2rst import tree
 from wadl2rst.transformations.cleanup_application_node import cleanup_application_node
@@ -28,7 +29,7 @@ def main():
 
     # get our config file from the arguments
     config_file = parse_arguments()
-    config = yaml.load(file(config_file, 'r'))
+    config = yaml.load(file(config_file, 'r'), Loader=yamlordereddictloader.Loader)
 
     # for each wadl_file in the options
     for filename, options in config.items():
@@ -58,7 +59,21 @@ def main():
         ir = tree.xml_string_to_tree(xml_data)
         execute_translations(ir, filename, options['samples_path'])
 
-        convert_ir_to_rst(ir, options['output_directory'], options['title'])
+        convert_ir_to_rst(ir,
+                          options['output_file'],
+                          options.get('preamble', ''),
+                          options['title'])
+
+    # Write out index
+    with open('dist/index.rst', 'w') as f:
+        f.write(""":tocdepth: 2
+
+=============
+ Compute API
+=============
+""")
+        for filename, options in config.items():
+            f.write(".. include:: %s\n" % os.path.basename(options['output_file']))
 
 
 def parse_arguments():
@@ -137,11 +152,14 @@ def execute_translations(ir, filename, samples_path):
     cleanup_application_node(ir)
 
 
-def convert_ir_to_rst(ir, output_dir, book_title):
+def convert_ir_to_rst(ir,
+                      output_file=None,
+                      preamble=None,
+                      book_title=""):
     """Create an rst file in the output_dir for each method node in the IR."""
 
     # grab the path of the output directory, creating it if necessary
-    path = os.path.abspath(output_dir)
+    path = os.path.dirname(output_file)
     if not os.path.exists(path):
         print "Error: Output directory: {} does not exist!".format(path)
         sys.exit(1)
@@ -149,20 +167,21 @@ def convert_ir_to_rst(ir, output_dir, book_title):
     # get all the method nodes in the IR
     method_nodes = ir.find("method")
 
+    all_rst = ""
+
     for node in method_nodes:
         rst = node.to_rst(book_title)
-
         if rst == "":
             continue
+        all_rst += rst
 
-        params = node.template_params()
-        filename = node.get_filename(params, "rst")
-        full_path = os.path.join(path, filename)
+    print "Generating file: {}".format(output_file)
+    with open(output_file, 'w') as f:
+        f.write(".. -*- rst -*-\n")
+        f.write(preamble.encode("utf-8", "ignore"))
+        f.write("\n")
+        f.write(all_rst.encode("utf-8", "ignore"))
 
-        print "Generating file: {}".format(full_path)
-
-        with open(full_path, 'w') as f:
-            f.write(rst.encode("utf-8", "ignore"))
 
 # Allow for local debugging
 if __name__ == '__main__':

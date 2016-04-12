@@ -1,4 +1,3 @@
-
 {{title}}
 {% for i in title -%}
 =
@@ -19,25 +18,27 @@ Request
 URI Parameters
 ~~~~~~~~~~~~~~
 
-.. rest_parameters:: ../{{params_yaml}}
+.. rest_parameters:: {{params_yaml}}
 
 {{uri_table}}
 {% endif %}
 
 {% if query_table %}
+
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: ../{{params_yaml}}
+.. rest_parameters:: {{params_yaml}}
 
 {{query_table}}
 {% endif %}
 
 {% if body_table %}
+
 Body Parameters
 ~~~~~~~~~~~~~~~
 
-.. rest_parameters:: ../{{params_yaml}}
+.. rest_parameters:: {{params_yaml}}
 
 {{body_table}}
 {% endif %}
@@ -58,7 +59,7 @@ Response
 ^^^^^^^^
 
 {% if response_table %}
-.. rest_parameters:: ../{{params_yaml}}
+.. rest_parameters:: {{params_yaml}}
 
 {{response_table}}
 {% endif %}
