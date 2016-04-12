@@ -69,18 +69,19 @@ class MethodNode(BaseNode):
 
 
         output = {
-            "body_table": None,
+            "body_table": u'',
             "docs_rst": "",
             "filename": "",
             "http_method": self.attributes.get("name", ''),
-            "params_yaml" : "",
+            "in_params": None,
+            "params_yaml" : u'',
             "query_table": None,
             "request_examples": [],
             "responses_table": None,
             "response_examples": [],
             "short_desc": "",
             "title": "",
-            "uri_table": None,
+            "uri_table": u'',
             "uri": "",
         }
 
@@ -118,6 +119,9 @@ class MethodNode(BaseNode):
                 example = representation.to_example()
                 if example is not None:
                     output['request_examples'].append(example)
+
+        # set up in params
+        output['in_params'] = output['uri_table'] + output['body_table']
 
         # setup the reponses node stuff
         if responses_node is not None:

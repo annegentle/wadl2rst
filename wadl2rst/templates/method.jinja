@@ -14,13 +14,10 @@ Error response codes: {{error_responses}}
 Request
 ^^^^^^^
 
-{% if uri_table %}
-URI Parameters
-~~~~~~~~~~~~~~
-
+{% if in_params %}
 .. rest_parameters:: {{params_yaml}}
 
-{{uri_table}}
+{{in_params}}
 {% endif %}
 
 {% if query_table %}
@@ -31,16 +28,6 @@ Query Parameters
 .. rest_parameters:: {{params_yaml}}
 
 {{query_table}}
-{% endif %}
-
-{% if body_table %}
-
-Body Parameters
-~~~~~~~~~~~~~~~
-
-.. rest_parameters:: {{params_yaml}}
-
-{{body_table}}
 {% endif %}
 
 {% for item in request_examples %}
