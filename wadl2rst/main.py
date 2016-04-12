@@ -10,6 +10,7 @@ import sys
 import tempfile
 
 import yaml
+import yamlordereddictloader
 
 from wadl2rst import tree
 from wadl2rst.transformations.cleanup_application_node import cleanup_application_node
@@ -28,7 +29,7 @@ def main():
 
     # get our config file from the arguments
     config_file = parse_arguments()
-    config = yaml.load(file(config_file, 'r'))
+    config = yaml.load(file(config_file, 'r'), Loader=yamlordereddictloader.Loader)
 
     # for each wadl_file in the options
     for filename, options in config.items():

@@ -1,0 +1,327 @@
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/versions-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_file: dist/versions.rst
+    preamble: |
+      ============
+      API Versions
+      ============
+
+      Lists information for all API versions.
+
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_file: dist/servers.rst
+    preamble: |
+      ===================
+       Servers (servers)
+      ===================
+
+      Lists, creates, shows details for, updates, and deletes servers.
+
+      **Passwords**
+
+      When you create a server, you can specify a password through the
+      optional adminPass attribute. The password must meet the complexity
+      requirements set by your OpenStack Compute provider. The server might
+      enter an ``ERROR`` state if the complexity requirements are not met. In
+      this case, a client might issue a change password action to reset the
+      server password.
+
+      If you do not specify a password, the API generates and assigns a random
+      password that it returns in the response object. This password meets the
+      security requirements set by the compute provider. For security reasons,
+      subsequent GET calls do not require this password.
+
+      **Server metadata**
+
+      You can specify custom server metadata at server launch time. The
+      maximum size for each metadata key-value pair is 255 bytes. The compute
+      provider determines the maximum number of key-value pairs for each
+      server. You can query this value through the ``maxServerMeta`` absolute
+      limit.
+
+      **Server networks**
+
+      You can specify one or more networks to which the server connects at
+      launch time. Users can also specify a specific port on the network or
+      the fixed IP address to assign to the server interface.
+
+          **Note**
+
+          You can use both IPv4 and IPv6 addresses as access addresses and you
+          can assign both addresses simultaneously. You can update access
+          addresses after you create a server.
+
+      **Server personality**
+
+      To customize the personality of a server instance, you can inject data
+      into its file system. For example, you might insert ssh keys, set
+      configuration files, or store data that you want to retrieve from inside
+      the instance. This customization method provides minimal launch-time
+      personalization. If you require significant customization, create a
+      custom image.
+
+      Follow these guidelines when you inject files:
+
+      -  The maximum size of the file path data is 255 bytes.
+
+      -  Encode the file contents as a Base64 string. The compute provider
+         determines the maximum size of the file contents. The image that you
+         use to create the server determines this value.
+
+             **Note**
+
+             The maximum limit refers to the number of bytes in the decoded
+             data and not to the number of characters in the encoded data.
+
+      -  The ``maxPersonality`` absolute limit defines the maximum number of
+         file path and content pairs that you can supply. The compute provider
+         determines this value.
+
+      -  The ``maxPersonalitySize`` absolute limit is a byte limit that
+         applies to all images in the deployment. Providers can set additional
+         per-image personality limits.
+
+      The file injection might not occur until after the server builds and
+      boots.
+
+      After file injection, only system administrators can access personality
+      files. For example, on Linux, all files have root as the owner and the
+      root group as the group owner, and allow only user and group read access
+      (``chmod 440``).
+
+      **Server access addresses**
+
+      In a hybrid environment, the underlying implementation might not control
+      the IP address of a server. Instead, the access IP address might be part
+      of the dedicated hardware; for example, a router/NAT device. In this
+      case, you cannot use the addresses that the implementation provides to
+      access the server from outside the local LAN. Instead, the API might
+      assign a separate access address at creation time to provide access to
+      the server. This address might not be directly bound to a network
+      interface on the server and might not necessarily appear when you query
+      the server addresses. However, clients should use an access address to
+      access the server directly.
+
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-multiple-create-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_file: dist/servers-multiple-create.rst
+    preamble: |
+      ===================================
+       Servers multiple create (servers)
+      ===================================
+
+      Creates one or more servers.
+
+      Optionally, you can set ``"return_reservation_id": "True"`` in the
+      request body to request that a reservation ID be returned instead of the
+      newly created instance information. With this parameter, the response
+      shows only the reservation ID.
+
+
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-actions.rst
+#     preamble: |
+#       ===========================================
+#        Servers - run an action (servers, action)
+#       ===========================================
+
+#       Enables all users to performs an action on a server. Specify the action
+#       in the request body.
+
+#       You can associate a fixed or floating IP address with a server instance,
+#       or disassociate a fixed or floating IP address from a server instance.
+#       You can attach a volume to a server.
+
+#       You can create an image from a server, evacuate a server from a failed
+#       host to a new host, and force-delete a server before deferred cleanup.
+#       You can lock, pause, reboot, rebuild, rescue, resize, resume, confirm
+#       the resize of, revert a pending resize for, shelve, shelf-offload,
+#       unshelve, start, stop, unlock, unpause, and unrescue a server. You can
+#       also change the password of the server and add a security group to or
+#       remove a security group from a server. You can also trigger a crash dump
+#       into a server since Mitaka release.
+
+#       You can get an RDP, serial, SPICE, or VNC console for a server.
+
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-fixed-ip-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_file: dist/servers-action-fixed-ip.rst
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-evacuate-v2.1.wadl:
+    title: OpenStack Compute API v2.1
+    output_file: dist/servers-action-evacuate.rst
+
+
+
+
+
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/diagnostics-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/diagnostics
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/extensions-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/extensions
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/flavors-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/flavors
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/images-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/images
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/ips-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/ips
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/limits-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/limits
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/metadata-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/metadata
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-agents-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-agents
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-aggregates-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-aggregates
+#     output_file: dist/os-aggregates.rst
+#     preamble: |
+
+#       =======================================
+#       Host aggregates (os-aggregates, action)
+#       =======================================
+
+#       Creates and manages host aggregates. An aggregate assigns metadata to
+#       groups of compute nodes. Aggregates are only visible to the cloud
+#       provider.
+
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-assisted-volume-snapshots-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-assisted-volume-snapshots
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-availability-zone
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-baremetal-nodes-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-baremetal-nodes
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-cells-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-cells
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-certificates-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-certificates
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-cloudpipe-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-cloudpipe
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-consoles-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-consoles
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-disk-config-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-disk-config
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-fixed-ips-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-fixed-ips
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-flavor-access-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-flavor-access
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-flavor-extra-specs-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-flavor-extra-specs
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ip-dns-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-floating-ip-dns
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ip-pools-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-floating-ip-pools
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ips-bulk-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-floating-ips-bulk
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-floating-ips-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-floating-ips
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-fping-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-fping
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-hosts-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-hosts
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-hypervisors-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-hypervisors
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-instance-actions-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-instance-actions
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-instance-usage-audit-log-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-instance-usage-audit-log
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-interface-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-interface
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-keypairs-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-keypairs
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-migrations-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-migrations
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-networks-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-networks
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-class-sets-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-quota-class-sets
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-sets-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-quota-sets
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-group-default-rules-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-security-group-default-rules
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-group-rules-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-security-group-rules
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-security-groups-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-security-groups
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-external-events-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-server-external-events
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-groups-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-server-groups
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-server-password-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-server-password../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-services-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-services
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-simple-tenant-usage-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-simple-tenant-usage
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-tenant-networks-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-tenant-network
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-virtual-interfaces-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-virtual-interfaces
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-volume-attachments-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-volume-attachments
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-volumes-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/os-volumes
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-deferred-delete-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-deferred-delete
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-multinic-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-multinic
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-admin-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-admin
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-console-output-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-console-output
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-remote-consoles-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-remote-consoles
+# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-shelve-v2.1.wadl:
+#     title: OpenStack Compute API v2.1
+#     output_file: dist/servers-action-shelve
