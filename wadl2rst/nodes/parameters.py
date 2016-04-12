@@ -9,9 +9,9 @@ class ParametersNode(BaseNode):
         params = self.get_params(style)
 
         if not params:
-            return None
+            return u''
 
-        output = ""
+        output = u''
         for param in params:
             output += "  - %s: %s\n" % (
                 param.attributes.get('name', ''),
