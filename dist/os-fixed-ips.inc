@@ -24,7 +24,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showFixedIpDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - fixed_ip: fixed_ip
@@ -45,7 +45,7 @@ Response
 **Example Show Fixed Ip Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-fixed-ips/fixedip-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-fixed-ips/fixedip-show-resp.json
    :language: javascript
 
 
@@ -69,7 +69,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: reserveOrReleaseAFixedIp.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - fixed_ip: fixed_ip
@@ -83,7 +83,7 @@ Request
 **Example Reserve Or Release A Fixed Ip: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-fixed-ips/fixedip-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-fixed-ips/fixedip-create-req.json
    :language: javascript
 
 

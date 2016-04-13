@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createInterface.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -43,7 +43,7 @@ Request
 **Example Create Interface: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-interface/port-interface-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-interface/port-interface-create-req.json
    :language: javascript
 
 
@@ -52,7 +52,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createInterface.yaml
+.. rest_parameters:: parameters.yaml
 
   - interfaceAttachment: interfaceAttachment
   - fixed_ips: fixed_ips
@@ -68,7 +68,7 @@ Response
 **Example Create Interface: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-interface/port-interface-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-interface/port-interface-create-resp.json
    :language: javascript
 
 
@@ -90,7 +90,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listPortInterfaces.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -105,7 +105,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listPortInterfaces.yaml
+.. rest_parameters:: parameters.yaml
 
   - interfaceAttachment: interfaceAttachment
   - port_state: port_state
@@ -121,7 +121,7 @@ Response
 **Example List Port Interfaces: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-interface/port-interfaces-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-interface/port-interfaces-list-resp.json
    :language: javascript
 
 
@@ -143,7 +143,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showPortInterfaceDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -165,7 +165,7 @@ Response
 **Example Show Port Interface Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-interface/port-interface-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-interface/port-interface-show-resp.json
    :language: javascript
 
 
@@ -187,7 +187,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: detachInterface.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id

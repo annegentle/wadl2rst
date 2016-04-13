@@ -38,7 +38,7 @@ Response
 **Example List Api Versions: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/versions/versions-list-resp.json
+.. literalinclude:: ../../doc/api_samples/versions/versions-list-resp.json
    :language: javascript
 
 
@@ -75,7 +75,7 @@ Response
 **Example Show Api V2.1: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/versions/versions-v21-show-resp.json
+.. literalinclude:: ../../doc/api_samples/versions/versions-v21-show-resp.json
    :language: javascript
 
 
@@ -112,7 +112,7 @@ Response
 **Example Show Api V2: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/versions/versions-v2-show-resp.json
+.. literalinclude:: ../../doc/api_samples/versions/versions-v2-show-resp.json
    :language: javascript
 
 

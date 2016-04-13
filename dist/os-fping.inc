@@ -29,7 +29,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: pingInstances.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -40,7 +40,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: pingInstances.yaml
+.. rest_parameters:: parameters.yaml
 
   - all_tenants: all_tenants
   - include: include
@@ -60,7 +60,7 @@ Response
 **Example Ping Instances: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-fping/fping-instances-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-fping/fping-instances-list-resp.json
    :language: javascript
 
 
@@ -84,7 +84,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: pingAnInstance.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - instance_id: instance_id
@@ -105,7 +105,7 @@ Response
 **Example Ping An Instance: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-fping/fping-instance-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-fping/fping-instance-show-resp.json
    :language: javascript
 
 

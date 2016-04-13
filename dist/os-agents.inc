@@ -28,7 +28,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createAgentBuild.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -41,7 +41,7 @@ Request
 **Example Create Agent Build: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-agents/agent-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-agents/agent-create-req.json
    :language: javascript
 
 
@@ -56,7 +56,7 @@ Response
 **Example Create Agent Build: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-agents/agent-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-agents/agent-create-resp.json
    :language: javascript
 
 
@@ -78,7 +78,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listAgentBuilds.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - agent_id: agent_id
@@ -104,7 +104,7 @@ Response
 **Example List Agent Builds: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-agents/agents-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-agents/agents-list-resp.json
    :language: javascript
 
 
@@ -126,7 +126,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteAgentBuild.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -160,7 +160,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateAgentBuild.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - agent_build_id: agent_build_id
@@ -177,7 +177,7 @@ Request
 **Example Update Agent Build: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-agents/agent-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-agents/agent-update-req.json
    :language: javascript
 
 
@@ -186,7 +186,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateAgentBuild.yaml
+.. rest_parameters:: parameters.yaml
 
   - agent_id: agent_id
   - url: url
@@ -200,7 +200,7 @@ Response
 **Example Update Agent Build: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-agents/agent-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-agents/agent-update-resp.json
    :language: javascript
 
 

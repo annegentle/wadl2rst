@@ -24,7 +24,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listDnsDomains.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -44,7 +44,7 @@ Response
 **Example List Dns Domains: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-domains-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-domains-list-resp.json
    :language: javascript
 
 
@@ -66,7 +66,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrUpdateDnsDomain.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -80,7 +80,7 @@ Request
 **Example Create Or Update Dns Domain: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-req.json
    :language: javascript
 
 
@@ -95,7 +95,7 @@ Response
 **Example Create Or Update Dns Domain: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-resp.json
    :language: javascript
 
 
@@ -117,7 +117,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteDnsDomain.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -152,7 +152,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrUpdateDnsEntry.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -167,7 +167,7 @@ Request
 **Example Create Or Update Dns Entry: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-req.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-req.json
    :language: javascript
 
 
@@ -182,7 +182,7 @@ Response
 **Example Create Or Update Dns Entry: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-create-or-update-entry-resp.json
    :language: javascript
 
 
@@ -204,7 +204,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: findUniqueDnsEntry.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -226,7 +226,7 @@ Response
 **Example Find Unique Dns Entry: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-show-resp.json
    :language: javascript
 
 
@@ -248,7 +248,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteDnsEntry.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -284,7 +284,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listDnsEntries.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - domain: domain
@@ -306,7 +306,7 @@ Response
 **Example List Dns Entries: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-by-ip-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-dns/floating-ip-dns-entry-by-ip-show-resp.json
    :language: javascript
 
 

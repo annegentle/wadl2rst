@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listIps.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -47,7 +47,7 @@ Response
 **Example List Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/ips/ips-resp.json
+.. literalinclude:: ../../doc/api_samples/ips/ips-resp.json
    :language: javascript
 
 
@@ -71,7 +71,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showIpDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -93,7 +93,7 @@ Response
 **Example Show Ip Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/ips/ips-network-resp.json
+.. literalinclude:: ../../doc/api_samples/ips/ips-network-resp.json
    :language: javascript
 
 

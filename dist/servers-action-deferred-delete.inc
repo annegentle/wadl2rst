@@ -22,7 +22,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: force-deleteServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -37,7 +37,7 @@ Request
 **Example Force-Delete Server (Forcedelete Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/force-delete-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/force-delete-create-req.json
    :language: javascript
 
 
@@ -70,7 +70,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: restoreSoft-DeletedInstance.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -85,7 +85,7 @@ Request
 **Example Restore Soft-Deleted Instance (Restore Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/restore-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/restore-create-req.json
    :language: javascript
 
 

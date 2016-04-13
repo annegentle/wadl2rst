@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listCloudpipes.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example List Cloudpipes: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cloudpipe/cloud-pipe-show-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createCloudpipe.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - project_id: project_id
@@ -79,7 +79,7 @@ Request
 **Example Create Cloudpipe: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-cloudpipe/cloud-pipe-create-req.json
    :language: javascript
 
 
@@ -94,7 +94,7 @@ Response
 **Example Create Cloudpipe: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cloudpipe/cloud-pipe-create-resp.json
    :language: javascript
 
 
@@ -116,7 +116,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateCloudpipe.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - vpn_ip: vpn_ip
@@ -131,7 +131,7 @@ Request
 **Example Update Cloudpipe: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cloudpipe/cloud-pipe-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-cloudpipe/cloud-pipe-update-req.json
    :language: javascript
 
 

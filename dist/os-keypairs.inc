@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listKeypairs.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example List Keypairs: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypairs-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-keypairs/keypairs-list-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrImportKeypair.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - name: name
@@ -80,7 +80,7 @@ Request
 **Example Create Or Import Keypair: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-import-req.json
+.. literalinclude:: ../../doc/api_samples/os-keypairs/keypair-import-req.json
    :language: javascript
 
 
@@ -95,7 +95,7 @@ Response
 **Example Create Or Import Keypair: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-import-resp.json
+.. literalinclude:: ../../doc/api_samples/os-keypairs/keypair-import-resp.json
    :language: javascript
 
 
@@ -117,7 +117,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteKeypair.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - keypair_name: keypair_name
@@ -152,7 +152,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showKeypairDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - keypair_name: keypair_name
@@ -173,7 +173,7 @@ Response
 **Example Show Keypair Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-keypairs/keypair-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-keypairs/keypair-show-resp.json
    :language: javascript
 
 

@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showServerDiagnostics.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -46,7 +46,7 @@ Response
 **Example Server diagnostics: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/diagnostics/server-diagnostics-show-resp.json
+.. literalinclude:: ../../doc/api_samples/diagnostics/server-diagnostics-show-resp.json
    :language: javascript
 
 

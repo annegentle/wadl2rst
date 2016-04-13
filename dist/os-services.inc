@@ -30,7 +30,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listComputeServices.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -44,7 +44,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listComputeServices.yaml
+.. rest_parameters:: parameters.yaml
 
   - services: services
   - id: id
@@ -64,7 +64,7 @@ Response
 **Example List Compute Services: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/v2.11/services-list-resp.json
+.. literalinclude:: ../../doc/api_samples/v2.11/services-list-resp.json
    :language: javascript
 
 
@@ -88,7 +88,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: enableSchedulingForAComputeService.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host: host
@@ -103,7 +103,7 @@ Request
 **Example Enable Scheduling For A Compute Service: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/v2.11/service-enable-req.json
+.. literalinclude:: ../../doc/api_samples/v2.11/service-enable-req.json
    :language: javascript
 
 
@@ -112,7 +112,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: enableSchedulingForAComputeService.yaml
+.. rest_parameters:: parameters.yaml
 
   - service: service
   - binary: binary
@@ -126,7 +126,7 @@ Response
 **Example Enable Scheduling For A Compute Service: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/v2.11/service-enable-resp.json
+.. literalinclude:: ../../doc/api_samples/v2.11/service-enable-resp.json
    :language: javascript
 
 
@@ -150,7 +150,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: disableSchedulingForAComputeService.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host: host
@@ -165,7 +165,7 @@ Request
 **Example Disable Scheduling For A Compute Service: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-services/service-disable-req.json
+.. literalinclude:: ../../doc/api_samples/os-services/service-disable-req.json
    :language: javascript
 
 
@@ -174,7 +174,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: disableSchedulingForAComputeService.yaml
+.. rest_parameters:: parameters.yaml
 
   - service: service
   - binary: binary
@@ -188,7 +188,7 @@ Response
 **Example Disable Scheduling For A Compute Service: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-services/service-disable-resp.json
+.. literalinclude:: ../../doc/api_samples/os-services/service-disable-resp.json
    :language: javascript
 
 
@@ -212,7 +212,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: logDisabledComputeServiceInformation.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host: host
@@ -228,7 +228,7 @@ Request
 **Example Log Disabled Compute Service Information: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-services/service-disable-log-req.json
+.. literalinclude:: ../../doc/api_samples/os-services/service-disable-log-req.json
    :language: javascript
 
 
@@ -237,7 +237,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: logDisabledComputeServiceInformation.yaml
+.. rest_parameters:: parameters.yaml
 
   - service: service
   - binary: binary
@@ -252,7 +252,7 @@ Response
 **Example Log Disabled Compute Service Information: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-services/service-disable-log-resp.json
+.. literalinclude:: ../../doc/api_samples/os-services/service-disable-log-resp.json
    :language: javascript
 
 
@@ -276,7 +276,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteComputeService.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - service_id: service_id
@@ -292,7 +292,7 @@ Request
 **Example Delete Compute Service: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-services/service-enable-req.json
+.. literalinclude:: ../../doc/api_samples/os-services/service-enable-req.json
    :language: javascript
 
 

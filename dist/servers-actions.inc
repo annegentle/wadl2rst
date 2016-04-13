@@ -49,7 +49,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addFloatingIp.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -66,7 +66,7 @@ Request
 **Example Add (Associate) Floating Ip (Addfloatingip Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/addFloatingIp-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/addFloatingIp-req.json
    :language: javascript
 
 
@@ -97,7 +97,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addSecurityGroupToAServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -113,7 +113,7 @@ Request
 **Example Add Security Group To A Server (Addsecuritygroup Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/addSecurityGroup-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/addSecurityGroup-req.json
    :language: javascript
 
 
@@ -146,7 +146,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: changeAdministrativePassword.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -161,7 +161,7 @@ Request
 **Example Change Administrative Password (Changepassword Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/changePassword-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/changePassword-req.json
    :language: javascript
 
 
@@ -204,7 +204,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: confirmResizedServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -219,7 +219,7 @@ Request
 **Example Confirm Resized Server (Confirmresize Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/confirmResize-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/confirmResize-req.json
    :language: javascript
 
 
@@ -270,7 +270,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createImage.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -285,7 +285,7 @@ Request
 **Example Create Image (Createimage Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/createImage-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/createImage-req.json
    :language: javascript
 
 
@@ -318,7 +318,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: lockServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -333,7 +333,7 @@ Request
 **Example Lock Server (Lock Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/lock-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/lock-req.json
    :language: javascript
 
 
@@ -366,7 +366,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: pauseServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -381,7 +381,7 @@ Request
 **Example Pause Server (Pause Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/pause-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/pause-req.json
    :language: javascript
 
 
@@ -412,7 +412,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: rebootServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -427,7 +427,7 @@ Request
 **Example Reboot Server (Reboot Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/reboot-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/reboot-req.json
    :language: javascript
 
 
@@ -460,7 +460,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: rebuildServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -481,7 +481,7 @@ Request
 **Example Rebuild Server (Rebuild Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/rebuild-preserve-ephemeral-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/rebuild-preserve-ephemeral-req.json
    :language: javascript
 
 
@@ -496,7 +496,7 @@ Response
 **Example Rebuild Server (Rebuild Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/rebuild-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/rebuild-resp.json
    :language: javascript
 
 
@@ -522,7 +522,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: removeFloatingIp.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -538,7 +538,7 @@ Request
 **Example Remove (Disassociate) Floating Ip (Removefloatingip Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/removeFloatingIp-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/removeFloatingIp-req.json
    :language: javascript
 
 
@@ -569,7 +569,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: removeSecurityGroupFromAServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -585,7 +585,7 @@ Request
 **Example Remove Security Group From A Server (Removesecuritygroup Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/removeSecurityGroup-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/removeSecurityGroup-req.json
    :language: javascript
 
 
@@ -622,7 +622,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: rescueServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -639,7 +639,7 @@ Request
 **Example Rescue server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/rescue-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/rescue-req.json
    :language: javascript
 
 
@@ -648,7 +648,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: rescueServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - adminPass: adminPass
 
@@ -659,7 +659,7 @@ Response
 **Example Extended rescue server: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/rescue-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/rescue-resp.json
    :language: javascript
 
 
@@ -691,7 +691,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: resizeServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -706,7 +706,7 @@ Request
 **Example Resize Server (Resize Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/resize-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/resize-req.json
    :language: javascript
 
 
@@ -739,7 +739,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: resumeSuspendedServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -754,7 +754,7 @@ Request
 **Example Resume Suspended Server (Resume Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/resume-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/resume-req.json
    :language: javascript
 
 
@@ -799,7 +799,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: revertResizedServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -814,7 +814,7 @@ Request
 **Example Revert Resized Server (Revertresize Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/revertResize-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/revertResize-req.json
    :language: javascript
 
 
@@ -859,7 +859,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: startServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -874,7 +874,7 @@ Request
 **Example Start server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/start-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/start-req.json
    :language: javascript
 
 
@@ -915,7 +915,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: stopServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -930,7 +930,7 @@ Request
 **Example Stop server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/stop-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/stop-req.json
    :language: javascript
 
 
@@ -963,7 +963,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: suspendServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -978,7 +978,7 @@ Request
 **Example Suspend Server (Suspend Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/suspend-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/suspend-req.json
    :language: javascript
 
 
@@ -1011,7 +1011,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: unlockServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -1026,7 +1026,7 @@ Request
 **Example Unlock Server (Unlock Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/unlock-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/unlock-req.json
    :language: javascript
 
 
@@ -1059,7 +1059,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: unpauseServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -1074,7 +1074,7 @@ Request
 **Example Unpause Server (Unpause Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/unpause-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/unpause-req.json
    :language: javascript
 
 
@@ -1115,7 +1115,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: unrescueServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -1130,7 +1130,7 @@ Request
 **Example Unrescue server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/unrescue-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/unrescue-req.json
    :language: javascript
 
 

@@ -31,7 +31,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showImageDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
@@ -52,7 +52,7 @@ Response
 **Example Show Image Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/images/image-show-resp.json
+.. literalinclude:: ../../doc/api_samples/images/image-show-resp.json
    :language: javascript
 
 
@@ -74,7 +74,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteImage.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
@@ -109,7 +109,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showImageMetadataItemDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
@@ -131,7 +131,7 @@ Response
 **Example Show Image Metadata Item Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/images/image-metadata-item-show-resp.json
+.. literalinclude:: ../../doc/api_samples/images/image-metadata-item-show-resp.json
    :language: javascript
 
 
@@ -153,7 +153,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrUpdateImageMetadataItem.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id
@@ -168,7 +168,7 @@ Request
 **Example Create Or Update Image Metadata Item: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/images/image-metadata-item-update-req.json
+.. literalinclude:: ../../doc/api_samples/images/image-metadata-item-update-req.json
    :language: javascript
 
 
@@ -183,7 +183,7 @@ Response
 **Example Create Or Update Image Metadata Item: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/images/image-metadata-item-update-resp.json
+.. literalinclude:: ../../doc/api_samples/images/image-metadata-item-update-resp.json
    :language: javascript
 
 
@@ -205,7 +205,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteImageMetadataItem.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - image_id: image_id

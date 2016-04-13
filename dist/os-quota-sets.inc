@@ -31,7 +31,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: parameters.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
@@ -60,7 +60,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: parameters.yaml
 
   - user_id: user_id
 
@@ -71,7 +71,7 @@ Query Parameters
 **Example Update Quotas: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-quota-sets/quota-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-quota-sets/quota-update-req.json
    :language: javascript
 
 
@@ -80,7 +80,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateQuotas.yaml
+.. rest_parameters:: parameters.yaml
 
   - quota_set: quota_set
   - cores: cores
@@ -106,7 +106,7 @@ Response
 **Example Update Quotas: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-quota-sets/quota-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-quota-sets/quota-update-resp.json
    :language: javascript
 
 
@@ -130,7 +130,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: revertQuotasToDefaults.yaml
+.. rest_parameters:: parameters.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
@@ -142,7 +142,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: revertQuotasToDefaults.yaml
+.. rest_parameters:: parameters.yaml
 
   - user_id: user_id
 
@@ -178,7 +178,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showAQuota.yaml
+.. rest_parameters:: parameters.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
@@ -193,7 +193,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showAQuota.yaml
+.. rest_parameters:: parameters.yaml
 
   - quota_set: quota_set
   - cores: cores
@@ -219,7 +219,7 @@ Response
 **Example Show A Quota: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-quota-sets/user-quotas-show-get-.json
+.. literalinclude:: ../../doc/api_samples/os-quota-sets/user-quotas-show-get-.json
    :language: javascript
 
 
@@ -243,7 +243,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listDefaultQuotasForTenant.yaml
+.. rest_parameters:: parameters.yaml
 
   - admin_tenant_id: admin_tenant_id
   - tenant_id: tenant_id
@@ -258,7 +258,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listDefaultQuotasForTenant.yaml
+.. rest_parameters:: parameters.yaml
 
   - quota_set: quota_set
   - cores: cores
@@ -284,7 +284,7 @@ Response
 **Example List Default Quotas For Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-quota-sets/quotas-default-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-quota-sets/quotas-default-list-resp.json
    :language: javascript
 
 

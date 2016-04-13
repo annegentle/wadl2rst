@@ -142,7 +142,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_groups: security_groups
@@ -179,7 +179,7 @@ Request
 **Example Create Server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers/server-create-req.json
    :language: javascript
 
 
@@ -188,7 +188,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - server: server
   - adminPass: adminPass
@@ -204,7 +204,7 @@ Response
 **Example Create Server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers/server-create-resp.json
    :language: javascript
 
 
@@ -264,7 +264,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listServers.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -275,7 +275,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: listServers.yaml
+.. rest_parameters:: parameters.yaml
 
   - changes-since: changes-since
   - image: image
@@ -294,7 +294,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listServers.yaml
+.. rest_parameters:: parameters.yaml
 
   - servers: servers
   - id: id
@@ -308,7 +308,7 @@ Response
 **Example List Servers: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/servers-list-resp.json
+.. literalinclude:: ../../doc/api_samples/servers/servers-list-resp.json
    :language: javascript
 
 
@@ -344,7 +344,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showServerDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -359,7 +359,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showServerDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - server: server
   - addresses: addresses
@@ -402,7 +402,7 @@ Response
 **Example Show Server Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-show-resp.json
+.. literalinclude:: ../../doc/api_samples/servers/server-show-resp.json
    :language: javascript
 
 
@@ -430,7 +430,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -468,7 +468,7 @@ Request
 **Example Update server name: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-update-req.json
+.. literalinclude:: ../../doc/api_samples/servers/server-update-req.json
    :language: javascript
 
 
@@ -476,7 +476,7 @@ Request
 **Example Update server IP addresses: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-update-address-req.json
+.. literalinclude:: ../../doc/api_samples/servers/server-update-address-req.json
    :language: javascript
 
 
@@ -484,7 +484,7 @@ Request
 **Example Update server OS-DCF:diskConfig parameter: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-update-diskconfig-req.json
+.. literalinclude:: ../../doc/api_samples/servers/server-update-diskconfig-req.json
    :language: javascript
 
 
@@ -493,7 +493,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - server: server
   - addresses: addresses
@@ -536,7 +536,7 @@ Response
 **Example Update server name: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-update-resp.json
+.. literalinclude:: ../../doc/api_samples/servers/server-update-resp.json
    :language: javascript
 
 
@@ -584,7 +584,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id

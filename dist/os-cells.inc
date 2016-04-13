@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listCells.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -46,7 +46,7 @@ Response
 **Example List Cells: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cells/cells-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cells/cells-list-resp.json
    :language: javascript
 
 
@@ -70,7 +70,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listCellsWithDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -90,7 +90,7 @@ Response
 **Example List Cells With Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cells/cells-list-empty-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cells/cells-list-empty-resp.json
    :language: javascript
 
 
@@ -114,7 +114,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showCellData.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - cell_id: cell_id
@@ -135,7 +135,7 @@ Response
 **Example Show Cell Data: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cells/cell-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cells/cell-show-resp.json
    :language: javascript
 
 
@@ -159,7 +159,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showCellCapacities.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - cell_id: cell_id
@@ -180,7 +180,7 @@ Response
 **Example Show Cell Capacities: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-cells/cells-capacities-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-cells/cells-capacities-show-resp.json
    :language: javascript
 
 

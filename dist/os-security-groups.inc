@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listSecurityGroups.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -37,7 +37,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listSecurityGroups.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_groups: security_groups
   - description: description
@@ -53,7 +53,7 @@ Response
 **Example List security groups: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-groups-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-groups-list-resp.json
    :language: javascript
 
 
@@ -75,7 +75,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group: security_group
@@ -91,7 +91,7 @@ Request
 **Example Create security group: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-group-create-req.json
    :language: javascript
 
 
@@ -100,7 +100,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_group: security_group
   - description: description
@@ -116,7 +116,7 @@ Response
 **Example Create security group: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-group-create-resp.json
    :language: javascript
 
 
@@ -138,7 +138,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showSecurityGroupDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_id: security_group_id
@@ -153,7 +153,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showSecurityGroupDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_group: security_group
   - description: description
@@ -169,7 +169,7 @@ Response
 **Example Show security group: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-group-show-resp.json
    :language: javascript
 
 
@@ -191,7 +191,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateSecurityGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_id: security_group_id
@@ -207,7 +207,7 @@ Request
 **Example Update security group: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-group-update-req.json
    :language: javascript
 
 
@@ -216,7 +216,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: updateSecurityGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_group: security_group
   - description: description
@@ -232,7 +232,7 @@ Response
 **Example Update security group: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-group-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-group-update-resp.json
    :language: javascript
 
 
@@ -254,7 +254,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteSecurityGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_id: security_group_id
@@ -289,7 +289,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listSecurityGroupsByServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -304,7 +304,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listSecurityGroupsByServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_groups: security_groups
   - description: description
@@ -320,7 +320,7 @@ Response
 **Example List security groups by server: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-groups/security-groups-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-groups/security-groups-list-resp.json
    :language: javascript
 
 

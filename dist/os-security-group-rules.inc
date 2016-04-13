@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_rule: security_group_rule
@@ -43,7 +43,7 @@ Request
 **Example Create security group rule: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-rules/security-group-rule-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-rules/security-group-rule-create-req.json
    :language: javascript
 
 
@@ -52,7 +52,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - security_group_rule: security_group_rule
   - ip_protocol: ip_protocol
@@ -72,7 +72,7 @@ Response
 **Example Create security group rule: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-rules/security-group-rule-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-rules/security-group-rule-create-resp.json
    :language: javascript
 
 
@@ -94,7 +94,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_rule_id: security_group_rule_id

@@ -24,7 +24,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: triggerCrashDumpInServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -39,7 +39,7 @@ Request
 **Example Trigger crash dump: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/server-action-trigger-crash-.json
+.. literalinclude:: ../../doc/api_samples/servers-action/server-action-trigger-crash-.json
    :language: javascript
 
 

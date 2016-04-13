@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createProjectNetwork.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -38,7 +38,7 @@ Request
 **Example Create Project Network: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-tenant-networks/network-create-req.json
    :language: javascript
 
 
@@ -53,7 +53,7 @@ Response
 **Example Create Project Network: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-tenant-networks/network-create-resp.json
    :language: javascript
 
 
@@ -77,7 +77,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listProjectNetworks.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -97,7 +97,7 @@ Response
 **Example List Project Networks: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-networks/networks-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-networks/networks-list-resp.json
    :language: javascript
 
 
@@ -121,7 +121,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showProjectNetworkDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -142,7 +142,7 @@ Response
 **Example Show Project Network Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-tenant-networks/network-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-tenant-networks/network-show-resp.json
    :language: javascript
 
 
@@ -166,7 +166,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteProjectNetwork.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -203,7 +203,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: associateHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -217,7 +217,7 @@ Request
 **Example Associate Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-networks/network-associate-host-req.json
+.. literalinclude:: ../../doc/api_samples/os-networks/network-associate-host-req.json
    :language: javascript
 
 
@@ -248,7 +248,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: disassociateHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -262,7 +262,7 @@ Request
 **Example Disassociate Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-networks/network-disassociate-host-req.json
+.. literalinclude:: ../../doc/api_samples/os-networks/network-disassociate-host-req.json
    :language: javascript
 
 
@@ -293,7 +293,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: disassociateNetwork.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -307,7 +307,7 @@ Request
 **Example Disassociate Network: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-networks/network-disassociate-req.json
+.. literalinclude:: ../../doc/api_samples/os-networks/network-disassociate-req.json
    :language: javascript
 
 
@@ -338,7 +338,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: disassociateProject.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - network_id: network_id
@@ -352,7 +352,7 @@ Request
 **Example Disassociate Project: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-networks/network-disassociate-project-req.json
+.. literalinclude:: ../../doc/api_samples/os-networks/network-disassociate-project-req.json
    :language: javascript
 
 

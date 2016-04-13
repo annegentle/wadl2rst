@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listDefaultSecurityGroupRules.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -37,7 +37,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listDefaultSecurityGroupRules.yaml
+.. rest_parameters:: parameters.yaml
 
   - from_port: from_port
   - id: id
@@ -53,7 +53,7 @@ Response
 **Example List default security group rules: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rules-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-default-rules/security-group-default-rules-list-resp.json
    :language: javascript
 
 
@@ -77,7 +77,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createDefaultSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - id: id
@@ -95,7 +95,7 @@ Request
 **Example Create default security group rule: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-req.json
    :language: javascript
 
 
@@ -104,7 +104,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createDefaultSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - from_port: from_port
   - id: id
@@ -120,7 +120,7 @@ Response
 **Example Create default security group rule: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-create-resp.json
    :language: javascript
 
 
@@ -142,7 +142,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_default_rule_id: security_group_default_rule_id
@@ -157,7 +157,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showDefaultSecurityGroupRuleDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - from_port: from_port
   - id: id
@@ -173,7 +173,7 @@ Response
 **Example Show default security group rule: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-security-group-default-rules/security-group-default-rule-show-resp.json
    :language: javascript
 
 
@@ -195,7 +195,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteDefaultSecurityGroupRule.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_group_default_rule_id: security_group_default_rule_id

@@ -29,7 +29,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showServerPassword.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -50,7 +50,7 @@ Response
 **Example Show Server Password: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-password/password-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-server-password/password-show-resp.json
    :language: javascript
 
 
@@ -76,7 +76,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: clearAdminPassword.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id

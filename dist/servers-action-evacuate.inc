@@ -20,7 +20,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: evacuateServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -37,7 +37,7 @@ Request
 **Example Evacuate Server (Evacuate Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/evacuate-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/evacuate-req.json
    :language: javascript
 
 
@@ -52,7 +52,7 @@ Response
 **Example Evacuate Server (Evacuate Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/evacuate-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/evacuate-resp.json
    :language: javascript
 
 

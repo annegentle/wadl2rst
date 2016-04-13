@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listHosts.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -45,7 +45,7 @@ Response
 **Example List Hosts: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/hosts-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/hosts-list-resp.json
    :language: javascript
 
 
@@ -67,7 +67,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: enableHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -81,7 +81,7 @@ Request
 **Example Enable Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-update-maintenance-req.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-update-maintenance-req.json
    :language: javascript
 
 
@@ -96,7 +96,7 @@ Response
 **Example Enable Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-update-maintenance-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-update-maintenance-resp.json
    :language: javascript
 
 
@@ -118,7 +118,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showHostDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -139,7 +139,7 @@ Response
 **Example Show Host Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-show-resp.json
    :language: javascript
 
 
@@ -161,7 +161,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: rebootHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -182,7 +182,7 @@ Response
 **Example Reboot Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-reboot-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-reboot-resp.json
    :language: javascript
 
 
@@ -204,7 +204,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: shutDownHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -225,7 +225,7 @@ Response
 **Example Shut Down Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-shutdown-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-shutdown-resp.json
    :language: javascript
 
 
@@ -247,7 +247,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: startHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -268,7 +268,7 @@ Response
 **Example Start Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-hosts/host-start-resp.json
+.. literalinclude:: ../../doc/api_samples/os-hosts/host-start-resp.json
    :language: javascript
 
 

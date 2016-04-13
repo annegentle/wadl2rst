@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getAvailabilityZoneInformation.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example Get availability zone information: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-availability-zone/availability-zone-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-availability-zone/availability-zone-show-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getDetailedAvailabilityZoneInformation.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -85,7 +85,7 @@ Response
 **Example Get detailed availability zone information: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-availability-zone/availability-zone-show-details-resp.json
+.. literalinclude:: ../../doc/api_samples/os-availability-zone/availability-zone-show-details-resp.json
    :language: javascript
 
 

@@ -34,7 +34,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createServerBackUp.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -49,7 +49,7 @@ Request
 **Example Create Server Back Up (Createbackup Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/createBackup-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/createBackup-req.json
    :language: javascript
 
 
@@ -82,7 +82,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: injectNetworkInformation.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -97,7 +97,7 @@ Request
 **Example Inject Network Information (Injectnetworkinfo Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/injectNetworkInfo-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/injectNetworkInfo-req.json
    :language: javascript
 
 
@@ -130,7 +130,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: migrateServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -145,7 +145,7 @@ Request
 **Example Migrate Server (Migrate Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/migrate-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/migrate-req.json
    :language: javascript
 
 
@@ -180,7 +180,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: live-migrateServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -197,7 +197,7 @@ Request
 **Example Live-Migrate Server (Os-Migratelive Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/os-migrateLive-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/os-migrateLive-req.json
    :language: javascript
 
 
@@ -230,7 +230,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: resetNetworkingOnAServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -245,7 +245,7 @@ Request
 **Example Reset Networking On A Server (Resetnetwork Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/resetNetwork-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/resetNetwork-req.json
    :language: javascript
 
 
@@ -278,7 +278,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: resetServerState.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -293,7 +293,7 @@ Request
 **Example Reset Server State (Os-Resetstate Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action-admin/os-resetState-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action-admin/os-resetState-req.json
    :language: javascript
 
 

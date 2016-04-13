@@ -90,10 +90,11 @@ class MethodNode(BaseNode):
             output['title'] = document_node.attributes.get("title", '').title()
 
         # create the params yaml filename
-        params_yaml = PARAMS_CLEANUP.sub("", output['title'])
-        params_yaml = PARAMS_YAML.sub("", params_yaml).split()
-        params_yaml[0] = params_yaml[0].lower()
-        output['params_yaml'] = ''.join(params_yaml) + '.yaml'
+        # params_yaml = PARAMS_CLEANUP.sub("", output['title'])
+        # params_yaml = PARAMS_YAML.sub("", params_yaml).split()
+        # params_yaml[0] = params_yaml[0].lower()
+        # output['params_yaml'] = ''.join(params_yaml) + '.yaml'
+        output['params_yaml'] = 'parameters.yaml'
 
         if short_desc_node is not None:
             output['short_desc'] = short_desc_node.to_rst()

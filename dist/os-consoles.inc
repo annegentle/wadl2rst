@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -58,7 +58,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listsConsoles.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -79,7 +79,7 @@ Response
 **Example List consoles: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-consoles/consoles-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-consoles/consoles-list-resp.json
    :language: javascript
 
 
@@ -101,7 +101,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showConsoleDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -123,7 +123,7 @@ Response
 **Example List consoles: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-consoles/consoles-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-consoles/consoles-list-resp.json
    :language: javascript
 
 
@@ -145,7 +145,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -183,7 +183,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showConsoleAuthenticationToken.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -204,7 +204,7 @@ Response
 **Example List consoles: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-consoles/console-auth-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-consoles/console-auth-show-resp.json
    :language: javascript
 
 

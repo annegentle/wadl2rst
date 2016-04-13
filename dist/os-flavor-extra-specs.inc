@@ -24,7 +24,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createExtraSpecsForAFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -38,7 +38,7 @@ Request
 **Example Create Extra Specs For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-req.json
    :language: javascript
 
 
@@ -53,7 +53,7 @@ Response
 **Example Create Extra Specs For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-resp.json
    :language: javascript
 
 
@@ -75,7 +75,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listExtraSpecsForAFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -89,7 +89,7 @@ Request
 **Example List Extra Specs For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-create-req.json
    :language: javascript
 
 
@@ -104,7 +104,7 @@ Response
 **Example List Extra Specs For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-specs-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-specs-list-resp.json
    :language: javascript
 
 
@@ -126,7 +126,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showAnExtraSpecForAFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -148,7 +148,7 @@ Response
 **Example Show An Extra Spec For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-show-resp.json
    :language: javascript
 
 
@@ -170,7 +170,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateAnExtraSpecForAFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -185,7 +185,7 @@ Request
 **Example Update An Extra Spec For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-req.json
    :language: javascript
 
 
@@ -200,7 +200,7 @@ Response
 **Example Update An Extra Spec For A Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-extra-specs/flavor-extra-spec-update-resp.json
    :language: javascript
 
 
@@ -222,7 +222,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteAnExtraSpecForAFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id

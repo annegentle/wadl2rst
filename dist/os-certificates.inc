@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createCertificate.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example Create Certificate: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-certificates/certificate-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-certificates/certificate-create-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showCertificateDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - certificate_id: certificate_id
@@ -86,7 +86,7 @@ Response
 **Example Show Certificate Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-certificates/certificate-show-root-resp.json
+.. literalinclude:: ../../doc/api_samples/os-certificates/certificate-show-root-resp.json
    :language: javascript
 
 

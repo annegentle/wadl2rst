@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listTenantUsageForAllTenants.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example List Tenant Usage For All Tenants: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-general-resp.json
+.. literalinclude:: ../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-general-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showUsageDetailsForTenant.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - tenant_id: tenant_id
@@ -86,7 +86,7 @@ Response
 **Example Show Usage Details For Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-simple-tenant-usage/simple-tenant-usage-show-resp.json
    :language: javascript
 
 

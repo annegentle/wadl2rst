@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listMigrations.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -45,7 +45,7 @@ Response
 **Example List Migrations: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-migrations/migrations-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-migrations/migrations-list-resp.json
    :language: javascript
 
 

@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFloatingIps.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -46,7 +46,7 @@ Response
 **Example List Floating Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-resp.json
    :language: javascript
 
 
@@ -68,7 +68,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createFloatingIps.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - ip_range: ip_range
@@ -82,7 +82,7 @@ Request
 **Example Create Floating Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-req.json
    :language: javascript
 
 
@@ -97,7 +97,7 @@ Response
 **Example Create Floating Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-create-resp.json
    :language: javascript
 
 
@@ -119,7 +119,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: bulk-deleteFloatingIps.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - ip_range: ip_range
@@ -133,7 +133,7 @@ Request
 **Example Bulk-Delete Floating Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-req.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-req.json
    :language: javascript
 
 
@@ -148,7 +148,7 @@ Response
 **Example Bulk-Delete Floating Ips: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-delete-resp.json
    :language: javascript
 
 
@@ -170,7 +170,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFloatingIpsByHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - host_name: host_name
@@ -191,7 +191,7 @@ Response
 **Example List Floating Ips By Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-by-host-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips-bulk/floating-ips-bulk-list-by-host-resp.json
    :language: javascript
 
 

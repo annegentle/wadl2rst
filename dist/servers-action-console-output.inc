@@ -20,7 +20,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showConsoleOutput.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -36,7 +36,7 @@ Request
 **Example Get console output: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/os-getConsoleOutput-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/os-getConsoleOutput-create-req.json
    :language: javascript
 
 
@@ -51,7 +51,7 @@ Response
 **Example Get console output: JSON response**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/os-getConsoleOutput-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/os-getConsoleOutput-create-resp.json
    :language: javascript
 
 

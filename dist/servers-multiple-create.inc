@@ -28,7 +28,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createMultipleServers.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_groups: security_groups
@@ -66,7 +66,7 @@ Request
 **Example Create multiple servers without reservation ID**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-no-resv-req.json
+.. literalinclude:: ../../doc/api_samples/servers-multiple-create/multiple-create-no-resv-req.json
    :language: javascript
 
 
@@ -75,7 +75,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createMultipleServers.yaml
+.. rest_parameters:: parameters.yaml
 
   - server: server
   - adminPass: adminPass
@@ -91,7 +91,7 @@ Response
 **Example Create multiple servers without reservation ID**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers/server-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers/server-create-resp.json
    :language: javascript
 
 
@@ -115,7 +115,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createMultipleServersWithReservationId.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - security_groups: security_groups
@@ -153,7 +153,7 @@ Request
 **Example Create multiple servers with reservation ID**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-multiple-create/multiple-create-req.json
    :language: javascript
 
 
@@ -162,7 +162,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createMultipleServersWithReservationId.yaml
+.. rest_parameters:: parameters.yaml
 
   - reservation_id: reservation_id
 
@@ -173,7 +173,7 @@ Response
 **Example Create multiple servers with reservation ID**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-multiple-create/multiple-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-multiple-create/multiple-create-resp.json
    :language: javascript
 
 

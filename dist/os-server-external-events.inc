@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: runEvents.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - events: events
@@ -44,7 +44,7 @@ Request
 **Example Run Events: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-external-events/event-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-server-external-events/event-create-req.json
    :language: javascript
 
 
@@ -53,7 +53,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: runEvents.yaml
+.. rest_parameters:: parameters.yaml
 
   - events: events
   - code: code
@@ -69,7 +69,7 @@ Response
 **Example Run Events: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-external-events/event-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-server-external-events/event-create-resp.json
    :language: javascript
 
 

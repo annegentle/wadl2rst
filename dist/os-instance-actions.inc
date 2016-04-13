@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listActionsForServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -47,7 +47,7 @@ Response
 **Example List Actions For Server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-instance-actions/instance-actions-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-instance-actions/instance-actions-list-resp.json
    :language: javascript
 
 
@@ -69,7 +69,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showServerActionDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -91,7 +91,7 @@ Response
 **Example Show Server Action Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-instance-actions/instance-action-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-instance-actions/instance-action-show-resp.json
    :language: javascript
 
 

@@ -40,7 +40,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: shelveServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -55,7 +55,7 @@ Request
 **Example Shelve server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/shelve-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/shelve-req.json
    :language: javascript
 
 
@@ -104,7 +104,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: shelf-offloadServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -119,7 +119,7 @@ Request
 **Example Shelve server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/shelveOffload-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/shelveOffload-req.json
    :language: javascript
 
 
@@ -168,7 +168,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: unshelveShelvedServer.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -183,7 +183,7 @@ Request
 **Example Unshelve server: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/unshelve-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/unshelve-req.json
    :language: javascript
 
 

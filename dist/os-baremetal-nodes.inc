@@ -29,7 +29,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addBareMetalNode.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -43,7 +43,7 @@ Request
 **Example Add Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-req.json
    :language: javascript
 
 
@@ -51,7 +51,7 @@ Request
 **Example Add Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-req.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-req.json
    :language: javascript
 
 
@@ -66,7 +66,7 @@ Response
 **Example Add Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-resp.json
    :language: javascript
 
 
@@ -74,7 +74,7 @@ Response
 **Example Add Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-resp.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-create-with-address-resp.json
    :language: javascript
 
 
@@ -96,7 +96,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listBareMetalNodes.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -117,7 +117,7 @@ Response
 **Example List Bare Metal Nodes: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-nodes-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-nodes-list-resp.json
    :language: javascript
 
 
@@ -139,7 +139,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addInterfaceToBareMetalNode.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -153,7 +153,7 @@ Request
 **Example Add Interface To Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-req.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-req.json
    :language: javascript
 
 
@@ -168,7 +168,7 @@ Response
 **Example Add Interface To Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-resp.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-add-interface-resp.json
    :language: javascript
 
 
@@ -190,7 +190,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteInterfaceFromBareMetalNode.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -204,7 +204,7 @@ Request
 **Example Delete Interface From Bare Metal Node: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-remove-interface-req.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-remove-interface-req.json
    :language: javascript
 
 
@@ -237,7 +237,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showBareMetalNodeDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -259,7 +259,7 @@ Response
 **Example Show Bare Metal Node Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-baremetal-nodes/baremetal-node-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-baremetal-nodes/baremetal-node-show-resp.json
    :language: javascript
 
 
@@ -281,7 +281,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteBareMetalNode.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id

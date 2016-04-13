@@ -27,7 +27,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFlavorAccessInformationForGivenFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -47,7 +47,7 @@ Response
 **Example List Flavor Access Information For Given Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-access/flavor-access-list-resp.json
    :language: javascript
 
 
@@ -71,7 +71,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addFlavorAccessToTenant.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -85,7 +85,7 @@ Request
 **Example Add Flavor Access To Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-add-req.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-access/flavor-access-add-req.json
    :language: javascript
 
 
@@ -100,7 +100,7 @@ Response
 **Example Add Flavor Access To Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-add-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-access/flavor-access-add-resp.json
    :language: javascript
 
 
@@ -124,7 +124,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: removeFlavorAccessFromTenant.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -138,7 +138,7 @@ Request
 **Example Remove Flavor Access From Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-remove-req.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-access/flavor-access-remove-req.json
    :language: javascript
 
 
@@ -153,7 +153,7 @@ Response
 **Example Remove Flavor Access From Tenant: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-flavor-access/flavor-access-remove-resp.json
+.. literalinclude:: ../../doc/api_samples/os-flavor-access/flavor-access-remove-resp.json
    :language: javascript
 
 

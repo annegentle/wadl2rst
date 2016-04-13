@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFlavors.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -34,7 +34,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: listFlavors.yaml
+.. rest_parameters:: parameters.yaml
 
   - minDisk: minDisk
   - minRam: minRam
@@ -57,7 +57,7 @@ Response
 **Example List Flavors: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/flavors/flavors-list-resp.json
+.. literalinclude:: ../../doc/api_samples/flavors/flavors-list-resp.json
    :language: javascript
 
 
@@ -79,7 +79,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -92,7 +92,7 @@ Request
 **Example Create Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/flavors/flavor-create-req.json
+.. literalinclude:: ../../doc/api_samples/flavors/flavor-create-req.json
    :language: javascript
 
 
@@ -107,7 +107,7 @@ Response
 **Example Create Flavor: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/flavors/flavor-create-resp.json
+.. literalinclude:: ../../doc/api_samples/flavors/flavor-create-resp.json
    :language: javascript
 
 
@@ -129,7 +129,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showFlavorDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -150,7 +150,7 @@ Response
 **Example Show Flavor Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/flavors/flavor-show-resp.json
+.. literalinclude:: ../../doc/api_samples/flavors/flavor-show-resp.json
    :language: javascript
 
 
@@ -172,7 +172,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteFlavor.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - flavor_id: flavor_id
@@ -207,7 +207,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFlavorsWithDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -218,7 +218,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: listFlavorsWithDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - minDisk: minDisk
   - minRam: minRam
@@ -241,7 +241,7 @@ Response
 **Example List Flavors With Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/flavors/flavors-list-detail-resp.json
+.. literalinclude:: ../../doc/api_samples/flavors/flavors-list-detail-resp.json
    :language: javascript
 
 

@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showRateAndAbsoluteLimits.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example Show Rate And Absolute Limits: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/limits/limits-get-resp.json
+.. literalinclude:: ../../doc/api_samples/limits/limits-get-resp.json
    :language: javascript
 
 

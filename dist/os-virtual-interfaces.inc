@@ -31,7 +31,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listVirtualInterfaces.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -46,7 +46,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listVirtualInterfaces.yaml
+.. rest_parameters:: parameters.yaml
 
   - virtual_interfaces: virtual_interfaces
   - id: id
@@ -59,7 +59,7 @@ Response
 **Example List Virtual Interfaces: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-virtual-interfaces/vifs-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-virtual-interfaces/vifs-list-resp.json
    :language: javascript
 
 

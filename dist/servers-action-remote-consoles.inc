@@ -20,7 +20,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getRdpConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -35,7 +35,7 @@ Request
 **Example Get Rdp Console (Os-Getrdpconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getRDPConsole-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getRDPConsole-create-req.json
    :language: javascript
 
 
@@ -50,7 +50,7 @@ Response
 **Example Get Rdp Console (Os-Getrdpconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getRDPConsole-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getRDPConsole-create-resp.json
    :language: javascript
 
 
@@ -74,7 +74,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getSerialConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -89,7 +89,7 @@ Request
 **Example Get Serial Console (Os-Getserialconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getSerialConsole-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getSerialConsole-create-req.json
    :language: javascript
 
 
@@ -104,7 +104,7 @@ Response
 **Example Get Serial Console (Os-Getserialconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getSerialConsole-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getSerialConsole-create-resp.json
    :language: javascript
 
 
@@ -128,7 +128,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getSpiceConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -143,7 +143,7 @@ Request
 **Example Get Spice Console (Os-Getspiceconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getSPICEConsole-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getSPICEConsole-create-req.json
    :language: javascript
 
 
@@ -158,7 +158,7 @@ Response
 **Example Get Spice Console (Os-Getspiceconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getSPICEConsole-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getSPICEConsole-create-resp.json
    :language: javascript
 
 
@@ -182,7 +182,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: getVncConsole.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -197,7 +197,7 @@ Request
 **Example Get Vnc Console (Os-Getvncconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getVNCConsole-create-req.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getVNCConsole-create-req.json
    :language: javascript
 
 
@@ -212,7 +212,7 @@ Response
 **Example Get Vnc Console (Os-Getvncconsole Action): JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/servers-action/getVNCConsole-create-resp.json
+.. literalinclude:: ../../doc/api_samples/servers-action/getVNCConsole-create-resp.json
    :language: javascript
 
 

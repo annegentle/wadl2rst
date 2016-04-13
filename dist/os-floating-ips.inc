@@ -46,7 +46,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFloatingIpAddresses.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -66,7 +66,7 @@ Response
 **Example List Floating Ip Addresses: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ips-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips/floating-ips-list-resp.json
    :language: javascript
 
 
@@ -92,7 +92,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createFloatingIpAddress.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - pool: pool
@@ -106,7 +106,7 @@ Request
 **Example Create (Allocate) Floating Ip Address: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips/floating-ip-create-req.json
    :language: javascript
 
 
@@ -121,7 +121,7 @@ Response
 **Example Create (Allocate) Floating Ip Address: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips/floating-ip-create-resp.json
    :language: javascript
 
 
@@ -145,7 +145,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showFloatingIpAddressDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - floating_ip_id: floating_ip_id
@@ -166,7 +166,7 @@ Response
 **Example Show Floating Ip Address Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ips/floating-ip-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ips/floating-ip-show-resp.json
    :language: javascript
 
 
@@ -192,7 +192,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteFloatingIpAddress.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - floating_ip_id: floating_ip_id

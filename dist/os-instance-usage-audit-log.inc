@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listUsageAuditsForAnInstance.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example List Usage Audits For An Instance: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-instance-usage-audit-log/usage-audits-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-instance-usage-audit-log/usage-audits-list-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -76,7 +76,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: listUsageAuditsBeforeSpecifiedTime.yaml
+.. rest_parameters:: parameters.yaml
 
   - before_timestamp: before_timestamp
 
@@ -94,7 +94,7 @@ Response
 **Example List Usage Audits Before Specified Time: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-instance-usage-audit-log/usage-audits-log-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-instance-usage-audit-log/usage-audits-log-list-resp.json
    :language: javascript
 
 

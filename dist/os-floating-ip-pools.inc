@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listFloatingIpPools.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -39,7 +39,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listFloatingIpPools.yaml
+.. rest_parameters:: parameters.yaml
 
   - floating_ip_pools: floating_ip_pools
   - name: name
@@ -51,7 +51,7 @@ Response
 **Example List Floating Ip Pools: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-floating-ip-pools/floatingippools-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-floating-ip-pools/floatingippools-list-resp.json
    :language: javascript
 
 

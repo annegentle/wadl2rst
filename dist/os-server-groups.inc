@@ -25,7 +25,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listServerGroups.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -36,7 +36,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: listServerGroups.yaml
+.. rest_parameters:: parameters.yaml
 
   - all_projects: all_projects
 
@@ -48,7 +48,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listServerGroups.yaml
+.. rest_parameters:: parameters.yaml
 
   - server_groups: server_groups
   - id: id
@@ -66,7 +66,7 @@ Response
 **Example List Server Groups: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-groups-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-server-groups/server-groups-list-resp.json
    :language: javascript
 
 
@@ -88,7 +88,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createServerGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - name: name
@@ -103,7 +103,7 @@ Request
 **Example Create Server Group: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-server-groups/server-group-create-req.json
    :language: javascript
 
 
@@ -112,7 +112,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createServerGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - server_groups: server_groups
   - id: id
@@ -130,7 +130,7 @@ Response
 **Example Create Server Group: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-server-groups/server-group-create-resp.json
    :language: javascript
 
 
@@ -152,7 +152,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showServerGroupDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_group_id: server_group_id
@@ -167,7 +167,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showServerGroupDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - server_groups: server_groups
   - id: id
@@ -185,7 +185,7 @@ Response
 **Example Show Server Group Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-server-groups/server-group-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-server-groups/server-group-show-resp.json
    :language: javascript
 
 
@@ -207,7 +207,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteServerGroup.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_group_id: server_group_id

@@ -26,7 +26,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createAggregate.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -39,7 +39,7 @@ Request
 **Example Create Aggregate: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-create-req.json
    :language: javascript
 
 
@@ -54,7 +54,7 @@ Response
 **Example Create Aggregate: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-create-resp.json
    :language: javascript
 
 
@@ -76,7 +76,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listAggregates.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -89,7 +89,7 @@ Request
 **Example List Aggregates: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-create-req.json
    :language: javascript
 
 
@@ -104,7 +104,7 @@ Response
 **Example List Aggregates: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregates-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregates-list-resp.json
    :language: javascript
 
 
@@ -126,7 +126,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showAggregateDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -140,7 +140,7 @@ Request
 **Example Show Aggregate Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-create-req.json
    :language: javascript
 
 
@@ -155,7 +155,7 @@ Response
 **Example Show Aggregate Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-show-resp.json
    :language: javascript
 
 
@@ -177,7 +177,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteAggregate.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -212,7 +212,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateAggregate.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -226,7 +226,7 @@ Request
 **Example Update Aggregate: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-update-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-update-req.json
    :language: javascript
 
 
@@ -241,7 +241,7 @@ Response
 **Example Update Aggregate: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-update-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-update-resp.json
    :language: javascript
 
 
@@ -265,7 +265,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: addHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -279,7 +279,7 @@ Request
 **Example Add Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-add-host-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-add-host-req.json
    :language: javascript
 
 
@@ -294,7 +294,7 @@ Response
 **Example Add Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-add-host-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-add-host-resp.json
    :language: javascript
 
 
@@ -318,7 +318,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrUpdateAggregateMetadata.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -332,7 +332,7 @@ Request
 **Example Create Or Update Aggregate Metadata: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-metadata-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-metadata-create-req.json
    :language: javascript
 
 
@@ -347,7 +347,7 @@ Response
 **Example Create Or Update Aggregate Metadata: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-metadata-create-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-metadata-create-resp.json
    :language: javascript
 
 
@@ -371,7 +371,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: removeHost.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - aggregate_id: aggregate_id
@@ -385,7 +385,7 @@ Request
 **Example Remove Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-remove-host-req.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-remove-host-req.json
    :language: javascript
 
 
@@ -400,7 +400,7 @@ Response
 **Example Remove Host: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-aggregates/aggregate-remove-host-resp.json
+.. literalinclude:: ../../doc/api_samples/os-aggregates/aggregate-remove-host-resp.json
    :language: javascript
 
 

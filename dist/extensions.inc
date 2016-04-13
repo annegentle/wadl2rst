@@ -28,7 +28,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showExtensionDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - alias: alias
@@ -43,7 +43,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: showExtensionDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - extension: extension
   - name: name
@@ -60,7 +60,7 @@ Response
 **Example Show Extension Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/extensions/extension-show-resp.json
+.. literalinclude:: ../../doc/api_samples/extensions/extension-show-resp.json
    :language: javascript
 
 

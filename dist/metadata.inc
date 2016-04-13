@@ -29,7 +29,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listAllMetadata.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -50,7 +50,7 @@ Response
 **Example List All Metadata: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-list-resp.json
    :language: javascript
 
 
@@ -76,7 +76,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrReplaceMetadataItems.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -90,7 +90,7 @@ Request
 **Example Create Or Replace Metadata Items: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-create-req.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-create-req.json
    :language: javascript
 
 
@@ -105,7 +105,7 @@ Response
 **Example Create Or Replace Metadata Items: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-list-resp.json
    :language: javascript
 
 
@@ -131,7 +131,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: updateMetadataItems.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -145,7 +145,7 @@ Request
 **Example Update Metadata Items: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-create-req.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-create-req.json
    :language: javascript
 
 
@@ -160,7 +160,7 @@ Response
 **Example Update Metadata Items: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-list-resp.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-list-resp.json
    :language: javascript
 
 
@@ -184,7 +184,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showMetadataItemDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -206,7 +206,7 @@ Response
 **Example Show Metadata Item Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-show-resp.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-show-resp.json
    :language: javascript
 
 
@@ -232,7 +232,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createOrUpdateMetadataItem.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id
@@ -247,7 +247,7 @@ Request
 **Example Create Or Update Metadata Item: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-item-update-req.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-item-update-req.json
    :language: javascript
 
 
@@ -262,7 +262,7 @@ Response
 **Example Create Or Update Metadata Item: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/metadata/server-metadata-item-show-resp.json
+.. literalinclude:: ../../doc/api_samples/metadata/server-metadata-item-show-resp.json
    :language: javascript
 
 
@@ -286,7 +286,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteMetadataItem.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - server_id: server_id

@@ -27,7 +27,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createAssistedVolumeSnapshots.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - snapshot: snapshot
@@ -46,7 +46,7 @@ Request
 **Example Create Assisted Volume Snapshots: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-assisted-volume-snapshots/snapshot-create-assisted-req.json
+.. literalinclude:: ../../doc/api_samples/os-assisted-volume-snapshots/snapshot-create-assisted-req.json
    :language: javascript
 
 
@@ -55,7 +55,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: createAssistedVolumeSnapshots.yaml
+.. rest_parameters:: parameters.yaml
 
   - id: id
   - volume_id: volume_id
@@ -67,7 +67,7 @@ Response
 **Example Create Assisted Volume Snapshots: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-assisted-volume-snapshots/snapshot-create-assisted-resp.json
+.. literalinclude:: ../../doc/api_samples/os-assisted-volume-snapshots/snapshot-create-assisted-resp.json
    :language: javascript
 
 
@@ -91,7 +91,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - snapshot_id: snapshot_id
@@ -103,7 +103,7 @@ Request
 Query Parameters
 ~~~~~~~~~~~~~~~~
 
-.. rest_parameters:: deleteAssistedVolumeSnapshot.yaml
+.. rest_parameters:: parameters.yaml
 
   - delete_info: delete_info
 

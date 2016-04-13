@@ -23,7 +23,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listVolumes.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -43,7 +43,7 @@ Response
 **Example List Volumes: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volumes-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volumes-list-resp.json
    :language: javascript
 
 
@@ -65,7 +65,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createVolume.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - volume: volume
@@ -86,7 +86,7 @@ Request
 **Example Create Volume: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-create-req.json
    :language: javascript
 
 
@@ -101,7 +101,7 @@ Response
 **Example Create Volume: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-show-resp.json
    :language: javascript
 
 
@@ -123,7 +123,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listVolumesWithDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -143,7 +143,7 @@ Response
 **Example List Volumes With Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volumes-list-detail-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volumes-list-detail-resp.json
    :language: javascript
 
 
@@ -165,7 +165,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showVolumeDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - volume_id: volume_id
@@ -186,7 +186,7 @@ Response
 **Example Show Volume Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-show-resp.json
    :language: javascript
 
 
@@ -208,7 +208,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteVolume.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - volume_id: volume_id
@@ -229,7 +229,7 @@ Response
 **Example Delete Volume: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-delete-json-http.txt
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-delete-json-http.txt
    :language: javascript
 
 
@@ -251,7 +251,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listVolumeTypes.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -265,7 +265,7 @@ Response
 ^^^^^^^^
 
 
-.. rest_parameters:: listVolumeTypes.yaml
+.. rest_parameters:: parameters.yaml
 
   - volume_types: volume_types
   - id: id
@@ -279,7 +279,7 @@ Response
 **Example List Volume Types: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-types-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-types-list-resp.json
    :language: javascript
 
 
@@ -301,7 +301,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showVolumeTypeDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - volume_type_id: volume_type_id
@@ -322,7 +322,7 @@ Response
 **Example Show Volume Type Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/volume-type-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/volume-type-show-resp.json
    :language: javascript
 
 
@@ -344,7 +344,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: createSnapshot.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - snapshot: snapshot
@@ -358,7 +358,7 @@ Request
 **Example Create Snapshot: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-create-req.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshot-create-req.json
    :language: javascript
 
 
@@ -373,7 +373,7 @@ Response
 **Example Create Snapshot: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshot-show-resp.json
    :language: javascript
 
 
@@ -395,7 +395,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listSnapshots.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -415,7 +415,7 @@ Response
 **Example List Snapshots: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshots-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshots-list-resp.json
    :language: javascript
 
 
@@ -437,7 +437,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: listSnapshotsWithDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
 
@@ -457,7 +457,7 @@ Response
 **Example List Snapshots With Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshots-list-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshots-list-resp.json
    :language: javascript
 
 
@@ -479,7 +479,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: showSnapshotDetails.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - snapshot_id: snapshot_id
@@ -500,7 +500,7 @@ Response
 **Example Show Snapshot Details: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-show-resp.json
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshot-show-resp.json
    :language: javascript
 
 
@@ -524,7 +524,7 @@ Request
 ^^^^^^^
 
 
-.. rest_parameters:: deleteSnapshot.yaml
+.. rest_parameters:: parameters.yaml
 
   - tenant_id: tenant_id
   - snapshot_id: snapshot_id
@@ -545,7 +545,7 @@ Response
 **Example Delete Snapshot: JSON request**
 
 
-.. literalinclude:: ../../../doc/api_samples/os-volumes/snapshot-delete-json-http.txt
+.. literalinclude:: ../../doc/api_samples/os-volumes/snapshot-delete-json-http.txt
    :language: javascript
 
 
