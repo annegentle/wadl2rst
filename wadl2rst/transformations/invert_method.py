@@ -11,6 +11,7 @@ def invert_method(tree):
 
     # for each resource, flip it with any methods contained within
     for node in resources_node.children:
+
         if node.name != "resource":
             continue
 
@@ -18,7 +19,7 @@ def invert_method(tree):
             if child_node.name != "method":
                 continue
 
-            new_node = node.clone()
+            new_node = node.clone(depth=2)
             child_node.children.insert(1, new_node)
             method_nodes.append(child_node)
 

@@ -20,13 +20,20 @@ class BaseNode(object):
         self.children.insert(idx, new_child)
         self.remove_child(old_child)
 
-    def clone(self):
+    def clone(self, depth=None):
         clone = self.__class__(self.parent, self.name, self.attributes)
 
-        for node in self.children:
-            child = node.clone()
-            clone.add_child(child)
-            child.parent = clone
+        if depth is None:
+            for node in self.children:
+                child = node.clone()
+                clone.add_child(child)
+                child.parent = clone
+        if depth > 0:
+            depth -= 1
+            for node in self.children:
+                child = node.clone(depth)
+                clone.add_child(child)
+                child.parent = clone
 
         return clone
 
