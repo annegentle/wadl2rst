@@ -118,34 +118,33 @@
       newly created instance information. With this parameter, the response
       shows only the reservation ID.
 
+# TODO(auggy): this file has a huge number of resources causing memory issues
+#  temporary workaround is to modify invert_method to skip some tree wrangling
+../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-v2.1.wadl:
+     title: OpenStack Compute API v2.1
+     output_file: dist/servers-actions.inc
+     preamble: |
+       ===========================================
+        Servers - run an action (servers, action)
+       ===========================================
 
-# TODO(sdague): processing this file goes into an infinite loop
-#
-# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-v2.1.wadl:
-#     title: OpenStack Compute API v2.1
-#     output_file: dist/servers-actions.inc
-#     preamble: |
-#       ===========================================
-#        Servers - run an action (servers, action)
-#       ===========================================
+       Enables all users to performs an action on a server. Specify the action
+       in the request body.
 
-#       Enables all users to performs an action on a server. Specify the action
-#       in the request body.
+       You can associate a fixed or floating IP address with a server instance,
+       or disassociate a fixed or floating IP address from a server instance.
+       You can attach a volume to a server.
 
-#       You can associate a fixed or floating IP address with a server instance,
-#       or disassociate a fixed or floating IP address from a server instance.
-#       You can attach a volume to a server.
+       You can create an image from a server, evacuate a server from a failed
+       host to a new host, and force-delete a server before deferred cleanup.
+       You can lock, pause, reboot, rebuild, rescue, resize, resume, confirm
+       the resize of, revert a pending resize for, shelve, shelf-offload,
+       unshelve, start, stop, unlock, unpause, and unrescue a server. You can
+       also change the password of the server and add a security group to or
+       remove a security group from a server. You can also trigger a crash dump
+       into a server since Mitaka release.
 
-#       You can create an image from a server, evacuate a server from a failed
-#       host to a new host, and force-delete a server before deferred cleanup.
-#       You can lock, pause, reboot, rebuild, rescue, resize, resume, confirm
-#       the resize of, revert a pending resize for, shelve, shelf-offload,
-#       unshelve, start, stop, unlock, unpause, and unrescue a server. You can
-#       also change the password of the server and add a security group to or
-#       remove a security group from a server. You can also trigger a crash dump
-#       into a server since Mitaka release.
-
-#       You can get an RDP, serial, SPICE, or VNC console for a server.
+       You can get an RDP, serial, SPICE, or VNC console for a server.
 
 ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-fixed-ip-v2.1.wadl:
     title: OpenStack Compute API v2.1
@@ -726,15 +725,15 @@
       Manages volumes and snapshots for use with the Compute API.
 
 
-# TODO(sdague): os-disk-config isn't anywhere linked in the current API site
-# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-disk-config-v2.1.wadl:
-#     title: OpenStack Compute API v2.1
-#     output_file: dist/os-disk-config
-# TODO(sdague): this only seems to be in the v2.0 API
-# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-class-sets-v2.1.wadl:
-#     title: OpenStack Compute API v2.1
-#     output_file: dist/os-quota-class-sets
-# TODO(sdague): this is not linked anywhere in the current API site
-# ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-multinic-v2.1.wadl:
-#     title: OpenStack Compute API v2.1
-#     output_file: dist/servers-action-multinic
+## TODO(sdague): os-disk-config isn't anywhere linked in the current API site
+## ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-disk-config-v2.1.wadl:
+##     title: OpenStack Compute API v2.1
+##     output_file: dist/os-disk-config
+## TODO(sdague): this only seems to be in the v2.0 API
+## ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-quota-class-sets-v2.1.wadl:
+##     title: OpenStack Compute API v2.1
+##     output_file: dist/os-quota-class-sets
+## TODO(sdague): this is not linked anywhere in the current API site
+## ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/servers-action-multinic-v2.1.wadl:
+##     title: OpenStack Compute API v2.1
+##     output_file: dist/servers-action-multinic

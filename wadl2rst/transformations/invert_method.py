@@ -18,8 +18,14 @@ def invert_method(tree):
             if child_node.name != "method":
                 continue
 
-            new_node = node.clone()
-            child_node.children.insert(1, new_node)
+            if len(node.children) > 20:
+                print "Attempting to process a large number of resource nodes for %(name)s, skipping." % {
+                    "name": child_node.attributes["id"]}
+                continue
+            else:
+                new_node = node.clone()
+                child_node.children.insert(1, new_node)
+
             method_nodes.append(child_node)
 
     resources_node.children = method_nodes
