@@ -22,7 +22,7 @@ Error response codes: computeFault(400, 500), serviceUnavailable(503), badReques
 unauthorized(401), forbidden(403), badMethod(405), itemNotFound(404)
 
 Request
-^^^^^^^
+-------
 
 
 .. rest_parameters:: parameters.yaml
@@ -37,7 +37,7 @@ Request
 
 
 Response
-^^^^^^^^
+--------
 
 
 
