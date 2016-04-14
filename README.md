@@ -28,11 +28,13 @@ File format:
 
     [wadl_path]:
         title: [book_title]
-        output_directory: [output_directory]
+        output_file: [output_file]
+        preamble: [preamble]
 
 - *wadl_path*: Path to the WADL file to process, can be relative or absolute
 - *book_title*: Book title as shown on the title of the RST pages
-- *output_directory*: Target directory to put the results into, can be relative or absolute
+- *output_file*: Target file to put the results into. The path name can be relative or absolute
+- *preamble*: Optional preamble text you want to insert into the resulting RST page.
 
 Place the config file in a directory near where the WADL files can have their
 entity references and request example inclusions properly resolved. For
@@ -43,21 +45,11 @@ File format example:
 
     ../api-site/api-ref/src/wadls/compute-api/src/v2.1/wadl/os-availability-zone-v2.1.wadl:
         title: OpenStack Compute API v2.1
-        output_directory: dist
-        
+        output_file: dist/availability_zone.inc
+
 ## Known Issues
 
-* (Issue)[https://github.com/annegentle/wadl2rst/issues/6]: Can't resolve XSD references to error messages. For example, the `common.ent`
-  files use this for the response status:
-  
-    <response status="503" xmlns="http://wadl.dev.java.net/2009/02">
-      <representation mediaType="application/xml" element="csapi:serviceUnavailable"/>
-      <representation mediaType="application/json"/>
-    </response>
-
-However, wadl2rst doesn't seem to go to the XSDs to resolve
-`csapi:serviceUnavailable` so the tables output have nothing for Name or
-Description.
+* Currently the example info is Compute-specific.
 
 ## Developer Setup
 
